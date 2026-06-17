@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>制造与生产 | RimWorld 攻略站</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #1a1a1f;
+    --bg-card: #24242b;
+    --bg-sidebar: #1e1e24;
+    --border: #333340;
+    --text: #c8c8d0;
+    --text-muted: #888896;
+    --accent: #d4956b;
+    --accent-dim: #a07050;
+    --red: #c0392b;
+    --green: #4a9;
+    --blue: #5a9fd4;
+    --yellow: #d4b65a;
+    --radius: 6px;
+    --transition: 0.2s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+  nav.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+  .sidebar-logo h1 { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
+  .sidebar-logo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+  .nav-section { padding: 8px 20px 4px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-top: 8px; }
+  .nav-item { display: block; padding: 8px 20px; color: var(--text); text-decoration: none; font-size: 0.9rem; border-left: 3px solid transparent; transition: var(--transition); }
+  .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
+  .nav-item.active { border-left-color: var(--accent); background: rgba(212,149,107,0.08); color: var(--accent); }
+  .nav-item .icon { margin-right: 8px; }
+  .nav-badge { float: right; font-size: 0.65rem; background: var(--accent-dim); color: #fff; padding: 1px 6px; border-radius: 10px; margin-top: 2px; }
+  .nav-footer { margin-top: auto; padding: 16px 20px 0; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--text-muted); }
+  .nav-feedback { color: var(--accent-dim); text-decoration: none; transition: color var(--transition); }
+  .nav-feedback:hover { color: var(--accent); }
+
+  .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
+  .sidebar-overlay { display: none; }
+
+  main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
+
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 1.3rem; color: #fff; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; }
+  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .card h3 .emoji { font-size: 1.2rem; }
+  .card p, .card li { font-size: 0.92rem; color: var(--text); }
+  .card ul { padding-left: 20px; }
+  .card li { margin-bottom: 6px; }
+
+  .tip { background: rgba(90,159,212,0.1); border-left: 3px solid var(--blue); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; margin: 12px 0; font-size: 0.88rem; }
+  .tip.warn { background: rgba(192,57,43,0.1); border-left-color: var(--red); }
+  .tip.good { background: rgba(68,170,153,0.1); border-left-color: var(--green); }
+  .key { background: #333; color: var(--accent); padding: 1px 6px; border-radius: 3px; font-size: 0.85rem; font-family: "Cascadia Code", "Fira Code", monospace; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+  .tag-p0 { background: var(--red); color: #fff; }
+  .tag-p1 { background: var(--yellow); color: #1a1a1f; }
+  .tag-p2 { background: var(--text-muted); color: #fff; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .search-wrap { position: relative; margin-bottom: 32px; }
+  .search-wrap input { width: 100%; padding: 12px 16px 12px 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.95rem; font-family: inherit; transition: var(--transition); }
+  .search-wrap input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(212,149,107,0.15); }
+  .search-wrap input::placeholder { color: var(--text-muted); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--text-muted); pointer-events: none; }
+  .search-clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem; padding: 4px 8px; border-radius: 3px; display: none; }
+  .search-clear:hover { color: var(--text); background: var(--border); }
+  .search-clear.visible { display: block; }
+  .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 1rem; }
+  .no-results.visible { display: block; }
+  .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+  .card.hidden, .section-title.hidden { display: none; }
+  .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
+
+  /* ========== Guide Diagrams ========== */
+  .guide-diagram { margin: 20px 0 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .guide-diagram svg { display: block; width: 100%; height: auto; }
+  .guide-diagram figcaption { padding: 10px 16px; font-size: 0.82rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border); background: rgba(0,0,0,0.15); }
+  body.light .guide-diagram figcaption { background: rgba(0,0,0,0.03); }
+
+  .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle .toggle-thumb { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background var(--transition); }
+  .theme-toggle .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
+  body.light .toggle-thumb { background: var(--accent); }
+  body.light .toggle-thumb::after { transform: translateX(16px); }
+
+  body.light { --bg: #f4f4f6; --bg-card: #ffffff; --bg-sidebar: #f0f0f3; --border: #d8d8de; --text: #3a3a44; --text-muted: #888896; --accent: #b87050; --accent-dim: #8a5040; }
+  body.light .tip { background: rgba(90,159,212,0.08); }
+  body.light .tip.warn { background: rgba(192,57,43,0.06); }
+  body.light .tip.good { background: rgba(68,170,153,0.06); }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    nav.sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100vh; transition: left var(--transition); }
+    nav.sidebar.open { left: 0; }
+    .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9; }
+    .sidebar-overlay.open { display: block; }
+    .mobile-nav-toggle { display: block; }
+    main { padding: 60px 16px 32px; }
+    .card { padding: 16px; }
+  }
+  @media print { nav.sidebar, .mobile-nav-toggle { display: none; } main { max-width: 100%; padding: 0; } body { background: #fff; color: #000; } }
+  /* ========== Page Navigation ========== */
+  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .page-nav a { display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+  .page-nav a:hover { border-color: var(--accent); color: var(--accent); }
+  .page-nav .prev::before { content: '← '; }
+  .page-nav .next::after { content: ' →'; }
+  .page-nav .nav-label { font-size: 0.72rem; color: var(--text-muted); display: block; }
+  /* ========== Back to Top ========== */
+  .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); z-index: 50; color: var(--text); }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld 攻略站</h1>
+    <p>从活下去，到活得好</p>
+  </div>
+
+  <div class="nav-section">导航</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+
+  <div class="nav-section">新手必备</div>
+  <a href="rimworld-guide-getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+  </a>
+  <a href="rimworld-guide-base-building.html" class="nav-item">
+    <span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+  </a>
+
+  <div class="nav-section">进阶内容</div>
+  <a href="rimworld-guide-combat.html" class="nav-item"><span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span></a>
+
+  <div class="nav-section">DLC 内容</div>
+  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">扩展</div>
+  <a href="rimworld-guide-mods.html" class="nav-item"><span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-biomes.html" class="nav-item"><span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-crafting.html" class="nav-item active"><span class="icon">⚗️</span> 制造与生产 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-animals.html" class="nav-item"><span class="icon">🐄</span> 动物与畜牧 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-trade.html" class="nav-item"><span class="icon">💰</span> 贸易与经济 <span class="nav-badge">P2</span></a>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+    <span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer">MVP v0.2 · 持续更新中 · <a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a><br>内容基于 RimWorld 1.4 + 全DLC</div>
+</nav>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">攻略总览</a> / 制造与生产</div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+  </div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+
+  <section class="section" id="crafting">
+    <h2 class="section-title">⚗️ 制造与生产</h2>
+
+    <div class="card">
+      <h3><span class="emoji">🔗</span> 核心生产链一览</h3>
+      <p>RimWorld 的生产链从原材料到最终产品，每个环节都牵涉不同的工作台和技能门槛。下面是最常用的几条线：</p>
+      <table>
+        <tr><th>产品</th><th>原材料</th><th>需要工作台</th><th>关键技能</th><th>用途</th></tr>
+        <tr><td><strong>零件</strong></td><td>12钢</td><td>制造桌(精密装配科技)</td><td>手工≥8</td><td>几乎所有电器和维护</td></tr>
+        <tr><td><strong>高级零件</strong></td><td>1零件+20钢+2塑钢</td><td>制造桌</td><td>手工≥10</td><td>高级电器/仿生体</td></tr>
+        <tr><td><strong>薄片(Flake)</strong></td><td>4精神叶</td><td>制药台</td><td>智识≥4</td><td>卖钱（性价比最高毒品）</td></tr>
+        <tr><td><strong>雅瑶(Yayo)</strong></td><td>8精神叶</td><td>制药台</td><td>智识≥6</td><td>卖钱+自用（心情+35！）</td></tr>
+        <tr><td><strong>青霉素</strong></td><td>2精神叶+1零部件</td><td>制药台</td><td>智识≥5</td><td>防疟疾/昏睡病</td></tr>
+        <tr><td><strong>化合燃料</strong></td><td>木头/有机物</td><td>精炼机</td><td>手工≥3</td><td>空投仓/发电机燃料</td></tr>
+        <tr><td><strong>风衣(Duster)</strong></td><td>80皮质/布料</td><td>裁缝台</td><td>手工≥10</td><td>最好卖的衣服</td></tr>
+        <tr><td><strong>大型雕塑</strong></td><td>100石头/木头</td><td>雕塑台</td><td>艺术≥10</td><td>卖钱+美化</td></tr>
+      </table>
+      <div class="tip"><strong>💡 薄片 vs 雅瑶：</strong>薄片效率高（每精神叶产出更多银币），雅瑶品质高（自己用心情加成更大）。卖钱用薄片，自用做雅瑶。</div>
+      <figure class="guide-diagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,1 L9,5 L0,9 Z" fill="#d4956b"/>
+            </marker>
+            <filter id="shadow" x="-5%" y="-5%" width="120%" height="120%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
+            </filter>
+          </defs>
+          <rect width="720" height="400" fill="#1a1a1f" rx="4"/>
+          <line x1="175" y1="48" x2="175" y2="360" stroke="#2a2a35" stroke-width="1" stroke-dasharray="3,4"/>
+          <line x1="475" y1="48" x2="475" y2="360" stroke="#2a2a35" stroke-width="1" stroke-dasharray="3,4"/>
+          <text x="90" y="32" fill="#d4956b" font-size="13" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">📦 原材料</text>
+          <text x="330" y="32" fill="#d4956b" font-size="13" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🔧 工作台</text>
+          <text x="610" y="32" fill="#d4956b" font-size="13" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🏷️ 产品 &amp; 用途</text>
+          <line x1="15" y1="40" x2="165" y2="40" stroke="#d4956b" stroke-width="1" opacity="0.3"/>
+          <line x1="250" y1="40" x2="410" y2="40" stroke="#d4956b" stroke-width="1" opacity="0.3"/>
+          <line x1="530" y1="40" x2="690" y2="40" stroke="#d4956b" stroke-width="1" opacity="0.3"/>
+          <line x1="165" y1="88" x2="250" y2="88" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <line x1="165" y1="134" x2="250" y2="134" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <line x1="165" y1="180" x2="250" y2="180" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <line x1="165" y1="226" x2="250" y2="226" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <line x1="165" y1="272" x2="250" y2="272" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <path d="M165,318 L210,318 L210,134 L250,134" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+          <line x1="410" y1="88" x2="530" y2="88" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <line x1="410" y1="134" x2="530" y2="134" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <line x1="410" y1="180" x2="530" y2="180" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <line x1="410" y1="226" x2="530" y2="226" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <line x1="410" y1="272" x2="530" y2="272" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <rect x="15" y="70" width="150" height="36" rx="4" fill="#6b7280" filter="url(#shadow)"/>
+          <text x="90" y="93" fill="#fff" font-size="13" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">钢铁(Steel)</text>
+          <rect x="15" y="116" width="150" height="36" rx="4" fill="#2d7a4f" filter="url(#shadow)"/>
+          <text x="90" y="139" fill="#fff" font-size="13" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">精神叶(Psychoid)</text>
+          <rect x="15" y="162" width="150" height="36" rx="4" fill="#8b6f47" filter="url(#shadow)"/>
+          <text x="90" y="185" fill="#fff" font-size="13" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">石头(Stone)</text>
+          <rect x="15" y="208" width="150" height="36" rx="4" fill="#c4a87c" filter="url(#shadow)"/>
+          <text x="90" y="231" fill="#1a1a1f" font-size="13" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">布料/皮质</text>
+          <rect x="15" y="254" width="150" height="36" rx="4" fill="#7a6b4a" filter="url(#shadow)"/>
+          <text x="90" y="277" fill="#fff" font-size="13" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">木头/有机物</text>
+          <rect x="15" y="300" width="150" height="36" rx="4" fill="#3a7ca5" filter="url(#shadow)"/>
+          <text x="90" y="323" fill="#fff" font-size="13" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">中性胺</text>
+          <text x="90" y="348" fill="#5a9fd4" font-size="9" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">(只能贸易购买)</text>
+          <rect x="250" y="68" width="160" height="40" rx="4" fill="#24242b" stroke="#d4956b" stroke-width="1.5" filter="url(#shadow)"/>
+          <text x="330" y="89" fill="#fff" font-size="12" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">制造桌</text>
+          <text x="330" y="102" fill="#a0a0aa" font-size="9" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">→ 零件/高级零件</text>
+          <rect x="250" y="114" width="160" height="40" rx="4" fill="#24242b" stroke="#d4956b" stroke-width="1.5" filter="url(#shadow)"/>
+          <text x="330" y="135" fill="#fff" font-size="12" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">制药台</text>
+          <text x="330" y="148" fill="#a0a0aa" font-size="9" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">→ 薄片/雅瑶/青霉素/唤醒剂</text>
+          <rect x="250" y="160" width="160" height="40" rx="4" fill="#24242b" stroke="#d4956b" stroke-width="1.5" filter="url(#shadow)"/>
+          <text x="330" y="181" fill="#fff" font-size="12" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">雕塑台</text>
+          <text x="330" y="194" fill="#a0a0aa" font-size="9" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">→ 雕塑</text>
+          <rect x="250" y="206" width="160" height="40" rx="4" fill="#24242b" stroke="#d4956b" stroke-width="1.5" filter="url(#shadow)"/>
+          <text x="330" y="227" fill="#fff" font-size="12" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">裁缝台</text>
+          <text x="330" y="240" fill="#a0a0aa" font-size="9" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">→ 风衣/装备</text>
+          <rect x="250" y="252" width="160" height="40" rx="4" fill="#24242b" stroke="#d4956b" stroke-width="1.5" filter="url(#shadow)"/>
+          <text x="330" y="273" fill="#fff" font-size="12" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">精炼机</text>
+          <text x="330" y="286" fill="#a0a0aa" font-size="9" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">→ 化合燃料</text>
+          <rect x="530" y="68" width="160" height="40" rx="4" fill="#1e1e24" stroke="#4a4a55" stroke-width="1" filter="url(#shadow)"/>
+          <text x="610" y="89" fill="#fff" font-size="12" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">零件</text>
+          <text x="610" y="102" fill="#888896" font-size="9" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">电器维护</text>
+          <rect x="530" y="114" width="160" height="40" rx="4" fill="#1e1e24" stroke="#4a4a55" stroke-width="1" filter="url(#shadow)"/>
+          <text x="610" y="135" fill="#fff" font-size="12" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">薄片/雅瑶</text>
+          <text x="610" y="148" fill="#888896" font-size="9" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">💰 卖钱/自用</text>
+          <rect x="530" y="160" width="160" height="40" rx="4" fill="#1e1e24" stroke="#4a4a55" stroke-width="1" filter="url(#shadow)"/>
+          <text x="610" y="181" fill="#fff" font-size="12" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">大型雕塑</text>
+          <text x="610" y="194" fill="#888896" font-size="9" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">💰 卖钱/美化</text>
+          <rect x="530" y="206" width="160" height="40" rx="4" fill="#1e1e24" stroke="#4a4a55" stroke-width="1" filter="url(#shadow)"/>
+          <text x="610" y="227" fill="#fff" font-size="12" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">风衣</text>
+          <text x="610" y="240" fill="#888896" font-size="9" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">💰 卖钱/穿戴</text>
+          <rect x="530" y="252" width="160" height="40" rx="4" fill="#1e1e24" stroke="#4a4a55" stroke-width="1" filter="url(#shadow)"/>
+          <text x="610" y="273" fill="#fff" font-size="12" font-weight="600" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">化合燃料</text>
+          <text x="610" y="286" fill="#888896" font-size="9" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">空投仓/发电</text>
+        </svg>
+        <figcaption>▲ 从原材料到产品：左边采集→中间加工→右边变现。记住这个流向就不会不知道该造什么。</figcaption>
+      </figure>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">👕</span> 装备制造——什么材料做什么</h3>
+      <p>不同装备对材料的需求不一样，选对材料能省一大笔资源。</p>
+      <table>
+        <tr><th>装备</th><th>推荐材料</th><th>为什么</th></tr>
+        <tr><td><strong>防弹背心</strong></td><td>钢</td><td>钢性价比最高，防护够，不需要稀有材料</td></tr>
+        <tr><td><strong>动力装甲</strong></td><td>塑钢/铀</td><td>铀最硬但最重，塑钢轻但贵——看情况选</td></tr>
+        <tr><td><strong>海军头盔</strong></td><td>塑钢</td><td>头最重要，用好材料保命</td></tr>
+        <tr><td><strong>风衣</strong></td><td>魔鬼素/超织物</td><td>隔热好+防护高，一件能穿一辈子</td></tr>
+        <tr><td><strong>御寒大衣</strong></td><td>巨獭皮/羊毛</td><td>最保暖的材料，冰原必备</td></tr>
+        <tr><td><strong>衬衫/裤子</strong></td><td>布料/普通皮</td><td>内衣不需要好材料，省钱</td></tr>
+        <tr><td><strong>简易头盔</strong></td><td>钢</td><td>前期保头，材料易得</td></tr>
+      </table>
+      <div class="tip good"><strong>✅ 材料等级：</strong>超织物 > 魔鬼素 > 巨獭皮 > 厚皮 > 普通皮 > 布料。做衣服之前先看材料的防护系数和隔热/保温值。</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">💊</span> 药品与成瘾品生产线</h3>
+      <p>药品保命，成瘾品赚钱又小心。这一块的生产线环环相扣，缺一不可。</p>
+      <table>
+        <tr><th>产品</th><th>原材料</th><th>需求科技</th><th>推荐度</th></tr>
+        <tr><td><strong>草药</strong></td><td>野外采集/种植愈伤草</td><td>无</td><td>⭐⭐⭐ 前期唯一药物</td></tr>
+        <tr><td><strong>工业医药</strong></td><td>1草药+1零件+2中性胺</td><td>制药</td><td>⭐⭐⭐⭐ 中期主力</td></tr>
+        <tr><td><strong>闪耀世界医药</strong></td><td>1工业医药+1高级零件+2中性胺</td><td>高级制药</td><td>⭐⭐⭐⭐⭐ 手术必备</td></tr>
+        <tr><td><strong>中性胺(Neutroamine)</strong></td><td><s>不能造，只能买</s></td><td>—</td><td>记得囤货，做药必需品</td></tr>
+        <tr><td><strong>薄片</strong></td><td>4精神叶</td><td>精神叶种植</td><td>⭐⭐⭐⭐ 卖钱首选</td></tr>
+        <tr><td><strong>雅瑶</strong></td><td>8精神叶</td><td>精神叶种植</td><td>⭐⭐⭐ 自用/高价卖</td></tr>
+        <tr><td><strong>唤醒剂(Wake-up)</strong></td><td>2中性胺</td><td>制药</td><td>⭐⭐⭐⭐ 紧急加班用</td></tr>
+        <tr><td><strong>活力水(Go-juice)</strong></td><td>1中性胺+1雅瑶</td><td>高级制药</td><td>⭐⭐⭐ 战斗兴奋剂</td></tr>
+      </table>
+      <div class="tip warn"><strong>⚠️ 成瘾品给小人用要设用药计划——</strong>成瘾后戒断反应很痛苦。卖钱没问题，但别让自家小人上瘾。</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🎨</span> 雕塑与艺术品——边赚钱边美化</h3>
+      <ul>
+        <li><strong>雕塑材料对比：</strong>大理石（美观度×135%）> 砂岩（开采快）> 木头（易燃别放室内）</li>
+        <li><strong>品质对价格的影响：</strong>传奇（×10价格）> 大师（×5）> 优秀（×2）> 良好（×1.5）> 一般（×1）</li>
+        <li><strong>小型雕塑（1格）vs 大型雕塑（4格）：</strong>大型雕塑性价比更高，但不好放</li>
+        <li>雕塑放在餐厅+娱乐室=双倍心情加成</li>
+        <li>艺术≥15的小人专职做雕塑=印钞机</li>
+        <li>一个传奇级大理石大型雕塑能卖 2000+ 银</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">⚙️</span> 制造效率技巧</h3>
+      <ul>
+        <li>手工技能≥8才能稳定搓零件，<8做零件老失败=浪费材料</li>
+        <li>工作台旁边放工具柜（最多连2个）=工作速度+6%</li>
+        <li>做装备之前先看材料信息面板→不同材料防护/耐久/重量/美观都不同</li>
+        <li>做衣服加入"做到X件"工作清单→永远保持库存</li>
+        <li>熔炼台：把掠夺来的低品质武器熔成钢铁=废物利用</li>
+        <li>裁缝台做风衣：选"做到品质≥优秀"→低品质自动拆了重做</li>
+        <li>制药台放无菌地砖上=制药速度提升</li>
+        <li>生产列表别设"永远做"——会消耗光你的原材料</li>
+      </ul>
+    </div>
+  </section>
+
+  <nav class="page-nav">
+    <a href="rimworld-guide-trade.html" class="prev">
+      <span><span class="nav-label">上一页</span>💰 贸易与经济</span>
+    </a>
+    <a href="rimworld-guide-dlc-royalty.html" class="next">
+      <span><span class="nav-label">下一页</span>👑 皇权 DLC</span>
+    </a>
+  </nav>
+
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    if (card.textContent.toLowerCase().includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+})();
+
+  // Back to top
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>

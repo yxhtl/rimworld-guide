@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>开局生存指南 | RimWorld 攻略站</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #1a1a1f;
+    --bg-card: #24242b;
+    --bg-sidebar: #1e1e24;
+    --border: #333340;
+    --text: #c8c8d0;
+    --text-muted: #888896;
+    --accent: #d4956b;
+    --accent-dim: #a07050;
+    --red: #c0392b;
+    --green: #4a9;
+    --blue: #5a9fd4;
+    --yellow: #d4b65a;
+    --radius: 6px;
+    --transition: 0.2s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+  nav.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+  .sidebar-logo h1 { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
+  .sidebar-logo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+  .nav-section { padding: 8px 20px 4px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-top: 8px; }
+  .nav-item { display: block; padding: 8px 20px; color: var(--text); text-decoration: none; font-size: 0.9rem; border-left: 3px solid transparent; transition: var(--transition); }
+  .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
+  .nav-item.active { border-left-color: var(--accent); background: rgba(212,149,107,0.08); color: var(--accent); }
+  .nav-item .icon { margin-right: 8px; }
+  .nav-badge { float: right; font-size: 0.65rem; background: var(--accent-dim); color: #fff; padding: 1px 6px; border-radius: 10px; margin-top: 2px; }
+  .nav-footer { margin-top: auto; padding: 16px 20px 0; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--text-muted); }
+  .nav-feedback { color: var(--accent-dim); text-decoration: none; transition: color var(--transition); }
+  .nav-feedback:hover { color: var(--accent); }
+
+  .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
+  .sidebar-overlay { display: none; }
+
+  main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
+
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 1.3rem; color: #fff; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; }
+  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .card h3 .emoji { font-size: 1.2rem; }
+  .card p, .card li { font-size: 0.92rem; color: var(--text); }
+  .card ul { padding-left: 20px; }
+  .card li { margin-bottom: 6px; }
+
+  .tip { background: rgba(90,159,212,0.1); border-left: 3px solid var(--blue); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; margin: 12px 0; font-size: 0.88rem; }
+  .tip.warn { background: rgba(192,57,43,0.1); border-left-color: var(--red); }
+  .tip.good { background: rgba(68,170,153,0.1); border-left-color: var(--green); }
+  .key { background: #333; color: var(--accent); padding: 1px 6px; border-radius: 3px; font-size: 0.85rem; font-family: "Cascadia Code", "Fira Code", monospace; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+  .tag-p0 { background: var(--red); color: #fff; }
+  .tag-p1 { background: var(--yellow); color: #1a1a1f; }
+  .tag-p2 { background: var(--text-muted); color: #fff; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .search-wrap { position: relative; margin-bottom: 32px; }
+  .search-wrap input { width: 100%; padding: 12px 16px 12px 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.95rem; font-family: inherit; transition: var(--transition); }
+  .search-wrap input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(212,149,107,0.15); }
+  .search-wrap input::placeholder { color: var(--text-muted); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--text-muted); pointer-events: none; }
+  .search-clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem; padding: 4px 8px; border-radius: 3px; display: none; }
+  .search-clear:hover { color: var(--text); background: var(--border); }
+  .search-clear.visible { display: block; }
+  .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 1rem; }
+  .no-results.visible { display: block; }
+  .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+  .card.hidden, .section-title.hidden { display: none; }
+  .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
+
+  /* ========== Guide Diagrams ========== */
+  .guide-diagram { margin: 20px 0 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .guide-diagram svg { display: block; width: 100%; height: auto; }
+  .guide-diagram figcaption { padding: 10px 16px; font-size: 0.82rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border); background: rgba(0,0,0,0.15); }
+  body.light .guide-diagram figcaption { background: rgba(0,0,0,0.03); }
+
+  .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle .toggle-thumb { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background var(--transition); }
+  .theme-toggle .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
+  body.light .toggle-thumb { background: var(--accent); }
+  body.light .toggle-thumb::after { transform: translateX(16px); }
+
+  body.light { --bg: #f4f4f6; --bg-card: #ffffff; --bg-sidebar: #f0f0f3; --border: #d8d8de; --text: #3a3a44; --text-muted: #888896; --accent: #b87050; --accent-dim: #8a5040; }
+  body.light .tip { background: rgba(90,159,212,0.08); }
+  body.light .tip.warn { background: rgba(192,57,43,0.06); }
+  body.light .tip.good { background: rgba(68,170,153,0.06); }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    nav.sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100vh; transition: left var(--transition); }
+    nav.sidebar.open { left: 0; }
+    .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9; }
+    .sidebar-overlay.open { display: block; }
+    .mobile-nav-toggle { display: block; }
+    main { padding: 60px 16px 32px; }
+    .card { padding: 16px; }
+  }
+  @media print { nav.sidebar, .mobile-nav-toggle { display: none; } main { max-width: 100%; padding: 0; } body { background: #fff; color: #000; } }
+  /* ========== Page Navigation ========== */
+  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .page-nav a { display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+  .page-nav a:hover { border-color: var(--accent); color: var(--accent); }
+  .page-nav .prev::before { content: '← '; }
+  .page-nav .next::after { content: ' →'; }
+  .page-nav .nav-label { font-size: 0.72rem; color: var(--text-muted); display: block; }
+  /* ========== Back to Top ========== */
+  .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); z-index: 50; color: var(--text); }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld 攻略站</h1>
+    <p>从活下去，到活得好</p>
+  </div>
+
+  <div class="nav-section">导航</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+
+  <div class="nav-section">新手必备</div>
+  <a href="rimworld-guide-getting-started.html" class="nav-item active">
+    <span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+  </a>
+  <a href="rimworld-guide-base-building.html" class="nav-item">
+    <span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+  </a>
+
+  <div class="nav-section">进阶内容</div>
+  <a href="rimworld-guide-combat.html" class="nav-item"><span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span></a>
+
+  <div class="nav-section">DLC 内容</div>
+  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">扩展</div>
+  <a href="rimworld-guide-mods.html" class="nav-item"><span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-biomes.html" class="nav-item"><span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-animals.html" class="nav-item"><span class="icon">🐄</span> 动物与畜牧 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-trade.html" class="nav-item"><span class="icon">💰</span> 贸易与经济 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-crafting.html" class="nav-item"><span class="icon">⚗️</span> 制造与生产 <span class="nav-badge">P2</span></a>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+    <span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer">MVP v0.2 · 持续更新中 · <a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a><br>内容基于 RimWorld 1.4 + 全DLC</div>
+</nav>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">攻略总览</a> / 开局生存指南</div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+  </div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+
+  <section class="section" id="getting-started">
+    <h2 class="section-title">🚀 开局生存指南</h2>
+
+    <div class="card">
+      <h3><span class="emoji">1.</span> 选人 —— 三个人决定你的命运</h3>
+      <p>开局选人是最重要的一步，比落地地点还关键。三个小人的技能组合直接决定你能不能活过头三天。</p>
+      <br>
+      <table>
+        <tr><th>角色</th><th>必备技能</th><th>绝对不能有</th></tr>
+        <tr><td><strong>建造师</strong></td><td>建造 ≥ 8，手工 ≥ 5</td><td>懒虫、工作怠慢</td></tr>
+        <tr><td><strong>种植/烹饪</strong></td><td>种植 ≥ 8，烹饪 ≥ 6</td><td>纵火狂（会烧你家！）</td></tr>
+        <tr><td><strong>研究员/医生</strong></td><td>智识 ≥ 8，医疗 ≥ 6</td><td>工作怠慢、崩溃艺术家</td></tr>
+      </table>
+      <div class="tip warn"><strong>⚠️ 绝对避雷：</strong>纵火狂（Pyromaniac）、意志动荡（Volatile）、工作怠慢（Lazy）——这三个特性直接重roll，别犹豫。</div>
+      <div class="tip good"><strong>✅ 加分特性：</strong>过目不忘（Fast Learner）、意志如铁（Iron-Willed）、工作狂（Industrious）——见到直接锁。</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">2.</span> 落地 —— 选对地方成功一半</h3>
+      <ul>
+        <li><strong>地形：</strong>新手选<span class="key">温带森林</span> 或 <span class="key">干旱灌木林</span>，别碰冰原和沙漠</li>
+        <li><strong>山地 vs 平原：</strong>山地易守难攻但会刷虫灾，平原好盖房但防守面大——新手推荐<span class="key">大丘陵</span>（有山但不多）</li>
+        <li><strong>生长季：</strong>至少选 <span class="key">30/60 天</span>（全年生长更好），否则种不出吃的</li>
+        <li><strong>石头类型：</strong>优先 <span class="key">花岗岩</span> > 石灰岩 > 砂岩（花岗岩墙体最硬，= 你活得久）</li>
+        <li><strong>派系距离：</strong>别离海盗太近，友善部落近一点方便贸易</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">3.</span> 前 3 天行动清单</h3>
+      <table>
+        <tr><th>顺序</th><th>做什么</th><th>为什么</th></tr>
+        <tr><td><span class="tag tag-p0">第1步</span></td><td><strong>划种植区 + 播种水稻</strong></td><td>水稻 3 天就能收第一茬，没吃的你啥都干不了</td></tr>
+        <tr><td><span class="tag tag-p0">第2步</span></td><td><strong>盖一间 7×7 木屋 + 屋顶</strong></td><td>当临时仓库和睡觉用，别盖太大——后面要换石头</td></tr>
+        <tr><td><span class="tag tag-p0">第3步</span></td><td><strong>放 3 个睡眠点 + 篝火</strong></td><td>小人睡地上不掉心情，但睡外面掉；篝火防止冻伤</td></tr>
+        <tr><td><span class="tag tag-p0">第4步</span></td><td><strong>屠宰落地动物 + 做简易餐</strong></td><td>打包食品只能撑几天，先杀落地就有的动物</td></tr>
+        <tr><td><span class="tag tag-p1">第5步</span></td><td><strong>划仓库（室内）+搬物资</strong></td><td>药品、食物、零件放外面会坏，赶紧搬进屋</td></tr>
+        <tr><td><span class="tag tag-p1">第6步</span></td><td><strong>做研究桌 + 开始研究</strong></td><td>第一优先级科技：电池 → 太阳能 → 制冷（冰箱）</td></tr>
+      </table>
+      <div class="tip"><strong>💡 关键认知：</strong>RimWorld 的核心循环是"吃 → 住 → 防 → 研究"。第一要务永远是食物来源稳定，第二才是盖房子。</div>
+
+      <figure class="guide-diagram">
+        <svg viewBox="0 0 720 520" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="720" height="520" fill="#1a1a1f"/>
+          <text x="360" y="24" text-anchor="middle" fill="#ccc" font-size="14" font-weight="bold" font-family="sans-serif">前3天基地俯瞰布局</text>
+          <line x1="30" y1="36" x2="690" y2="36" stroke="#3a3a40" stroke-width="1"/>
+
+          <!-- ===== TERRAIN ===== -->
+          <rect x="30" y="50" width="660" height="430" fill="#2a2a28" stroke="#3a3a35" stroke-width="1" rx="4"/>
+          <text x="360" y="72" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">野外地面</text>
+
+          <!-- Some trees for context -->
+          <circle cx="80" cy="95" r="10" fill="#2a3a2a" stroke="#3a5a3a" stroke-width="1"/>
+          <circle cx="680" cy="120" r="12" fill="#2a3a2a" stroke="#3a5a3a" stroke-width="1"/>
+          <circle cx="660" cy="400" r="9" fill="#2a3a2a" stroke="#3a5a3a" stroke-width="1"/>
+          <circle cx="60" cy="280" r="11" fill="#2a3a2a" stroke="#3a5a3a" stroke-width="1"/>
+
+          <!-- ===== RICE FARMING ZONE (right side) ===== -->
+          <rect x="430" y="90" width="230" height="170" fill="#2a3a20" stroke="#3a5a2a" stroke-width="2" stroke-dasharray="6,3" rx="3"/>
+          <text x="545" y="115" text-anchor="middle" fill="#4a9" font-size="14" font-weight="bold" font-family="sans-serif">🌾 水稻种植区</text>
+
+          <!-- Rice rows -->
+          <g fill="#4a7a2a" opacity="0.6">
+            <rect x="450" y="135" width="190" height="8" rx="1"/>
+            <rect x="450" y="155" width="190" height="8" rx="1"/>
+            <rect x="450" y="175" width="190" height="8" rx="1"/>
+            <rect x="450" y="195" width="190" height="8" rx="1"/>
+            <rect x="450" y="215" width="190" height="8" rx="1"/>
+            <rect x="450" y="235" width="190" height="8" rx="1"/>
+          </g>
+
+          <!-- Step label for rice -->
+          <rect x="430" y="265" width="120" height="22" rx="4" fill="#c0392b"/>
+          <text x="490" y="280" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">第1步：先种水稻</text>
+
+          <!-- Arrow from rice to hut -->
+          <line x1="430" y1="180" x2="370" y2="180" stroke="#888" stroke-width="1" stroke-dasharray="4,4"/>
+
+          <!-- ===== WOODEN HUT 7×7 (center-left) ===== -->
+          <rect x="120" y="160" width="210" height="210" fill="#3a3528" stroke="#8a7050" stroke-width="3" rx="3"/>
+          <text x="225" y="150" text-anchor="middle" fill="#d4956b" font-size="14" font-weight="bold" font-family="sans-serif">🏚️ 临时木屋 7×7</text>
+
+          <!-- Roof indicator -->
+          <rect x="130" y="170" width="190" height="100" fill="#4a4030" opacity="0.4" rx="2"/>
+          <text x="225" y="225" text-anchor="middle" fill="#888" font-size="10" font-family="sans-serif">有屋顶</text>
+
+          <!-- Three sleeping spots inside hut -->
+          <rect x="150" y="280" width="28" height="18" rx="4" fill="#5a5a4a" stroke="#7a7a5a" stroke-width="1"/>
+          <text x="164" y="293" text-anchor="middle" fill="#aaa" font-size="7" font-family="sans-serif">💤</text>
+          <rect x="198" y="280" width="28" height="18" rx="4" fill="#5a5a4a" stroke="#7a7a5a" stroke-width="1"/>
+          <text x="212" y="293" text-anchor="middle" fill="#aaa" font-size="7" font-family="sans-serif">💤</text>
+          <rect x="246" y="280" width="28" height="18" rx="4" fill="#5a5a4a" stroke="#7a7a5a" stroke-width="1"/>
+          <text x="260" y="293" text-anchor="middle" fill="#aaa" font-size="7" font-family="sans-serif">💤</text>
+          <text x="225" y="312" text-anchor="middle" fill="#aaa" font-size="8" font-family="sans-serif">3个睡眠点</text>
+
+          <!-- Stockpile zone in hut -->
+          <rect x="140" y="325" width="170" height="30" rx="3" fill="#3a3a30" stroke="#6a6a50" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="225" y="345" text-anchor="middle" fill="#aa8" font-size="9" font-family="sans-serif">📦 室内仓库 放药品/食物/零件</text>
+
+          <!-- ===== CAMPFIRE (front of hut) ===== -->
+          <circle cx="225" cy="410" r="22" fill="#3a2a1a" stroke="#8a6040" stroke-width="2"/>
+          <circle cx="225" cy="410" r="10" fill="#c06020" opacity="0.7"/>
+          <text x="225" y="413" text-anchor="middle" fill="#ffa" font-size="8" font-family="sans-serif">火</text>
+          <text x="225" y="445" text-anchor="middle" fill="#e8a060" font-size="11" font-weight="bold" font-family="sans-serif">🔥 篝火</text>
+
+          <!-- ===== OUTDOOR STOCKPILE (near hut) ===== -->
+          <rect x="360" y="340" width="80" height="50" rx="3" fill="#3a3028" stroke="#6a5a40" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="400" y="362" text-anchor="middle" fill="#bbb" font-size="10" font-family="sans-serif">临时堆放</text>
+          <text x="400" y="378" text-anchor="middle" fill="#bbb" font-size="10" font-family="sans-serif">木头</text>
+
+          <!-- ===== STEP LABELS (left column) ===== -->
+          <rect x="30" y="165" width="70" height="22" rx="4" fill="#c0392b"/>
+          <text x="65" y="180" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">第2步：盖房</text>
+
+          <rect x="30" y="305" width="90" height="22" rx="4" fill="#c0392b"/>
+          <text x="75" y="320" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">第3步：睡点篝火</text>
+
+          <rect x="360" y="395" width="95" height="22" rx="4" fill="#d4b65a"/>
+          <text x="407" y="410" text-anchor="middle" fill="#1a1a1f" font-size="10" font-weight="bold" font-family="sans-serif">第5步：仓库</text>
+
+          <!-- Step 4 label on left -->
+          <rect x="30" y="395" width="85" height="22" rx="4" fill="#c0392b"/>
+          <text x="72" y="410" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">第4步：屠宰做饭</text>
+
+          <!-- ===== BOTTOM TIP ===== -->
+          <rect x="130" y="488" width="460" height="24" rx="4" fill="#222228"/>
+          <text x="360" y="505" text-anchor="middle" fill="#d4956b" font-size="10" font-family="sans-serif">💡 木屋只是临时的！有了石匠桌之后第一时间把墙换成石头——木头房被闪电劈中就全没了</text>
+        </svg>
+        <figcaption>▲ 第1步种水稻 → 第2步盖木屋 → 第3步放睡点+篝火 → 第4步杀动物做饭 → 第5步搬物资进仓库。按①②③④⑤顺序来。</figcaption>
+      </figure>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">4.</span> 第一周：从活下来到站稳脚</h3>
+      <ul>
+        <li><strong>造屠宰台 + 灶台：</strong>简易餐吃不久，尽快做精致餐（需要灶台 + 素食 + 肉/蛋）</li>
+        <li><strong>划 3 间独立卧室：</strong>有独立房间 +5 心情，比睡大通铺强太多</li>
+        <li><strong>做石匠桌 + 切石头：</strong>木头墙不耐火（闪电一下全家烧没），尽快换石头墙</li>
+        <li><strong>造马蹄铁桩：</strong>最便宜的娱乐设施，防止小人"无聊"掉心情</li>
+        <li><strong>划垃圾储存区：</strong>尸体、石头渣子丢远点，别堆在屋里</li>
+      </ul>
+    </div>
+  </section>
+  <nav class="page-nav">
+    <a href="index.html" class="prev">
+      <span><span class="nav-label">上一页</span>🏠 攻略总览</span>
+    </a>
+    <a href="rimworld-guide-base-building.html" class="next">
+      <span><span class="nav-label">下一页</span>🏠 基地建设攻略</span>
+    </a>
+  </nav>
+
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    if (card.textContent.toLowerCase().includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+})();
+
+  // Back to top
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>

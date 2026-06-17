@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>异象 DLC 攻略 | RimWorld 攻略站</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #1a1a1f;
+    --bg-card: #24242b;
+    --bg-sidebar: #1e1e24;
+    --border: #333340;
+    --text: #c8c8d0;
+    --text-muted: #888896;
+    --accent: #d4956b;
+    --accent-dim: #a07050;
+    --red: #c0392b;
+    --green: #4a9;
+    --blue: #5a9fd4;
+    --yellow: #d4b65a;
+    --radius: 6px;
+    --transition: 0.2s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+  nav.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+  .sidebar-logo h1 { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
+  .sidebar-logo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+  .nav-section { padding: 8px 20px 4px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-top: 8px; }
+  .nav-item { display: block; padding: 8px 20px; color: var(--text); text-decoration: none; font-size: 0.9rem; border-left: 3px solid transparent; transition: var(--transition); }
+  .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
+  .nav-item.active { border-left-color: var(--accent); background: rgba(212,149,107,0.08); color: var(--accent); }
+  .nav-item .icon { margin-right: 8px; }
+  .nav-badge { float: right; font-size: 0.65rem; background: var(--accent-dim); color: #fff; padding: 1px 6px; border-radius: 10px; margin-top: 2px; }
+  .nav-footer { margin-top: auto; padding: 16px 20px 0; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--text-muted); }
+  .nav-feedback { color: var(--accent-dim); text-decoration: none; transition: color var(--transition); }
+  .nav-feedback:hover { color: var(--accent); }
+
+  .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
+  .sidebar-overlay { display: none; }
+
+  main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
+
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 1.3rem; color: #fff; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; }
+  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .card h3 .emoji { font-size: 1.2rem; }
+  .card p, .card li { font-size: 0.92rem; color: var(--text); }
+  .card ul { padding-left: 20px; }
+  .card li { margin-bottom: 6px; }
+
+  .tip { background: rgba(90,159,212,0.1); border-left: 3px solid var(--blue); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; margin: 12px 0; font-size: 0.88rem; }
+  .tip.warn { background: rgba(192,57,43,0.1); border-left-color: var(--red); }
+  .tip.good { background: rgba(68,170,153,0.1); border-left-color: var(--green); }
+  .key { background: #333; color: var(--accent); padding: 1px 6px; border-radius: 3px; font-size: 0.85rem; font-family: "Cascadia Code", "Fira Code", monospace; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+  .tag-p0 { background: var(--red); color: #fff; }
+  .tag-p1 { background: var(--yellow); color: #1a1a1f; }
+  .tag-p2 { background: var(--text-muted); color: #fff; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .search-wrap { position: relative; margin-bottom: 32px; }
+  .search-wrap input { width: 100%; padding: 12px 16px 12px 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.95rem; font-family: inherit; transition: var(--transition); }
+  .search-wrap input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(212,149,107,0.15); }
+  .search-wrap input::placeholder { color: var(--text-muted); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--text-muted); pointer-events: none; }
+  .search-clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem; padding: 4px 8px; border-radius: 3px; display: none; }
+  .search-clear:hover { color: var(--text); background: var(--border); }
+  .search-clear.visible { display: block; }
+  .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 1rem; }
+  .no-results.visible { display: block; }
+  .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+  .card.hidden, .section-title.hidden { display: none; }
+  .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
+
+  .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle .toggle-thumb { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background var(--transition); }
+  .theme-toggle .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
+  body.light .toggle-thumb { background: var(--accent); }
+  body.light .toggle-thumb::after { transform: translateX(16px); }
+
+  body.light { --bg: #f4f4f6; --bg-card: #ffffff; --bg-sidebar: #f0f0f3; --border: #d8d8de; --text: #3a3a44; --text-muted: #888896; --accent: #b87050; --accent-dim: #8a5040; }
+  body.light .tip { background: rgba(90,159,212,0.08); }
+  body.light .tip.warn { background: rgba(192,57,43,0.06); }
+  body.light .tip.good { background: rgba(68,170,153,0.06); }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    nav.sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100vh; transition: left var(--transition); }
+    nav.sidebar.open { left: 0; }
+    .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9; }
+    .sidebar-overlay.open { display: block; }
+    .mobile-nav-toggle { display: block; }
+    main { padding: 60px 16px 32px; }
+    .card { padding: 16px; }
+  }
+  @media print { nav.sidebar, .mobile-nav-toggle { display: none; } main { max-width: 100%; padding: 0; } body { background: #fff; color: #000; } }
+  /* ========== Page Navigation ========== */
+  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .page-nav a { display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+  .page-nav a:hover { border-color: var(--accent); color: var(--accent); }
+  .page-nav .prev::before { content: '← '; }
+  .page-nav .next::after { content: ' →'; }
+  .page-nav .nav-label { font-size: 0.72rem; color: var(--text-muted); display: block; }
+  /* ========== Back to Top ========== */
+  .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); z-index: 50; color: var(--text); }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld 攻略站</h1>
+    <p>从活下去，到活得好</p>
+  </div>
+
+  <div class="nav-section">导航</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+
+  <div class="nav-section">新手必备</div>
+  <a href="rimworld-guide-getting-started.html" class="nav-item"><span class="icon">🚀</span> 开局生存指南</a>
+  <a href="rimworld-guide-base-building.html" class="nav-item"><span class="icon">🏠</span> 基地建设攻略</a>
+
+  <div class="nav-section">进阶内容</div>
+  <a href="rimworld-guide-combat.html" class="nav-item"><span class="icon">⚔️</span> 战斗与防御</a>
+  <a href="rimworld-guide-pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> 小人管理</a>
+  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线</a>
+
+  <div class="nav-section">DLC 内容</div>
+  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 DLC</a>
+  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">🕯️</span> 文化 DLC</a>
+  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 DLC</a>
+  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item active"><span class="icon">🪱</span> 异象 DLC</a>
+
+  <div class="nav-section">扩展</div>
+  <a href="rimworld-guide-mods.html" class="nav-item"><span class="icon">🧩</span> Mod 推荐</a>
+  <a href="rimworld-guide-biomes.html" class="nav-item"><span class="icon">🌍</span> 生态与地形</a>
+  <a href="rimworld-guide-animals.html" class="nav-item"><span class="icon">🐄</span> 动物与畜牧</a>
+  <a href="rimworld-guide-trade.html" class="nav-item"><span class="icon">💰</span> 贸易与经济</a>
+  <a href="rimworld-guide-crafting.html" class="nav-item"><span class="icon">⚗️</span> 制造与生产</a>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+    <span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer">MVP v0.2 · 持续更新中 · <a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a><br>内容基于 RimWorld 1.4 + 全DLC</div>
+</nav>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">攻略总览</a> / 异象 DLC</div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+  </div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+
+  <section class="section" id="anomaly-dlc">
+    <h2 class="section-title">🪱 异象 DLC (Anomaly)</h2>
+
+    <div class="card">
+      <h3><span class="emoji">🏚️</span> 巨石与异象触发</h3>
+      <ul>
+        <li>游戏开始时地图上会出现一块"巨石"(Monolith)——这是异象DLC的核心</li>
+        <li>研究巨石需要"异象研究台"，不能拿普通研究桌研究</li>
+        <li>每完成一级巨石研究=解锁新的异象内容和威胁</li>
+        <li>巨石研究进度跟殖民地的"恐惧值"(Dread)挂钩</li>
+        <li>不想玩异象内容？别碰巨石就行——DLC内容完全可选</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🔬</span> 研究节点与收容</h3>
+      <ul>
+        <li>打败异象生物后可以"捕获"活的样本→放在收容设施里研究</li>
+        <li>收容设施：收容笼(Containment Casket)或收容平台</li>
+        <li>每个被收容的生物提供研究点数，越强的生物点数越多</li>
+        <li>收容稳定性：收容的生物有"逃脱风险"(Escape Risk)，稳定性低了会跑出来</li>
+        <li>提升收容稳定性的方法：电力供给（不能停电！）、多个收容设施互相加固、专门的小人看守</li>
+        <li>停电=收容失效=所有困住的怪物一起跑出来——恐怖剧本</li>
+      </ul>
+      <div class="tip warn"><strong>⚠️</strong> 收容设施一定要独立供电+备用电池。太阳耀斑来的时候全体失效，你的怪物全跑出来——比任何袭击都恐怖。</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">📐</span> 收容系统架构图</h3>
+      <p>从打败怪物到安全收容一整个流程，搞错一步就是灾难：</p>
+      <figure class="guide-diagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" style="max-width:100%;height:auto;">
+          <defs>
+            <marker id="arr-anom" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,1 L9,5 L0,9 Z" fill="#d4956b"/>
+            </marker>
+            <marker id="arr-danger" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,1 L9,5 L0,9 Z" fill="#c0392b"/>
+            </marker>
+            <filter id="anom-sh"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.35"/></filter>
+          </defs>
+          <rect width="720" height="340" fill="#1a1a1f" rx="6"/>
+
+          <!-- Phase 1: Capture -->
+          <rect x="20" y="50" width="140" height="80" rx="8" fill="#24242b" stroke="#d4b65a" stroke-width="2" filter="url(#anom-sh)"/>
+          <text x="90" y="78" fill="#d4b65a" font-size="13" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">⚔️ 击败异象生物</text>
+          <text x="90" y="96" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">打倒后可以捕获活体</text>
+          <text x="90" y="112" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">不是所有都能捕获</text>
+          <text x="90" y="124" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">有些只能打死</text>
+
+          <!-- Arrow -->
+          <line x1="160" y1="90" x2="220" y2="90" stroke="#d4956b" stroke-width="1.5" marker-end="url(#arr-anom)"/>
+
+          <!-- Phase 2: Contain -->
+          <rect x="225" y="50" width="150" height="80" rx="8" fill="#24242b" stroke="#5a9fd4" stroke-width="2" filter="url(#anom-sh)"/>
+          <text x="300" y="78" fill="#5a9fd4" font-size="13" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🔒 放入收容设施</text>
+          <text x="300" y="96" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">收容笼·收容平台</text>
+          <text x="300" y="112" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">电力稳定=收容稳定</text>
+          <text x="300" y="124" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">多个设施互相加固</text>
+
+          <!-- Arrow -->
+          <line x1="375" y1="90" x2="435" y2="90" stroke="#d4956b" stroke-width="1.5" marker-end="url(#arr-anom)"/>
+
+          <!-- Phase 3: Research -->
+          <rect x="440" y="50" width="120" height="80" rx="8" fill="#24242b" stroke="#4a9" stroke-width="2" filter="url(#anom-sh)"/>
+          <text x="500" y="78" fill="#4a9" font-size="13" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🧪 研究产出</text>
+          <text x="500" y="96" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">异象科技点</text>
+          <text x="500" y="112" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">越强的怪→越多点</text>
+          <text x="500" y="124" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">解锁黑暗科技</text>
+
+          <!-- Danger zone below -->
+          <line x1="360" y1="160" x2="360" y2="190" stroke="#c0392b" stroke-width="2" marker-end="url(#arr-danger)" stroke-dasharray="4,2"/>
+
+          <rect x="160" y="195" width="400" height="80" rx="8" fill="#1e1a1a" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,3" filter="url(#anom-sh)"/>
+          <text x="360" y="222" fill="#c0392b" font-size="14" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">⚠️ 收容失效 = 所有怪物一起跑出来</text>
+          <text x="360" y="244" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">触发条件：停电 · 太阳耀斑 · 逃脱风险积累过高</text>
+          <text x="360" y="264" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">应对：独立电网+备用电池+灭火器+专人看守</text>
+
+          <!-- Safety section -->
+          <text x="360" y="310" fill="#4a9" font-size="11" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">✅ 安全收容黄金法则：独立建筑 + 独立电网 + 灭火器 + 备用电池</text>
+        </svg>
+        <figcaption>▲ 收容系统三阶段：击败→装入→研究。核心风险是收容失效——事故往往比你想象的来得快。</figcaption>
+      </figure>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">👹</span> 异象生物一览</h3>
+      <table>
+        <tr><th>生物</th><th>特点</th><th>威胁等级</th><th>打法</th></tr>
+        <tr><td><strong>血肉兽(Fleshbeast)</strong></td><td>近战群攻，数量多，死后分裂</td><td>⭐⭐</td><td>范围武器(喷火器/手雷)，别近战</td></tr>
+        <tr><td><strong>食尸鬼(Ghoul)</strong></td><td>高速近战+再生，怕火</td><td>⭐⭐⭐</td><td>火焰武器+风筝</td></tr>
+        <tr><td><strong>复制体(Mimic)</strong></td><td>伪装成你的小人，突然反水</td><td>⭐⭐⭐</td><td>看心情条异常的小人，提前隔离</td></tr>
+        <tr><td><strong>巨口(Devourer)</strong></td><td>一口吞掉一个满血小人</td><td>⭐⭐⭐⭐</td><td>远程风筝，别让它近身</td></tr>
+        <tr><td><strong>黯黑神体(Nociosphere)</strong></td><td>巨大的漂浮球体，范围精神伤害</td><td>⭐⭐⭐⭐⭐</td><td>全殖民地集火，别省子弹</td></tr>
+        <tr><td><strong>扭曲血肉(Shambler)</strong></td><td>走路慢但打不死，不停地复活</td><td>⭐⭐⭐</td><td>火化尸体=彻底消灭</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🧪</span> 黑暗科技与仪式</h3>
+      <ul>
+        <li>研究异象科技可以解锁黑暗仪式和禁忌科技</li>
+        <li>虚空电池(Void Battery)：异象版蓄电池，容量极大且不爆炸</li>
+        <li>血肉塑造(Flreshcrafting)：用肉体重塑生物——植入血肉触手、骨刺武器</li>
+        <li>时间操纵(Timeskip)：让一个小人短暂加速或减速时间</li>
+        <li>召唤仪式：主动召唤异象生物来袭击别人——报复邻居的阴招</li>
+        <li>血契(Blood Pact)：牺牲一个生物换取巨大力量</li>
+        <li>这些科技很强但有代价——可能引起意想不到的后果</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">⚠️</span> 新手应对异象指南</h3>
+      <ul>
+        <li>别急着研究巨石——先确保基地防御到位再说</li>
+        <li>关掉"异象事件"选项（在开局时可以调）如果你是第一次玩</li>
+        <li>收容设施放在独立建筑+独立电网+灭火器旁边</li>
+        <li>异象生物免疫常规武器的概率很高——研究穿甲弹药或用电荷系列武器</li>
+        <li>精神防护装备很重要——铝箔帽(Tinfoil Hat)可以防止精神控制</li>
+        <li>如果你不想碰这个DLC的内容：完全不研究巨石就行，当成它不存在</li>
+        <li>第一次遇到新怪物=别慌，暂停游戏观察它的攻击模式再制定策略</li>
+      </ul>
+      <div class="tip good"><strong>✅</strong> 异象DLC适合已经玩腻了原版的老玩家。如果你还在学怎么活过第一个冬天——先把这个DLC关了，学会了再来。</div>
+    </div>
+  </section>
+
+  <nav class="page-nav">
+    <a href="rimworld-guide-dlc-biotech.html" class="prev">
+      <span><span class="nav-label">上一页</span>🧬 生物科技</span>
+    </a>
+    <span></span>
+  </nav>
+
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    if (card.textContent.toLowerCase().includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+})();
+
+  // Back to top
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>

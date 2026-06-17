@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>动物与畜牧 | RimWorld 攻略站</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #1a1a1f;
+    --bg-card: #24242b;
+    --bg-sidebar: #1e1e24;
+    --border: #333340;
+    --text: #c8c8d0;
+    --text-muted: #888896;
+    --accent: #d4956b;
+    --accent-dim: #a07050;
+    --red: #c0392b;
+    --green: #4a9;
+    --blue: #5a9fd4;
+    --yellow: #d4b65a;
+    --radius: 6px;
+    --transition: 0.2s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+  nav.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+  .sidebar-logo h1 { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
+  .sidebar-logo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+  .nav-section { padding: 8px 20px 4px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-top: 8px; }
+  .nav-item { display: block; padding: 8px 20px; color: var(--text); text-decoration: none; font-size: 0.9rem; border-left: 3px solid transparent; transition: var(--transition); }
+  .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
+  .nav-item.active { border-left-color: var(--accent); background: rgba(212,149,107,0.08); color: var(--accent); }
+  .nav-item .icon { margin-right: 8px; }
+  .nav-badge { float: right; font-size: 0.65rem; background: var(--accent-dim); color: #fff; padding: 1px 6px; border-radius: 10px; margin-top: 2px; }
+  .nav-footer { margin-top: auto; padding: 16px 20px 0; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--text-muted); }
+  .nav-feedback { color: var(--accent-dim); text-decoration: none; transition: color var(--transition); }
+  .nav-feedback:hover { color: var(--accent); }
+
+  .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
+  .sidebar-overlay { display: none; }
+
+  main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
+
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 1.3rem; color: #fff; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; }
+  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .card h3 .emoji { font-size: 1.2rem; }
+  .card p, .card li { font-size: 0.92rem; color: var(--text); }
+  .card ul { padding-left: 20px; }
+  .card li { margin-bottom: 6px; }
+
+  .tip { background: rgba(90,159,212,0.1); border-left: 3px solid var(--blue); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; margin: 12px 0; font-size: 0.88rem; }
+  .tip.warn { background: rgba(192,57,43,0.1); border-left-color: var(--red); }
+  .tip.good { background: rgba(68,170,153,0.1); border-left-color: var(--green); }
+  .key { background: #333; color: var(--accent); padding: 1px 6px; border-radius: 3px; font-size: 0.85rem; font-family: "Cascadia Code", "Fira Code", monospace; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+  .tag-p0 { background: var(--red); color: #fff; }
+  .tag-p1 { background: var(--yellow); color: #1a1a1f; }
+  .tag-p2 { background: var(--text-muted); color: #fff; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .search-wrap { position: relative; margin-bottom: 32px; }
+  .search-wrap input { width: 100%; padding: 12px 16px 12px 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.95rem; font-family: inherit; transition: var(--transition); }
+  .search-wrap input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(212,149,107,0.15); }
+  .search-wrap input::placeholder { color: var(--text-muted); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--text-muted); pointer-events: none; }
+  .search-clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem; padding: 4px 8px; border-radius: 3px; display: none; }
+  .search-clear:hover { color: var(--text); background: var(--border); }
+  .search-clear.visible { display: block; }
+  .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 1rem; }
+  .no-results.visible { display: block; }
+  .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+  .card.hidden, .section-title.hidden { display: none; }
+  .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
+  /* ========== Guide Diagrams ========== */
+  .guide-diagram { margin: 20px 0 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .guide-diagram svg { display: block; width: 100%; height: auto; }
+  .guide-diagram figcaption { padding: 10px 16px; font-size: 0.82rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border); background: rgba(0,0,0,0.15); }
+  body.light .guide-diagram figcaption { background: rgba(0,0,0,0.03); }
+
+  .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle .toggle-thumb { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background var(--transition); }
+  .theme-toggle .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
+  body.light .toggle-thumb { background: var(--accent); }
+  body.light .toggle-thumb::after { transform: translateX(16px); }
+
+  body.light { --bg: #f4f4f6; --bg-card: #ffffff; --bg-sidebar: #f0f0f3; --border: #d8d8de; --text: #3a3a44; --text-muted: #888896; --accent: #b87050; --accent-dim: #8a5040; }
+  body.light .tip { background: rgba(90,159,212,0.08); }
+  body.light .tip.warn { background: rgba(192,57,43,0.06); }
+  body.light .tip.good { background: rgba(68,170,153,0.06); }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    nav.sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100vh; transition: left var(--transition); }
+    nav.sidebar.open { left: 0; }
+    .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9; }
+    .sidebar-overlay.open { display: block; }
+    .mobile-nav-toggle { display: block; }
+    main { padding: 60px 16px 32px; }
+    .card { padding: 16px; }
+  }
+  @media print { nav.sidebar, .mobile-nav-toggle { display: none; } main { max-width: 100%; padding: 0; } body { background: #fff; color: #000; } }
+  /* ========== Page Navigation ========== */
+  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .page-nav a { display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+  .page-nav a:hover { border-color: var(--accent); color: var(--accent); }
+  .page-nav .prev::before { content: '← '; }
+  .page-nav .next::after { content: ' →'; }
+  .page-nav .nav-label { font-size: 0.72rem; color: var(--text-muted); display: block; }
+  /* ========== Back to Top ========== */
+  .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); z-index: 50; color: var(--text); }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld 攻略站</h1>
+    <p>从活下去，到活得好</p>
+  </div>
+
+  <div class="nav-section">导航</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+
+  <div class="nav-section">新手必备</div>
+  <a href="rimworld-guide-getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+  </a>
+  <a href="rimworld-guide-base-building.html" class="nav-item">
+    <span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+  </a>
+
+  <div class="nav-section">进阶内容</div>
+  <a href="rimworld-guide-combat.html" class="nav-item"><span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span></a>
+
+  <div class="nav-section">DLC 内容</div>
+  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">扩展</div>
+  <a href="rimworld-guide-animals.html" class="nav-item active">
+    <span class="icon">🐄</span> 动物与畜牧 <span class="nav-badge">P2</span>
+  </a>
+  <a href="rimworld-guide-mods.html" class="nav-item"><span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-biomes.html" class="nav-item"><span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span></a>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+    <span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer">MVP v0.2 · 持续更新中 · <a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a><br>内容基于 RimWorld 1.4 + 全DLC</div>
+</nav>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">攻略总览</a> / 动物与畜牧</div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+  </div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+
+  <section class="section" id="animals">
+    <h2 class="section-title">🐄 动物与畜牧</h2>
+
+    <div class="card">
+      <h3><span class="emoji">🎯</span> 驯服优先级——哪些动物值得养</h3>
+      <table>
+        <tr><th>动物</th><th>用途</th><th>食物需求</th><th>推荐度</th></tr>
+        <tr><td><strong>拉布拉多犬/哈士奇</strong></td><td>搬运</td><td>杂食（吃剩饭）</td><td>⭐⭐⭐⭐⭐ 搬运首选</td></tr>
+        <tr><td><strong>马/驴</strong></td><td>驮运+骑乘</td><td>草食（放牧）</td><td>⭐⭐⭐⭐⭐ 商队必备</td></tr>
+        <tr><td><strong>奶牛/牦牛</strong></td><td>产奶</td><td>草食</td><td>⭐⭐⭐⭐ 稳定食物来源</td></tr>
+        <tr><td><strong>鸡/鸭</strong></td><td>产蛋</td><td>草食（吃草）</td><td>⭐⭐⭐⭐ 蛋=肉食来源</td></tr>
+        <tr><td><strong>羊驼/绵羊</strong></td><td>产毛</td><td>草食</td><td>⭐⭐⭐ 毛=收入+保暖材料</td></tr>
+        <tr><td><strong>熊/巨型树懒</strong></td><td>战斗+搬运</td><td>杂食（吃得多）</td><td>⭐⭐⭐ 能打能搬但吃得多</td></tr>
+        <tr><td><strong>爆炸鼠</strong></td><td>自杀式防御</td><td>杂食</td><td>⭐⭐ 移动炸弹（会误伤）</td></tr>
+      </table>
+      <div class="tip"><strong>💡 建议：</strong>草食动物可以放牧（划一片草地区域），杂食/肉食动物需要喂食——养太多肉食动物会吃垮你的存粮。</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🐕</span> 训练与工作——让动物干活</h3>
+      <table>
+        <tr><th>训练项目</th><th>需要技能</th><th>效果</th><th>优先级</th></tr>
+        <tr><td><strong>顺从 (Tameness)</strong></td><td>驯兽 0</td><td>基本驯服，可牵绳</td><td>入门</td></tr>
+        <tr><td><strong>护卫 (Guard)</strong></td><td>驯兽 3</td><td>跟随驯兽师战斗</td><td>⭐⭐</td></tr>
+        <tr><td><strong>攻击 (Attack)</strong></td><td>驯兽 5</td><td>主动攻击敌人</td><td>⭐⭐⭐</td></tr>
+        <tr><td><strong>救援 (Rescue)</strong></td><td>驯兽 7</td><td>拖走倒地小人到床上</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td><strong>搬运 (Haul)</strong></td><td>驯兽 8</td><td>自动搬东西到储存区</td><td>⭐⭐⭐⭐⭐ 游戏改变者</td></tr>
+      </table>
+      <div class="tip good"><strong>✅ 关键认知：</strong>搬运是动物最有价值的技能——一群哈士奇=免费的24小时搬运工。比人造搬运机器人便宜多了。</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">📦</span> 饲养管理——圈养 vs 放养</h3>
+      <ul>
+        <li><strong>圈养动物（鸡/牛/羊驼）：</strong>划围栏区域 → 放饲料或种蒲公英→ 定期屠宰控制数量</li>
+        <li><strong>搬运动物（狗/狼）：</strong>划活动区覆盖基地+冷库→ 它们自己会找吃的（别让它们进你的精致餐库存！）</li>
+        <li><strong>战斗动物（熊/豹/巨型树懒）：</strong>活动区限制在基地外围→ 敌人来了自动迎击</li>
+        <li><strong>划动物禁区：</strong>厨房、医院、餐厅——动物会掉毛掉脏</li>
+        <li><strong>自动屠宰：</strong>在动物面板设置"自动屠宰"，超过指定数量自动杀——控制存栏量</li>
+      </ul>
+      <figure class="guide-diagram">
+        <svg viewBox="0 0 720 440" xmlns="http://www.w3.org/2000/svg" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+          <defs>
+            <pattern id="straw" patternUnits="userSpaceOnUse" width="10" height="10">
+              <rect width="10" height="10" fill="#b89a5a" opacity="0.12"/>
+              <line x1="0" y1="5" x2="10" y2="5" stroke="#b89a5a" stroke-width="0.5" opacity="0.25"/>
+              <line x1="5" y1="0" x2="5" y2="10" stroke="#b89a5a" stroke-width="0.5" opacity="0.25"/>
+            </pattern>
+            <pattern id="grazing" patternUnits="userSpaceOnUse" width="14" height="14">
+              <rect width="14" height="14" fill="#2d5a2d" opacity="0.2"/>
+              <circle cx="7" cy="7" r="2" fill="#4a9" opacity="0.3"/>
+            </pattern>
+            <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#5a9fd4"/>
+            </marker>
+          </defs>
+
+          <!-- Background -->
+          <rect width="720" height="440" fill="#1a1a1f"/>
+
+          <!-- Divider between left and right -->
+          <line x1="350" y1="10" x2="350" y2="300" stroke="#333340" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+
+          <!-- ==================== LEFT SECTION: Pen ==================== -->
+          <g id="pen-area">
+            <text x="175" y="24" fill="#5a9fd4" font-size="13" font-weight="bold" text-anchor="middle">圈养区 — 草食动物自己吃草</text>
+            <rect x="15" y="38" width="320" height="195" rx="4" fill="none" stroke="#5a9fd4" stroke-width="2"/>
+            <g fill="#5a9fd4" opacity="0.4">
+              <circle cx="15" cy="38" r="3"/><circle cx="95" cy="38" r="3"/><circle cx="175" cy="38" r="3"/>
+              <circle cx="255" cy="38" r="3"/><circle cx="335" cy="38" r="3"/>
+              <circle cx="335" cy="95" r="3"/><circle cx="335" cy="152" r="3"/><circle cx="335" cy="209" r="3"/>
+              <circle cx="15" cy="95" r="3"/><circle cx="15" cy="152" r="3"/><circle cx="15" cy="209" r="3"/>
+              <circle cx="95" cy="233" r="3"/><circle cx="175" cy="233" r="3"/><circle cx="255" cy="233" r="3"/>
+            </g>
+            <rect x="260" y="54" width="68" height="38" rx="3" fill="#333340" stroke="#d4956b" stroke-width="1.5"/>
+            <polygon points="258,54 294,36 330,54" fill="#d4956b" opacity="0.25" stroke="#d4956b" stroke-width="1"/>
+            <text x="294" y="78" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">畜棚</text>
+            <rect x="226" y="104" width="26" height="18" rx="2" fill="#c8c8d0" stroke="#888896" stroke-width="1"/>
+            <text x="239" y="117" fill="#2a2a30" font-size="10" font-weight="bold" text-anchor="middle">蛋箱</text>
+            <rect x="30" y="74" width="100" height="24" rx="3" fill="#3a3a44" stroke="#d4956b" stroke-width="1.5"/>
+            <line x1="35" y1="86" x2="125" y2="86" stroke="#55555f" stroke-width="1"/>
+            <text x="80" y="83" fill="#d4956b" font-size="10" text-anchor="middle">饲料槽</text>
+            <rect x="145" y="155" width="130" height="58" rx="2" fill="url(#straw)" stroke="#b89a5a" stroke-width="1" stroke-opacity="0.5"/>
+            <text x="210" y="190" fill="#b89a5a" font-size="9" text-anchor="middle" opacity="0.9">干草地板</text>
+            <rect x="30" y="148" width="105" height="60" rx="2" fill="url(#grazing)" stroke="#4a9" stroke-width="1" stroke-opacity="0.5"/>
+            <text x="82" y="169" fill="#4a9" font-size="9" text-anchor="middle">蒲公英</text>
+            <text x="82" y="184" fill="#4a9" font-size="9" text-anchor="middle">牧草种植</text>
+            <text x="55" y="126" font-size="20">🐄</text>
+            <text x="90" y="135" font-size="16">🐄</text>
+            <text x="148" y="55" font-size="16">🐔</text>
+            <text x="172" y="50" font-size="12">🐔</text>
+            <text x="130" y="115" font-size="18">🐑</text>
+            <text x="165" y="125" font-size="14">🐑</text>
+          </g>
+
+          <!-- ==================== RIGHT SECTION: Free-range ==================== -->
+          <g id="free-range-area">
+            <text x="535" y="24" fill="#4a9" font-size="13" font-weight="bold" text-anchor="middle">放养区 — 搬运/战斗动物自由活动</text>
+            <rect x="365" y="38" width="340" height="195" rx="4" fill="#2d5a2d" opacity="0.08" stroke="#4a9" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+            <!-- Base building -->
+            <rect x="375" y="50" width="88" height="118" rx="3" fill="#24242b" stroke="#c8c8d0" stroke-width="1.5"/>
+            <text x="419" y="68" fill="#ddd" font-size="10" text-anchor="middle" font-weight="bold">基地</text>
+            <rect x="380" y="76" width="78" height="24" rx="2" fill="#2a2a30" stroke="#444" stroke-width="1"/>
+            <text x="419" y="93" fill="#ddd" font-size="10" text-anchor="middle">厨房</text>
+            <rect x="380" y="104" width="78" height="24" rx="2" fill="#2a2a30" stroke="#444" stroke-width="1"/>
+            <text x="419" y="121" fill="#ddd" font-size="10" text-anchor="middle">医院</text>
+            <rect x="380" y="132" width="78" height="22" rx="2" fill="#2a2a30" stroke="#444" stroke-width="1"/>
+            <text x="419" y="147" fill="#888" font-size="9" text-anchor="middle">走廊/入口</text>
+            <!-- Exit arrow -->
+            <rect x="461" y="142" width="5" height="18" rx="2" fill="#4a9"/>
+
+            <!-- Forbidden zone — red border around kitchen+hospital, NO fill, NO hatching -->
+            <rect x="378" y="74" width="82" height="56" rx="3" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="6 3"/>
+            <!-- Warning label positioned OUTSIDE the building, to the right -->
+            <text x="478" y="103" fill="#c0392b" font-size="10" font-weight="bold" font-family="sans-serif">动物禁止进入</text>
+            <text x="478" y="117" fill="#c0392b" font-size="8" font-family="sans-serif">（划为禁区）</text>
+
+            <!-- Arrow to storage -->
+            <line x1="490" y1="58" x2="690" y2="58" stroke="#5a9fd4" stroke-width="2" marker-end="url(#arrowBlue)"/>
+            <text x="590" y="49" fill="#5a9fd4" font-size="9" text-anchor="middle">冷库 / 仓库</text>
+
+            <!-- Animal sleeping spots -->
+            <rect x="478" y="175" width="24" height="14" rx="7" fill="#3a3528" stroke="#d4b65a" stroke-width="1"/>
+            <text x="490" y="185" fill="#d4b65a" font-size="8" text-anchor="middle">睡点</text>
+            <rect x="510" y="182" width="24" height="14" rx="7" fill="#3a3528" stroke="#d4b65a" stroke-width="1"/>
+            <text x="522" y="192" fill="#d4b65a" font-size="8" text-anchor="middle">睡点</text>
+            <text x="500" y="210" fill="#d4b65a" font-size="9" text-anchor="middle">动物睡眠点</text>
+
+            <!-- Storage zone (animals allowed) -->
+            <rect x="580" y="72" width="115" height="24" rx="3" fill="#24242b" stroke="#4a9" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <text x="637" y="88" fill="#4a9" font-size="10" text-anchor="middle">储存区 可进</text>
+
+            <!-- Dogs -->
+            <text x="495" y="160" font-size="20">🐕</text>
+            <text x="540" y="168" font-size="16">🐕</text>
+            <text x="565" y="152" font-size="14">🐕</text>
+          </g>
+
+          <!-- ==================== LEGEND ==================== -->
+          <g id="legend">
+            <rect x="15" y="250" width="690" height="36" rx="4" fill="#24242b" stroke="#333340" stroke-width="1"/>
+            <rect x="28" y="259" width="16" height="16" rx="2" fill="none" stroke="#5a9fd4" stroke-width="1.5"/>
+            <text x="50" y="272" fill="#c8c8d0" font-size="10">圈养区</text>
+            <rect x="130" y="259" width="16" height="16" rx="2" fill="#2d5a2d" opacity="0.3" stroke="#4a9" stroke-width="1.5" stroke-dasharray="4 2"/>
+            <text x="152" y="272" fill="#c8c8d0" font-size="10">放养活动区</text>
+            <rect x="250" y="259" width="16" height="16" rx="2" fill="#c0392b" opacity="0.2" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="272" y="272" fill="#c8c8d0" font-size="10">禁区</text>
+            <rect x="330" y="259" width="16" height="16" rx="2" fill="#333340" stroke="#d4956b" stroke-width="1.5"/>
+            <text x="352" y="272" fill="#c8c8d0" font-size="10">畜棚 / 设施</text>
+            <rect x="440" y="259" width="16" height="16" rx="2" fill="#24242b" stroke="#5a9fd4" stroke-width="1" stroke-dasharray="3 2"/>
+            <text x="462" y="272" fill="#c8c8d0" font-size="10">储存 / 仓库</text>
+          </g>
+        </svg>
+        <figcaption>▲ 左边圈养产奶产蛋，右边放养干活。记住：厨房和医院一定划动物禁区。</figcaption>
+      </figure>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">⚠️</span> 常见翻车与技巧</h3>
+      <ul>
+        <li>不要养爆炸鼠当宠物——一发流弹打中直接炸连锁</li>
+        <li>动物多了=财富值暴涨=袭击更难→ 别舍不得宰</li>
+        <li>绑定的动物死了=主人掉心情-8，持续很久→ 绑定的动物别派去前线</li>
+        <li>冬天没草=草食动物饿死→ 提前存干草或种蒲公英在室内</li>
+        <li>驯兽失败会激怒动物→ 驯高级动物前先存档</li>
+        <li>动物怀孕/下蛋/产奶都跟健康度和饱食度挂钩→ 吃饱才产出</li>
+      </ul>
+      <div class="tip warn"><strong>⚠️ 注意：</strong>动物也会得病（瘟疫/流感），瘟疫不治会传染全圈。准备好兽医药，染病就隔离。</div>
+    </div>
+  </section>
+
+  <nav class="page-nav">
+    <a href="rimworld-guide-biomes.html" class="prev">
+      <span><span class="nav-label">上一页</span>🌍 生态与地形</span>
+    </a>
+    <a href="rimworld-guide-trade.html" class="next">
+      <span><span class="nav-label">下一页</span>💰 贸易与经济</span>
+    </a>
+  </nav>
+
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    if (card.textContent.toLowerCase().includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+})();
+
+  // Back to top
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>

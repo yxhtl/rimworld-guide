@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RimWorld 攻略站 | 从活下去到活得好</title>
+<style>
+  /* ========== Reset & Base ========== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #1a1a1f;
+    --bg-card: #24242b;
+    --bg-sidebar: #1e1e24;
+    --border: #333340;
+    --text: #c8c8d0;
+    --text-muted: #888896;
+    --accent: #d4956b;
+    --accent-dim: #a07050;
+    --red: #c0392b;
+    --green: #4a9;
+    --blue: #5a9fd4;
+    --yellow: #d4b65a;
+    --radius: 6px;
+    --transition: 0.2s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ========== Sidebar ========== */
+  nav.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  .sidebar-logo {
+    padding: 0 20px 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+  .sidebar-logo h1 {
+    font-size: 1.3rem;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+  }
+  .sidebar-logo p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .nav-section {
+    padding: 8px 20px 4px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-top: 8px;
+  }
+  .nav-item {
+    display: block;
+    padding: 8px 20px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 3px solid transparent;
+    transition: var(--transition);
+  }
+  .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
+  .nav-item.active {
+    border-left-color: var(--accent);
+    background: rgba(212,149,107,0.08);
+    color: var(--accent);
+  }
+  .nav-item .icon { margin-right: 8px; }
+  .nav-badge {
+    float: right;
+    font-size: 0.65rem;
+    background: var(--accent-dim);
+    color: #fff;
+    padding: 1px 6px;
+    border-radius: 10px;
+    margin-top: 2px;
+  }
+  .nav-footer {
+    margin-top: auto;
+    padding: 16px 20px 0;
+    border-top: 1px solid var(--border);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  /* ========== Mobile Nav Toggle ========== */
+  .mobile-nav-toggle {
+    display: none;
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 100;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  .sidebar-overlay { display: none; }
+
+  /* ========== Main Content ========== */
+  main {
+    flex: 1;
+    max-width: 900px;
+    padding: 40px 48px;
+    overflow-y: auto;
+  }
+
+  /* Hero */
+  .hero {
+    margin-bottom: 40px;
+    padding: 32px;
+    background: linear-gradient(135deg, #2a2a35 0%, #24242b 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  .hero h2 { font-size: 1.8rem; color: #fff; margin-bottom: 8px; }
+  .hero p { color: var(--text-muted); font-size: 0.95rem; max-width: 600px; }
+
+  /* Section Cards */
+  .section {
+    margin-bottom: 48px;
+    scroll-margin-top: 24px;
+  }
+  .section-title {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .card h3 {
+    font-size: 1.05rem;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h3 .emoji { font-size: 1.2rem; }
+  .card p, .card li { font-size: 0.92rem; color: var(--text); }
+  .card ul { padding-left: 20px; }
+  .card li { margin-bottom: 6px; }
+
+  /* Tip Box */
+  .tip {
+    background: rgba(90,159,212,0.1);
+    border-left: 3px solid var(--blue);
+    padding: 12px 16px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 12px 0;
+    font-size: 0.88rem;
+  }
+  .tip.warn {
+    background: rgba(192,57,43,0.1);
+    border-left-color: var(--red);
+  }
+  .tip.good {
+    background: rgba(68,170,153,0.1);
+    border-left-color: var(--green);
+  }
+
+  /* Inline Code / Key */
+  .key {
+    background: #333;
+    color: var(--accent);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    font-family: "Cascadia Code", "Fira Code", monospace;
+  }
+
+  /* Priority Tag */
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .tag-p0 { background: var(--red); color: #fff; }
+  .tag-p1 { background: var(--yellow); color: #1a1a1f; }
+  .tag-p2 { background: var(--text-muted); color: #fff; }
+
+  /* Coming Soon Placeholder */
+  .placeholder {
+    background: var(--bg-card);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 48px 24px;
+    text-align: center;
+    color: var(--text-muted);
+  }
+  .placeholder .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.9rem;
+  }
+  th, td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* ========== Responsive ========== */
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    nav.sidebar {
+      position: fixed;
+      left: -280px;
+      top: 0;
+      width: 280px;
+      height: 100vh;
+      transition: left var(--transition);
+    }
+    nav.sidebar.open { left: 0; }
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 9;
+    }
+    .sidebar-overlay.open { display: block; }
+    .mobile-nav-toggle { display: block; }
+    main { padding: 60px 16px 32px; }
+    .hero { padding: 20px; }
+    .hero h2 { font-size: 1.4rem; }
+    .card { padding: 16px; }
+  }
+
+  /* ========== Search ========== */
+  .search-wrap {
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .search-wrap input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: var(--transition);
+  }
+  .search-wrap input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(212,149,107,0.15);
+  }
+  .search-wrap input::placeholder { color: var(--text-muted); }
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+  .search-clear {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 4px 8px;
+    border-radius: 3px;
+    display: none;
+  }
+  .search-clear:hover { color: var(--text); background: var(--border); }
+  .search-clear.visible { display: block; }
+
+  .no-results {
+    display: none;
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+  .no-results.visible { display: block; }
+  .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+
+  .card.hidden, .section-title.hidden { display: none; }
+
+  /* Highlight match */
+  .search-highlight {
+    background: var(--yellow);
+    color: #1a1a1f;
+    padding: 0 2px;
+    border-radius: 2px;
+  }
+
+  /* ========== Theme Toggle ========== */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    margin: 0 12px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text);
+    font-family: inherit;
+    transition: var(--transition);
+  }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle .toggle-thumb {
+    width: 36px;
+    height: 20px;
+    background: var(--border);
+    border-radius: 10px;
+    position: relative;
+    transition: background var(--transition);
+  }
+  .theme-toggle .toggle-thumb::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform var(--transition);
+  }
+  body.light .toggle-thumb {
+    background: var(--accent);
+  }
+  body.light .toggle-thumb::after {
+    transform: translateX(16px);
+  }
+
+  /* ========== Light Theme ========== */
+  body.light {
+    --bg: #f4f4f6;
+    --bg-card: #ffffff;
+    --bg-sidebar: #f0f0f3;
+    --border: #d8d8de;
+    --text: #3a3a44;
+    --text-muted: #888896;
+    --accent: #b87050;
+    --accent-dim: #8a5040;
+  }
+  body.light .hero {
+    background: linear-gradient(135deg, #e8e8ed 0%, #f0f0f3 100%);
+  }
+  body.light .tip {
+    background: rgba(90,159,212,0.08);
+  }
+  body.light .tip.warn {
+    background: rgba(192,57,43,0.06);
+  }
+  body.light .tip.good {
+    background: rgba(68,170,153,0.06);
+  }
+
+  /* ========== Print ========== */
+  @media print {
+    nav.sidebar, .mobile-nav-toggle { display: none; }
+    main { max-width: 100%; padding: 0; }
+    body { background: #fff; color: #000; }
+  }
+  /* ========== Page Navigation ========== */
+  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .page-nav a { display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+  .page-nav a:hover { border-color: var(--accent); color: var(--accent); }
+  .page-nav .prev::before { content: '← '; }
+  .page-nav .next::after { content: ' →'; }
+  .page-nav .nav-label { font-size: 0.72rem; color: var(--text-muted); display: block; }
+  /* ========== Back to Top ========== */
+  .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); z-index: 50; color: var(--text); }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- Mobile Toggle -->
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<!-- ========== Sidebar ========== -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld 攻略站</h1>
+    <p>从活下去，到活得好</p>
+  </div>
+
+  <div class="nav-section">导航</div>
+  <a href="index.html" class="nav-item active">
+    <span class="icon">🏠</span> 攻略总览
+  </a>
+
+  <div class="nav-section">新手必备</div>
+  <a href="rimworld-guide-getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+  </a>
+  <a href="rimworld-guide-base-building.html" class="nav-item">
+    <span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+  </a>
+
+  <div class="nav-section">进阶内容</div>
+  <a href="rimworld-guide-combat.html" class="nav-item">
+    <span class="icon">⚔️</span> 战斗与防御
+    <span class="nav-badge">P1</span>
+  </a>
+  <a href="rimworld-guide-pawns.html" class="nav-item">
+    <span class="icon">🧑‍🌾</span> 小人管理
+    <span class="nav-badge">P1</span>
+  </a>
+  <a href="rimworld-guide-research.html" class="nav-item">
+    <span class="icon">🔬</span> 科技研究路线
+    <span class="nav-badge">P2</span>
+  </a>
+
+  <div class="nav-section">DLC 内容</div>
+  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">扩展</div>
+  <a href="rimworld-guide-mods.html" class="nav-item">
+    <span class="icon">🧩</span> Mod 推荐
+    <span class="nav-badge">P2</span>
+  </a>
+  <a href="rimworld-guide-biomes.html" class="nav-item">
+    <span class="icon">🌍</span> 生态与地形
+    <span class="nav-badge">P2</span>
+  </a>
+  <a href="rimworld-guide-animals.html" class="nav-item">
+    <span class="icon">🐄</span> 动物与畜牧
+    <span class="nav-badge">P2</span>
+  </a>
+  <a href="rimworld-guide-trade.html" class="nav-item">
+    <span class="icon">💰</span> 贸易与经济
+    <span class="nav-badge">P2</span>
+  </a>
+  <a href="rimworld-guide-crafting.html" class="nav-item">
+    <span class="icon">⚗️</span> 制造与生产
+    <span class="nav-badge">P2</span>
+  </a>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+    <span id="theme-icon">🌙</span>
+    <span id="theme-label">暗色模式</span>
+    <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer">
+    MVP v0.2 · 持续更新中<br>
+    内容基于 RimWorld 1.4 + 全DLC
+  </div>
+</nav>
+
+<!-- ========== Main Content ========== -->
+<main>
+
+  <!-- ====== Hero ====== -->
+  <div class="hero">
+    <h2>🎯 边缘世界生存手册</h2>
+    <p>
+      刚落地不知道干嘛？基地总被 raids 推平？小人心情崩了互相打架？
+      <br>这份攻略从零开始，告诉你每一步该做什么、为什么、以及优先级。
+    </p>
+  </div>
+
+  <!-- Search -->
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="搜索攻略内容…（如：冷库、陷阱、特性、武器）" oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+  </div>
+  <div class="no-results" id="no-results">
+    <span class="icon">🔍</span>
+    <p>没有找到匹配的内容，试试换个关键词？</p>
+  </div>
+
+  <!-- ====== Overview Grid ====== -->
+  <div class="section">
+    <h2 class="section-title">📚 攻略目录</h2>
+
+    <!-- P0 -->
+    <a href="rimworld-guide-getting-started.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--red)">
+        <h3><span class="emoji">🚀</span> 开局生存指南 <span class="tag tag-p0" style="margin-left:8px">P0</span></h3>
+        <p>选人避雷 · 落地地形 · 前3天行动清单 · 第一周站稳脚 · 核心循环"吃→住→防→研究"</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 4 张卡片 · 阅读约 6 分钟 →</p>
+      </div>
+    </a>
+
+    <a href="rimworld-guide-base-building.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--red)">
+        <h3><span class="emoji">🏠</span> 基地建设攻略 <span class="tag tag-p0" style="margin-left:8px">P0</span></h3>
+        <p>7种房间布局参数表 · 冷库双墙气闸设计 · 电网规划 · 清洁与美观 · 石墙vs木墙</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 4 张卡片 · 阅读约 5 分钟 →</p>
+      </div>
+    </a>
+
+    <!-- P1 -->
+    <a href="rimworld-guide-combat.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--yellow)">
+        <h3><span class="emoji">⚔️</span> 战斗与防御 <span class="tag tag-p1" style="margin-left:8px">P1</span></h3>
+        <p>Killbox 设计 · 陷阱走廊 · 武器梯度表 · 护甲选择 · 6种袭击类型应对策略</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 张卡片 · 阅读约 8 分钟 →</p>
+      </div>
+    </a>
+
+    <a href="rimworld-guide-pawns.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--yellow)">
+        <h3><span class="emoji">🧑‍🌾</span> 小人管理 <span class="tag tag-p1" style="margin-left:8px">P1</span></h3>
+        <p>工作优先级黄金法则 · 心情系统速查 · 特性挑选指南 · 仿生体与植入物 · 日程安排</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 张卡片 · 阅读约 7 分钟 →</p>
+      </div>
+    </a>
+
+    <!-- P2 -->
+    <a href="rimworld-guide-research.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--blue)">
+        <h3><span class="emoji">🔬</span> 科技研究路线 <span class="tag tag-p2" style="margin-left:8px">P2</span></h3>
+        <p>标准开局研究顺序表 · 部落/探险家差异 · 9个关键科技节点 · 研究效率提升技巧</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 4 张卡片 · 阅读约 5 分钟 →</p>
+      </div>
+    </a>
+
+    <a href="rimworld-guide-mods.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--blue)">
+        <h3><span class="emoji">🧩</span> Mod 推荐 <span class="tag tag-p2" style="margin-left:8px">P2</span></h3>
+        <p>必装前置Mod · UI优化7选 · 功能扩展7选 · 内容扩展5选 · 10步加载顺序</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 张卡片 · 阅读约 6 分钟 →</p>
+      </div>
+    </a>
+
+    <a href="rimworld-guide-biomes.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--blue)">
+        <h3><span class="emoji">🌍</span> 生态与地形 <span class="tag tag-p2" style="margin-left:8px">P2</span></h3>
+        <p>10种生态难度榜 · 5种地形对比 · 7个隐藏选择因素 · 4种极端天气应对</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 4 张卡片 · 阅读约 6 分钟 →</p>
+      </div>
+    </a>
+
+    <a href="rimworld-guide-animals.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--blue)">
+        <h3><span class="emoji">🐄</span> 动物与畜牧 <span class="tag tag-p2" style="margin-left:8px">P2</span></h3>
+        <p>驯服优先级表 · 训练与工作 · 圈养vs放养 · 常见翻车与技巧</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 4 张卡片 · 阅读约 5 分钟 →</p>
+      </div>
+    </a>
+
+    <a href="rimworld-guide-trade.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--blue)">
+        <h3><span class="emoji">💰</span> 贸易与经济 <span class="tag tag-p2" style="margin-left:8px">P2</span></h3>
+        <p>轨道贸易 · 地面商队 · 财富值与袭击难度关系 · 交易技巧 · 空投仓物流</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 张卡片 · 阅读约 6 分钟 →</p>
+      </div>
+    </a>
+
+    <a href="rimworld-guide-crafting.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--blue)">
+        <h3><span class="emoji">⚗️</span> 制造与生产 <span class="tag tag-p2" style="margin-left:8px">P2</span></h3>
+        <p>核心生产链一览 · 装备制造材料学 · 药品生产线 · 雕塑印钞 · 效率技巧</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 张卡片 · 阅读约 7 分钟 →</p>
+      </div>
+    </a>
+
+    <!-- DLC -->
+    <a href="rimworld-guide-dlc-royalty.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid #c08040">
+        <h3><span class="emoji">👑</span> 皇权 DLC <span class="tag tag-p2" style="margin-left:8px">DLC</span></h3>
+        <p>帝国爵位系统 · 灵能超能力 · 皇家许可 · 新武器护甲 · 授勋仪式</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 张卡片 · 阅读约 6 分钟 →</p>
+      </div>
+    </a>
+
+    <a href="rimworld-guide-dlc-ideology.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid #c08040">
+        <h3><span class="emoji">💡</span> 文化 DLC <span class="tag tag-p2" style="margin-left:8px">DLC</span></h3>
+        <p>模因系统 · 戒律与心情 · 仪式庆典 · 角色系统 · 圣物朝圣</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 张卡片 · 阅读约 6 分钟 →</p>
+      </div>
+    </a>
+
+    <a href="rimworld-guide-dlc-biotech.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid #c08040">
+        <h3><span class="emoji">🧬</span> 生物科技 DLC <span class="tag tag-p2" style="margin-left:8px">DLC</span></h3>
+        <p>生育育儿 · 基因改造 · 机械师机械化 · 血族 · 污染管理</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 张卡片 · 阅读约 7 分钟 →</p>
+      </div>
+    </a>
+
+    <a href="rimworld-guide-dlc-anomaly.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid #c08040">
+        <h3><span class="emoji">🪱</span> 异象 DLC <span class="tag tag-p2" style="margin-left:8px">DLC</span></h3>
+        <p>巨石研究 · 收容系统 · 异象生物图鉴 · 黑暗科技 · 新手生存指南</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 张卡片 · 阅读约 6 分钟 →</p>
+      </div>
+    </a>
+  </div>
+
+  <nav class="page-nav">
+    <span></span>
+    <a href="rimworld-guide-getting-started.html" class="next">
+      <span><span class="nav-label">下一页</span>🚀 开局生存指南</span>
+    </a>
+  </nav>
+
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+</main>
+
+<!-- ========== Scripts ========== -->
+<script>
+  // ========== Sidebar ==========
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+    document.querySelector('.sidebar-overlay').classList.toggle('open');
+  }
+
+  function navigate(e, sectionId) {
+    e.preventDefault();
+    document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+    e.target.closest('.nav-item').classList.add('active');
+    const el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('sidebar').classList.remove('open');
+    document.querySelector('.sidebar-overlay').classList.remove('open');
+  }
+
+  // Highlight current section on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        document.querySelectorAll('.nav-item').forEach(el => {
+          el.classList.toggle('active', el.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+  // ========== Search ==========
+  function doSearch() {
+    const q = document.getElementById('search-input').value.trim().toLowerCase();
+    const clearBtn = document.getElementById('search-clear');
+    const noResults = document.getElementById('no-results');
+    const sections = document.querySelectorAll('.section');
+    const allCards = document.querySelectorAll('.card');
+    let totalVisible = 0;
+
+    // Show/hide clear button
+    clearBtn.classList.toggle('visible', q.length > 0);
+
+    if (!q) {
+      // Reset — show everything
+      allCards.forEach(c => { c.classList.remove('hidden'); });
+      sections.forEach(s => {
+        s.querySelector('.section-title').classList.remove('hidden');
+        // Remove highlights
+        s.querySelectorAll('.search-highlight').forEach(h => {
+          h.replaceWith(h.textContent);
+        });
+      });
+      noResults.classList.remove('visible');
+      return;
+    }
+
+    allCards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      const match = text.includes(q);
+
+      if (match) {
+        card.classList.remove('hidden');
+        totalVisible++;
+        // Highlight matching text
+        highlightInCard(card, q);
+      } else {
+        card.classList.add('hidden');
+        // Remove any old highlights
+        card.querySelectorAll('.search-highlight').forEach(h => {
+          h.replaceWith(h.textContent);
+        });
+      }
+    });
+
+    // Hide section titles with no visible cards
+    sections.forEach(section => {
+      const visibleCards = section.querySelectorAll('.card:not(.hidden)');
+      const title = section.querySelector('.section-title');
+      if (visibleCards.length === 0) {
+        title.classList.add('hidden');
+      } else {
+        title.classList.remove('hidden');
+      }
+    });
+
+    noResults.classList.toggle('visible', totalVisible === 0);
+  }
+
+  function highlightInCard(card, query) {
+    // Simple text node walker — only highlight in text nodes, not in inputs etc.
+    const walker = document.createTreeWalker(
+      card,
+      NodeFilter.SHOW_TEXT,
+      { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT }
+    );
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach(node => {
+      const parent = node.parentNode;
+      if (parent.classList.contains('search-highlight')) return; // already highlighted
+      const text = node.textContent;
+      const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+      const frag = document.createDocumentFragment();
+      let lastIdx = 0;
+      let match;
+      while ((match = regex.exec(text)) !== null) {
+        frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index)));
+        const mark = document.createElement('mark');
+        mark.className = 'search-highlight';
+        mark.textContent = match[0];
+        frag.appendChild(mark);
+        lastIdx = regex.lastIndex;
+      }
+      if (lastIdx > 0) {
+        frag.appendChild(document.createTextNode(text.slice(lastIdx)));
+        parent.replaceChild(frag, node);
+      }
+    });
+  }
+
+  function escapeRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+  function clearSearch() {
+    document.getElementById('search-input').value = '';
+    doSearch();
+    document.getElementById('search-input').focus();
+  }
+
+  // Keyboard shortcut: Ctrl+K / Cmd+K to focus search
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      document.getElementById('search-input').focus();
+    }
+    if (e.key === 'Escape') {
+      document.getElementById('search-input').blur();
+      clearSearch();
+    }
+  });
+
+  // ========== Theme Toggle ==========
+  function toggleTheme() {
+    const isLight = document.body.classList.toggle('light');
+    const icon = document.getElementById('theme-icon');
+    const label = document.getElementById('theme-label');
+    if (isLight) {
+      icon.textContent = '☀️';
+      label.textContent = '亮色模式';
+      localStorage.setItem('rimworld-theme', 'light');
+    } else {
+      icon.textContent = '🌙';
+      label.textContent = '暗色模式';
+      localStorage.setItem('rimworld-theme', 'dark');
+    }
+  }
+
+  // Load saved theme preference
+  (function loadTheme() {
+    const saved = localStorage.getItem('rimworld-theme');
+    if (saved === 'light') {
+      document.body.classList.add('light');
+      document.getElementById('theme-icon').textContent = '☀️';
+      document.getElementById('theme-label').textContent = '亮色模式';
+    }
+  })();
+
+  // Back to top
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+
+</body>
+</html>

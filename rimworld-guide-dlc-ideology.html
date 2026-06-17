@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文化 DLC 攻略 | RimWorld 攻略站</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #1a1a1f;
+    --bg-card: #24242b;
+    --bg-sidebar: #1e1e24;
+    --border: #333340;
+    --text: #c8c8d0;
+    --text-muted: #888896;
+    --accent: #d4956b;
+    --accent-dim: #a07050;
+    --red: #c0392b;
+    --green: #4a9;
+    --blue: #5a9fd4;
+    --yellow: #d4b65a;
+    --radius: 6px;
+    --transition: 0.2s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+  nav.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+  .sidebar-logo h1 { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
+  .sidebar-logo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+  .nav-section { padding: 8px 20px 4px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-top: 8px; }
+  .nav-item { display: block; padding: 8px 20px; color: var(--text); text-decoration: none; font-size: 0.9rem; border-left: 3px solid transparent; transition: var(--transition); }
+  .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
+  .nav-item.active { border-left-color: var(--accent); background: rgba(212,149,107,0.08); color: var(--accent); }
+  .nav-item .icon { margin-right: 8px; }
+  .nav-badge { float: right; font-size: 0.65rem; background: var(--accent-dim); color: #fff; padding: 1px 6px; border-radius: 10px; margin-top: 2px; }
+  .nav-footer { margin-top: auto; padding: 16px 20px 0; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--text-muted); }
+  .nav-feedback { color: var(--accent-dim); text-decoration: none; transition: color var(--transition); }
+  .nav-feedback:hover { color: var(--accent); }
+
+  .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
+  .sidebar-overlay { display: none; }
+
+  main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
+
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 1.3rem; color: #fff; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; }
+  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .card h3 .emoji { font-size: 1.2rem; }
+  .card p, .card li { font-size: 0.92rem; color: var(--text); }
+  .card ul { padding-left: 20px; }
+  .card li { margin-bottom: 6px; }
+
+  .tip { background: rgba(90,159,212,0.1); border-left: 3px solid var(--blue); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; margin: 12px 0; font-size: 0.88rem; }
+  .tip.warn { background: rgba(192,57,43,0.1); border-left-color: var(--red); }
+  .tip.good { background: rgba(68,170,153,0.1); border-left-color: var(--green); }
+  .key { background: #333; color: var(--accent); padding: 1px 6px; border-radius: 3px; font-size: 0.85rem; font-family: "Cascadia Code", "Fira Code", monospace; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+  .tag-p0 { background: var(--red); color: #fff; }
+  .tag-p1 { background: var(--yellow); color: #1a1a1f; }
+  .tag-p2 { background: var(--text-muted); color: #fff; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .search-wrap { position: relative; margin-bottom: 32px; }
+  .search-wrap input { width: 100%; padding: 12px 16px 12px 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.95rem; font-family: inherit; transition: var(--transition); }
+  .search-wrap input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(212,149,107,0.15); }
+  .search-wrap input::placeholder { color: var(--text-muted); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--text-muted); pointer-events: none; }
+  .search-clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem; padding: 4px 8px; border-radius: 3px; display: none; }
+  .search-clear:hover { color: var(--text); background: var(--border); }
+  .search-clear.visible { display: block; }
+  .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 1rem; }
+  .no-results.visible { display: block; }
+  .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+  .card.hidden, .section-title.hidden { display: none; }
+  .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
+
+  .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle .toggle-thumb { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background var(--transition); }
+  .theme-toggle .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
+  body.light .toggle-thumb { background: var(--accent); }
+  body.light .toggle-thumb::after { transform: translateX(16px); }
+
+  body.light { --bg: #f4f4f6; --bg-card: #ffffff; --bg-sidebar: #f0f0f3; --border: #d8d8de; --text: #3a3a44; --text-muted: #888896; --accent: #b87050; --accent-dim: #8a5040; }
+  body.light .tip { background: rgba(90,159,212,0.08); }
+  body.light .tip.warn { background: rgba(192,57,43,0.06); }
+  body.light .tip.good { background: rgba(68,170,153,0.06); }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    nav.sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100vh; transition: left var(--transition); }
+    nav.sidebar.open { left: 0; }
+    .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9; }
+    .sidebar-overlay.open { display: block; }
+    .mobile-nav-toggle { display: block; }
+    main { padding: 60px 16px 32px; }
+    .card { padding: 16px; }
+  }
+  @media print { nav.sidebar, .mobile-nav-toggle { display: none; } main { max-width: 100%; padding: 0; } body { background: #fff; color: #000; } }
+  /* ========== Page Navigation ========== */
+  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .page-nav a { display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+  .page-nav a:hover { border-color: var(--accent); color: var(--accent); }
+  .page-nav .prev::before { content: '← '; }
+  .page-nav .next::after { content: ' →'; }
+  .page-nav .nav-label { font-size: 0.72rem; color: var(--text-muted); display: block; }
+  /* ========== Back to Top ========== */
+  .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); z-index: 50; color: var(--text); }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld 攻略站</h1>
+    <p>从活下去，到活得好</p>
+  </div>
+
+  <div class="nav-section">导航</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+
+  <div class="nav-section">新手必备</div>
+  <a href="rimworld-guide-getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+  </a>
+  <a href="rimworld-guide-base-building.html" class="nav-item">
+    <span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+  </a>
+
+  <div class="nav-section">DLC 内容</div>
+  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-ideology.html" class="nav-item active"><span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">进阶内容</div>
+  <a href="rimworld-guide-combat.html" class="nav-item"><span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span></a>
+
+  <div class="nav-section">扩展</div>
+  <a href="rimworld-guide-mods.html" class="nav-item"><span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-biomes.html" class="nav-item"><span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-animals.html" class="nav-item"><span class="icon">🐄</span> 动物与畜牧 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-trade.html" class="nav-item"><span class="icon">💰</span> 贸易与经济 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-crafting.html" class="nav-item"><span class="icon">⚗️</span> 制造与生产 <span class="nav-badge">P2</span></a>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+    <span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer">MVP v0.2 · 持续更新中 · <a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a><br>内容基于 RimWorld 1.4 + 全DLC</div>
+</nav>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">攻略总览</a> / 文化 DLC</div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+  </div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+
+  <section class="section" id="ideology">
+    <h2 class="section-title">💡 文化 DLC (Ideology)</h2>
+
+    <div class="card">
+      <h3><span class="emoji">🧠</span> 模因系统——你的殖民地信仰什么</h3>
+      <p>模因(Meme)决定殖民地的核心价值观，影响心情、仪式、建筑风格。开局选模因就是给殖民地定调子，往后的游戏体验全围绕它展开。</p>
+      <ul>
+        <li><strong>热门模因：</strong>集体主义（心情加成高）、人类至上（讨厌异族）、自然至上（爱树不爱科技）、食人者（吃人不掉心情！）</li>
+        <li><strong>创建自定义文化：</strong>选4个模因组合，打造只属于你的意识形态</li>
+        <li><strong>模因等级：</strong>有些是核心模因（必须有一个），有些是可选模因</li>
+        <li><strong>模因决定了：</strong>你解锁什么仪式、建筑、和特性</li>
+      </ul>
+      <div class="tip"><strong>💡 提示：</strong>食人者模因在新手难度下很强——食物来源不断，但如果你想做人口买卖或者想跟友善派系搞好关系，慎选。</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🔄</span> 文化系统全景图</h3>
+      <p>模因→戒律→心情→仪式，这条链就是文化的核心循环。看懂这张图，文化系统就通了：</p>
+      <figure class="guide-diagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" style="max-width:100%;height:auto;">
+          <defs>
+            <marker id="arr-meme" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,1 L9,5 L0,9 Z" fill="#d4956b"/>
+            </marker>
+            <filter id="meme-shadow"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+          </defs>
+          <rect width="720" height="340" fill="#1a1a1f" rx="6"/>
+
+          <!-- Central flow: left to right with feedback loop -->
+
+          <!-- Box 1: Memes -->
+          <rect x="30" y="140" width="130" height="90" rx="10" fill="#24242b" stroke="#d4956b" stroke-width="2" filter="url(#meme-shadow)"/>
+          <text x="95" y="170" fill="#d4956b" font-size="14" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🧠 模因</text>
+          <text x="95" y="190" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">核心价值观</text>
+          <text x="95" y="206" fill="#888896" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">集体/个人·科技/自然</text>
+          <text x="95" y="220" fill="#888896" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">食人/禁肉·人类至上</text>
+
+          <!-- Arrow 1 -->
+          <line x1="160" y1="185" x2="225" y2="185" stroke="#d4956b" stroke-width="2" marker-end="url(#arr-meme)"/>
+          <text x="193" y="176" fill="#d4956b" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">决定</text>
+
+          <!-- Box 2: Precepts -->
+          <rect x="230" y="140" width="130" height="90" rx="10" fill="#24242b" stroke="#5a9fd4" stroke-width="2" filter="url(#meme-shadow)"/>
+          <text x="295" y="170" fill="#5a9fd4" font-size="14" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">📜 戒律</text>
+          <text x="295" y="190" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">具体规则</text>
+          <text x="295" y="206" fill="#888896" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">什么能做·什么不能做</text>
+          <text x="295" y="220" fill="#888896" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">吃人？👍/👎 埋尸？</text>
+
+          <!-- Arrow 2 -->
+          <line x1="360" y1="185" x2="425" y2="185" stroke="#d4956b" stroke-width="2" marker-end="url(#arr-meme)"/>
+          <text x="393" y="176" fill="#d4956b" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">影响</text>
+
+          <!-- Box 3: Mood -->
+          <rect x="430" y="140" width="130" height="90" rx="10" fill="#24242b" stroke="#4a9" stroke-width="2" filter="url(#meme-shadow)"/>
+          <text x="495" y="170" fill="#4a9" font-size="14" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">😊 心情</text>
+          <text x="495" y="190" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">每日浮动</text>
+          <text x="495" y="206" fill="#888896" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">遵守戒律+心情</text>
+          <text x="495" y="220" fill="#888896" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">违反戒律-心情</text>
+
+          <!-- Arrow 3 -->
+          <line x1="560" y1="185" x2="625" y2="185" stroke="#d4956b" stroke-width="2" marker-end="url(#arr-meme)"/>
+          <text x="593" y="176" fill="#d4956b" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">触发</text>
+
+          <!-- Box 4: Rituals -->
+          <rect x="630" y="140" width="80" height="90" rx="10" fill="#24242b" stroke="#d4b65a" stroke-width="2" filter="url(#meme-shadow)"/>
+          <text x="670" y="170" fill="#d4b65a" font-size="13" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🎭 仪式</text>
+          <text x="670" y="192" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">庆典+</text>
+          <text x="670" y="208" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">心情Buff</text>
+
+          <!-- Feedback arrow: Rituals → Memes -->
+          <path d="M670,230 L670,280 L360,280 L95,280 L95,230" fill="none" stroke="#888896" stroke-width="1.5" stroke-dasharray="6,3"/>
+          <text x="383" y="272" fill="#888896" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">← 仪式成功后强化信仰 →</text>
+          <text x="383" y="296" fill="#888896" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">（也可以改革文化，消耗开发点调整模因和戒律）</text>
+
+          <!-- Top section: Roles + Relics -->
+          <rect x="230" y="22" width="260" height="50" rx="8" fill="#1e2424" stroke="#c080d0" stroke-width="1.5" filter="url(#meme-shadow)"/>
+          <text x="360" y="44" fill="#c080d0" font-size="12" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">👔 角色 · 🏛️ 圣物</text>
+          <text x="360" y="62" fill="#888896" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">并行系统：赋予小人特殊能力 · 寻找并守护传奇装备</text>
+          <line x1="360" y1="72" x2="360" y2="140" stroke="#c080d0" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+
+          <!-- Key stats box -->
+          <rect x="30" y="22" width="170" height="50" rx="8" fill="#1e241e" stroke="#4a9" stroke-width="1" filter="url(#meme-shadow)"/>
+          <text x="115" y="42" fill="#4a9" font-size="11" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">📊 文化指标</text>
+          <text x="115" y="58" fill="#888896" font-size="10" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">文化影响力 · 开发点 · 转化进度</text>
+          <line x1="200" y1="47" x2="230" y2="47" stroke="#888896" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+        </svg>
+        <figcaption>▲ 核心闭环：模因定调→戒律执行→心情变化→仪式庆祝→强化信仰。再加上角色和圣物两个并行系统，构成了完整的文化体系。</figcaption>
+      </figure>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">📜</span> 戒律与心情</h3>
+      <p>戒律(Precept)是具体的规则——做什么受鼓励、做什么受惩罚。戒律的松紧直接决定你小人每天的心情浮动。</p>
+      <ul>
+        <li><strong>举个例子：</strong>吃人→"推崇"（吃了+心情）vs "厌恶"（吃了-心情）</li>
+        <li><strong>关键戒律：</strong>尸体处理（别设"不能埋"否则看到尸体就崩）、异族态度、科研态度、虫肉食用</li>
+        <li><strong>改革文化：</strong>可以根据游戏进程改革——但要消耗开发点</li>
+        <li><strong>核心思路：</strong>一个强大的文化能让你的殖民地每时每刻都在拿免费心情buff</li>
+      </ul>
+      <div class="tip good"><strong>💡 新手推荐模因组合：</strong>集体主义+人类至上+勤勉——心情管理压力最小，适合第一次玩文化 DLC。</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🎭</span> 仪式与庆典</h3>
+      <p>文化里可以设置多种仪式，定期组织庆祝是维持全殖民地心情的关键手段。</p>
+      <ul>
+        <li><strong>仪式类型：</strong>舞蹈派对、鼓圈、领袖演讲、角斗士决斗、处决</li>
+        <li><strong>仪式成功：</strong>所有参与者 + 心情buff（持续多天）</li>
+        <li><strong>仪式质量取决于：</strong>场地是否满足要求、参与者是否开心、演讲者社交技能</li>
+        <li><strong>冷却时间：</strong>一般是15-30天</li>
+        <li><strong>定期举办：</strong>稳定的全殖民地心情加成来源</li>
+        <li><strong>特殊仪式：</strong>招新仪式（招新人加入）、转化仪式（洗掉旧信仰）</li>
+      </ul>
+      <div class="tip warn"><strong>⚠️ 注意：</strong>仪式场地要求没满足的话，仪式质量会打折，甚至可能减心情。提前把仪式间布置好再喊人。</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">👔</span> 角色系统</h3>
+      <table>
+        <tr><th>角色</th><th>需要条件</th><th>能力</th><th>推荐谁来当</th></tr>
+        <tr>
+          <td><strong>道德指引者</strong></td>
+          <td>社交 ≥ 5</td>
+          <td>转化别人信仰、安慰崩溃小人、举办仪式</td>
+          <td>社交最高的人</td>
+        </tr>
+        <tr>
+          <td><strong>领袖</strong></td>
+          <td>社交 ≥ 3</td>
+          <td>演讲鼓舞士气、增加贸易谈判力、特殊攻击加成</td>
+          <td>社交+战斗力兼备</td>
+        </tr>
+        <tr>
+          <td><strong>专家（种植/采矿/研究/手工/建造）</strong></td>
+          <td>对应技能 ≥ 6</td>
+          <td>增加对应工作效率50%+</td>
+          <td>你的核心产出小人</td>
+        </tr>
+        <tr>
+          <td><strong>射击专家</strong></td>
+          <td>射击 ≥ 6</td>
+          <td>射击精度提升+指挥光环</td>
+          <td>战斗队长</td>
+        </tr>
+      </table>
+      <div class="tip warn"><strong>⚠️ 专家角色有代价：</strong>例如种植专家不能做暴力工作（打仗），射击专家不能做任何非战斗工作。选对的人当对的角色。</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🏛️</span> 圣物与朝圣</h3>
+      <p>圣物(Relic)是殖民地的精神象征——可以是一把武器、一件装备、一个饰品。找到并守护好你的圣物，它能带来实打实的收益。</p>
+      <ul>
+        <li><strong>圣物线索：</strong>通过任务获取，集齐线索后出发寻找</li>
+        <li><strong>圣物展示柜：</strong>找到的圣物放进去 = 全殖民地心情buff</li>
+        <li><strong>朝圣任务：</strong>带圣物去某个地方朝圣 = 拿丰厚奖励</li>
+        <li><strong>战斗中可用：</strong>一把传奇品质的圣物长剑 = 又有用又加心情</li>
+      </ul>
+      <div class="tip"><strong>💡 建议：</strong>圣物任务优先级不低——尤其是早期缺好武器的时候。一把传奇圣物剑能撑起半个防线，而且还送全基地快乐。</div>
+    </div>
+  </section>
+
+  <nav class="page-nav">
+    <a href="rimworld-guide-dlc-royalty.html" class="prev">
+      <span><span class="nav-label">上一页</span>👑 皇权</span>
+    </a>
+    <a href="rimworld-guide-dlc-biotech.html" class="next">
+      <span><span class="nav-label">下一页</span>🧬 生物科技</span>
+    </a>
+  </nav>
+
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    if (card.textContent.toLowerCase().includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+})();
+
+  // Back to top
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>

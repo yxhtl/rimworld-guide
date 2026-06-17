@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>战斗与防御 | RimWorld 攻略站</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #1a1a1f;
+    --bg-card: #24242b;
+    --bg-sidebar: #1e1e24;
+    --border: #333340;
+    --text: #c8c8d0;
+    --text-muted: #888896;
+    --accent: #d4956b;
+    --accent-dim: #a07050;
+    --red: #c0392b;
+    --green: #4a9;
+    --blue: #5a9fd4;
+    --yellow: #d4b65a;
+    --radius: 6px;
+    --transition: 0.2s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+  nav.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+  .sidebar-logo h1 { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
+  .sidebar-logo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+  .nav-section { padding: 8px 20px 4px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-top: 8px; }
+  .nav-item { display: block; padding: 8px 20px; color: var(--text); text-decoration: none; font-size: 0.9rem; border-left: 3px solid transparent; transition: var(--transition); }
+  .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
+  .nav-item.active { border-left-color: var(--accent); background: rgba(212,149,107,0.08); color: var(--accent); }
+  .nav-item .icon { margin-right: 8px; }
+  .nav-badge { float: right; font-size: 0.65rem; background: var(--accent-dim); color: #fff; padding: 1px 6px; border-radius: 10px; margin-top: 2px; }
+  .nav-footer { margin-top: auto; padding: 16px 20px 0; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--text-muted); }
+  .nav-feedback { color: var(--accent-dim); text-decoration: none; transition: color var(--transition); }
+  .nav-feedback:hover { color: var(--accent); }
+
+  .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
+  .sidebar-overlay { display: none; }
+
+  main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
+
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 1.3rem; color: #fff; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; }
+  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .card h3 .emoji { font-size: 1.2rem; }
+  .card p, .card li { font-size: 0.92rem; color: var(--text); }
+  .card ul { padding-left: 20px; }
+  .card li { margin-bottom: 6px; }
+
+  .tip { background: rgba(90,159,212,0.1); border-left: 3px solid var(--blue); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; margin: 12px 0; font-size: 0.88rem; }
+  .tip.warn { background: rgba(192,57,43,0.1); border-left-color: var(--red); }
+  .tip.good { background: rgba(68,170,153,0.1); border-left-color: var(--green); }
+  .key { background: #333; color: var(--accent); padding: 1px 6px; border-radius: 3px; font-size: 0.85rem; font-family: "Cascadia Code", "Fira Code", monospace; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+  .tag-p0 { background: var(--red); color: #fff; }
+  .tag-p1 { background: var(--yellow); color: #1a1a1f; }
+  .tag-p2 { background: var(--text-muted); color: #fff; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .search-wrap { position: relative; margin-bottom: 32px; }
+  .search-wrap input { width: 100%; padding: 12px 16px 12px 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.95rem; font-family: inherit; transition: var(--transition); }
+  .search-wrap input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(212,149,107,0.15); }
+  .search-wrap input::placeholder { color: var(--text-muted); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--text-muted); pointer-events: none; }
+  .search-clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem; padding: 4px 8px; border-radius: 3px; display: none; }
+  .search-clear:hover { color: var(--text); background: var(--border); }
+  .search-clear.visible { display: block; }
+  .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 1rem; }
+  .no-results.visible { display: block; }
+  .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+  .card.hidden, .section-title.hidden { display: none; }
+  .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
+
+  /* ========== Guide Diagrams ========== */
+  .guide-diagram {
+    margin: 20px 0 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .guide-diagram svg { display: block; width: 100%; height: auto; }
+  .guide-diagram figcaption {
+    padding: 10px 16px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background: rgba(0,0,0,0.15);
+  }
+  body.light .guide-diagram figcaption { background: rgba(0,0,0,0.03); }
+  .guide-diagram .label-text {
+    font-size: 11px;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    fill: var(--text);
+  }
+  /* Side-by-side: text left, diagram right on wide screens */
+  .card-with-diagram {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .card-with-diagram { grid-template-columns: 1fr; }
+  }
+
+  .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle .toggle-thumb { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background var(--transition); }
+  .theme-toggle .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
+  body.light .toggle-thumb { background: var(--accent); }
+  body.light .toggle-thumb::after { transform: translateX(16px); }
+
+  body.light { --bg: #f4f4f6; --bg-card: #ffffff; --bg-sidebar: #f0f0f3; --border: #d8d8de; --text: #3a3a44; --text-muted: #888896; --accent: #b87050; --accent-dim: #8a5040; }
+  body.light .tip { background: rgba(90,159,212,0.08); }
+  body.light .tip.warn { background: rgba(192,57,43,0.06); }
+  body.light .tip.good { background: rgba(68,170,153,0.06); }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    nav.sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100vh; transition: left var(--transition); }
+    nav.sidebar.open { left: 0; }
+    .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9; }
+    .sidebar-overlay.open { display: block; }
+    .mobile-nav-toggle { display: block; }
+    main { padding: 60px 16px 32px; }
+    .card { padding: 16px; }
+  }
+  @media print { nav.sidebar, .mobile-nav-toggle { display: none; } main { max-width: 100%; padding: 0; } body { background: #fff; color: #000; } }
+
+  /* ========== Page Navigation ========== */
+  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .page-nav a { display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+  .page-nav a:hover { border-color: var(--accent); color: var(--accent); }
+  .page-nav .prev::before { content: '← '; }
+  .page-nav .next::after { content: ' →'; }
+  .page-nav .nav-label { font-size: 0.72rem; color: var(--text-muted); display: block; }
+  /* ========== Back to Top ========== */
+  .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); z-index: 50; color: var(--text); }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+  /* ========== Page TOC ========== */
+  .page-toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 24px; }
+  .page-toc h4 { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .page-toc ol { padding-left: 20px; font-size: 0.88rem; }
+  .page-toc li { margin-bottom: 4px; }
+  .page-toc a { color: var(--accent); text-decoration: none; }
+  .page-toc a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld 攻略站</h1>
+    <p>从活下去，到活得好</p>
+  </div>
+
+  <div class="nav-section">导航</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+
+  <div class="nav-section">新手必备</div>
+  <a href="rimworld-guide-getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+  </a>
+  <a href="rimworld-guide-base-building.html" class="nav-item">
+    <span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+  </a>
+
+  <div class="nav-section">进阶内容</div>
+  <a href="rimworld-guide-combat.html" class="nav-item active"><span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span></a>
+
+  <div class="nav-section">DLC 内容</div>
+  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">扩展</div>
+  <a href="rimworld-guide-mods.html" class="nav-item"><span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-biomes.html" class="nav-item"><span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-animals.html" class="nav-item"><span class="icon">🐄</span> 动物与畜牧 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-trade.html" class="nav-item"><span class="icon">💰</span> 贸易与经济 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-crafting.html" class="nav-item"><span class="icon">⚗️</span> 制造与生产 <span class="nav-badge">P2</span></a>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+    <span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer">MVP v0.2 · 持续更新中 · <a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a><br>内容基于 RimWorld 1.4 + 全DLC</div>
+</nav>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">攻略总览</a> / 战斗与防御</div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+  </div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+
+  <div class="page-toc">
+    <h4>📑 本页目录</h4>
+    <ol>
+      <li><a href="#killbox">Killbox 设计</a></li>
+      <li><a href="#traps">陷阱走廊</a></li>
+      <li><a href="#weapons">武器梯度选择</a></li>
+      <li><a href="#armor">护甲选择</a></li>
+      <li><a href="#raid-types">常见袭击类型应对</a></li>
+    </ol>
+  </div>
+
+  <section class="section" id="combat">
+    <h2 class="section-title">⚔️ 战斗与防御</h2>
+
+    <div class="card">
+      <h3 id="killbox"><span class="emoji">🏰</span> Killbox 设计 —— 防御的核心 <span style="font-size:0.85rem;color:var(--text-muted);font-weight:400;">（Killbox = 杀敌箱：利用地形把敌人引到一个预设火力点集中消灭）</span></h3>
+      <p>Killbox 不是 bug，是这个游戏的底层逻辑。AI 寻路会走阻力最小的路线——你留一个"看起来好进"的口子，敌人就会排队送。</p>
+      <br>
+      <table>
+        <tr><th>组件</th><th>说明</th><th>关键参数</th></tr>
+        <tr><td><strong>入口通道</strong></td><td>蜿蜒的单格通道，放沙袋或石渣减速</td><td>越长越好，至少 20 格</td></tr>
+        <tr><td><strong>射击阵地</strong></td><td>通道尽头，你的小人站两排射击位</td><td>距出口 15-25 格（理想射程）</td></tr>
+        <tr><td><strong>沙袋阵</strong></td><td>隔一格放一个沙袋，破坏敌人掩体</td><td>通道内间隔摆放，敌人站不了掩体位</td></tr>
+        <tr><td><strong>屋顶陷阱</strong></td><td>通道里留一根没支撑的柱子，交火时打掉</td><td>砸下来的屋顶会造成大量伤害</td></tr>
+        <tr><td><strong>IED 陷阱</strong></td><td>通道末端埋地雷，敌人集中时引爆</td><td>需要炸药科技，性价比极高</td></tr>
+      </table>
+      <div class="tip">
+        <strong>💡 核心原则：</strong>Killbox 的设计目的是让敌人一个一个走进你的火力网，而不是让他们分散冲进来。通道越窄越长越好。
+      </div>
+      <div class="tip warn">
+        <strong>⚠️ Killbox 的弱点：</strong>空降舱袭击会直接落到基地内部，绕开你的 killbox。所以基地中心也要留防御纵深，别把所有防御都堆在门口。
+      </div>
+
+      <figure class="guide-diagram">
+        <svg viewBox="0 0 840 580" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow-red" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto"><polygon points="0 0, 12 5, 0 10" fill="#e74c3c"/></marker>
+          </defs>
+          <rect x="0" y="0" width="840" height="580" fill="#1a1a1f"/>
+
+          <!-- Title -->
+          <text x="360" y="20" text-anchor="middle" fill="#ddd" font-size="13" font-weight="bold" font-family="sans-serif">Killbox 俯瞰图 —— 围墙→通道→击杀区→射击线</text>
+
+          <!-- ===== LEGEND (top-left, single row) ===== -->
+          <rect x="40" y="26" width="236" height="18" rx="4" fill="#1e1e24" stroke="#333" stroke-width="1"/>
+          <rect x="48" y="32" width="12" height="6" rx="2" fill="#6e6e78"/>
+          <text x="64" y="37" fill="#bbb" font-size="9" font-family="sans-serif">围墙</text>
+          <rect x="88" y="32" width="12" height="6" rx="2" fill="#4a5568" stroke="#5a9fd4" stroke-width="0.8"/>
+          <text x="104" y="37" fill="#bbb" font-size="9" font-family="sans-serif">内墙</text>
+          <rect x="128" y="32" width="12" height="6" rx="2" fill="#c4956b"/>
+          <text x="144" y="37" fill="#bbb" font-size="9" font-family="sans-serif">沙袋</text>
+          <circle cx="176" cy="35" r="5" fill="#4a9"/>
+          <text x="186" y="37" fill="#bbb" font-size="9" font-family="sans-serif">射手</text>
+          <line x1="216" y1="35" x2="233" y2="35" stroke="#e74c3c" stroke-width="2.5"/>
+          <text x="240" y="37" fill="#bbb" font-size="9" font-family="sans-serif">敌人路线</text>
+
+          <!-- ===== ENTRANCE TEXT (above outdoor area) ===== -->
+          <text x="360" y="54" text-anchor="middle" fill="#f5a623" font-size="12" font-weight="bold" font-family="sans-serif">← 唯一入口（围墙全封，只留这一个口）→</text>
+
+          <g transform="translate(0, 20)">
+          <!-- ===== OUTSIDE ===== -->
+          <rect x="36" y="42" width="648" height="36" rx="4" fill="#2d1a1a" stroke="#553030" stroke-width="1"/>
+          <text x="360" y="65" text-anchor="middle" fill="#e74c3c" font-size="13" font-weight="bold" font-family="sans-serif">🌲 野外（地图边缘，敌人从这里来）</text>
+
+          <!-- ===== ENTRANCE GAP MARKER (in outdoor area, above wall) ===== -->
+          <rect x="260" y="66" width="200" height="6" rx="3" fill="#f5a623"/>
+
+          <!-- ===== BASE WALLS ===== -->
+          <!-- Top wall, gap at x=260-460 -->
+          <rect x="36"  y="78" width="224" height="20" rx="3" fill="#6e6e78"/>
+          <rect x="460" y="78" width="224" height="20" rx="3" fill="#6e6e78"/>
+          <!-- Left wall -->
+          <rect x="36" y="78" width="20" height="364" rx="3" fill="#6e6e78"/>
+          <!-- Right wall -->
+          <rect x="664" y="78" width="20" height="364" rx="3" fill="#6e6e78"/>
+          <!-- Bottom wall, gap at x=250-470 for corridor exit -->
+          <rect x="36"  y="442" width="214" height="20" rx="3" fill="#6e6e78"/>
+          <rect x="470" y="442" width="214" height="20" rx="3" fill="#6e6e78"/>
+
+          <!-- ===== S-CORRIDOR (wider and more prominent) ===== -->
+          <!-- Floor: Segment 1 (top horizontal, leftward from entrance) -->
+          <rect x="220" y="102" width="240" height="36" fill="#3a3835"/>
+          <!-- Segment 2 (vertical down, left side) -->
+          <rect x="220" y="138" width="36" height="104" fill="#3a3835"/>
+          <!-- Segment 3 (horizontal rightward) -->
+          <rect x="220" y="242" width="240" height="36" fill="#3a3835"/>
+          <!-- Segment 4 (vertical down, right side, to exit) -->
+          <rect x="424" y="278" width="36" height="164" fill="#3a3835"/>
+
+          <!-- Interior walls — blue stroke for high contrast -->
+          <!-- Wall 1: top of seg2, split at x=246-254 for enemy path gap -->
+          <rect x="220" y="138" width="26" height="10" rx="2" fill="#4a5568" stroke="#5a9fd4" stroke-width="1"/>
+          <rect x="254" y="138" width="170" height="10" rx="2" fill="#4a5568" stroke="#5a9fd4" stroke-width="1"/>
+          <!-- Wall 2: right of seg2 -->
+          <rect x="256" y="138" width="10" height="104" rx="2" fill="#4a5568" stroke="#5a9fd4" stroke-width="1"/>
+          <!-- Wall 3: top of seg3 -->
+          <rect x="256" y="242" width="168" height="10" rx="2" fill="#4a5568" stroke="#5a9fd4" stroke-width="1"/>
+          <!-- Wall 4: above seg4 -->
+          <rect x="220" y="278" width="204" height="10" rx="2" fill="#4a5568" stroke="#5a9fd4" stroke-width="1"/>
+
+          <!-- Sandbags in corridor -->
+          <rect x="300" y="114" width="30" height="8" rx="3" fill="#c4956b"/>
+          <rect x="232" y="170" width="30" height="8" rx="3" fill="#c4956b"/>
+          <rect x="232" y="210" width="30" height="8" rx="3" fill="#c4956b"/>
+          <rect x="310" y="254" width="30" height="8" rx="3" fill="#c4956b"/>
+          <rect x="436" y="310" width="30" height="8" rx="3" fill="#c4956b"/>
+          <rect x="436" y="370" width="30" height="8" rx="3" fill="#c4956b"/>
+          <rect x="436" y="420" width="30" height="8" rx="3" fill="#c4956b"/>
+
+          <!-- Enemy path — clean S-curve through corridors, through wall 1 gap at x=246-254 -->
+          <polyline points="454,102 454,118 340,118 251,118 251,195 251,258 340,258 442,258 442,288 442,375 442,462" fill="none" stroke="#e74c3c" stroke-width="4" stroke-linejoin="round" marker-end="url(#arrow-red)"/>
+
+          <!-- Enemy icons along path -->
+          <text x="340" y="122" text-anchor="middle" fill="#e74c3c" font-size="14" font-family="sans-serif">👾</text>
+          <text x="251" y="175" text-anchor="middle" fill="#e74c3c" font-size="14" font-family="sans-serif">👾</text>
+          <text x="340" y="262" text-anchor="middle" fill="#e74c3c" font-size="14" font-family="sans-serif">👾</text>
+          <text x="442" y="375" text-anchor="middle" fill="#e74c3c" font-size="14" font-family="sans-serif">👾</text>
+
+          <!-- ===== KILL ZONE ===== -->
+          <rect x="56" y="472" width="608" height="36" rx="4" fill="#1a2e1a" stroke="#3a5a3a" stroke-width="2"/>
+          <text x="360" y="495" text-anchor="middle" fill="#4a9" font-size="14" font-weight="bold" font-family="sans-serif">🎯 击杀区 — 出口就是空地，没墙没掩体，活靶子</text>
+
+          <!-- ===== SHOOTER LINE ===== -->
+          <rect x="130" y="516" width="460" height="10" rx="5" fill="#c4956b"/>
+          <text x="105" y="514" fill="#d4a574" font-size="11" font-weight="bold" font-family="sans-serif">沙袋</text>
+
+          <!-- Shooters — unified r=14, font-size=14 for all 5 -->
+          <g>
+            <circle cx="180" cy="538" r="14" fill="#4a9"/><text x="180" y="543" text-anchor="middle" fill="#fff" font-size="14" font-family="sans-serif">🧑</text>
+            <circle cx="270" cy="538" r="14" fill="#4a9"/><text x="270" y="543" text-anchor="middle" fill="#fff" font-size="14" font-family="sans-serif">🧑</text>
+            <circle cx="360" cy="538" r="14" fill="#4a9"/><text x="360" y="543" text-anchor="middle" fill="#fff" font-size="14" font-family="sans-serif">🧑</text>
+            <circle cx="450" cy="538" r="14" fill="#4a9"/><text x="450" y="543" text-anchor="middle" fill="#fff" font-size="14" font-family="sans-serif">🧑</text>
+            <circle cx="540" cy="538" r="14" fill="#4a9"/><text x="540" y="543" text-anchor="middle" fill="#fff" font-size="14" font-family="sans-serif">🧑</text>
+          </g>
+
+          <!-- Shooting arrows -->
+          <line x1="180" y1="516" x2="180" y2="480" stroke="#4a9" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="270" y1="516" x2="270" y2="480" stroke="#4a9" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="360" y1="516" x2="360" y2="480" stroke="#4a9" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="450" y1="516" x2="450" y2="480" stroke="#4a9" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="540" y1="516" x2="540" y2="480" stroke="#4a9" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+          <!-- ===== RIGHT CALLOUTS — in new right margin (x=700-830), floating style ===== -->
+          <!-- Box ①: 围墙 -->
+          <rect x="700" y="44" width="130" height="72" rx="6" fill="#1e1e24" stroke="#6e6e78" stroke-width="1.5"/>
+          <text x="765" y="66" text-anchor="middle" fill="#f5a623" font-size="12" font-weight="bold" font-family="sans-serif">① 围墙 = 边界</text>
+          <text x="765" y="84" text-anchor="middle" fill="#bbb" font-size="10" font-family="sans-serif">灰色 = 城墙</text>
+          <text x="765" y="100" text-anchor="middle" fill="#bbb" font-size="10" font-family="sans-serif">全封，只留一入口</text>
+          <line x1="700" y1="80" x2="688" y2="80" stroke="#6e6e78" stroke-width="1" stroke-dasharray="3,3"/>
+
+          <!-- Box ②: S形通道 -->
+          <rect x="700" y="132" width="130" height="90" rx="6" fill="#1e1e24" stroke="#5a9fd4" stroke-width="1.5"/>
+          <text x="765" y="154" text-anchor="middle" fill="#ccc" font-size="12" font-weight="bold" font-family="sans-serif">② S 形通道</text>
+          <text x="765" y="174" text-anchor="middle" fill="#bbb" font-size="10" font-family="sans-serif">单格宽 · 多个弯</text>
+          <text x="765" y="192" text-anchor="middle" fill="#bbb" font-size="10" font-family="sans-serif">沙袋减速</text>
+          <text x="765" y="210" text-anchor="middle" fill="#e74c3c" font-size="10" font-family="sans-serif">红线 = 敌人路线</text>
+          <line x1="700" y1="177" x2="688" y2="177" stroke="#5a9fd4" stroke-width="1" stroke-dasharray="3,3"/>
+
+          <!-- Box ③: 击杀区 -->
+          <rect x="700" y="238" width="130" height="72" rx="6" fill="#1e1e24" stroke="#3a5a3a" stroke-width="1.5"/>
+          <text x="765" y="260" text-anchor="middle" fill="#4a9" font-size="12" font-weight="bold" font-family="sans-serif">③ 击杀区 = 空地</text>
+          <text x="765" y="280" text-anchor="middle" fill="#bbb" font-size="10" font-family="sans-serif">出口大片空地</text>
+          <text x="765" y="298" text-anchor="middle" fill="#bbb" font-size="10" font-family="sans-serif">没墙 · 活靶子</text>
+          <line x1="700" y1="274" x2="688" y2="274" stroke="#3a5a3a" stroke-width="1" stroke-dasharray="3,3"/>
+
+          <!-- Box ④: 射击线 -->
+          <rect x="700" y="326" width="130" height="72" rx="6" fill="#1e1e24" stroke="#4a9" stroke-width="1.5"/>
+          <text x="765" y="348" text-anchor="middle" fill="#4a9" font-size="12" font-weight="bold" font-family="sans-serif">④ 射击线 = 5人</text>
+          <text x="765" y="368" text-anchor="middle" fill="#bbb" font-size="10" font-family="sans-serif">沙袋掩体后</text>
+          <text x="765" y="386" text-anchor="middle" fill="#bbb" font-size="10" font-family="sans-serif">一字排开集火</text>
+          <line x1="700" y1="362" x2="688" y2="362" stroke="#4a9" stroke-width="1" stroke-dasharray="3,3"/>
+
+          </g>
+        </svg>
+        <figcaption>▲ 记住四个要素：围墙全封留一口 → S形通道引进来 → 击杀区空荡荡 → 5人沙袋后集火。</figcaption>
+      </figure>
+    </div>
+
+    <div class="card">
+      <h3 id="traps"><span class="emoji">🪤</span> 陷阱走廊 —— 不费一枪一弹</h3>
+      <ul>
+        <li><strong>木制陷阱 × 钢制陷阱：</strong>木制 40 伤（便宜，前期主力），钢制 60 伤（中期换）</li>
+        <li><strong>走廊密度：</strong>每格放一个陷阱，小人会绕路走所以不用担心自己人踩</li>
+        <li><strong>陷阱 + 门组合：</strong>一侧走廊做陷阱，另一侧做门——自己人走门，敌人走陷阱</li>
+        <li><strong>岩石门技巧：</strong>在陷阱走廊入口放一扇永远敞开的花岗岩门——敌人把它当"入口"优先走</li>
+        <li><strong>配合减速：</strong>陷阱区放雪地/沼泽/浅水，敌人走得慢、踩得准</li>
+        <li><strong>维护成本：</strong>每个陷阱触发后需要重新安装，中后期配几个手工高的小人专门补</li>
+      </ul>
+
+      <figure class="guide-diagram">
+        <svg viewBox="0 0 720 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow-r2" markerWidth="9" markerHeight="7" refX="4.5" refY="3.5" orient="auto"><polygon points="0 0, 9 3.5, 0 7" fill="#e74c3c"/></marker>
+            <marker id="arrow-g2" markerWidth="9" markerHeight="7" refX="4.5" refY="3.5" orient="auto"><polygon points="0 0, 9 3.5, 0 7" fill="#4a9"/></marker>
+          </defs>
+          <rect x="0" y="0" width="720" height="520" fill="#1a1a1f"/>
+
+          <!-- Title -->
+          <text x="360" y="24" text-anchor="middle" fill="#ccc" font-size="13" font-weight="bold" font-family="sans-serif">陷阱走廊原理：骗 AI 走陷阱，自己人走门</text>
+          <line x1="30" y1="38" x2="690" y2="38" stroke="#3a3a40" stroke-width="1"/>
+
+          <!-- ===== STEP 1: ENTRANCE ZONE ===== -->
+          <rect x="220" y="50" width="280" height="60" fill="#2a2a30" stroke="#4a4a50" stroke-width="1.5" rx="6"/>
+          <text x="360" y="72" text-anchor="middle" fill="#ddd" font-size="12" font-weight="bold" font-family="sans-serif">👾 敌人来袭方向</text>
+          <text x="360" y="92" text-anchor="middle" fill="#888" font-size="10" font-family="sans-serif">袭击者从地图边缘朝基地走来</text>
+
+          <!-- Down arrow from entrance -->
+          <line x1="360" y1="110" x2="360" y2="135" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-r2)"/>
+          <text x="372" y="126" fill="#e74c3c" font-size="9" font-family="sans-serif">寻找入口</text>
+
+          <!-- ===== STEP 2: THE FORK ===== -->
+          <!-- Granite door - prominent -->
+          <rect x="220" y="140" width="280" height="50" fill="#444" stroke="#888" stroke-width="2.5" rx="6"/>
+          <text x="360" y="160" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="sans-serif">🚪 花岗岩门（设为"保持开启"）</text>
+          <text x="360" y="178" text-anchor="middle" fill="#d4956b" font-size="10" font-family="sans-serif">AI 认为："这扇门开着 = 这是一条可以走的路！"</text>
+
+          <!-- Down arrow from door -->
+          <line x1="360" y1="190" x2="360" y2="210" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-r2)"/>
+
+          <!-- ===== STEP 3: THE SPLIT ===== -->
+          <!-- Fork label -->
+          <rect x="290" y="215" width="140" height="26" fill="#333" stroke="#555" stroke-width="1" rx="4"/>
+          <text x="360" y="233" text-anchor="middle" fill="#d4b65a" font-size="11" font-weight="bold" font-family="sans-serif">⬇ 分叉口 ⬇</text>
+
+          <!-- Split arrows -->
+          <line x1="340" y1="241" x2="240" y2="265" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-r2)"/>
+          <line x1="380" y1="241" x2="480" y2="265" stroke="#4a9" stroke-width="2" marker-end="url(#arrow-g2)"/>
+
+          <!-- ===== LEFT: TRAP PATH ===== -->
+          <rect x="60" y="270" width="280" height="140" fill="#2a1a1a" stroke="#553333" stroke-width="2.5" rx="4"/>
+          <rect x="60" y="270" width="280" height="28" fill="rgba(192,57,43,0.15)"/>
+          <text x="200" y="290" text-anchor="middle" fill="#e74c3c" font-size="12" font-weight="bold" font-family="sans-serif">💀 陷阱路径 → 敌人走</text>
+
+          <!-- Trap corridor walls -->
+          <rect x="60" y="298" width="280" height="10" fill="#5a5a60"/>
+          <rect x="60" y="400" width="280" height="10" fill="#5a5a60"/>
+          <rect x="60" y="270" width="10" height="140" fill="#5a5a60"/>
+          <rect x="330" y="270" width="10" height="140" fill="#5a5a60"/>
+
+          <!-- Spikes - 2 rows of 5 -->
+          <g fill="#c06030" stroke="#e8a870" stroke-width="1">
+            <rect x="74" y="316" width="42" height="30" rx="4"/><text x="95" y="336" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold" font-family="sans-serif">尖刺</text>
+            <rect x="125" y="316" width="42" height="30" rx="4"/><text x="146" y="336" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold" font-family="sans-serif">尖刺</text>
+            <rect x="176" y="316" width="42" height="30" rx="4"/><text x="197" y="336" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold" font-family="sans-serif">尖刺</text>
+            <rect x="227" y="316" width="42" height="30" rx="4"/><text x="248" y="336" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold" font-family="sans-serif">尖刺</text>
+            <rect x="278" y="316" width="42" height="30" rx="4"/><text x="299" y="336" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold" font-family="sans-serif">尖刺</text>
+
+            <rect x="74" y="356" width="42" height="30" rx="4"/><text x="95" y="376" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold" font-family="sans-serif">尖刺</text>
+            <rect x="125" y="356" width="42" height="30" rx="4"/><text x="146" y="376" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold" font-family="sans-serif">尖刺</text>
+            <rect x="176" y="356" width="42" height="30" rx="4"/><text x="197" y="376" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold" font-family="sans-serif">尖刺</text>
+            <rect x="227" y="356" width="42" height="30" rx="4"/><text x="248" y="376" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold" font-family="sans-serif">尖刺</text>
+            <rect x="278" y="356" width="42" height="30" rx="4"/><text x="299" y="376" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold" font-family="sans-serif">尖刺</text>
+          </g>
+          <!-- Enemy icons walking through -->
+          <text x="102" y="348" text-anchor="middle" fill="#e74c3c" font-size="10" font-family="sans-serif">👾</text>
+          <text x="210" y="386" text-anchor="middle" fill="#e74c3c" font-size="10" font-family="sans-serif">👾</text>
+
+          <!-- ===== RIGHT: DOOR PATH ===== -->
+          <rect x="380" y="270" width="280" height="140" fill="#1a2a1a" stroke="#3a5a3a" stroke-width="2.5" rx="4"/>
+          <rect x="380" y="270" width="280" height="28" fill="rgba(68,170,153,0.1)"/>
+          <text x="520" y="290" text-anchor="middle" fill="#4a9" font-size="12" font-weight="bold" font-family="sans-serif">🚪 门路径 → 自己人走</text>
+
+          <!-- Door corridor walls -->
+          <rect x="380" y="298" width="280" height="10" fill="#5a5a60"/>
+          <rect x="380" y="400" width="280" height="10" fill="#5a5a60"/>
+          <rect x="380" y="270" width="10" height="140" fill="#5a5a60"/>
+          <rect x="650" y="270" width="10" height="140" fill="#5a5a60"/>
+
+          <!-- Doors - 2 rows of 5 -->
+          <g fill="#4a7" stroke="#5b9" stroke-width="1">
+            <rect x="405" y="318" width="38" height="5" rx="2"/>
+            <rect x="455" y="318" width="38" height="5" rx="2"/>
+            <rect x="505" y="318" width="38" height="5" rx="2"/>
+            <rect x="555" y="318" width="38" height="5" rx="2"/>
+            <rect x="605" y="318" width="38" height="5" rx="2"/>
+
+            <rect x="405" y="356" width="38" height="5" rx="2"/>
+            <rect x="455" y="356" width="38" height="5" rx="2"/>
+            <rect x="505" y="356" width="38" height="5" rx="2"/>
+            <rect x="555" y="356" width="38" height="5" rx="2"/>
+            <rect x="605" y="356" width="38" height="5" rx="2"/>
+          </g>
+          <!-- Door labels -->
+          <text x="424" y="350" text-anchor="middle" fill="#8e8" font-size="10" font-weight="bold" font-family="sans-serif">门</text>
+          <text x="524" y="350" text-anchor="middle" fill="#8e8" font-size="10" font-weight="bold" font-family="sans-serif">门</text>
+          <text x="424" y="388" text-anchor="middle" fill="#8e8" font-size="10" font-weight="bold" font-family="sans-serif">门</text>
+          <text x="524" y="388" text-anchor="middle" fill="#8e8" font-size="10" font-weight="bold" font-family="sans-serif">门</text>
+          <!-- Colonist icons -->
+          <text x="454" y="348" text-anchor="middle" fill="#4a9" font-size="10" font-family="sans-serif">🧑</text>
+          <text x="574" y="386" text-anchor="middle" fill="#4a9" font-size="10" font-family="sans-serif">🧑</text>
+
+          <!-- ===== STEP 4: EXIT ===== -->
+          <!-- Converge label -->
+          <text x="360" y="432" text-anchor="middle" fill="#888" font-size="9" font-family="sans-serif">▼ 两条路最终都通向基地内部 ▼</text>
+
+          <!-- Exit area -->
+          <rect x="220" y="440" width="280" height="36" fill="#2a2a30" stroke="#4a4a50" stroke-width="1.5" rx="6"/>
+          <text x="360" y="462" text-anchor="middle" fill="#ddd" font-size="12" font-weight="bold" font-family="sans-serif">🏠 基地内部（安全区）</text>
+
+          <!-- ===== BOTTOM LEGEND ===== -->
+          <rect x="140" y="492" width="440" height="22" rx="4" fill="#222228"/>
+          <rect x="155" y="498" width="14" height="6" rx="2" fill="#d4956b"/><text x="176" y="505" fill="#bbb" font-size="9" font-family="sans-serif">陷阱</text>
+          <line x1="220" y1="501" x2="240" y2="501" stroke="#4a7" stroke-width="3"/><text x="248" y="505" fill="#bbb" font-size="9" font-family="sans-serif">门</text>
+          <text x="290" y="505" fill="#e74c3c" font-size="10" font-family="sans-serif">👾</text><text x="308" y="505" fill="#bbb" font-size="9" font-family="sans-serif">敌人路径</text>
+          <text x="370" y="505" fill="#4a9" font-size="10" font-family="sans-serif">🧑</text><text x="388" y="505" fill="#bbb" font-size="9" font-family="sans-serif">自己人路径</text>
+          <rect x="460" y="498" width="14" height="6" rx="2" fill="#888"/><text x="480" y="505" fill="#bbb" font-size="9" font-family="sans-serif">花岗岩门(敞开)</text>
+        </svg>
+        <figcaption>▲ 从上到下看：敌人来了 → 看到敞开的门以为是入口 → 走陷阱路径踩尖刺 → 自己人走旁边的门路径安全通过。核心就一句话：开门骗 AI 进陷阱。</figcaption>
+      </figure>
+    </div>
+
+    <div class="card">
+      <h3 id="weapons"><span class="emoji">🔫</span> 武器梯度选择</h3>
+      <table>
+        <tr><th>阶段</th><th>推荐武器</th><th>理由</th></tr>
+        <tr><td><strong>开局</strong></td><td>短弓 / 左轮 / 栓动步枪</td><td>有啥用啥，栓动步枪是早期神器（射程远、伤害稳）</td></tr>
+        <tr><td><strong>前期</strong></td><td>泵动霰弹枪 / 冲锋枪 SMG</td><td>近战/中距离强力，适合 killbox 中距离交火</td></tr>
+        <tr><td><strong>中期</strong></td><td>突击步枪 / 链式霰弹枪</td><td>突击步枪万金油，链式霰足够近时秒人</td></tr>
+        <tr><td><strong>后期</strong></td><td>电荷步枪 / 电荷标枪</td><td>电荷系列无视部分护甲，打机械族必备</td></tr>
+        <tr><td><strong>终极</strong></td><td>末日火箭 / 三管火箭 / 轨道打击</td><td>范围清场用，平时别拿——太贵了</td></tr>
+      </table>
+      <div class="tip good">
+        <strong>✅ 新手口诀：</strong>前期有栓动步枪就捡着，中期全员突击步枪，后期换电荷。近战小人给把好用的单手武器（长剑/钉头锤）放在射击位后一格——敌人近了就上。
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 id="armor"><span class="emoji">🛡️</span> 护甲选择</h3>
+      <table>
+        <tr><th>护甲类型</th><th>材料</th><th>适用场景</th><th>备注</th></tr>
+        <tr><td>简易头盔</td><td>钢</td><td>前期全员标配</td><td>先保头，头部中弹大概率即死</td></tr>
+        <tr><td>防弹背心</td><td>钢/布</td><td>中期核心输出位</td><td>躯干保护，性价比最高</td></tr>
+        <tr><td>海军头盔</td><td>钢/塑钢</td><td>后期全员标配</td><td>比简易头盔高一档</td></tr>
+        <tr><td>动力装甲</td><td>塑钢/铀</td><td>近战位/冲锋位</td><td>全游戏最强护甲，但极贵</td></tr>
+        <tr><td>魔鬼素外壳</td><td>魔鬼素</td><td>高输出后排</td><td>保护力强但降移速，后排用</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3 id="raid-types"><span class="emoji">📋</span> 常见袭击类型应对</h3>
+      <table>
+        <tr><th>袭击类型</th><th>特点</th><th>应对策略</th></tr>
+        <tr><td>常规正面</td><td>敌人直奔 killbox</td><td>标准流程，全员进射击位</td></tr>
+        <tr><td>工兵袭击</td><td>敌人会挖墙/炸墙绕路</td><td>外围墙做三层厚，配合迫击炮轰他们集合点</td></tr>
+        <tr><td>空降舱</td><td>直接落到基地中心</td><td>每个房间留射击口，走廊转角做掩体</td></tr>
+        <tr><td>围攻</td><td>敌人在远处造迫击炮轰你</td><td>你要主动出击，趁他们没建好就打掉</td></tr>
+        <tr><td>虫灾</td><td>地下刷虫巢</td><td>用窄门+近战前排+喷火器/燃烧弹清</td></tr>
+        <tr><td>机械族</td><td>高护甲远程敌人</td><td>EMP 手雷 + 穿甲武器（电荷系列），别硬刚</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <nav class="page-nav">
+    <a href="rimworld-guide-base-building.html" class="prev">
+      <span><span class="nav-label">上一页</span>🏠 基地建设攻略</span>
+    </a>
+    <a href="rimworld-guide-pawns.html" class="next">
+      <span><span class="nav-label">下一页</span>🧑‍🌾 小人管理</span>
+    </a>
+  </nav>
+
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    if (card.textContent.toLowerCase().includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+})();
+
+  // Back to top
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>

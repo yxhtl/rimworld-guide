@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生态与地形 | RimWorld 攻略站</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #1a1a1f;
+    --bg-card: #24242b;
+    --bg-sidebar: #1e1e24;
+    --border: #333340;
+    --text: #c8c8d0;
+    --text-muted: #888896;
+    --accent: #d4956b;
+    --accent-dim: #a07050;
+    --red: #c0392b;
+    --green: #4a9;
+    --blue: #5a9fd4;
+    --yellow: #d4b65a;
+    --radius: 6px;
+    --transition: 0.2s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+  nav.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+  .sidebar-logo h1 { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
+  .sidebar-logo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+  .nav-section { padding: 8px 20px 4px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-top: 8px; }
+  .nav-item { display: block; padding: 8px 20px; color: var(--text); text-decoration: none; font-size: 0.9rem; border-left: 3px solid transparent; transition: var(--transition); }
+  .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
+  .nav-item.active { border-left-color: var(--accent); background: rgba(212,149,107,0.08); color: var(--accent); }
+  .nav-item .icon { margin-right: 8px; }
+  .nav-badge { float: right; font-size: 0.65rem; background: var(--accent-dim); color: #fff; padding: 1px 6px; border-radius: 10px; margin-top: 2px; }
+  .nav-footer { margin-top: auto; padding: 16px 20px 0; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--text-muted); }
+  .nav-feedback { color: var(--accent-dim); text-decoration: none; transition: color var(--transition); }
+  .nav-feedback:hover { color: var(--accent); }
+
+  .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
+  .sidebar-overlay { display: none; }
+
+  main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
+
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 1.3rem; color: #fff; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; }
+  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .card h3 .emoji { font-size: 1.2rem; }
+  .card p, .card li { font-size: 0.92rem; color: var(--text); }
+  .card ul { padding-left: 20px; }
+  .card li { margin-bottom: 6px; }
+
+  .tip { background: rgba(90,159,212,0.1); border-left: 3px solid var(--blue); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; margin: 12px 0; font-size: 0.88rem; }
+  .tip.warn { background: rgba(192,57,43,0.1); border-left-color: var(--red); }
+  .tip.good { background: rgba(68,170,153,0.1); border-left-color: var(--green); }
+  .key { background: #333; color: var(--accent); padding: 1px 6px; border-radius: 3px; font-size: 0.85rem; font-family: "Cascadia Code", "Fira Code", monospace; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+  .tag-p0 { background: var(--red); color: #fff; }
+  .tag-p1 { background: var(--yellow); color: #1a1a1f; }
+  .tag-p2 { background: var(--text-muted); color: #fff; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .search-wrap { position: relative; margin-bottom: 32px; }
+  .search-wrap input { width: 100%; padding: 12px 16px 12px 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.95rem; font-family: inherit; transition: var(--transition); }
+  .search-wrap input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(212,149,107,0.15); }
+  .search-wrap input::placeholder { color: var(--text-muted); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--text-muted); pointer-events: none; }
+  .search-clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem; padding: 4px 8px; border-radius: 3px; display: none; }
+  .search-clear:hover { color: var(--text); background: var(--border); }
+  .search-clear.visible { display: block; }
+  .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 1rem; }
+  .no-results.visible { display: block; }
+  .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+  .card.hidden, .section-title.hidden { display: none; }
+  .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
+
+  .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle .toggle-thumb { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background var(--transition); }
+  .theme-toggle .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
+  body.light .toggle-thumb { background: var(--accent); }
+  body.light .toggle-thumb::after { transform: translateX(16px); }
+
+  body.light { --bg: #f4f4f6; --bg-card: #ffffff; --bg-sidebar: #f0f0f3; --border: #d8d8de; --text: #3a3a44; --text-muted: #888896; --accent: #b87050; --accent-dim: #8a5040; }
+  body.light .tip { background: rgba(90,159,212,0.08); }
+  body.light .tip.warn { background: rgba(192,57,43,0.06); }
+  body.light .tip.good { background: rgba(68,170,153,0.06); }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    nav.sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100vh; transition: left var(--transition); }
+    nav.sidebar.open { left: 0; }
+    .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9; }
+    .sidebar-overlay.open { display: block; }
+    .mobile-nav-toggle { display: block; }
+    main { padding: 60px 16px 32px; }
+    .card { padding: 16px; }
+  }
+  @media print { nav.sidebar, .mobile-nav-toggle { display: none; } main { max-width: 100%; padding: 0; } body { background: #fff; color: #000; } }
+  /* ========== Page Navigation ========== */
+  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .page-nav a { display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+  .page-nav a:hover { border-color: var(--accent); color: var(--accent); }
+  .page-nav .prev::before { content: '← '; }
+  .page-nav .next::after { content: ' →'; }
+  .page-nav .nav-label { font-size: 0.72rem; color: var(--text-muted); display: block; }
+  /* ========== Back to Top ========== */
+  .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); z-index: 50; color: var(--text); }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld 攻略站</h1>
+    <p>从活下去，到活得好</p>
+  </div>
+
+  <div class="nav-section">导航</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+
+  <div class="nav-section">新手必备</div>
+  <a href="rimworld-guide-getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+  </a>
+  <a href="rimworld-guide-base-building.html" class="nav-item">
+    <span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+  </a>
+
+  <div class="nav-section">进阶内容</div>
+  <a href="rimworld-guide-combat.html" class="nav-item"><span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span></a>
+
+  <div class="nav-section">DLC 内容</div>
+  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">扩展</div>
+  <a href="rimworld-guide-mods.html" class="nav-item"><span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-biomes.html" class="nav-item active"><span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-animals.html" class="nav-item">
+    <span class="icon">🐄</span> 动物与畜牧
+    <span class="nav-badge">P2</span>
+  </a>
+  <a href="rimworld-guide-trade.html" class="nav-item">
+    <span class="icon">💰</span> 贸易与经济
+    <span class="nav-badge">P2</span>
+  </a>
+  <a href="rimworld-guide-crafting.html" class="nav-item">
+    <span class="icon">⚗️</span> 制造与生产
+    <span class="nav-badge">P2</span>
+  </a>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+    <span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer">MVP v0.2 · 持续更新中 · <a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a><br>内容基于 RimWorld 1.4 + 全DLC</div>
+</nav>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">攻略总览</a> / 生态与地形</div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+  </div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+
+  <section class="section" id="biomes">
+    <h2 class="section-title">🌍 生态与地形</h2>
+
+    <!-- Card 1: 地形难度排行榜 -->
+    <div class="card">
+      <h3><span class="emoji">🏔️</span> 地形难度排行榜 <span class="tag tag-p0">新手必看</span></h3>
+      <p>开局选地形直接决定你的游戏体验。下面是按新手友好度从易到难排的地形榜单。</p>
+      <table>
+        <tr><th>地形</th><th>难度</th><th>特点</th><th>一句话总结</th></tr>
+        <tr>
+          <td><span class="key">温带森林</span> (Temperate Forest)</td>
+          <td><span class="tag tag-p0">极简单</span></td>
+          <td>全年生长或长季，木材多、动物多、温度适中</td>
+          <td>新手首选</td>
+        </tr>
+        <tr>
+          <td><span class="key">干旱灌木林</span> (Arid Shrubland)</td>
+          <td><span class="tag tag-p0">极简单</span></td>
+          <td>全年生长，少树但够用，热但不会热死</td>
+          <td>新手二选</td>
+        </tr>
+        <tr>
+          <td><span class="key">热带雨林</span> (Tropical Rainforest)</td>
+          <td><span class="tag tag-p1">简单</span></td>
+          <td>全年生长，资源极丰富</td>
+          <td>疾病多（疟疾/昏睡病），需要好医生</td>
+        </tr>
+        <tr>
+          <td><span class="key">寒带森林</span> (Boreal Forest)</td>
+          <td><span class="tag tag-p2">中等</span></td>
+          <td>生长季短（20-30天），冬天冷</td>
+          <td>需要保暖+温室，野生动物多可打猎</td>
+        </tr>
+        <tr>
+          <td><span class="key">沼泽</span> (Swamp)</td>
+          <td><span class="tag tag-p2">中等</span></td>
+          <td>肥沃土地+全年生长</td>
+          <td>地形难盖房，疾病多，移动慢</td>
+        </tr>
+        <tr>
+          <td><span class="key">苔原</span> (Tundra)</td>
+          <td><span class="tag tag-p2">困难</span></td>
+          <td>生长季极短（10-20天）</td>
+          <td>几乎种不了，靠打猎和贸易活</td>
+        </tr>
+        <tr>
+          <td><span class="key">沙漠</span> (Desert)</td>
+          <td><span class="tag tag-p2">困难</span></td>
+          <td>全年热但没木材没动物没土地</td>
+          <td>每寸可耕种地都是命</td>
+        </tr>
+        <tr>
+          <td><span class="key">极端沙漠</span> (Extreme Desert)</td>
+          <td><span class="tag tag-p2">极难</span></td>
+          <td>几乎没有植物和动物</td>
+          <td>靠吃人+贸易活</td>
+        </tr>
+        <tr>
+          <td><span class="key">冰原</span> (Ice Sheet)</td>
+          <td><span class="tag tag-p2">极难</span></td>
+          <td>永冬，无生长季</td>
+          <td>开局靠吃人+地热温室</td>
+        </tr>
+        <tr>
+          <td><span class="key">海冰</span> (Sea Ice)</td>
+          <td><span class="tag tag-p2">地狱</span></td>
+          <td>什么都没有，连石头都没有</td>
+          <td>纯自虐</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Card 1b: Biome Difficulty Spectrum SVG -->
+    <div class="card">
+      <h3><span class="emoji">📊</span> 生态难度一览图</h3>
+      <p>一眼看懂每种生态的生存难度、生长季和温度范围：</p>
+      <figure class="guide-diagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" style="max-width:100%;height:auto;">
+          <defs>
+            <filter id="bs"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.3"/></filter>
+            <linearGradient id="grad-easy" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2d6a2d"/><stop offset="100%" stop-color="#c0392b"/></linearGradient>
+          </defs>
+          <rect width="720" height="360" fill="#1a1a1f" rx="6"/>
+
+          <!-- Title bar -->
+          <rect x="0" y="0" width="720" height="36" fill="#24242b" rx="6"/>
+          <rect x="0" y="18" width="720" height="18" fill="#24242b"/>
+          <text x="360" y="24" fill="#c8c8d0" font-size="12" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">← 新手友好 ············································· 地狱难度 →</text>
+
+          <!-- Difficulty gradient bar -->
+          <rect x="40" y="42" width="640" height="8" rx="4" fill="url(#grad-easy)" opacity="0.4"/>
+
+          <!-- Biome rows -->
+          <!-- Row 1: 温带森林 -->
+          <rect x="40" y="62" width="640" height="28" rx="5" fill="#1e2a1e" stroke="#2d6a2d" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="64" width="400" height="24" rx="4" fill="#2d6a2d" opacity="0.65"/>
+          <text x="52" y="81" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🌳 温带森林</text>
+          <text x="460" y="81" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">全年生长 · 温度10~30°C · 资源丰富</text>
+
+          <!-- Row 2: 干旱灌木林 -->
+          <rect x="40" y="95" width="640" height="28" rx="5" fill="#1e241e" stroke="#3a6a2a" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="97" width="380" height="24" rx="4" fill="#3a6a2a" opacity="0.55"/>
+          <text x="52" y="114" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🌵 干旱灌木林</text>
+          <text x="440" y="114" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">全年生长 · 温度15~40°C · 木材偏少</text>
+
+          <!-- Row 3: 热带雨林 -->
+          <rect x="40" y="128" width="640" height="28" rx="5" fill="#1e241e" stroke="#b8860b" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="130" width="300" height="24" rx="4" fill="#b8860b" opacity="0.35"/>
+          <text x="52" y="147" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🌴 热带雨林</text>
+          <text x="360" y="147" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">全年生长 · 疾病风险高 · 资源爆炸</text>
+
+          <!-- Row 4: 寒带森林 -->
+          <rect x="40" y="161" width="640" height="28" rx="5" fill="#1e1e24" stroke="#d4b65a" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="163" width="270" height="24" rx="4" fill="#d4b65a" opacity="0.35"/>
+          <text x="52" y="180" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🌲 寒带森林</text>
+          <text x="330" y="180" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">生长季20~30天 · 冬天冷 · 需要温室</text>
+
+          <!-- Row 5: 沼泽 -->
+          <rect x="40" y="194" width="640" height="28" rx="5" fill="#1e241e" stroke="#d4b65a" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="196" width="250" height="24" rx="4" fill="#d4b65a" opacity="0.3"/>
+          <text x="52" y="213" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🐊 沼泽</text>
+          <text x="310" y="213" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">土地肥沃 · 地形难盖房 · 疾病多</text>
+
+          <!-- Row 6: 苔原 -->
+          <rect x="40" y="227" width="640" height="28" rx="5" fill="#1e1e28" stroke="#c0392b" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="229" width="180" height="24" rx="4" fill="#c0392b" opacity="0.3"/>
+          <text x="52" y="246" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">❄️ 苔原</text>
+          <text x="240" y="246" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">生长季10~20天 · 几乎种不了</text>
+
+          <!-- Row 7: 沙漠 -->
+          <rect x="40" y="260" width="640" height="28" rx="5" fill="#1e1e28" stroke="#c0392b" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="262" width="160" height="24" rx="4" fill="#c0392b" opacity="0.35"/>
+          <text x="52" y="279" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🏜️ 沙漠</text>
+          <text x="220" y="279" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">缺木材缺动物 · 每寸土都是命</text>
+
+          <!-- Row 8: 极端沙漠 -->
+          <rect x="40" y="293" width="640" height="28" rx="5" fill="#1e1e24" stroke="#8b0000" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="295" width="120" height="24" rx="4" fill="#8b0000" opacity="0.4"/>
+          <text x="52" y="312" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">💀 极端沙漠</text>
+          <text x="180" y="312" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">几乎无生命 · 靠贸易+吃人</text>
+
+          <!-- Row 9: 冰原 -->
+          <rect x="40" y="326" width="640" height="28" rx="5" fill="#1a1a2e" stroke="#6a8aaa" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="328" width="100" height="24" rx="4" fill="#6a8aaa" opacity="0.55"/>
+          <text x="52" y="345" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🧊 冰原</text>
+          <text x="160" y="345" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">永冬 · 地热温室是唯一出路</text>
+
+          <!-- Legend -->
+          <rect x="560" y="14" width="8" height="8" rx="2" fill="#2d6a2d" opacity="0.7"/>
+          <text x="574" y="22" fill="#888896" font-size="9" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">新手首选</text>
+          <rect x="634" y="14" width="8" height="8" rx="2" fill="#c0392b" opacity="0.7"/>
+          <text x="648" y="22" fill="#888896" font-size="9" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">自虐</text>
+        </svg>
+        <figcaption>▲ 条越长=越适合新手。温带森林和干旱灌木林是唯二推荐新手的生态，其他都有坑。</figcaption>
+      </figure>
+    </div>
+
+    <!-- Card 2: 地形类型选择指南 -->
+    <div class="card">
+      <h3><span class="emoji">🗺️</span> 地形类型选择指南 <span class="tag tag-p0">新手必看</span></h3>
+      <p>除了生态类型，地图的<span class="key">地形起伏</span>同样重要。开局选类型时注意这几个选项。</p>
+      <table>
+        <tr><th>地形类型</th><th>优势</th><th>劣势</th><th>适合人群</th></tr>
+        <tr>
+          <td><span class="key">平原</span> (Flat)</td>
+          <td>好盖房，无限扩展</td>
+          <td>没天然掩体，四面受敌</td>
+          <td>适合新手练基地规划</td>
+        </tr>
+        <tr>
+          <td><span class="key">小丘陵</span> (Small Hills)</td>
+          <td>有些山可以挖、有点掩体</td>
+          <td>山不够多，虫灾风险低</td>
+          <td>平衡之选</td>
+        </tr>
+        <tr>
+          <td><span class="key">大丘陵</span> (Large Hills)</td>
+          <td>大量山体=天然城墙</td>
+          <td>虫灾风险中等</td>
+          <td>推荐中等玩家</td>
+        </tr>
+        <tr>
+          <td><span class="key">山地</span> (Mountainous)</td>
+          <td>几乎全山=最强防御</td>
+          <td>虫灾频繁+挖山费时间</td>
+          <td>要塞流首选</td>
+        </tr>
+        <tr>
+          <td><span class="key">海岸</span> (Coastal)</td>
+          <td>一面靠海=少防一面</td>
+          <td>海上没资源，占地图空间</td>
+          <td>配合山地很舒服</td>
+        </tr>
+      </table>
+      <div class="tip"><strong>💡 开局推荐</strong><br><span class="key">新手选大丘陵+温带森林</span> = 最稳开局。有山有树有土地，进可攻退可守。</div>
+    </div>
+
+    <!-- Card 3: 影响选择的隐藏因素 -->
+    <div class="card">
+      <h3><span class="emoji">🔍</span> 影响选择的隐藏因素</h3>
+      <p>很多新手不知道，下面这些细节才是真正决定你开局能不能活下去的关键。</p>
+      <ul>
+        <li><strong>🪨 石头类型</strong>：<span class="key">花岗岩</span> &gt; <span class="key">石灰岩</span> &gt; <span class="key">砂岩</span> &gt; <span class="key">板岩</span> —— 建墙耐久差3倍，花岗岩墙1000血，板岩才330血。开局先看看地图上刷的是什么石头。</li>
+        <li><strong>🌱 地块肥沃度</strong>：普通土 100% / <span class="key">富土</span> 140%（深绿色地块，优先种） / <span class="key">贫土</span> 70%（只配种干草）。开局扫一眼地图，找到深绿色地块再规划农田。</li>
+        <li><strong>🗿 大理石 vs 砂岩</strong>：<span class="key">大理石</span> 美观度+1（适合做雕塑和地板），<span class="key">砂岩</span> 开采效率最快。初期缺人缺时间就选砂岩。</li>
+        <li><strong>🌊 河流</strong>：有河流 = 天然减速带 + <span class="key">水车发电机</span>（稳定 1100W 清洁能源）。但河流占地图空间还会分割基地，规划时提前留桥或封堵。</li>
+        <li><strong>⚠️ 远古威胁</strong>：地图上的 <span class="key">远古建筑</span>（淡灰色墙）别开局就拆。里面可能是休眠的 <span class="key">机械族</span>，前期小队必团灭。等有了枪和甲再处理。</li>
+        <li><strong>🛤️ 道路</strong>：地图上有 <span class="key">道路</span> = 商队来得更频繁。开局选址尽量贴着路，贸易路线决定了你是不是能活过冬天。</li>
+        <li><strong>🌐 纬度影响</strong>：越靠近赤道越热，全年生长；越靠近两级越冷，甚至永冻。选地图时看世界地图上的纬线，别一头扎进冰原还不知情。</li>
+      </ul>
+    </div>
+
+    <!-- Card 4: 季节与温度生存指南 -->
+    <div class="card">
+      <h3><span class="emoji">🌡️</span> 季节与温度生存指南 <span class="tag tag-p1">必学</span></h3>
+      <p>RimWorld 的天气系统和温度机制是新手最常翻车的地方。提前了解才能应对。</p>
+      <table>
+        <tr><th>天气事件</th><th>效果</th><th>威胁</th><th>应对方案</th></tr>
+        <tr>
+          <td><span class="key">热浪</span> (Heat Wave)</td>
+          <td>温度飙升 +20°C</td>
+          <td>小人中暑，室内没空调会热死</td>
+          <td>被动制冷器（需要木头）+ 宽檐帽 + 限制作业时间</td>
+        </tr>
+        <tr>
+          <td><span class="key">寒潮</span> (Cold Snap)</td>
+          <td>温度骤降 -20°C</td>
+          <td>作物冻死，小人冻伤</td>
+          <td>篝火 + 棉服 + 室内种田（水培或温室）</td>
+        </tr>
+        <tr>
+          <td><span class="key">火山冬天</span> (Volcanic Winter)</td>
+          <td>全球降温 -10~-20°C，持续数月</td>
+          <td>作物生长极慢，太阳能效率降低</td>
+          <td>提前存粮 + 地热发电 + 打猎补贴</td>
+        </tr>
+        <tr>
+          <td><span class="key">毒雾</span> (Toxic Fallout)</td>
+          <td>全图毒雾，户外 = 中毒</td>
+          <td>不能出门，动物死光，植物枯萎</td>
+          <td>全员龟室内 + 靠存粮 + 做屋顶走廊连接各建筑</td>
+        </tr>
+      </table>
+      <div class="tip warn"><strong>⚠️ 极端天气是可以叠加的</strong><br>寒潮 + 火山冬天能到 <span class="key">-60°C</span>。提前存粮存木头是关键——别等来了再准备。</div>
+    </div>
+
+  </section>
+  <nav class="page-nav">
+    <a href="rimworld-guide-mods.html" class="prev">
+      <span><span class="nav-label">上一页</span>🧩 Mod 推荐</span>
+    </a>
+    <a href="rimworld-guide-animals.html" class="next">
+      <span><span class="nav-label">下一页</span>🐄 动物与畜牧</span>
+    </a>
+  </nav>
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    if (card.textContent.toLowerCase().includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+})();
+  // Back to top
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>
