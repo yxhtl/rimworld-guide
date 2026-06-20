@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yxhtl.github.io/rimworld-guide/sitemap.xml
+Sitemap: https://yxhtl.com/sitemap.xml
