@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="关于 RimWorld 攻略站：一个由资深边缘世界玩家创建的攻略网站。了解本站的来由、内容范围、以及如何联系我们。">
+<meta name="keywords" content="RimWorld, 攻略站, 关于, 边缘世界, 游戏攻略">
+<link rel="canonical" href="https://yxhtl.github.io/rimworld-guide/about.html">
+<meta property="og:title" content="关于本站 | RimWorld 攻略站">
+<meta property="og:description" content="关于 RimWorld 攻略站：一个由资深边缘世界玩家创建的攻略网站。了解本站的来由、内容范围、以及如何联系我们。">
+<meta property="og:url" content="https://yxhtl.github.io/rimworld-guide/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RimWorld 攻略站">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于本站 | RimWorld 攻略站">
+<meta name="twitter:description" content="关于 RimWorld 攻略站：一个由资深边缘世界玩家创建的攻略网站。了解本站的来由、内容范围、以及如何联系我们。">
+<meta name="robots" content="index, follow">
+<title>关于本站 | RimWorld 攻略站</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #1a1a1f;
+    --bg-card: #24242b;
+    --bg-sidebar: #1e1e24;
+    --border: #333340;
+    --text: #c8c8d0;
+    --text-muted: #888896;
+    --accent: #d4956b;
+    --accent-dim: #a07050;
+    --red: #c0392b;
+    --green: #4a9;
+    --blue: #5a9fd4;
+    --yellow: #d4b65a;
+    --radius: 6px;
+    --transition: 0.2s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+  nav.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+  .sidebar-logo h1 { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
+  .sidebar-logo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+  .nav-section {
+    padding: 8px 20px 4px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-top: 8px;
+  }
+  .nav-item {
+    display: block;
+    padding: 8px 20px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 3px solid transparent;
+    transition: var(--transition);
+  }
+  .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
+  .nav-item.active {
+    border-left-color: var(--accent);
+    background: rgba(212,149,107,0.08);
+    color: var(--accent);
+  }
+  .nav-item .icon { margin-right: 8px; }
+  .nav-badge {
+    float: right;
+    font-size: 0.65rem;
+    background: var(--accent-dim);
+    color: #fff;
+    padding: 1px 6px;
+    border-radius: 10px;
+    margin-top: 2px;
+  }
+  .nav-footer {
+    margin-top: auto;
+    padding: 16px 20px 0;
+    border-top: 1px solid var(--border);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+  .nav-footer a { color: var(--accent); text-decoration: none; }
+  .nav-footer a:hover { text-decoration: underline; }
+  .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
+  .sidebar-overlay { display: none; }
+  main {
+    flex: 1;
+    max-width: 800px;
+    padding: 40px 48px;
+    overflow-y: auto;
+  }
+  .page-header {
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .page-header h2 { font-size: 1.6rem; color: #fff; margin-bottom: 6px; }
+  .page-header p { color: var(--text-muted); font-size: 0.9rem; }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 12px; }
+  .card p { margin-bottom: 10px; }
+  .card ul { padding-left: 20px; margin-bottom: 10px; }
+  .card li { margin-bottom: 6px; }
+  .emoji { font-size: 1.2em; margin-right: 6px; }
+  .key { color: var(--accent); font-weight: 600; }
+  .contact-box {
+    background: rgba(90,159,212,0.08);
+    border: 1px solid rgba(90,159,212,0.3);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-top: 12px;
+  }
+  .contact-box a { color: var(--blue); }
+  .back-to-top { display: none; position: fixed; bottom: 24px; right: 24px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; z-index: 100; transition: var(--transition); }
+  .back-to-top:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .back-to-top.visible { display: flex; align-items: center; justify-content: center; }
+  .theme-toggle {
+    display: flex; align-items: center; gap: 8px;
+    margin: 12px 16px 0;
+    padding: 8px 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: var(--transition);
+    width: calc(100% - 32px);
+  }
+  .theme-toggle:hover { background: rgba(255,255,255,0.04); }
+  .toggle-thumb { width: 28px; height: 16px; background: var(--accent-dim); border-radius: 8px; margin-left: auto; position: relative; }
+  .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; background: #fff; border-radius: 50%; transition: var(--transition); }
+
+  /* Light theme */
+  body.light { --bg: #f5f5f7; --bg-card: #ffffff; --bg-sidebar: #ebebed; --border: #d5d5da; --text: #2a2a2e; --text-muted: #6a6a6e; }
+  body.light .card { box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  body.light .contact-box { background: rgba(90,159,212,0.06); }
+  body.light .theme-toggle .toggle-thumb::after { left: auto; right: 2px; }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    .mobile-nav-toggle { display: block; }
+    nav.sidebar { position: fixed; left: -280px; top: 0; height: 100vh; width: 280px; min-width: 280px; transition: left 0.25s ease; z-index: 90; }
+    nav.sidebar.open { left: 0; }
+    .sidebar-overlay.open { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 80; }
+    main { padding: 20px 16px; max-width: 100%; }
+  }
+</style>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x9iflmg36h");
+</script>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld 攻略站</h1>
+    <p>从活下去，到活得好</p>
+  </div>
+
+  <div class="nav-section">导航</div>
+  <a href="index.html" class="nav-item">
+    <span class="icon">🏠</span> 攻略总览
+  </a>
+
+  <div class="nav-section">新手必备</div>
+  <a href="rimworld-guide-getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+  </a>
+  <a href="rimworld-guide-base-building.html" class="nav-item">
+    <span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+  </a>
+
+  <div class="nav-section">进阶内容</div>
+  <a href="rimworld-guide-combat.html" class="nav-item">
+    <span class="icon">⚔️</span> 战斗与防御
+    <span class="nav-badge">P1</span>
+  </a>
+  <a href="rimworld-guide-pawns.html" class="nav-item">
+    <span class="icon">🧑‍🌾</span> 小人管理
+    <span class="nav-badge">P1</span>
+  </a>
+  <a href="rimworld-guide-research.html" class="nav-item">
+    <span class="icon">🔬</span> 科技研究路线
+    <span class="nav-badge">P2</span>
+  </a>
+
+  <div class="nav-section">DLC 内容</div>
+  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">扩展</div>
+  <a href="rimworld-guide-mods.html" class="nav-item">
+    <span class="icon">🧩</span> Mod 推荐
+    <span class="nav-badge">P2</span>
+  </a>
+  <a href="rimworld-guide-biomes.html" class="nav-item">
+    <span class="icon">🌍</span> 生态与地形
+    <span class="nav-badge">P2</span>
+  </a>
+  <a href="rimworld-guide-animals.html" class="nav-item">
+    <span class="icon">🐄</span> 动物与畜牧
+    <span class="nav-badge">P2</span>
+  </a>
+  <a href="rimworld-guide-trade.html" class="nav-item">
+    <span class="icon">💰</span> 贸易与经济
+    <span class="nav-badge">P2</span>
+  </a>
+  <a href="rimworld-guide-crafting.html" class="nav-item">
+    <span class="icon">⚗️</span> 制造与生产
+    <span class="nav-badge">P2</span>
+  </a>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+    <span id="theme-icon">🌙</span>
+    <span id="theme-label">暗色模式</span>
+    <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer">
+    <a href="about.html" style="font-weight:600;">📖 关于本站</a> ·
+    <a href="privacy.html">🔒 隐私政策</a><br>
+    <a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener">📋 反馈建议</a> · MVP v0.2
+  </div>
+</nav>
+
+<main>
+
+<div class="page-header">
+  <h2>📖 关于本站</h2>
+  <p>一个人、一台电脑、一千小时的边缘世界</p>
+</div>
+
+<div class="card">
+  <h3>🎯 这个站是干嘛的</h3>
+  <p><span class="key">RimWorld 攻略站</span> 是一份写给新手的边缘世界生存手册。</p>
+  <p>RimWorld 这游戏上手门槛不低——开局三个人落地，没人告诉你该先干什么。砍树、挖山、种地、防 raids、哄小人别崩溃……每一步都有坑。我玩了上千小时，踩过的坑比走过的路还多。</p>
+  <p>这个站就是把那些"早知道就好了"的东西串起来，让你少走弯路。覆盖内容：</p>
+  <ul>
+    <li><strong>开局选人选地</strong> — 开局三人的技能搭配和落地点选择</li>
+    <li><strong>基地建设</strong> — 从第一间木屋到完整的生存基地</li>
+    <li><strong>战斗与防御</strong> — 阵地设计、武器选择、应对各种袭击</li>
+    <li><strong>小人管理</strong> — 心情、技能、关系……让殖民地不崩溃</li>
+    <li><strong>科技研究</strong> — 研究路线规划，先研究什么、后研究什么</li>
+    <li><strong>四个 DLC</strong> — 皇权、文化、生物科技、异象的完整攻略</li>
+    <li><strong>Mod 推荐</strong> — 必备 Mod 和排序技巧</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>👤 我谁啊</h3>
+  <p>一个普通 RimWorld 玩家。不是大神，也不是速通选手，就一喜欢玩边缘世界的普通玩家。</p>
+  <p>刚开始玩这个游戏的时候我也各种暴毙——被松鼠咬死、冬天饿死、小人打架火烧基地……后来慢慢摸索出一套自己的打法。写这个站一方面是整理自己的经验，另一方面是帮助和我当初一样一脸懵逼的新手。</p>
+  <p>目前整站有 <strong>15 页攻略</strong>、<strong>16 张原创 SVG 图解</strong>，还在持续更新中。如果你发现哪里写错了或者有更好的建议，欢迎反馈。</p>
+</div>
+
+<div class="card">
+  <h3>💰 靠啥运营</h3>
+  <p>网站服务器和域名是自己掏的。为了补贴运营成本，本站会投放 <span class="key">Google AdSense 广告</span>。</p>
+  <p>广告不会影响你看攻略——我不会用弹窗、插屏或者任何挡内容的形式。就是侧栏和文章底部放点展示广告。如果你用的是广告拦截器也没关系，攻略内容完全免费。</p>
+  <p>如果你觉得攻略有用，最能帮我的方式就是 <strong>分享给其他玩 RimWorld 的朋友</strong>。流量多了，广告收入自然能覆盖成本。</p>
+</div>
+
+<div class="card">
+  <h3>📬 怎么联系</h3>
+  <p>有问题、建议、或者单纯想聊天？以下几个方式都能找到我：</p>
+  <div class="contact-box">
+    <p>📋 <strong>反馈表单：</strong><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener">腾讯问卷</a>（推荐，有问必答）</p>
+    <p>📞 <strong>联系手机：</strong>199 0778 5073</p>
+    <p>🐙 <strong>GitHub：</strong><a href="https://github.com/yxhtl/rimworld-guide" target="_blank" rel="noopener">yxhtl/rimworld-guide</a>（可以直接提 Issue）</p>
+  </div>
+</div>
+
+<button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+})();
+
+const backToTop = document.getElementById('back-to-top');
+window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>

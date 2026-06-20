@@ -7,6 +7,18 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://yxhtl.github.io/rimworld-guide/about.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://yxhtl.github.io/rimworld-guide/privacy.html</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://yxhtl.github.io/rimworld-guide/rimworld-guide-getting-started.html</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
