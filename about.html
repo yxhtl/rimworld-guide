@@ -19,108 +19,14 @@
 <meta name="twitter:description" content="关于 RimWorld 攻略站：一个由资深边缘世界玩家创建的攻略网站。了解本站的来由、内容范围、以及如何联系我们。">
 <meta name="robots" content="index, follow">
 <title>关于本站 | RimWorld 攻略站</title>
+<link rel="stylesheet" href="css/base.css">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #1a1a1f;
-    --bg-card: #24242b;
-    --bg-sidebar: #1e1e24;
-    --border: #333340;
-    --text: #c8c8d0;
-    --text-muted: #888896;
-    --accent: #d4956b;
-    --accent-dim: #a07050;
-    --red: #c0392b;
-    --green: #4a9;
-    --blue: #5a9fd4;
-    --yellow: #d4b65a;
-    --radius: 6px;
-    --transition: 0.2s ease;
-  }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.75;
-    display: flex;
-    min-height: 100vh;
-  }
-  nav.sidebar {
-    width: 260px;
-    min-width: 260px;
-    background: var(--bg-sidebar);
-    border-right: 1px solid var(--border);
-    padding: 24px 0;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    z-index: 10;
-  }
-  .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
-  .sidebar-logo h1 { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
-  .sidebar-logo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
-  .lang-switcher { padding: 0 20px 12px; border-bottom: 1px solid var(--border); margin-bottom: 12px; font-size: 0.78rem; display: flex; gap: 6px; align-items: center; }
-  .lang-switcher a { color: var(--accent); text-decoration: none; }
-  .lang-switcher a:hover { text-decoration: underline; }
-  .lang-switcher .active { color: var(--text-muted); cursor: default; }
-  .lang-link { font-size: 0.78rem; margin-left: auto; }
-  .lang-link a { color: var(--accent); text-decoration: none; }
-  .lang-link a:hover { text-decoration: underline; }
-  .nav-section {
-    padding: 8px 20px 4px;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    margin-top: 8px;
-  }
-  .nav-item {
-    display: block;
-    padding: 8px 20px;
-    color: var(--text);
-    text-decoration: none;
-    font-size: 0.9rem;
-    border-left: 3px solid transparent;
-    transition: var(--transition);
-  }
-  .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
-  .nav-item.active {
-    border-left-color: var(--accent);
-    background: rgba(212,149,107,0.08);
-    color: var(--accent);
-  }
-  .nav-item .icon { margin-right: 8px; }
-  .nav-badge {
-    float: right;
-    font-size: 0.65rem;
-    background: var(--accent-dim);
-    color: #fff;
-    padding: 1px 6px;
-    border-radius: 10px;
-    margin-top: 2px;
-  }
-  .nav-footer {
-    margin-top: auto;
-    padding: 16px 20px 0;
-    border-top: 1px solid var(--border);
-    font-size: 0.72rem;
-    color: var(--text-muted);
-  }
-  .nav-footer a { color: var(--accent); text-decoration: none; }
-  .nav-footer a:hover { text-decoration: underline; }
- 
-  .reward-box { padding: 0 16px; margin-bottom: 4px; }
+.reward-box { padding: 0 16px; margin-bottom: 4px; }
   .reward-hint { font-size: 0.7rem; color: var(--text-muted); padding: 0 4px 8px; text-align: center; }
   .reward-codes { display: flex; gap: 8px; justify-content: center; }
   .reward-item { text-align: center; }
   .reward-item img { width: 100px; height: 100px; border-radius: var(--radius); border: 2px solid var(--border); display: block; }
   .reward-item span { font-size: 0.65rem; color: var(--text-muted); margin-top: 4px; display: block; }
-  .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
-  .sidebar-overlay { display: none; }
   main {
     flex: 1;
     max-width: 800px;
@@ -182,9 +88,6 @@
   body.light .theme-toggle .toggle-thumb::after { left: auto; right: 2px; }
 
   @media (max-width: 768px) {
-    body { flex-direction: column; }
-    .mobile-nav-toggle { display: block; }
-    nav.sidebar { position: fixed; left: -280px; top: 0; height: 100vh; width: 280px; min-width: 280px; transition: left 0.25s ease; z-index: 90; }
     nav.sidebar.open { left: 0; }
     .sidebar-overlay.open { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 80; }
     main { padding: 20px 16px; max-width: 100%; }
@@ -321,7 +224,6 @@
   <p>有问题、建议、或者单纯想聊天？以下几个方式都能找到我：</p>
   <div class="contact-box">
     <p>📋 <strong>反馈表单：</strong><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener">腾讯问卷</a>（推荐，有问必答）</p>
-    <p>📞 <strong>联系手机：</strong>199 0778 5073</p>
     <p>🐙 <strong>GitHub：</strong><a href="https://github.com/yxhtl/rimworld-guide" target="_blank" rel="noopener">yxhtl/rimworld-guide</a>（可以直接提 Issue）</p>
   </div>
 </div>
