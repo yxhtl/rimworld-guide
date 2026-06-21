@@ -307,65 +307,65 @@
       <h3><span class="emoji">📊</span> Mod Load Order Visualization</h3>
       <p>Just remember six words: "Frameworks on top, content below." This diagram is all you need:</p>
       <figure class="guide-diagram">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" style="max-width:100%;height:auto;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 370" style="max-width:100%;height:auto;">
           <defs>
             <filter id="mod-sh"><feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/></filter>
           </defs>
-          <rect width="720" height="340" fill="#1a1a1f" rx="6"/>
+          <rect width="760" height="370" fill="#1a1a1f" rx="6"/>
 
           <!-- Title -->
-          <text x="360" y="24" fill="#d4956b" font-size="11" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">⬆ Loaded first (higher priority) ························ Loaded later (lower priority) ⬇</text>
+          <text x="380" y="26" fill="#d4956b" font-size="12" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">⬆ Loaded first (higher priority) ····················· Loaded later (lower priority) ⬇</text>
 
           <!-- Stack layers from top to bottom -->
           <!-- Layer 1: Harmony -->
-          <rect x="40" y="38" width="640" height="26" rx="5" fill="#2a2a3a" stroke="#d4956b" stroke-width="1.5" filter="url(#mod-sh)"/>
-          <text x="60" y="55" fill="#d4956b" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">1. Harmony</text>
-          <text x="200" y="55" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Low-level hook framework, 99% of mods depend on it, always first</text>
+          <rect x="40" y="42" width="680" height="28" rx="5" fill="#2a2a3a" stroke="#d4956b" stroke-width="1.5" filter="url(#mod-sh)"/>
+          <text x="60" y="60" fill="#d4956b" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">1. Harmony</text>
+          <text x="210" y="60" fill="#888896" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Low-level hook framework, 99% of mods depend on it, always first</text>
 
           <!-- Layer 2: Core + DLC -->
-          <rect x="50" y="68" width="620" height="26" rx="5" fill="#2a2a2a" stroke="#888" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="70" y="85" fill="#c8c8d0" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">2. Core → Royalty → Ideology → Biotech → Anomaly</text>
-          <text x="440" y="85" fill="#888896" font-size="9" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Game core + DLC</text>
+          <rect x="55" y="74" width="650" height="28" rx="5" fill="#2a2a2a" stroke="#888" stroke-width="1" filter="url(#mod-sh)"/>
+          <text x="75" y="92" fill="#c8c8d0" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">2. Core → Royalty → Ideology → Biotech → Anomaly</text>
+          <text x="470" y="92" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Game core + DLC</text>
 
           <!-- Layer 3: HugsLib -->
-          <rect x="60" y="98" width="600" height="26" rx="5" fill="#1e2a2e" stroke="#5a9fd4" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="80" y="115" fill="#5a9fd4" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">3. HugsLib</text>
-          <text x="240" y="115" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">General-purpose library, provides API support for other mods</text>
+          <rect x="70" y="106" width="620" height="28" rx="5" fill="#1e2a2e" stroke="#5a9fd4" stroke-width="1" filter="url(#mod-sh)"/>
+          <text x="90" y="124" fill="#5a9fd4" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">3. HugsLib</text>
+          <text x="260" y="124" fill="#888896" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">General-purpose library, provides API support for other mods</text>
 
           <!-- Layer 4: VE Framework -->
-          <rect x="70" y="128" width="580" height="26" rx="5" fill="#1e2a2e" stroke="#5a9fd4" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="90" y="145" fill="#5a9fd4" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">4. Vanilla Expanded Framework</text>
-          <text x="340" y="145" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">VE series dependency</text>
+          <rect x="85" y="138" width="590" height="28" rx="5" fill="#1e2a2e" stroke="#5a9fd4" stroke-width="1" filter="url(#mod-sh)"/>
+          <text x="105" y="156" fill="#5a9fd4" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">4. Vanilla Expanded Framework</text>
+          <text x="365" y="156" fill="#888896" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">VE series dependency</text>
 
           <!-- Layer 5: Large frameworks -->
-          <rect x="80" y="158" width="560" height="26" rx="5" fill="#1e1e2a" stroke="#784" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="100" y="175" fill="#c8a0d0" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">5. Large Framework Mods</text>
-          <text x="280" y="175" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">JecsTools, etc.</text>
+          <rect x="100" y="170" width="560" height="28" rx="5" fill="#1e1e2a" stroke="#784" stroke-width="1" filter="url(#mod-sh)"/>
+          <text x="120" y="188" fill="#c8a0d0" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">5. Large Framework Mods</text>
+          <text x="320" y="188" fill="#888896" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">JecsTools, etc.</text>
 
           <!-- Layer 6: Function mods -->
-          <rect x="90" y="188" width="540" height="26" rx="5" fill="#1e241e" stroke="#4a9" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="110" y="205" fill="#4a9" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">6. Gameplay Mods</text>
-          <text x="260" y="205" fill="#c8c8d0" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">UI improvements · Behavior tweaks · QoL enhancements</text>
-          <text x="520" y="205" fill="#888896" font-size="9" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">RimHUD · AllowTool, etc.</text>
+          <rect x="115" y="202" width="530" height="28" rx="5" fill="#1e241e" stroke="#4a9" stroke-width="1" filter="url(#mod-sh)"/>
+          <text x="135" y="220" fill="#4a9" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">6. Gameplay Mods</text>
+          <text x="295" y="220" fill="#c8c8d0" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">UI improvements · Behavior tweaks · QoL enhancements</text>
+          <text x="555" y="220" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">RimHUD · AllowTool</text>
 
           <!-- Layer 7: Content mods -->
-          <rect x="100" y="218" width="520" height="26" rx="5" fill="#1e1e24" stroke="#d4b65a" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="120" y="235" fill="#d4b65a" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">7. Content Additions</text>
-          <text x="270" y="235" fill="#c8c8d0" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">New weapons · New gear · New creatures · New races</text>
-          <text x="520" y="235" fill="#888896" font-size="9" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Vanilla Expanded, etc.</text>
+          <rect x="130" y="234" width="500" height="28" rx="5" fill="#1e1e24" stroke="#d4b65a" stroke-width="1" filter="url(#mod-sh)"/>
+          <text x="150" y="252" fill="#d4b65a" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">7. Content Additions</text>
+          <text x="310" y="252" fill="#c8c8d0" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">New weapons · New gear · New creatures · New races</text>
+          <text x="550" y="252" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Vanilla Expanded</text>
 
           <!-- Layer 8: Translation -->
-          <rect x="110" y="248" width="500" height="26" rx="5" fill="#1e1e24" stroke="#888" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="130" y="265" fill="#c8c8d0" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">8. Localization / Translation Patches</text>
+          <rect x="145" y="266" width="470" height="28" rx="5" fill="#1e1e24" stroke="#888" stroke-width="1" filter="url(#mod-sh)"/>
+          <text x="165" y="284" fill="#c8c8d0" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">8. Localization / Translation Patches</text>
 
           <!-- Layer 9: Compatibility patches (bottom) -->
-          <rect x="120" y="278" width="480" height="26" rx="5" fill="#1a1a1f" stroke="#555" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="140" y="295" fill="#888896" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">9. Compatibility Patches</text>
-          <text x="260" y="295" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Loaded last, overrides all conflicts</text>
+          <rect x="160" y="298" width="440" height="28" rx="5" fill="#1a1a1f" stroke="#555" stroke-width="1" filter="url(#mod-sh)"/>
+          <text x="180" y="316" fill="#888896" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">9. Compatibility Patches</text>
+          <text x="370" y="316" fill="#888896" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Loaded last, overrides all conflicts</text>
 
           <!-- Right side annotation -->
-          <text x="685" y="32" fill="#888896" font-size="10" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">← Loaded first</text>
-          <text x="685" y="308" fill="#888896" font-size="10" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">← Loaded last</text>
+          <text x="745" y="40" fill="#888896" font-size="10" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">← Loaded first</text>
+          <text x="745" y="335" fill="#888896" font-size="10" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">← Loaded last</text>
         </svg>
         <figcaption>▲ Loaded in order from 1 to 9. The higher up, the more fundamental and the earlier it loads. The mantra: frameworks on top, content below, compatibility patches at the bottom.</figcaption>
       </figure>
