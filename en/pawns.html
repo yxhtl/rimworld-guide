@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="RimWorld 小人管理指南：手把手教你调工作优先级、看懂心情系统、挑选优秀特性、安排合理日程，让你的殖民地小人高效运转不崩溃。">
-<meta name="keywords" content="RimWorld, 边缘世界, 攻略, 小人, 工作优先级, 心情, 特性, 日程管理">
-<link rel="canonical" href="https://yxhtl.com/rimworld-guide-pawns.html">
+<meta name="description" content="RimWorld pawn management guide: work priority golden rules, mood system quick reference, trait selection, bionics & implants, and schedule optimization.">
+<meta name="keywords" content="RimWorld, guide, pawns, colonists, mood, traits, work priority, bionics">
+<link rel="canonical" href="https://yxhtl.com/en/pawns.html">
 <link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-pawns.html">
 <link rel="alternate" hreflang="en" href="https://yxhtl.com/en/pawns.html">
 <link rel="alternate" hreflang="x-default" href="https://yxhtl.com/rimworld-guide-pawns.html">
-<meta property="og:title" content="小人管理 | RimWorld 攻略站">
-<meta property="og:description" content="RimWorld 小人管理指南：手把手教你调工作优先级、看懂心情系统、挑选优秀特性、安排合理日程，让你的殖民地小人高效运转不崩溃。">
-<meta property="og:url" content="https://yxhtl.com/rimworld-guide-pawns.html">
+<meta property="og:title" content="Pawn Management | RimWorld Guide">
+<meta property="og:description" content="RimWorld pawn management guide: work priority golden rules, mood system quick reference, trait selection, bionics & implants, and schedule optimization.">
+<meta property="og:url" content="https://yxhtl.com/en/pawns.html">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="RimWorld 攻略站">
+<meta property="og:site_name" content="RimWorld Guide">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小人管理 | RimWorld 攻略站">
-<meta name="twitter:description" content="RimWorld 小人管理指南：手把手教你调工作优先级、看懂心情系统、挑选优秀特性、安排合理日程，让你的殖民地小人高效运转不崩溃。">
+<meta name="twitter:title" content="Pawn Management | RimWorld Guide">
+<meta name="twitter:description" content="RimWorld pawn management guide: work priority golden rules, mood system quick reference, trait selection, bionics & implants, and schedule optimization.">
 <meta name="robots" content="index, follow">
-<title>小人管理 | RimWorld 攻略站</title>
+<title>Pawn Management | RimWorld Guide</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -39,7 +39,7 @@
   }
   html { scroll-behavior: smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.75;
@@ -81,20 +81,13 @@
   .nav-feedback:hover { color: var(--accent); }
   .nav-footer a { color: var(--accent); text-decoration: none; }
   .nav-footer a:hover { text-decoration: underline; }
- 
-  .reward-box { padding: 0 16px; margin-bottom: 4px; }
-  .reward-hint { font-size: 0.7rem; color: var(--text-muted); padding: 0 4px 8px; text-align: center; }
-  .reward-codes { display: flex; gap: 8px; justify-content: center; }
-  .reward-item { text-align: center; }
-  .reward-item img { width: 100px; height: 100px; border-radius: var(--radius); border: 2px solid var(--border); display: block; }
-  .reward-item span { font-size: 0.65rem; color: var(--text-muted); margin-top: 4px; display: block; }
 
   .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
   .sidebar-overlay { display: none; }
 
   main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
 
-  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); }
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; }
   .breadcrumb a { color: var(--accent); text-decoration: none; }
   .breadcrumb a:hover { text-decoration: underline; }
 
@@ -193,163 +186,167 @@
 </head>
 <body>
 
-<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
 <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-logo">
-    <h1>🪐 RimWorld 攻略站</h1>
-    <p>从活下去，到活得好</p>
+    <h1>🪐 RimWorld Guide</h1>
+    <p>From surviving to thriving</p>
   </div>
 
-  <div class="nav-section">导航</div>
-  <a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+  <div class="lang-switcher">
+    <a href="../rimworld-guide-pawns.html">中文</a> <span class="active">| English</span>
+  </div>
 
-  <div class="nav-section">新手必备</div>
-  <a href="rimworld-guide-getting-started.html" class="nav-item">
-    <span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+  <div class="nav-section">Navigation</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> Guide Index</a>
+
+  <div class="nav-section">Essentials</div>
+  <a href="getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> Survival Guide <span class="nav-badge">P0</span>
   </a>
-  <a href="rimworld-guide-base-building.html" class="nav-item">
-    <span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+  <a href="base-building.html" class="nav-item">
+    <span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span>
   </a>
 
-  <div class="nav-section">进阶内容</div>
-  <a href="rimworld-guide-combat.html" class="nav-item"><span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span></a>
-  <a href="rimworld-guide-pawns.html" class="nav-item active"><span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span></a>
-  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span></a>
+  <div class="nav-section">Advanced</div>
+  <a href="combat.html" class="nav-item"><span class="icon">⚔️</span> Combat & Defense <span class="nav-badge">P1</span></a>
+  <a href="pawns.html" class="nav-item active"><span class="icon">🧑‍🌾</span> Pawn Management <span class="nav-badge">P1</span></a>
+  <a href="research.html" class="nav-item"><span class="icon">🔬</span> Tech Tree <span class="nav-badge">P2</span></a>
 
-  <div class="nav-section">DLC 内容</div>
-  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span></a>
+  <div class="nav-section">DLC</div>
+  <a href="dlc-royalty.html" class="nav-item"><span class="icon">👑</span> Royalty <span class="nav-badge">DLC</span></a>
+  <a href="dlc-ideology.html" class="nav-item"><span class="icon">💡</span> Ideology <span class="nav-badge">DLC</span></a>
+  <a href="dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> Biotech <span class="nav-badge">DLC</span></a>
+  <a href="dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> Anomaly <span class="nav-badge">DLC</span></a>
 
-  <div class="nav-section">扩展</div>
-  <a href="rimworld-guide-mods.html" class="nav-item"><span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-biomes.html" class="nav-item"><span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-animals.html" class="nav-item"><span class="icon">🐄</span> 动物与畜牧 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-trade.html" class="nav-item"><span class="icon">💰</span> 贸易与经济 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-crafting.html" class="nav-item"><span class="icon">⚗️</span> 制造与生产 <span class="nav-badge">P2</span></a>
+  <div class="nav-section">Extras</div>
+  <a href="mods.html" class="nav-item"><span class="icon">🧩</span> Mods <span class="nav-badge">P2</span></a>
+  <a href="biomes.html" class="nav-item"><span class="icon">🌍</span> Biomes & Terrain <span class="nav-badge">P2</span></a>
+  <a href="animals.html" class="nav-item"><span class="icon">🐄</span> Animals & Livestock <span class="nav-badge">P2</span></a>
+  <a href="trade.html" class="nav-item"><span class="icon">💰</span> Trade & Economy <span class="nav-badge">P2</span></a>
+  <a href="crafting.html" class="nav-item"><span class="icon">⚗️</span> Crafting & Production <span class="nav-badge">P2</span></a>
 
 
   </div>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
-    <span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span> <span class="toggle-thumb"></span>
   </button>
 
-  <div class="nav-footer"><a href="about.html">📖 关于本站</a> · <a href="privacy.html">🔒 隐私政策</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a> · MVP v0.2</div>
+  <div class="nav-footer"><a href="about.html">📖 About</a> · <a href="privacy.html">🔒 Privacy</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
 </nav>
 
 <main>
-  <div class="breadcrumb"><a href="index.html">攻略总览</a> / 小人管理</div>
+  <div class="breadcrumb"><a href="index.html">Guide Index</a> / Pawn Management <span class="lang-link"><a href="../rimworld-guide-pawns.html">中文版本</a></span></div>
 
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
-    <input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
-    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+    <input type="text" id="search-input" placeholder="Search this page..." oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button>
   </div>
-  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No matching results. Try a different term?</p></div>
 
   <div class="page-toc">
-    <h4>📑 本页目录</h4>
+    <h4>📑 On This Page</h4>
     <ol>
-      <li><a href="#work-priority">工作优先级黄金法则</a></li>
-      <li><a href="#mood">心情系统速查</a></li>
-      <li><a href="#traits">特性挑选指南</a></li>
-      <li><a href="#bionics">仿生体与植入物</a></li>
-      <li><a href="#schedule">日程安排技巧</a></li>
+      <li><a href="#work-priority">Work Priority Golden Rules</a></li>
+      <li><a href="#mood">Mood System Quick Reference</a></li>
+      <li><a href="#traits">Trait Selection Guide</a></li>
+      <li><a href="#bionics">Bionics & Implants</a></li>
+      <li><a href="#schedule">Schedule Optimization Tips</a></li>
     </ol>
   </div>
 
   <section class="section" id="pawns">
-    <h2 class="section-title">🧑‍🌾 小人管理</h2>
+    <h2 class="section-title">🧑‍🌾 Pawn Management</h2>
 
     <div class="card">
-      <h3 id="work-priority"><span class="emoji">📋</span> 工作优先级黄金法则</h3>
-      <p>游戏默认的工作优先级是"从左到右"，这样小人会先去灭火而不是去扫地——这逻辑大部分时候是对的。<strong>但你需要手动调数值。</strong></p>
+      <h3 id="work-priority"><span class="emoji">📋</span> Work Priority Golden Rules</h3>
+      <p>The default work priority in RimWorld is "left to right" — pawns will put out fires before sweeping the floor. That logic works most of the time. <strong>But you need to fine-tune the numbers manually.</strong></p>
       <br>
       <table>
-        <tr><th>任务类型</th><th>推荐优先度</th><th>谁来做</th><th>为什么</th></tr>
-        <tr><td>🔥 灭火</td><td><span class="key">1</span></td><td>所有人</td><td>优先级最高，家烧没了啥都别谈了</td></tr>
-        <tr><td>🩺 就医</td><td><span class="key">1</span></td><td>医疗高的 1-2 人</td><td>流血不及时包扎会死</td></tr>
-        <tr><td>🛏️ 病人护理</td><td><span class="key">1</span></td><td>医疗高的人</td><td>喂饭、陪护、给药</td></tr>
-        <tr><td>🌱 种植</td><td><span class="key">1</span></td><td>种植高的人</td><td>收割不及时作物会烂在地里</td></tr>
-        <tr><td>🍳 烹饪</td><td><span class="key">2</span></td><td>烹饪高的人</td><td>没饭吃会崩溃；烹饪低的别碰灶台（易中毒）</td></tr>
-        <tr><td>🔨 建造/手工</td><td><span class="key">2</span></td><td>技能高的人</td><td>核心产出，中后期靠手工搓装备</td></tr>
-        <tr><td>🧹 清洁</td><td><span class="key">3</span></td><td>技能低的"工具人"</td><td>脏厨房 = 食物中毒，脏医院 = 感染</td></tr>
-        <tr><td>📦 搬运</td><td><span class="key">3</span></td><td>养几条狗/工具人</td><td>后期靠动物搬运，前期靠人</td></tr>
-        <tr><td>🔬 研究</td><td><span class="key">4</span></td><td>智识高的人</td><td>长期投入，空闲时间做</td></tr>
+        <tr><th>Work Type</th><th>Priority</th><th>Who</th><th>Why</th></tr>
+        <tr><td>🔥 Firefight</td><td><span class="key">1</span></td><td>Everyone</td><td>Top priority — no base, no game.</td></tr>
+        <tr><td>🩺 Doctor</td><td><span class="key">1</span></td><td>1-2 with high Medical</td><td>Bleeding stops. No treatment = death.</td></tr>
+        <tr><td>🛏️ Patient/Bed Rest</td><td><span class="key">1</span></td><td>High Medical pawns</td><td>Feed, tend, and administer meds.</td></tr>
+        <tr><td>🌱 Grow</td><td><span class="key">1</span></td><td>High Plants pawns</td><td>Crops rot in the field if not harvested in time.</td></tr>
+        <tr><td>🍳 Cook</td><td><span class="key">2</span></td><td>High Cooking pawns</td><td>No food = mental break. Low-skill cooks cause food poisoning.</td></tr>
+        <tr><td>🔨 Construct/Craft</td><td><span class="key">2</span></td><td>Skilled pawns</td><td>Core production. Mid-late game gear comes from crafters.</td></tr>
+        <tr><td>🧹 Clean</td><td><span class="key">3</span></td><td>Low-skill "grunts"</td><td>Dirty kitchen = food poisoning. Dirty hospital = infection.</td></tr>
+        <tr><td>📦 Haul</td><td><span class="key">3</span></td><td>Dogs or grunts</td><td>Animals do this late-game; humans early-game.</td></tr>
+        <tr><td>🔬 Research</td><td><span class="key">4</span></td><td>High Intellectual pawns</td><td>Long-term investment. Do it in spare time.</td></tr>
       </table>
       <div class="tip">
-        <strong>💡 关键技巧：</strong>勾选菜单左上角的 <span class="key">手动优先级</span>（Manual Priorities），然后给每个小人按 1-4 赋值。别用默认的勾选模式——你会看到种田 20 级的大佬跑去扫地而做饭 2 级的新手在灶台上搞食物中毒。
+        <strong>💡 Key Tip:</strong> Check the <span class="key">Manual Priorities</span> checkbox in the top-left of the Work tab, then assign each pawn a numeric value from 1 to 4. Don't use the default tick-mode — you'll watch your level 20 Grower sweep floors while a level 2 Cook gives everyone food poisoning.
       </div>
     </div>
 
     <div class="card">
-      <h3 id="mood"><span class="emoji">😊</span> 心情系统速查</h3>
-      <p>小人的心情条（Mood bar）决定他们什么时候崩溃。心情低于 <span class="key">35%</span> 触发"精神崩溃"——轻则去角落里哭，重则开始纵火打人。</p>
+      <h3 id="mood"><span class="emoji">😊</span> Mood System Quick Reference</h3>
+      <p>A pawn's mood bar determines when they snap. When mood drops below <span class="key">35%</span>, they risk a "mental break" — from crying in a corner to setting fires and attacking others.</p>
       <br>
       <table>
-        <tr><th>心态等级</th><th>阈值</th><th>效果</th></tr>
-        <tr><td>😄 高兴</td><td>≥ 65%</td><td>工作效率提升，不会崩溃</td></tr>
-        <tr><td>😐 满意</td><td>35% - 65%</td><td>正常状态，没什么加成</td></tr>
-        <tr><td>😤 不满</td><td>15% - 35%</td><td>有概率触发轻度崩溃（骂人、暴食）</td></tr>
-        <tr><td>🤬 崩溃边缘</td><td>&lt; 15%</td><td>大概率触发严重崩溃（纵火、暴力、离家出走）</td></tr>
+        <tr><th>Mood Level</th><th>Threshold</th><th>Effect</th></tr>
+        <tr><td>😄 Happy</td><td>≥ 65%</td><td>Work speed bonus. No breaks.</td></tr>
+        <tr><td>😐 Content</td><td>35% - 65%</td><td>Normal state. No bonuses.</td></tr>
+        <tr><td>😤 Unhappy</td><td>15% - 35%</td><td>Chance of minor break (insulting, binge eating).</td></tr>
+        <tr><td>🤬 Breaking Point</td><td>&lt; 15%</td><td>High chance of major break (arson, violence, run wild).</td></tr>
       </table>
       <br>
-      <p><strong>最容易获取的正向心情：</strong></p>
+      <p><strong>Easiest sources of positive mood:</strong></p>
       <ul>
-        <li><span class="key">精致餐 +12</span> — 用灶台做，最稳定的心情来源</li>
-        <li><span class="key">独立卧室 +5~8</span> — 房间印象分越高加成越多</li>
-        <li><span class="key">豪华餐 +12~16</span> — 需要肉+素，后期升级，比精致餐更强</li>
-        <li><span class="key">娱乐充足 +10</span> — 多种娱乐设施轮换（别只放一个马蹄铁）</li>
-        <li><span class="key">漂亮环境 +5~15</span> — 在餐厅/娱乐室放雕塑和花盆</li>
-        <li><span class="key">舒适的座椅 +3~8</span> — 餐厅椅子换扶手椅，别用小凳子</li>
-        <li><span class="key">成瘾品（啤酒/烟/茶） +1~15</span> — 双刃剑，控制用量否则成瘾</li>
+        <li><span class="key">Fine Meal +12</span> — Cook at a stove. Most reliable mood source.</li>
+        <li><span class="key">Own Bedroom +5~8</span> — Higher room impressiveness = bigger bonus.</li>
+        <li><span class="key">Lavish Meal +12~16</span> — Needs meat + vegetables. Late-game upgrade, stronger than fine.</li>
+        <li><span class="key">Recreation Satisfied +10</span> — Rotate multiple recreation buildings (don't just build a horseshoes pin).</li>
+        <li><span class="key">Beautiful Environment +5~15</span> — Place sculptures and plant pots in the dining room and rec room.</li>
+        <li><span class="key">Comfortable Seat +3~8</span> — Swap dining chairs for armchairs. Don't use stools.</li>
+        <li><span class="key">Recreational Drugs +1~15</span> — Double-edged sword. Control dosage or risk addiction.</li>
       </ul>
       <div class="tip warn">
-        <strong>⚠️ 最常见的翻车原因：</strong>吃了生食（-7）、睡地上（-5）、环境太丑（持续掉心情）、看到尸体（大量掉）——这四个在前期最容易忽视，积累起来直接崩溃。
+        <strong>⚠️ Most Common Reasons Runs Fail:</strong> Eating raw food (-7), sleeping on the floor (-5), ugly environment (ongoing mood drain), and seeing corpses (heavy drain). These four are easy to overlook early on, and they stack up fast into a mental break.
       </div>
     </div>
 
     <div class="card">
-      <h3 id="traits"><span class="emoji">🎯</span> 特性挑选指南</h3>
-      <p>招募俘虏和开局选人时，特性（Traits）的影响力远超技能数值。一个技能全 0 但有好特性的小人，比一个技能拉满但有坏特性的小人有用得多。</p>
+      <h3 id="traits"><span class="emoji">🎯</span> Trait Selection Guide</h3>
+      <p>When recruiting prisoners or picking starting colonists, traits matter far more than skill numbers. A pawn with all level 0 skills but good traits is more useful than one with maxed skills and bad traits.</p>
       <br>
       <table>
-        <tr><th>等级</th><th>推荐特性</th><th>原因</th></tr>
-        <tr><td><span class="tag tag-p0">必拿</span></td><td>过目不忘、意志如铁、工作狂</td><td>学得快、心态稳、干活猛——三幻神</td></tr>
-        <tr><td><span class="tag tag-p0">优选</span></td><td>麻木（心理阈值高）、乐天派（永久心情buff）、迅捷（移速快）</td><td>都是纯正面，没有副作用</td></tr>
-        <tr><td><span class="tag tag-p1">可留</span></td><td>勤奋（工作速度+但心情-）、嗜血（见血加心情）、心理敏感（易崩溃但学得快）</td><td>有代价但可控，特定场景好用</td></tr>
-        <tr><td><span class="tag tag-p1">慎重</span></td><td>贪吃（吃得多）、慢速（走得慢）、神经质（容易不满）</td><td>负面效果影响较大，除非技能特别好否则pass</td></tr>
-        <tr><td><span class="tag tag-p1">直接拒</span></td><td>纵火狂、意志动荡、工作怠慢、崩溃艺术家</td><td>早晚出事，纵火狂烧你家，崩溃艺术家专门在关键时候崩</td></tr>
+        <tr><th>Tier</th><th>Recommended Traits</th><th>Why</th></tr>
+        <tr><td><span class="tag tag-p0">Must Have</span></td><td>Fast Learner, Iron-Willed, Industrious</td><td>Learn fast, unshakable mood, works hard — the holy trinity.</td></tr>
+        <tr><td><span class="tag tag-p0">Top Pick</span></td><td>Staggeringly Ugly (lower expectations), Sanguine (permanent mood buff), Brawler/Quick Sleeper</td><td>All pure upside, no side effects.</td></tr>
+        <tr><td><span class="tag tag-p1">Keep</span></td><td>Hard Worker (speed+ but mood-), Bloodlust (mood buff from violence), Neurotic (prone to breaks but learns fast)</td><td>Costly but manageable. Good in specific roles.</td></tr>
+        <tr><td><span class="tag tag-p1">Caution</span></td><td>Greedy (needs big room), Slowpoke (slow movement), Nervous (easily upset)</td><td>Significant downsides. Pass unless skills are exceptional.</td></tr>
+        <tr><td><span class="tag tag-p1">Instant Reject</span></td><td>Pyromaniac, Volatile, Slothful, Depressive</td><td>Disaster waiting to happen. Pyromaniacs burn your base; Depressives break at the worst moment.</td></tr>
       </table>
     </div>
 
     <div class="card">
-      <h3 id="bionics"><span class="emoji">🦾</span> 仿生体与植入物</h3>
+      <h3 id="bionics"><span class="emoji">🦾</span> Bionics & Implants</h3>
       <ul>
-        <li><strong>前期先换腿：</strong>仿生腿 → 移速直接提升，搬东西快、逃跑快、绕路踩陷阱少</li>
-        <li><strong>战斗岗换眼/手：</strong>仿生眼提升射击精度，仿生手臂提升操作速度</li>
-        <li><strong>医生先装仿生眼+手：</strong>医生操作能力直接影响手术成功率和包扎质量</li>
-        <li><strong>疼痛抑制器 vs 心灵敏感：</strong>战斗位装的仿生体越多，疼痛越低，不会被打趴——但价值也会暴涨（袭击难度跟财富挂钩）</li>
-        <li><strong>仿生心脏：</strong>不怕心脏病（游戏里会随机得），是长远投资</li>
-        <li><strong>不要过度仿生化：</strong>每装一个仿生体，小人价值 +1000~3000，袭击难度随之上升。只给核心岗位装</li>
+        <li><strong>Replace legs first:</strong> Bionic leg → movement speed boost. Haul faster, run from threats, step on fewer traps.</li>
+        <li><strong>Combat roles: eyes and hands first:</strong> Bionic eye improves shooting accuracy. Bionic arm improves manipulation speed.</li>
+        <li><strong>Doctors get eyes + hands:</strong> Manipulation directly affects surgery success rate and tending quality.</li>
+        <li><strong>Painstopper vs. psychic sensitivity:</strong> More bionics on a fighter = less pain = harder to down. But colony wealth also spikes (wealth = raid size).</li>
+        <li><strong>Bionic heart:</strong> Prevents heart attacks (which happen randomly). A long-term investment.</li>
+        <li><strong>Don't over-bionic everyone:</strong> Each bionic part adds +1000~3000 to pawn value, raising raid difficulty. Only install them on critical pawns.</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3 id="schedule"><span class="emoji">⏰</span> 日程安排技巧</h3>
+      <h3 id="schedule"><span class="emoji">⏰</span> Schedule Optimization Tips</h3>
       <table>
-        <tr><th>时间段</th><th>设置</th><th>说明</th></tr>
-        <tr><td>夜晚（0-6）</td><td><span class="key">睡眠</span></td><td>强制 6-7 小时睡眠，但高品质床可以减少所需时间</td></tr>
-        <tr><td>早晨（6-8）</td><td><span class="key">娱乐</span></td><td>起床后先玩 2 小时，把娱乐条拉满再开工——心情好干活快</td></tr>
-        <tr><td>白天（8-18）</td><td><span class="key">工作</span></td><td>核心工作时间，10 小时足够了</td></tr>
-        <tr><td>傍晚（18-22）</td><td><span class="key">任意</span></td><td>小人自己决定，通常会继续工作或娱乐（灵活缓冲区）</td></tr>
-        <tr><td>午夜（22-24）</td><td><span class="key">娱乐</span></td><td>睡前再补一波娱乐，防止半夜心情崩了去纵火</td></tr>
+        <tr><th>Period</th><th>Set To</th><th>Notes</th></tr>
+        <tr><td>Night (0-6)</td><td><span class="key">Sleep</span></td><td>Force 6-7 hours. Better beds reduce sleep need.</td></tr>
+        <tr><td>Morning (6-8)</td><td><span class="key">Recreation</span></td><td>Play for 2 hours after waking up. Fill the recreation bar before work — happy pawns work faster.</td></tr>
+        <tr><td>Day (8-18)</td><td><span class="key">Work</span></td><td>Core work hours. 10 hours is plenty.</td></tr>
+        <tr><td>Evening (18-22)</td><td><span class="key">Anything</span></td><td>Pawns decide — typically keep working or play. Flexible buffer zone.</td></tr>
+        <tr><td>Late Night (22-24)</td><td><span class="key">Recreation</span></td><td>Top up recreation before bed. Prevents mood breaks during the night.</td></tr>
       </table>
       <div class="tip good">
-        <strong>✅ 关键认知：</strong>别让小人一天干满 14 小时活——娱乐条空了会掉心情。日程里强制塞两段娱乐时间（早+晚），配合多种娱乐设施（马蹄铁+棋桌+望远镜），比让他们"有空就工作"效率高得多。
+        <strong>✅ Key Insight:</strong> Don't make pawns work 14 hours straight — an empty recreation bar tanks mood. Schedule two forced recreation blocks (morning + evening), and provide multiple recreation types (horseshoes + chess table + telescope). This is far more productive than leaving them on "work whenever."
       </div>
 
       <figure class="guide-diagram">
@@ -380,39 +377,39 @@
           <!-- ═══ Row 2: Timeline blocks ═══ -->
           <!-- 0h-6h Sleep -->
           <rect x="0" y="32" width="180" height="80" rx="5" fill="#1a2a5e" stroke="#2a4a8e" stroke-width="1"/>
-          <text x="90" y="60" class="tl-txt">😴 睡眠 (6h)</text>
+          <text x="90" y="60" class="tl-txt">😴 Sleep (6h)</text>
           <text x="90" y="78" class="tl-nt">0:00-6:00</text>
-          <text x="90" y="96" class="tl-nt" font-size="9">恢复精力</text>
+          <text x="90" y="96" class="tl-nt" font-size="9">Restores energy</text>
 
           <!-- 6h-8h Play -->
           <rect x="180" y="32" width="60" height="80" rx="5" fill="#b8860b" stroke="#d4a017" stroke-width="1"/>
-          <text x="210" y="56" class="tl-txt" font-size="11">🎮 娱乐</text>
+          <text x="210" y="56" class="tl-txt" font-size="11">🎮 Rec</text>
           <text x="210" y="70" class="tl-txt" font-size="11">(2h)</text>
-          <text x="210" y="92" class="tl-nt" font-size="9">起床先拉满！</text>
+          <text x="210" y="92" class="tl-nt" font-size="9">Fill up first!</text>
 
           <!-- 8h-18h Work -->
           <rect x="240" y="32" width="300" height="80" rx="5" fill="#2d6a2d" stroke="#3a8a3a" stroke-width="1"/>
-          <text x="390" y="60" class="tl-txt">🔨 工作 (10h)</text>
-          <text x="390" y="78" class="tl-nt">核心产出时间</text>
+          <text x="390" y="60" class="tl-txt">🔨 Work (10h)</text>
+          <text x="390" y="78" class="tl-nt">Core production hours</text>
           <text x="390" y="96" class="tl-nt" font-size="9">8:00-18:00</text>
 
           <!-- 18h-22h Anything -->
           <rect x="540" y="32" width="120" height="80" rx="5" fill="#4a4a55" stroke="#5a5a65" stroke-width="1"/>
-          <text x="600" y="56" class="tl-txt" font-size="11">🆓 任意</text>
+          <text x="600" y="56" class="tl-txt" font-size="11">🆓 Anything</text>
           <text x="600" y="70" class="tl-txt" font-size="11">(4h)</text>
-          <text x="600" y="92" class="tl-nt" font-size="9">灵活缓冲</text>
+          <text x="600" y="92" class="tl-nt" font-size="9">Flexible buffer</text>
 
           <!-- 22h-24h Play -->
           <rect x="660" y="32" width="60" height="80" rx="5" fill="#b8860b" stroke="#d4a017" stroke-width="1"/>
-          <text x="690" y="56" class="tl-txt" font-size="11">🎮 娱乐</text>
+          <text x="690" y="56" class="tl-txt" font-size="11">🎮 Rec</text>
           <text x="690" y="70" class="tl-txt" font-size="11">(2h)</text>
-          <text x="690" y="92" class="tl-nt" font-size="9">睡前再补</text>
+          <text x="690" y="92" class="tl-nt" font-size="9">Top up before bed</text>
 
           <!-- ═══ Row 3: Divider ═══ -->
           <line x1="0" y1="126" x2="720" y2="126" stroke="var(--border,#444)" stroke-width="1" stroke-dasharray="4,3"/>
 
           <!-- ═══ Row 4: Mood trend ═══ -->
-          <text x="0" y="150" class="tl-nt" fill="var(--text-muted,#888)" text-anchor="start" font-weight="bold">📈 心情</text>
+          <text x="0" y="150" class="tl-nt" fill="var(--text-muted,#888)" text-anchor="start" font-weight="bold">📈 Mood</text>
 
           <!-- Mood track background -->
           <rect x="40" y="138" width="660" height="18" rx="9" fill="#2a2a30"/>
@@ -429,26 +426,26 @@
             fill="none" stroke="#5a9fd4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 
           <!-- Key direction arrows -->
-          <text x="100" y="180" class="tl-nt" font-size="9" fill="#888" text-anchor="middle">⬇ 睡眠低迷</text>
-          <text x="215" y="180" class="tl-nt" font-size="9" fill="#b8860b" text-anchor="middle">⬆ 娱乐拉升</text>
-          <text x="390" y="180" class="tl-nt" font-size="9" fill="#3a8a3a" text-anchor="middle">➡ 稳定输出</text>
-          <text x="580" y="180" class="tl-nt" font-size="9" fill="#888" text-anchor="middle">⬇ 开始回落</text>
-          <text x="680" y="180" class="tl-nt" font-size="9" fill="#b8860b" text-anchor="middle">⬆ 再补一波</text>
+          <text x="100" y="180" class="tl-nt" font-size="9" fill="#888" text-anchor="middle">⬇ Sleeping dip</text>
+          <text x="215" y="180" class="tl-nt" font-size="9" fill="#b8860b" text-anchor="middle">⬆ Rec boost</text>
+          <text x="390" y="180" class="tl-nt" font-size="9" fill="#3a8a3a" text-anchor="middle">➡ Steady output</text>
+          <text x="580" y="180" class="tl-nt" font-size="9" fill="#888" text-anchor="middle">⬇ Starting to dip</text>
+          <text x="680" y="180" class="tl-nt" font-size="9" fill="#b8860b" text-anchor="middle">⬆ Top up again</text>
         </svg>
-        <figcaption>▲ 睡眠6h → 娱乐2h → 工作10h → 自由4h → 娱乐2h。关键：两段娱乐时间比一段长娱乐效果好。</figcaption>
+        <figcaption>▲ Sleep 6h → Rec 2h → Work 10h → Anything 4h → Rec 2h. Key insight: two shorter recreation blocks beat one long session.</figcaption>
       </figure>
     </div>
   </section>
   <nav class="page-nav">
-    <a href="rimworld-guide-combat.html" class="prev">
-      <span><span class="nav-label">上一页</span>⚔️ 战斗与防御</span>
+    <a href="combat.html" class="prev">
+      <span><span class="nav-label">Previous</span>⚔️ Combat & Defense</span>
     </a>
-    <a href="rimworld-guide-research.html" class="next">
-      <span><span class="nav-label">下一页</span>🔬 科技研究路线</span>
+    <a href="research.html" class="next">
+      <span><span class="nav-label">Next</span>🔬 Tech Tree</span>
     </a>
   </nav>
 
-  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
 </main>
 
 <script>
@@ -489,11 +486,11 @@ function toggleTheme() {
   const isLight = document.body.classList.toggle('light');
   const icon = document.getElementById('theme-icon');
   const label = document.getElementById('theme-label');
-  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
-  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+  if (isLight) { icon.textContent = '☀️'; label.textContent = 'Light Mode'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = 'Dark Mode'; localStorage.setItem('rimworld-theme', 'dark'); }
 }
 (function loadTheme() {
-  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = 'Light Mode'; }
 })();
   // Back to top
   const backToTop = document.getElementById('back-to-top');

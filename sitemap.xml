@@ -1,105 +1,281 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- ====== Chinese Pages ====== -->
   <url>
     <loc>https://yxhtl.com/</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yxhtl.com/"/>
   </url>
   <url>
     <loc>https://yxhtl.com/about.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/about.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/privacy.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/privacy.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/rimworld-guide-getting-started.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-getting-started.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/getting-started.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/rimworld-guide-base-building.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-base-building.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/base-building.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/rimworld-guide-combat.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-combat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/combat.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/rimworld-guide-pawns.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-pawns.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/pawns.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/rimworld-guide-research.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-research.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/research.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/rimworld-guide-mods.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-mods.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/mods.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/rimworld-guide-biomes.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-biomes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/biomes.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/rimworld-guide-animals.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-animals.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/animals.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/rimworld-guide-trade.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-trade.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/trade.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/rimworld-guide-crafting.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-crafting.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/crafting.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/rimworld-guide-dlc-royalty.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-dlc-royalty.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/dlc-royalty.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/rimworld-guide-dlc-ideology.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-dlc-ideology.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/dlc-ideology.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/rimworld-guide-dlc-biotech.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-dlc-biotech.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/dlc-biotech.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/rimworld-guide-dlc-anomaly.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-dlc-anomaly.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/dlc-anomaly.html"/>
+  </url>
+
+  <!-- ====== English Pages ====== -->
+  <url>
+    <loc>https://yxhtl.com/en/</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://yxhtl.com/"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/about.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/about.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/privacy.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/getting-started.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-getting-started.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/getting-started.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/base-building.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-base-building.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/base-building.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/combat.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-combat.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/combat.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/pawns.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-pawns.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/pawns.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/research.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-research.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/research.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/mods.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-mods.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/mods.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/biomes.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-biomes.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/biomes.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/animals.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-animals.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/animals.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/trade.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-trade.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/trade.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/crafting.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-crafting.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/crafting.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/dlc-royalty.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-dlc-royalty.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/dlc-royalty.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/dlc-ideology.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-dlc-ideology.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/dlc-ideology.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/dlc-biotech.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-dlc-biotech.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/dlc-biotech.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/dlc-anomaly.html</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-dlc-anomaly.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/dlc-anomaly.html"/>
   </url>
 </urlset>

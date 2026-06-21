@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RimWorld biomes guide: 10 biomes difficulty ranking, 5 terrain types compared, 7 hidden selection factors, and 4 extreme weather counter-strategies.">
+<meta name="keywords" content="RimWorld, guide, biomes, terrain, temperate forest, growing season, landing site, selection, difficulty">
+<link rel="canonical" href="https://yxhtl.com/en/biomes.html">
+<link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-biomes.html">
+<link rel="alternate" hreflang="en" href="https://yxhtl.com/en/biomes.html">
+<link rel="alternate" hreflang="x-default" href="https://yxhtl.com/rimworld-guide-biomes.html">
+<meta property="og:title" content="Biomes & Terrain | RimWorld Guide">
+<meta property="og:description" content="RimWorld biomes guide: 10 biomes difficulty ranking, 5 terrain types compared, 7 hidden selection factors, and 4 extreme weather counter-strategies.">
+<meta property="og:url" content="https://yxhtl.com/en/biomes.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RimWorld Guide">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Biomes & Terrain | RimWorld Guide">
+<meta name="twitter:description" content="RimWorld biomes guide: 10 biomes difficulty ranking, 5 terrain types compared, 7 hidden selection factors, and 4 extreme weather counter-strategies.">
+<meta name="robots" content="index, follow">
+<title>Biomes & Terrain | RimWorld Guide</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #1a1a1f;
+    --bg-card: #24242b;
+    --bg-sidebar: #1e1e24;
+    --border: #333340;
+    --text: #c8c8d0;
+    --text-muted: #888896;
+    --accent: #d4956b;
+    --accent-dim: #a07050;
+    --red: #c0392b;
+    --green: #4a9;
+    --blue: #5a9fd4;
+    --yellow: #d4b65a;
+    --radius: 6px;
+    --transition: 0.2s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+  nav.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+  .sidebar-logo h1 { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
+  .sidebar-logo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+  .lang-switcher { padding: 0 20px 12px; border-bottom: 1px solid var(--border); margin-bottom: 12px; font-size: 0.78rem; display: flex; gap: 6px; align-items: center; }
+  .lang-switcher a { color: var(--accent); text-decoration: none; }
+  .lang-switcher a:hover { text-decoration: underline; }
+  .lang-switcher .active { color: var(--text-muted); cursor: default; }
+  .lang-link { font-size: 0.78rem; margin-left: auto; }
+  .lang-link a { color: var(--accent); text-decoration: none; }
+  .lang-link a:hover { text-decoration: underline; }
+  .nav-section { padding: 8px 20px 4px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-top: 8px; }
+  .nav-item { display: block; padding: 8px 20px; color: var(--text); text-decoration: none; font-size: 0.9rem; border-left: 3px solid transparent; transition: var(--transition); }
+  .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
+  .nav-item.active { border-left-color: var(--accent); background: rgba(212,149,107,0.08); color: var(--accent); }
+  .nav-item .icon { margin-right: 8px; }
+  .nav-badge { float: right; font-size: 0.65rem; background: var(--accent-dim); color: #fff; padding: 1px 6px; border-radius: 10px; margin-top: 2px; }
+  .nav-footer { margin-top: auto; padding: 16px 20px 0; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--text-muted); }
+  .nav-feedback { color: var(--accent-dim); text-decoration: none; transition: color var(--transition); }
+  .nav-feedback:hover { color: var(--accent); }
+  .nav-footer a { color: var(--accent); text-decoration: none; }
+  .nav-footer a:hover { text-decoration: underline; }
+
+  .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
+  .sidebar-overlay { display: none; }
+
+  main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
+
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 1.3rem; color: #fff; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; }
+  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .card h3 .emoji { font-size: 1.2rem; }
+  .card p, .card li { font-size: 0.92rem; color: var(--text); }
+  .card ul { padding-left: 20px; }
+  .card li { margin-bottom: 6px; }
+
+  .tip { background: rgba(90,159,212,0.1); border-left: 3px solid var(--blue); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; margin: 12px 0; font-size: 0.88rem; }
+  .tip.warn { background: rgba(192,57,43,0.1); border-left-color: var(--red); }
+  .tip.good { background: rgba(68,170,153,0.1); border-left-color: var(--green); }
+  .key { background: #333; color: var(--accent); padding: 1px 6px; border-radius: 3px; font-size: 0.85rem; font-family: "Cascadia Code", "Fira Code", monospace; }
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+  .tag-p0 { background: var(--red); color: #fff; }
+  .tag-p1 { background: var(--yellow); color: #1a1a1f; }
+  .tag-p2 { background: var(--text-muted); color: #fff; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .search-wrap { position: relative; margin-bottom: 32px; }
+  .search-wrap input { width: 100%; padding: 12px 16px 12px 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.95rem; font-family: inherit; transition: var(--transition); }
+  .search-wrap input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(212,149,107,0.15); }
+  .search-wrap input::placeholder { color: var(--text-muted); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--text-muted); pointer-events: none; }
+  .search-clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem; padding: 4px 8px; border-radius: 3px; display: none; }
+  .search-clear:hover { color: var(--text); background: var(--border); }
+  .search-clear.visible { display: block; }
+  .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 1rem; }
+  .no-results.visible { display: block; }
+  .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+  .card.hidden, .section-title.hidden { display: none; }
+  .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
+
+  /* ========== Guide Diagrams ========== */
+  .guide-diagram { margin: 20px 0 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .guide-diagram svg { display: block; width: 100%; height: auto; }
+  .guide-diagram figcaption { padding: 10px 16px; font-size: 0.82rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border); background: rgba(0,0,0,0.15); }
+  body.light .guide-diagram figcaption { background: rgba(0,0,0,0.03); }
+
+  .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle .toggle-thumb { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background var(--transition); }
+  .theme-toggle .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
+  body.light .toggle-thumb { background: var(--accent); }
+  body.light .toggle-thumb::after { transform: translateX(16px); }
+
+  body.light { --bg: #f4f4f6; --bg-card: #ffffff; --bg-sidebar: #f0f0f3; --border: #d8d8de; --text: #3a3a44; --text-muted: #888896; --accent: #b87050; --accent-dim: #8a5040; }
+  body.light .tip { background: rgba(90,159,212,0.08); }
+  body.light .tip.warn { background: rgba(192,57,43,0.06); }
+  body.light .tip.good { background: rgba(68,170,153,0.06); }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    nav.sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100vh; transition: left var(--transition); }
+    nav.sidebar.open { left: 0; }
+    .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9; }
+    .sidebar-overlay.open { display: block; }
+    .mobile-nav-toggle { display: block; }
+    main { padding: 60px 16px 32px; }
+    .card { padding: 16px; }
+  }
+  @media print { nav.sidebar, .mobile-nav-toggle { display: none; } main { max-width: 100%; padding: 0; } body { background: #fff; color: #000; } }
+  /* ========== Page Navigation ========== */
+  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .page-nav a { display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+  .page-nav a:hover { border-color: var(--accent); color: var(--accent); }
+  .page-nav .prev::before { content: '← '; }
+  .page-nav .next::after { content: ' →'; }
+  .page-nav .nav-label { font-size: 0.72rem; color: var(--text-muted); display: block; }
+  /* ========== Back to Top ========== */
+  .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); z-index: 50; color: var(--text); }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x9iflmg36h");
+</script>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld Guide</h1>
+    <p>From surviving to thriving</p>
+  </div>
+
+  <div class="lang-switcher">
+    <a href="../rimworld-guide-biomes.html">中文</a> <span class="active">| English</span>
+  </div>
+
+  <div class="nav-section">Navigation</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> Guide Index</a>
+
+  <div class="nav-section">Essentials</div>
+  <a href="getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> Survival Guide <span class="nav-badge">P0</span>
+  </a>
+  <a href="base-building.html" class="nav-item">
+    <span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span>
+  </a>
+
+  <div class="nav-section">Advanced</div>
+  <a href="combat.html" class="nav-item"><span class="icon">⚔️</span> Combat & Defense <span class="nav-badge">P1</span></a>
+  <a href="pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> Pawn Management <span class="nav-badge">P1</span></a>
+  <a href="research.html" class="nav-item"><span class="icon">🔬</span> Tech Tree <span class="nav-badge">P2</span></a>
+
+  <div class="nav-section">DLC</div>
+  <a href="dlc-royalty.html" class="nav-item"><span class="icon">👑</span> Royalty <span class="nav-badge">DLC</span></a>
+  <a href="dlc-ideology.html" class="nav-item"><span class="icon">💡</span> Ideology <span class="nav-badge">DLC</span></a>
+  <a href="dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> Biotech <span class="nav-badge">DLC</span></a>
+  <a href="dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">Extras</div>
+  <a href="mods.html" class="nav-item"><span class="icon">🧩</span> Mods <span class="nav-badge">P2</span></a>
+  <a href="biomes.html" class="nav-item active"><span class="icon">🌍</span> Biomes & Terrain <span class="nav-badge">P2</span></a>
+  <a href="animals.html" class="nav-item">
+    <span class="icon">🐄</span> Animals & Livestock
+    <span class="nav-badge">P2</span>
+  </a>
+  <a href="trade.html" class="nav-item">
+    <span class="icon">💰</span> Trade & Economy
+    <span class="nav-badge">P2</span>
+  </a>
+  <a href="crafting.html" class="nav-item">
+    <span class="icon">⚗️</span> Crafting & Production
+    <span class="nav-badge">P2</span>
+  </a>
+
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer"><a href="about.html">📖 About</a> · <a href="privacy.html">🔒 Privacy</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
+</nav>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">Guide Index</a> / Biomes & Terrain <span class="lang-link"><a href="../rimworld-guide-biomes.html">中文版本</a></span></div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="Search this page..." oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button>
+  </div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No matching results. Try a different term?</p></div>
+
+  <section class="section" id="biomes">
+    <h2 class="section-title">🌍 Biomes & Terrain</h2>
+
+    <!-- Card 1: Biome Difficulty Ranking -->
+    <div class="card">
+      <h3><span class="emoji">🏔️</span> Biome Difficulty Ranking <span class="tag tag-p0">Essential</span></h3>
+      <p>Your starting biome directly determines your game experience. Here is a ranking from easiest to hardest, based on beginner-friendliness.</p>
+      <table>
+        <tr><th>Biome</th><th>Difficulty</th><th>Characteristics</th><th>Verdict</th></tr>
+        <tr>
+          <td><span class="key">Temperate Forest</span></td>
+          <td><span class="tag tag-p0">Trivial</span></td>
+          <td>Year-round or long growing season, abundant wood and animals, moderate temperatures</td>
+          <td>Best for beginners</td>
+        </tr>
+        <tr>
+          <td><span class="key">Arid Shrubland</span></td>
+          <td><span class="tag tag-p0">Trivial</span></td>
+          <td>Year-round growing, fewer trees but enough, hot but survivable</td>
+          <td>Second pick for beginners</td>
+        </tr>
+        <tr>
+          <td><span class="key">Tropical Rainforest</span></td>
+          <td><span class="tag tag-p1">Easy</span></td>
+          <td>Year-round growing, extremely rich resources</td>
+          <td>High disease rate (malaria/sleeping sickness), need a good doctor</td>
+        </tr>
+        <tr>
+          <td><span class="key">Boreal Forest</span></td>
+          <td><span class="tag tag-p2">Medium</span></td>
+          <td>Short growing season (20-30 days), cold winters</td>
+          <td>Need heating + greenhouse, plenty of wildlife for hunting</td>
+        </tr>
+        <tr>
+          <td><span class="key">Swamp</span></td>
+          <td><span class="tag tag-p2">Medium</span></td>
+          <td>Fertile soil + year-round growing</td>
+          <td>Difficult to build on, high disease rate, slow movement</td>
+        </tr>
+        <tr>
+          <td><span class="key">Tundra</span></td>
+          <td><span class="tag tag-p2">Hard</span></td>
+          <td>Extremely short growing season (10-20 days)</td>
+          <td>Barely any farming, rely on hunting and trading</td>
+        </tr>
+        <tr>
+          <td><span class="key">Desert</span></td>
+          <td><span class="tag tag-p2">Hard</span></td>
+          <td>Hot year-round, but no wood, no animals, no fertile soil</td>
+          <td>Every inch of arable land is precious</td>
+        </tr>
+        <tr>
+          <td><span class="key">Extreme Desert</span></td>
+          <td><span class="tag tag-p2">Very Hard</span></td>
+          <td>Almost no plants or animals</td>
+          <td>Survive on cannibalism + trading</td>
+        </tr>
+        <tr>
+          <td><span class="key">Ice Sheet</span></td>
+          <td><span class="tag tag-p2">Very Hard</span></td>
+          <td>Perpetual winter, no growing season</td>
+          <td>Survive on cannibalism + geothermal greenhouse</td>
+        </tr>
+        <tr>
+          <td><span class="key">Sea Ice</span></td>
+          <td><span class="tag tag-p2">Hell</span></td>
+          <td>Nothing at all, not even stone</td>
+          <td>Pure masochism</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Card 1b: Biome Difficulty Spectrum SVG -->
+    <div class="card">
+      <h3><span class="emoji">📊</span> Biome Difficulty Spectrum</h3>
+      <p>See at a glance each biome's survival difficulty, growing season, and temperature range.</p>
+      <figure class="guide-diagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" style="max-width:100%;height:auto;">
+          <defs>
+            <filter id="bs"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.3"/></filter>
+            <linearGradient id="grad-easy" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2d6a2d"/><stop offset="100%" stop-color="#c0392b"/></linearGradient>
+          </defs>
+          <rect width="720" height="360" fill="#1a1a1f" rx="6"/>
+
+          <!-- Title bar -->
+          <rect x="0" y="0" width="720" height="36" fill="#24242b" rx="6"/>
+          <rect x="0" y="18" width="720" height="18" fill="#24242b"/>
+          <text x="360" y="24" fill="#c8c8d0" font-size="12" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">← Beginner friendly ············································· Masochist →</text>
+
+          <!-- Difficulty gradient bar -->
+          <rect x="40" y="42" width="640" height="8" rx="4" fill="url(#grad-easy)" opacity="0.4"/>
+
+          <!-- Biome rows -->
+          <!-- Row 1: Temperate Forest -->
+          <rect x="40" y="62" width="640" height="28" rx="5" fill="#1e2a1e" stroke="#2d6a2d" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="64" width="400" height="24" rx="4" fill="#2d6a2d" opacity="0.65"/>
+          <text x="52" y="81" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,sans-serif">🌳 Temperate Forest</text>
+          <text x="460" y="81" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Year-round · 10~30°C · Abundant resources</text>
+
+          <!-- Row 2: Arid Shrubland -->
+          <rect x="40" y="95" width="640" height="28" rx="5" fill="#1e241e" stroke="#3a6a2a" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="97" width="380" height="24" rx="4" fill="#3a6a2a" opacity="0.55"/>
+          <text x="52" y="114" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,sans-serif">🌵 Arid Shrubland</text>
+          <text x="440" y="114" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Year-round · 15~40°C · Low wood</text>
+
+          <!-- Row 3: Tropical Rainforest -->
+          <rect x="40" y="128" width="640" height="28" rx="5" fill="#1e241e" stroke="#b8860b" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="130" width="300" height="24" rx="4" fill="#b8860b" opacity="0.35"/>
+          <text x="52" y="147" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,sans-serif">🌴 Tropical Rainforest</text>
+          <text x="360" y="147" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Year-round · High disease risk · Tons of resources</text>
+
+          <!-- Row 4: Boreal Forest -->
+          <rect x="40" y="161" width="640" height="28" rx="5" fill="#1e1e24" stroke="#d4b65a" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="163" width="270" height="24" rx="4" fill="#d4b65a" opacity="0.35"/>
+          <text x="52" y="180" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,sans-serif">🌲 Boreal Forest</text>
+          <text x="330" y="180" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Grow 20~30d · Cold winters · Need greenhouse</text>
+
+          <!-- Row 5: Swamp -->
+          <rect x="40" y="194" width="640" height="28" rx="5" fill="#1e241e" stroke="#d4b65a" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="196" width="250" height="24" rx="4" fill="#d4b65a" opacity="0.3"/>
+          <text x="52" y="213" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,sans-serif">🐊 Swamp</text>
+          <text x="310" y="213" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Rich soil · Hard to build · High disease</text>
+
+          <!-- Row 6: Tundra -->
+          <rect x="40" y="227" width="640" height="28" rx="5" fill="#1e1e28" stroke="#c0392b" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="229" width="180" height="24" rx="4" fill="#c0392b" opacity="0.3"/>
+          <text x="52" y="246" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,sans-serif">❄️ Tundra</text>
+          <text x="240" y="246" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Grow 10~20d · Barely farmable</text>
+
+          <!-- Row 7: Desert -->
+          <rect x="40" y="260" width="640" height="28" rx="5" fill="#1e1e28" stroke="#c0392b" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="262" width="160" height="24" rx="4" fill="#c0392b" opacity="0.35"/>
+          <text x="52" y="279" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,sans-serif">🏜️ Desert</text>
+          <text x="220" y="279" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">No wood, no animals · Every inch counts</text>
+
+          <!-- Row 8: Extreme Desert -->
+          <rect x="40" y="293" width="640" height="28" rx="5" fill="#1e1e24" stroke="#8b0000" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="295" width="120" height="24" rx="4" fill="#8b0000" opacity="0.4"/>
+          <text x="52" y="312" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,sans-serif">💀 Extreme Desert</text>
+          <text x="180" y="312" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Barely any life · Trade + cannibalism</text>
+
+          <!-- Row 9: Ice Sheet -->
+          <rect x="40" y="326" width="640" height="28" rx="5" fill="#1a1a2e" stroke="#6a8aaa" stroke-width="1" filter="url(#bs)"/>
+          <rect x="42" y="328" width="100" height="24" rx="4" fill="#6a8aaa" opacity="0.55"/>
+          <text x="52" y="345" fill="#fff" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,sans-serif">🧊 Ice Sheet</text>
+          <text x="160" y="345" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Eternal winter · Geothermal greenhouse is your only hope</text>
+
+          <!-- Legend -->
+          <rect x="560" y="14" width="8" height="8" rx="2" fill="#2d6a2d" opacity="0.7"/>
+          <text x="574" y="22" fill="#888896" font-size="9" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Best for beginners</text>
+          <rect x="634" y="14" width="8" height="8" rx="2" fill="#c0392b" opacity="0.7"/>
+          <text x="648" y="22" fill="#888896" font-size="9" font-family="-apple-system,BlinkMacSystemFont,sans-serif">Masochist</text>
+        </svg>
+        <figcaption>▲ Longer bar = more beginner-friendly. Temperate Forest and Arid Shrubland are the only two recommended for new players — every other biome has significant drawbacks.</figcaption>
+      </figure>
+    </div>
+
+    <!-- Card 2: Terrain Type Selection Guide -->
+    <div class="card">
+      <h3><span class="emoji">🗺️</span> Terrain Type Selection Guide <span class="tag tag-p0">Essential</span></h3>
+      <p>Besides the biome itself, the map's <span class="key">terrain elevation</span> is just as important. Pay attention to these options when choosing your landing site.</p>
+      <table>
+        <tr><th>Terrain Type</th><th>Advantages</th><th>Disadvantages</th><th>Best For</th></tr>
+        <tr>
+          <td><span class="key">Flat</span></td>
+          <td>Easy to build, unlimited expansion</td>
+          <td>No natural cover, exposed on all sides</td>
+          <td>Great for beginners learning base layout</td>
+        </tr>
+        <tr>
+          <td><span class="key">Small Hills</span></td>
+          <td>Some hills to mine and take cover behind</td>
+          <td>Not enough mountain for a fortress, low infestation risk</td>
+          <td>Good balance</td>
+        </tr>
+        <tr>
+          <td><span class="key">Large Hills</span></td>
+          <td>Plenty of mountain for natural walls</td>
+          <td>Moderate infestation risk</td>
+          <td>Recommended for intermediate players</td>
+        </tr>
+        <tr>
+          <td><span class="key">Mountainous</span></td>
+          <td>Almost all mountain = strongest defense</td>
+          <td>Frequent infestations + time-consuming mining</td>
+          <td>Best for fortress builders</td>
+        </tr>
+        <tr>
+          <td><span class="key">Coastal</span></td>
+          <td>Ocean on one side = one less direction to defend</td>
+          <td>No resources on water, takes up map space</td>
+          <td>Great combined with mountains</td>
+        </tr>
+      </table>
+      <div class="tip"><strong>💡 Starting Recommendation</strong><br><span class="key">Beginners: Large Hills + Temperate Forest</span> = the safest start. Mountains, trees, fertile soil — offense and defense in one package.</div>
+    </div>
+
+    <!-- Card 3: Hidden Factors That Affect Your Choice -->
+    <div class="card">
+      <h3><span class="emoji">🔍</span> Hidden Factors That Affect Your Choice</h3>
+      <p>Many beginners don't realize these details are what truly determine whether you survive the early game.</p>
+      <ul>
+        <li><strong>🪨 Stone Type</strong>: <span class="key">Granite</span> &gt; <span class="key">Limestone</span> &gt; <span class="key">Sandstone</span> &gt; <span class="key">Slate</span> — wall durability varies by 3x. Granite walls have 1000 HP, Slate only 330 HP. Check what stone spawns on your map before settling.</li>
+        <li><strong>🌱 Soil Fertility</strong>: Regular soil 100% / <span class="key">Rich Soil</span> 140% (dark green patches, prioritize these) / <span class="key">Gravel</span> 70% (only good for haygrass). Scan the map for dark green soil before planning your fields.</li>
+        <li><strong>🗿 Marble vs. Sandstone</strong>: <span class="key">Marble</span> has +1 beauty (great for sculptures and floors), <span class="key">Sandstone</span> is the fastest to mine. Early game with limited labor, go with sandstone.</li>
+        <li><strong>🌊 Rivers</strong>: A river means a natural speed bump for enemies plus <span class="key">watermill generators</span> (stable 1100W clean power). But rivers take up map space and can split your base — plan ahead with bridges or choke points.</li>
+        <li><strong>⚠️ Ancient Dangers</strong>: Don't break into those <span class="key">ancient structures</span> (pale gray walls) right away. They might contain dormant <span class="key">mech clusters</span> that will wipe out an early colony. Wait until you have guns and armor.</li>
+        <li><strong>🛤️ Roads</strong>: A <span class="key">road</span> passing through your map means more frequent trade caravans. Settle near roads — trade routes determine whether you survive the winter.</li>
+        <li><strong>🌐 Latitude</strong>: Closer to the equator = hotter, year-round growing. Closer to the poles = colder, even permafrost. Check the latitude lines on the world map before choosing — don't blunder into an ice sheet unknowingly.</li>
+      </ul>
+    </div>
+
+    <!-- Card 4: Seasons & Temperature Survival Guide -->
+    <div class="card">
+      <h3><span class="emoji">🌡️</span> Seasons & Temperature Survival Guide <span class="tag tag-p1">Must Learn</span></h3>
+      <p>RimWorld's weather and temperature mechanics are where beginners most often crash and burn. Understanding them in advance is key to surviving them.</p>
+      <table>
+        <tr><th>Weather Event</th><th>Effect</th><th>Threat</th><th>Countermeasure</th></tr>
+        <tr>
+          <td><span class="key">Heat Wave</span></td>
+          <td>Spikes temperature +20°C</td>
+          <td>Pawns get heatstroke, can die indoors without AC</td>
+          <td>Passive cooler (needs wood) + cowboy hat + restrict work hours</td>
+        </tr>
+        <tr>
+          <td><span class="key">Cold Snap</span></td>
+          <td>Drops temperature -20°C</td>
+          <td>Crops freeze, pawns get frostbite</td>
+          <td>Campfire + parka + indoor farming (hydroponics or greenhouse)</td>
+        </tr>
+        <tr>
+          <td><span class="key">Volcanic Winter</span></td>
+          <td>Global cooling -10~-20°C, lasts months</td>
+          <td>Crops grow extremely slowly, solar panel efficiency drops</td>
+          <td>Stockpile food early + geothermal power + supplement with hunting</td>
+        </tr>
+        <tr>
+          <td><span class="key">Toxic Fallout</span></td>
+          <td>Map-wide toxic fallout, outdoors = poisoning</td>
+          <td>Can't go outside, animals die, plants wither</td>
+          <td>Everyone stays indoors + rely on stockpiles + build roofed corridors between buildings</td>
+        </tr>
+      </table>
+      <div class="tip warn"><strong>⚠️ Extreme weather events can stack</strong><br>Cold Snap + Volcanic Winter can reach <span class="key">-60°C</span>. Stockpiling food and wood in advance is critical — don't wait until it hits to prepare.</div>
+    </div>
+
+  </section>
+  <nav class="page-nav">
+    <a href="mods.html" class="prev">
+      <span><span class="nav-label">Previous</span>🧩 Mods</span>
+    </a>
+    <a href="animals.html" class="next">
+      <span><span class="nav-label">Next</span>🐄 Animals & Livestock</span>
+    </a>
+  </nav>
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    if (card.textContent.toLowerCase().includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = 'Light Mode'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = 'Dark Mode'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = 'Light Mode'; }
+})();
+  // Back to top
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>

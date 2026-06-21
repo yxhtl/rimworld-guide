@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="RimWorld Mod 推荐清单：Harmony、HugsLib 等必装前置Mod，UI优化、功能扩展、内容扩展三大分类，附Mod加载顺序指南，不打冲突Mod。">
-<meta name="keywords" content="RimWorld, 边缘世界, 攻略, Mod, 模组, Harmony, HugsLib, UI优化">
-<link rel="canonical" href="https://yxhtl.com/rimworld-guide-mods.html">
+<meta name="description" content="RimWorld mod recommendations: essential framework mods, 7 UI mods, 7 gameplay expansions, 5 content mods, and a 10-step load order guide.">
+<meta name="keywords" content="RimWorld, guide, mods, Harmony, HugsLib, UI mods, load order, Vanilla Expanded, Combat Extended">
+<link rel="canonical" href="https://yxhtl.com/en/mods.html">
 <link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-mods.html">
 <link rel="alternate" hreflang="en" href="https://yxhtl.com/en/mods.html">
 <link rel="alternate" hreflang="x-default" href="https://yxhtl.com/rimworld-guide-mods.html">
-<meta property="og:title" content="Mod 推荐 | RimWorld 攻略站">
-<meta property="og:description" content="RimWorld Mod 推荐清单：Harmony、HugsLib 等必装前置Mod，UI优化、功能扩展、内容扩展三大分类，附Mod加载顺序指南，不打冲突Mod。">
-<meta property="og:url" content="https://yxhtl.com/rimworld-guide-mods.html">
+<meta property="og:title" content="Mods | RimWorld Guide">
+<meta property="og:description" content="RimWorld mod recommendations: essential framework mods, 7 UI mods, 7 gameplay expansions, 5 content mods, and a 10-step load order guide.">
+<meta property="og:url" content="https://yxhtl.com/en/mods.html">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="RimWorld 攻略站">
+<meta property="og:site_name" content="RimWorld Guide">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mod 推荐 | RimWorld 攻略站">
-<meta name="twitter:description" content="RimWorld Mod 推荐清单：Harmony、HugsLib 等必装前置Mod，UI优化、功能扩展、内容扩展三大分类，附Mod加载顺序指南，不打冲突Mod。">
+<meta name="twitter:title" content="Mods | RimWorld Guide">
+<meta name="twitter:description" content="RimWorld mod recommendations: essential framework mods, 7 UI mods, 7 gameplay expansions, 5 content mods, and a 10-step load order guide.">
 <meta name="robots" content="index, follow">
-<title>Mod 推荐 | RimWorld 攻略站</title>
+<title>Mods | RimWorld Guide</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -39,7 +39,7 @@
   }
   html { scroll-behavior: smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.75;
@@ -81,20 +81,13 @@
   .nav-feedback:hover { color: var(--accent); }
   .nav-footer a { color: var(--accent); text-decoration: none; }
   .nav-footer a:hover { text-decoration: underline; }
- 
-  .reward-box { padding: 0 16px; margin-bottom: 4px; }
-  .reward-hint { font-size: 0.7rem; color: var(--text-muted); padding: 0 4px 8px; text-align: center; }
-  .reward-codes { display: flex; gap: 8px; justify-content: center; }
-  .reward-item { text-align: center; }
-  .reward-item img { width: 100px; height: 100px; border-radius: var(--radius); border: 2px solid var(--border); display: block; }
-  .reward-item span { font-size: 0.65rem; color: var(--text-muted); margin-top: 4px; display: block; }
 
   .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
   .sidebar-overlay { display: none; }
 
   main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
 
-  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); }
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; }
   .breadcrumb a { color: var(--accent); text-decoration: none; }
   .breadcrumb a:hover { text-decoration: underline; }
 
@@ -134,6 +127,12 @@
   .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
   .card.hidden, .section-title.hidden { display: none; }
   .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
+
+  /* ========== Guide Diagrams ========== */
+  .guide-diagram { margin: 20px 0 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .guide-diagram svg { display: block; width: 100%; height: auto; }
+  .guide-diagram figcaption { padding: 10px 16px; font-size: 0.82rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border); background: rgba(0,0,0,0.15); }
+  body.light .guide-diagram figcaption { background: rgba(0,0,0,0.03); }
 
   .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
   .theme-toggle:hover { border-color: var(--accent); }
@@ -180,129 +179,133 @@
 </head>
 <body>
 
-<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
 <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-logo">
-    <h1>🪐 RimWorld 攻略站</h1>
-    <p>从活下去，到活得好</p>
+    <h1>🪐 RimWorld Guide</h1>
+    <p>From surviving to thriving</p>
   </div>
 
-  <div class="nav-section">导航</div>
-  <a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+  <div class="lang-switcher">
+    <a href="../rimworld-guide-mods.html">中文</a> <span class="active">| English</span>
+  </div>
 
-  <div class="nav-section">新手必备</div>
-  <a href="rimworld-guide-getting-started.html" class="nav-item">
-    <span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+  <div class="nav-section">Navigation</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> Guide Index</a>
+
+  <div class="nav-section">Essentials</div>
+  <a href="getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> Survival Guide <span class="nav-badge">P0</span>
   </a>
-  <a href="rimworld-guide-base-building.html" class="nav-item">
-    <span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+  <a href="base-building.html" class="nav-item">
+    <span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span>
   </a>
 
-  <div class="nav-section">进阶内容</div>
-  <a href="rimworld-guide-combat.html" class="nav-item"><span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span></a>
-  <a href="rimworld-guide-pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span></a>
-  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span></a>
+  <div class="nav-section">Advanced</div>
+  <a href="combat.html" class="nav-item"><span class="icon">⚔️</span> Combat & Defense <span class="nav-badge">P1</span></a>
+  <a href="pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> Pawn Management <span class="nav-badge">P1</span></a>
+  <a href="research.html" class="nav-item"><span class="icon">🔬</span> Tech Tree <span class="nav-badge">P2</span></a>
 
-  <div class="nav-section">DLC 内容</div>
-  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span></a>
+  <div class="nav-section">DLC</div>
+  <a href="dlc-royalty.html" class="nav-item"><span class="icon">👑</span> Royalty <span class="nav-badge">DLC</span></a>
+  <a href="dlc-ideology.html" class="nav-item"><span class="icon">💡</span> Ideology <span class="nav-badge">DLC</span></a>
+  <a href="dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> Biotech <span class="nav-badge">DLC</span></a>
+  <a href="dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> Anomaly <span class="nav-badge">DLC</span></a>
 
-  <div class="nav-section">扩展</div>
-  <a href="rimworld-guide-mods.html" class="nav-item active"><span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-biomes.html" class="nav-item"><span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-animals.html" class="nav-item">
-    <span class="icon">🐄</span> 动物与畜牧
+  <div class="nav-section">Extras</div>
+  <a href="mods.html" class="nav-item active"><span class="icon">🧩</span> Mods <span class="nav-badge">P2</span></a>
+  <a href="biomes.html" class="nav-item"><span class="icon">🌍</span> Biomes & Terrain <span class="nav-badge">P2</span></a>
+  <a href="animals.html" class="nav-item">
+    <span class="icon">🐄</span> Animals & Livestock
     <span class="nav-badge">P2</span>
   </a>
-  <a href="rimworld-guide-trade.html" class="nav-item">
-    <span class="icon">💰</span> 贸易与经济
+  <a href="trade.html" class="nav-item">
+    <span class="icon">💰</span> Trade & Economy
     <span class="nav-badge">P2</span>
   </a>
-  <a href="rimworld-guide-crafting.html" class="nav-item">
-    <span class="icon">⚗️</span> 制造与生产
+  <a href="crafting.html" class="nav-item">
+    <span class="icon">⚗️</span> Crafting & Production
     <span class="nav-badge">P2</span>
   </a>
 
 
   </div>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
-    <span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span> <span class="toggle-thumb"></span>
   </button>
 
-  <div class="nav-footer"><a href="about.html">📖 关于本站</a> · <a href="privacy.html">🔒 隐私政策</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a> · MVP v0.2</div>
+  <div class="nav-footer"><a href="about.html">📖 About</a> · <a href="privacy.html">🔒 Privacy</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
 </nav>
 
 <main>
-  <div class="breadcrumb"><a href="index.html">攻略总览</a> / Mod 推荐</div>
+  <div class="breadcrumb"><a href="index.html">Guide Index</a> / Mods <span class="lang-link"><a href="../rimworld-guide-mods.html">中文版本</a></span></div>
 
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
-    <input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
-    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+    <input type="text" id="search-input" placeholder="Search this page..." oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button>
   </div>
-  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No matching results. Try a different term?</p></div>
 
   <section class="section" id="mods">
-    <h2 class="section-title">🧩 Mod 推荐</h2>
+    <h2 class="section-title">🧩 Mods</h2>
 
     <div class="card">
-      <h3><span class="emoji">1.</span> 必装前置 Mod <span style="font-size:0.8rem;color:var(--text-muted);font-weight:400;">—— 不打这些，大部分 Mod 跑不起来</span></h3>
+      <h3><span class="emoji">1.</span> Essential Framework Mods <span style="font-size:0.8rem;color:var(--text-muted);font-weight:400;">—— Without these, most mods won't work</span></h3>
       <table>
-        <tr><th>Mod</th><th>分类</th><th>说明</th><th>建议</th></tr>
-        <tr><td><strong>Harmony</strong></td><td>前置框架</td><td>99% 的 Mod 都依赖它，Hook 游戏方法的底层库</td><td><span class="tag tag-p0">必装，放第一位</span></td></tr>
-        <tr><td><strong>HugsLib</strong></td><td>前置框架</td><td>通用功能库，给其他 Mod 提供 API 支持</td><td><span class="tag tag-p0">必装，第二位</span></td></tr>
-        <tr><td><strong>Vanilla Expanded Framework</strong></td><td>前置框架</td><td>Vanilla Expanded 系列全家桶的底层依赖</td><td>用 VE 系列就必装</td></tr>
+        <tr><th>Mod</th><th>Category</th><th>Description</th><th>Recommendation</th></tr>
+        <tr><td><strong>Harmony</strong></td><td>Framework</td><td>99% of mods depend on it. Low-level library for hooking game methods.</td><td><span class="tag tag-p0">Essential, place first</span></td></tr>
+        <tr><td><strong>HugsLib</strong></td><td>Framework</td><td>General-purpose library providing API support for other mods.</td><td><span class="tag tag-p0">Essential, place second</span></td></tr>
+        <tr><td><strong>Vanilla Expanded Framework</strong></td><td>Framework</td><td>Core dependency for the entire Vanilla Expanded series.</td><td>Required if using VE series</td></tr>
       </table>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">2.</span> UI 优化类 <span style="font-size:0.8rem;color:var(--text-muted);font-weight:400;">—— 不改玩法，纯体验提升</span></h3>
+      <h3><span class="emoji">2.</span> UI Improvements <span style="font-size:0.8rem;color:var(--text-muted);font-weight:400;">—— No gameplay changes, pure QoL</span></h3>
       <table>
-        <tr><th>Mod</th><th>功能</th><th>推荐指数</th></tr>
-        <tr><td><strong>RimHUD</strong></td><td>不用点开小人就能看到详细属性面板</td><td><span class="tag tag-p0">必装</span> 省 90% 点击</td></tr>
-        <tr><td><strong>Allow Tool</strong></td><td>一键允许所有、选择相似物品、紧急搬运标记</td><td><span class="tag tag-p0">必装</span> 操作效率翻倍</td></tr>
-        <tr><td><strong>Numbers</strong></td><td>列表视图查看所有小人的技能/心情/健康数据</td><td><span class="tag tag-p1">推荐</span> 管理神器</td></tr>
-        <tr><td><strong>Replace Stuff</strong></td><td>升级墙体不用先拆后盖，直接覆盖材料替换</td><td><span class="tag tag-p1">推荐</span> 省人工</td></tr>
-        <tr><td><strong>Quality Builder</strong></td><td>指定建造品质，造出来低于要求自动拆了重盖</td><td><span class="tag tag-p1">推荐</span> 强迫症必备</td></tr>
-        <tr><td><strong>Blueprints</strong></td><td>蓝图复制粘贴，对称建造不求人</td><td><span class="tag tag-p1">推荐</span> 规划神器</td></tr>
-        <tr><td><strong>Color Coded Mood Bar</strong></td><td>心情条按颜色区分，一眼看出谁要崩了</td><td><span class="tag tag-p1">推荐</span> 心情管理</td></tr>
+        <tr><th>Mod</th><th>Feature</th><th>Rating</th></tr>
+        <tr><td><strong>RimHUD</strong></td><td>See detailed stats without opening a pawn's panel.</td><td><span class="tag tag-p0">Essential</span> saves 90% clicks</td></tr>
+        <tr><td><strong>Allow Tool</strong></td><td>One-click allow all, select similar items, urgent haul marking.</td><td><span class="tag tag-p0">Essential</span> doubles efficiency</td></tr>
+        <tr><td><strong>Numbers</strong></td><td>List view of all pawns' skills, mood, and health data.</td><td><span class="tag tag-p1">Recommended</span> management tool</td></tr>
+        <tr><td><strong>Replace Stuff</strong></td><td>Upgrade walls without demolishing first — directly replace materials.</td><td><span class="tag tag-p1">Recommended</span> saves labor</td></tr>
+        <tr><td><strong>Quality Builder</strong></td><td>Set a minimum build quality; auto-deconstruct and rebuild if below threshold.</td><td><span class="tag tag-p1">Recommended</span> perfectionist essential</td></tr>
+        <tr><td><strong>Blueprints</strong></td><td>Copy and paste blueprints, symmetric building made easy.</td><td><span class="tag tag-p1">Recommended</span> planning tool</td></tr>
+        <tr><td><strong>Color Coded Mood Bar</strong></td><td>Mood bars color-coded by level — spot who's about to break at a glance.</td><td><span class="tag tag-p1">Recommended</span> mood management</td></tr>
       </table>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">3.</span> 功能扩展类</h3>
+      <h3><span class="emoji">3.</span> Gameplay Expansions</h3>
       <table>
-        <tr><th>Mod</th><th>功能</th><th>推荐指数</th></tr>
-        <tr><td><strong>Wall Light</strong></td><td>墙上装灯，不占地板空间</td><td><span class="tag tag-p0">必装</span> 每个房间必备</td></tr>
-        <tr><td><strong>Pick Up And Haul</strong></td><td>小人一次搬多个物品，用背包逻辑替代单件搬运</td><td><span class="tag tag-p0">必装</span> 搬运效率质变</td></tr>
-        <tr><td><strong>Common Sense</strong></td><td>小人更聪明了：做菜前先扫地、睡觉前先娱乐</td><td><span class="tag tag-p1">推荐</span> AI 优化</td></tr>
-        <tr><td><strong>RunAndGun</strong></td><td>边跑边打，不用站桩射击</td><td><span class="tag tag-p1">推荐</span> 提升战术深度</td></tr>
-        <tr><td><strong>Simple Sidearms</strong></td><td>小人能带多把武器，自动切换近战/远程</td><td><span class="tag tag-p1">推荐</span> 战斗质变</td></tr>
-        <tr><td><strong>Dubs Bad Hygiene</strong></td><td>加入卫生/水管/厕所系统，殖民者要上厕所洗澡</td><td><span class="tag tag-p2">可选</span> 增加真实感</td></tr>
-        <tr><td><strong>Rimefeller</strong></td><td>石油工业体系：钻油→炼油→塑料→发电</td><td><span class="tag tag-p2">可选</span> 后期内容扩展</td></tr>
+        <tr><th>Mod</th><th>Feature</th><th>Rating</th></tr>
+        <tr><td><strong>Wall Light</strong></td><td>Mount lights on walls — no floor space needed.</td><td><span class="tag tag-p0">Essential</span> every room needs this</td></tr>
+        <tr><td><strong>Pick Up And Haul</strong></td><td>Pawns haul multiple items at once using backpack logic instead of single-item carrying.</td><td><span class="tag tag-p0">Essential</span> hauling transformed</td></tr>
+        <tr><td><strong>Common Sense</strong></td><td>Pawns are smarter: sweep before cooking, recreate before sleeping.</td><td><span class="tag tag-p1">Recommended</span> AI optimization</td></tr>
+        <tr><td><strong>RunAndGun</strong></td><td>Shoot while moving — no more standing still to fire.</td><td><span class="tag tag-p1">Recommended</span> adds tactical depth</td></tr>
+        <tr><td><strong>Simple Sidearms</strong></td><td>Pawns carry multiple weapons and auto-switch between melee and ranged.</td><td><span class="tag tag-p1">Recommended</span> combat transformed</td></tr>
+        <tr><td><strong>Dubs Bad Hygiene</strong></td><td>Adds hygiene, plumbing, and toilets — colonists need bathrooms and showers.</td><td><span class="tag tag-p2">Optional</span> adds realism</td></tr>
+        <tr><td><strong>Rimefeller</strong></td><td>Oil industry system: drill → refine → plastic → power generation.</td><td><span class="tag tag-p2">Optional</span> late-game content</td></tr>
       </table>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">4.</span> 内容扩展类</h3>
+      <h3><span class="emoji">4.</span> Content Additions</h3>
       <table>
-        <tr><th>Mod</th><th>功能</th><th>推荐指数</th></tr>
-        <tr><td><strong>Vanilla Expanded 系列</strong></td><td>大量新武器、护甲、家具、植物、动物，风格贴合原版</td><td><span class="tag tag-p0">必装</span> 量大管饱</td></tr>
-        <tr><td><strong>Combat Extended</strong></td><td>完全重做战斗系统——弹药、弹道、穿透、护甲机制</td><td><span class="tag tag-p1">推荐</span> 战斗党必装，注意兼容性</td></tr>
-        <tr><td><strong>Alpha Animals</strong></td><td>100+ 新生物，从可爱到恐怖，生态多样化</td><td><span class="tag tag-p1">推荐</span> 生态多样化</td></tr>
-        <tr><td><strong>Android Tiers</strong></td><td>机器人种族，可制造可控制，科幻感拉满</td><td><span class="tag tag-p2">可选</span> 科幻感拉满</td></tr>
-        <tr><td><strong>Save Our Ship 2</strong></td><td>飞船变移动基地，太空战斗 + 探索，通关后的新游戏</td><td><span class="tag tag-p1">推荐</span> 通关后新游戏</td></tr>
+        <tr><th>Mod</th><th>Feature</th><th>Rating</th></tr>
+        <tr><td><strong>Vanilla Expanded Series</strong></td><td>Huge amount of new weapons, armor, furniture, plants, and animals — all vanilla-friendly.</td><td><span class="tag tag-p0">Essential</span> massive content</td></tr>
+        <tr><td><strong>Combat Extended</strong></td><td>Complete combat overhaul — ammo, ballistics, penetration, and armor mechanics.</td><td><span class="tag tag-p1">Recommended</span> must-have for combat lovers, check compatibility</td></tr>
+        <tr><td><strong>Alpha Animals</strong></td><td>100+ new creatures, from cute to terrifying, diversifying ecosystems.</td><td><span class="tag tag-p1">Recommended</span> ecosystem diversity</td></tr>
+        <tr><td><strong>Android Tiers</strong></td><td>Android race — buildable and controllable, maximum sci-fi.</td><td><span class="tag tag-p2">Optional</span> maximum sci-fi</td></tr>
+        <tr><td><strong>Save Our Ship 2</strong></td><td>Ship becomes a mobile base with space combat + exploration — a new game after endgame.</td><td><span class="tag tag-p1">Recommended</span> new game after endgame</td></tr>
       </table>
-      <div class="tip warn"><strong>💡 老手忠告：</strong> Mod 不是越多越好，每次加 Mod 前记得备份存档。Mod 数量超过 100 个时启动可能需要 5–10 分钟——别以为卡死了。</div>
+      <div class="tip warn"><strong>💡 Veteran's Advice:</strong> More mods isn't always better. Always back up your save before adding mods. With over 100 mods, startup can take 5–10 minutes — don't panic thinking it's frozen.</div>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">📊</span> Mod 加载顺序可视化</h3>
-      <p>记住"前置在上，内容在下"六个字就够了。这张图就是最终答案：</p>
+      <h3><span class="emoji">📊</span> Mod Load Order Visualization</h3>
+      <p>Just remember six words: "Frameworks on top, content below." This diagram is all you need:</p>
       <figure class="guide-diagram">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" style="max-width:100%;height:auto;">
           <defs>
@@ -311,89 +314,89 @@
           <rect width="720" height="340" fill="#1a1a1f" rx="6"/>
 
           <!-- Title -->
-          <text x="360" y="24" fill="#d4956b" font-size="11" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">⬆ 先加载（高优先级）························ 后加载（低优先级） ⬇</text>
+          <text x="360" y="24" fill="#d4956b" font-size="11" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">⬆ Loaded first (higher priority) ························ Loaded later (lower priority) ⬇</text>
 
           <!-- Stack layers from top to bottom -->
           <!-- Layer 1: Harmony -->
           <rect x="40" y="38" width="640" height="26" rx="5" fill="#2a2a3a" stroke="#d4956b" stroke-width="1.5" filter="url(#mod-sh)"/>
-          <text x="60" y="55" fill="#d4956b" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">1. Harmony</text>
-          <text x="200" y="55" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">底层Hook框架，99%的Mod依赖它，永远放第一位</text>
+          <text x="60" y="55" fill="#d4956b" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">1. Harmony</text>
+          <text x="200" y="55" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Low-level hook framework, 99% of mods depend on it, always first</text>
 
           <!-- Layer 2: Core + DLC -->
           <rect x="50" y="68" width="620" height="26" rx="5" fill="#2a2a2a" stroke="#888" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="70" y="85" fill="#c8c8d0" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">2. Core → Royalty → Ideology → Biotech → Anomaly</text>
-          <text x="440" y="85" fill="#888896" font-size="9" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">游戏本体+DLC</text>
+          <text x="70" y="85" fill="#c8c8d0" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">2. Core → Royalty → Ideology → Biotech → Anomaly</text>
+          <text x="440" y="85" fill="#888896" font-size="9" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Game core + DLC</text>
 
           <!-- Layer 3: HugsLib -->
           <rect x="60" y="98" width="600" height="26" rx="5" fill="#1e2a2e" stroke="#5a9fd4" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="80" y="115" fill="#5a9fd4" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">3. HugsLib</text>
-          <text x="240" y="115" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">通用功能库，给其他Mod提供API支持</text>
+          <text x="80" y="115" fill="#5a9fd4" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">3. HugsLib</text>
+          <text x="240" y="115" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">General-purpose library, provides API support for other mods</text>
 
           <!-- Layer 4: VE Framework -->
           <rect x="70" y="128" width="580" height="26" rx="5" fill="#1e2a2e" stroke="#5a9fd4" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="90" y="145" fill="#5a9fd4" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">4. Vanilla Expanded Framework</text>
-          <text x="340" y="145" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">VE全家桶依赖</text>
+          <text x="90" y="145" fill="#5a9fd4" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">4. Vanilla Expanded Framework</text>
+          <text x="340" y="145" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">VE series dependency</text>
 
           <!-- Layer 5: Large frameworks -->
           <rect x="80" y="158" width="560" height="26" rx="5" fill="#1e1e2a" stroke="#784" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="100" y="175" fill="#c8a0d0" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">5. 大型前置框架</text>
-          <text x="280" y="175" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">JecsTools 等</text>
+          <text x="100" y="175" fill="#c8a0d0" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">5. Large Framework Mods</text>
+          <text x="280" y="175" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">JecsTools, etc.</text>
 
           <!-- Layer 6: Function mods -->
           <rect x="90" y="188" width="540" height="26" rx="5" fill="#1e241e" stroke="#4a9" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="110" y="205" fill="#4a9" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">6. 功能修改类</text>
-          <text x="260" y="205" fill="#c8c8d0" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">UI优化 · 行为修改 · QoL提升</text>
-          <text x="520" y="205" fill="#888896" font-size="9" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">RimHUD · AllowTool等</text>
+          <text x="110" y="205" fill="#4a9" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">6. Gameplay Mods</text>
+          <text x="260" y="205" fill="#c8c8d0" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">UI improvements · Behavior tweaks · QoL enhancements</text>
+          <text x="520" y="205" fill="#888896" font-size="9" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">RimHUD · AllowTool, etc.</text>
 
           <!-- Layer 7: Content mods -->
           <rect x="100" y="218" width="520" height="26" rx="5" fill="#1e1e24" stroke="#d4b65a" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="120" y="235" fill="#d4b65a" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">7. 内容添加类</text>
-          <text x="270" y="235" fill="#c8c8d0" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">新武器 · 新装备 · 新生物 · 新种族</text>
-          <text x="520" y="235" fill="#888896" font-size="9" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">Vanilla Expanded等</text>
+          <text x="120" y="235" fill="#d4b65a" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">7. Content Additions</text>
+          <text x="270" y="235" fill="#c8c8d0" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">New weapons · New gear · New creatures · New races</text>
+          <text x="520" y="235" fill="#888896" font-size="9" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Vanilla Expanded, etc.</text>
 
           <!-- Layer 8: Translation -->
           <rect x="110" y="248" width="500" height="26" rx="5" fill="#1e1e24" stroke="#888" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="130" y="265" fill="#c8c8d0" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">8. 汉化包</text>
+          <text x="130" y="265" fill="#c8c8d0" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">8. Localization / Translation Patches</text>
 
           <!-- Layer 9: Compatibility patches (bottom) -->
           <rect x="120" y="278" width="480" height="26" rx="5" fill="#1a1a1f" stroke="#555" stroke-width="1" filter="url(#mod-sh)"/>
-          <text x="140" y="295" fill="#888896" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">9. 兼容补丁</text>
-          <text x="260" y="295" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">最后加载，覆盖所有冲突</text>
+          <text x="140" y="295" fill="#888896" font-size="11" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">9. Compatibility Patches</text>
+          <text x="260" y="295" fill="#888896" font-size="10" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Loaded last, overrides all conflicts</text>
 
           <!-- Right side annotation -->
-          <text x="685" y="32" fill="#888896" font-size="10" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">← 最先加载</text>
-          <text x="685" y="308" fill="#888896" font-size="10" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">← 最后加载</text>
+          <text x="685" y="32" fill="#888896" font-size="10" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">← Loaded first</text>
+          <text x="685" y="308" fill="#888896" font-size="10" text-anchor="end" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">← Loaded last</text>
         </svg>
-        <figcaption>▲ 从1到9依次加载，越往上的越底层、越靠前。口诀：前置在上，内容在下，兼容补丁垫底。</figcaption>
+        <figcaption>▲ Loaded in order from 1 to 9. The higher up, the more fundamental and the earlier it loads. The mantra: frameworks on top, content below, compatibility patches at the bottom.</figcaption>
       </figure>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">5.</span> 加载顺序速查 <span style="font-size:0.8rem;color:var(--text-muted);font-weight:400;">—— 从上到下排列</span></h3>
+      <h3><span class="emoji">5.</span> Quick Load Order Reference <span style="font-size:0.8rem;color:var(--text-muted);font-weight:400;">—— Ordered top to bottom</span></h3>
       <ol>
-        <li><strong>Harmony</strong> — 最顶，放第一位</li>
-        <li><strong>Core</strong> — 游戏本体</li>
+        <li><strong>Harmony</strong> — Very top, place first</li>
+        <li><strong>Core</strong> — Game core</li>
         <li><strong>DLC</strong> — Royalty → Ideology → Biotech → Anomaly</li>
         <li><strong>HugsLib</strong></li>
         <li><strong>Vanilla Expanded Framework</strong></li>
-        <li><strong>大型前置框架</strong> — 如 JecsTools</li>
-        <li><strong>功能修改</strong> — UI / 行为类</li>
-        <li><strong>内容添加</strong> — 新物品 / 生物 / 种族</li>
-        <li><strong>汉化包</strong></li>
-        <li><strong>兼容补丁</strong> — 最底</li>
+        <li><strong>Large Framework Mods</strong> — such as JecsTools</li>
+        <li><strong>Gameplay Mods</strong> — UI / Behavior</li>
+        <li><strong>Content Additions</strong> — New items / Creatures / Races</li>
+        <li><strong>Localization / Translation Patches</strong></li>
+        <li><strong>Compatibility Patches</strong> — Bottom</li>
       </ol>
-      <div class="tip">口诀：<strong>前置在上，内容在下；越底层越靠上，越表面越靠下</strong></div>
+      <div class="tip">The mantra: <strong>Frameworks on top, content below; the more fundamental, the higher; the more superficial, the lower</strong></div>
     </div>
   </section>
   <nav class="page-nav">
-    <a href="rimworld-guide-research.html" class="prev">
-      <span><span class="nav-label">上一页</span>🔬 科技研究路线</span>
+    <a href="research.html" class="prev">
+      <span><span class="nav-label">Previous</span>🔬 Tech Tree</span>
     </a>
-    <a href="rimworld-guide-biomes.html" class="next">
-      <span><span class="nav-label">下一页</span>🌍 生态与地形</span>
+    <a href="biomes.html" class="next">
+      <span><span class="nav-label">Next</span>🌍 Biomes & Terrain</span>
     </a>
   </nav>
-  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
 </main>
 
 <script>
@@ -434,11 +437,11 @@ function toggleTheme() {
   const isLight = document.body.classList.toggle('light');
   const icon = document.getElementById('theme-icon');
   const label = document.getElementById('theme-label');
-  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
-  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+  if (isLight) { icon.textContent = '☀️'; label.textContent = 'Light Mode'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = 'Dark Mode'; localStorage.setItem('rimworld-theme', 'dark'); }
 }
 (function loadTheme() {
-  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = 'Light Mode'; }
 })();
   // Back to top
   const backToTop = document.getElementById('back-to-top');

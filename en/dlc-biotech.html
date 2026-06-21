@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="RimWorld 生物科技 DLC 攻略：基因改造系统（生殖基因/异种基因）、机械师与机械化军团、血族机制、生育与育儿、污染管理全解析。">
-<meta name="keywords" content="RimWorld, 边缘世界, 攻略, 生物科技, Biotech, DLC, 基因, 机械师, 生育">
-<link rel="canonical" href="https://yxhtl.com/rimworld-guide-dlc-biotech.html">
+<meta name="description" content="RimWorld Biotech DLC guide: children & reproduction, genetic modification, mechanitor & mechanoids, sanguophages, and pollution management.">
+<meta name="keywords" content="RimWorld, Biotech, DLC, guide, genes, germline, xenogerm, mechanitor, mechanoid, sanguophage, children, reproduction, pollution">
+<link rel="canonical" href="https://yxhtl.com/en/dlc-biotech.html">
 <link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-dlc-biotech.html">
 <link rel="alternate" hreflang="en" href="https://yxhtl.com/en/dlc-biotech.html">
 <link rel="alternate" hreflang="x-default" href="https://yxhtl.com/rimworld-guide-dlc-biotech.html">
-<meta property="og:title" content="生物科技 DLC 攻略 | RimWorld 攻略站">
-<meta property="og:description" content="RimWorld 生物科技 DLC 攻略：基因改造系统（生殖基因/异种基因）、机械师与机械化军团、血族机制、生育与育儿、污染管理全解析。">
-<meta property="og:url" content="https://yxhtl.com/rimworld-guide-dlc-biotech.html">
+<meta property="og:title" content="Biotech DLC | RimWorld Guide">
+<meta property="og:description" content="RimWorld Biotech DLC guide: children & reproduction, genetic modification, mechanitor & mechanoids, sanguophages, and pollution management.">
+<meta property="og:url" content="https://yxhtl.com/en/dlc-biotech.html">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="RimWorld 攻略站">
+<meta property="og:site_name" content="RimWorld Guide">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="生物科技 DLC 攻略 | RimWorld 攻略站">
-<meta name="twitter:description" content="RimWorld 生物科技 DLC 攻略：基因改造系统（生殖基因/异种基因）、机械师与机械化军团、血族机制、生育与育儿、污染管理全解析。">
+<meta name="twitter:title" content="Biotech DLC | RimWorld Guide">
+<meta name="twitter:description" content="RimWorld Biotech DLC guide: children & reproduction, genetic modification, mechanitor & mechanoids, sanguophages, and pollution management.">
 <meta name="robots" content="index, follow">
-<title>生物科技 DLC 攻略 | RimWorld 攻略站</title>
+<title>Biotech DLC | RimWorld Guide</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -39,7 +39,7 @@
   }
   html { scroll-behavior: smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.75;
@@ -81,20 +81,13 @@
   .nav-feedback:hover { color: var(--accent); }
   .nav-footer a { color: var(--accent); text-decoration: none; }
   .nav-footer a:hover { text-decoration: underline; }
- 
-  .reward-box { padding: 0 16px; margin-bottom: 4px; }
-  .reward-hint { font-size: 0.7rem; color: var(--text-muted); padding: 0 4px 8px; text-align: center; }
-  .reward-codes { display: flex; gap: 8px; justify-content: center; }
-  .reward-item { text-align: center; }
-  .reward-item img { width: 100px; height: 100px; border-radius: var(--radius); border: 2px solid var(--border); display: block; }
-  .reward-item span { font-size: 0.65rem; color: var(--text-muted); margin-top: 4px; display: block; }
 
   .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
   .sidebar-overlay { display: none; }
 
   main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
 
-  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); }
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; }
   .breadcrumb a { color: var(--accent); text-decoration: none; }
   .breadcrumb a:hover { text-decoration: underline; }
 
@@ -134,6 +127,12 @@
   .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
   .card.hidden, .section-title.hidden { display: none; }
   .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
+
+  /* ========== Guide Diagrams ========== */
+  .guide-diagram { margin: 20px 0 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .guide-diagram svg { display: block; width: 100%; height: auto; }
+  .guide-diagram figcaption { padding: 10px 16px; font-size: 0.82rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border); background: rgba(0,0,0,0.15); }
+  body.light .guide-diagram figcaption { background: rgba(0,0,0,0.03); }
 
   .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
   .theme-toggle:hover { border-color: var(--accent); }
@@ -180,102 +179,106 @@
 </head>
 <body>
 
-<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
 <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-logo">
-    <h1>🪐 RimWorld 攻略站</h1>
-    <p>从活下去，到活得好</p>
+    <h1>🪐 RimWorld Guide</h1>
+    <p>From surviving to thriving</p>
   </div>
 
-  <div class="nav-section">导航</div>
-  <a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+  <div class="lang-switcher">
+    <a href="../rimworld-guide-dlc-biotech.html">中文</a> <span class="active">| English</span>
+  </div>
 
-  <div class="nav-section">新手必备</div>
-  <a href="rimworld-guide-getting-started.html" class="nav-item">
-    <span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+  <div class="nav-section">Navigation</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> Guide Index</a>
+
+  <div class="nav-section">Essentials</div>
+  <a href="getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> Survival Guide <span class="nav-badge">P0</span>
   </a>
-  <a href="rimworld-guide-base-building.html" class="nav-item">
-    <span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+  <a href="base-building.html" class="nav-item">
+    <span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span>
   </a>
 
-  <div class="nav-section">DLC 内容</div>
-  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 DLC</a>
-  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">💡</span> 文化 DLC</a>
-  <a href="rimworld-guide-dlc-biotech.html" class="nav-item active"><span class="icon">🧬</span> 生物科技 DLC</a>
-  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 DLC</a>
+  <div class="nav-section">Advanced</div>
+  <a href="combat.html" class="nav-item"><span class="icon">⚔️</span> Combat & Defense <span class="nav-badge">P1</span></a>
+  <a href="pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> Pawn Management <span class="nav-badge">P1</span></a>
+  <a href="research.html" class="nav-item"><span class="icon">🔬</span> Tech Tree <span class="nav-badge">P2</span></a>
 
-  <div class="nav-section">进阶内容</div>
-  <a href="rimworld-guide-combat.html" class="nav-item"><span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span></a>
-  <a href="rimworld-guide-pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span></a>
-  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span></a>
+  <div class="nav-section">DLC</div>
+  <a href="dlc-royalty.html" class="nav-item"><span class="icon">👑</span> Royalty <span class="nav-badge">DLC</span></a>
+  <a href="dlc-ideology.html" class="nav-item"><span class="icon">💡</span> Ideology <span class="nav-badge">DLC</span></a>
+  <a href="dlc-biotech.html" class="nav-item active"><span class="icon">🧬</span> Biotech <span class="nav-badge">DLC</span></a>
+  <a href="dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> Anomaly <span class="nav-badge">DLC</span></a>
 
-  <div class="nav-section">扩展</div>
-  <a href="rimworld-guide-mods.html" class="nav-item"><span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-biomes.html" class="nav-item"><span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-animals.html" class="nav-item"><span class="icon">🐄</span> 动物与畜牧 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-trade.html" class="nav-item"><span class="icon">💰</span> 贸易与经济 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-crafting.html" class="nav-item"><span class="icon">⚗️</span> 制造与生产 <span class="nav-badge">P2</span></a>
+  <div class="nav-section">Extras</div>
+  <a href="mods.html" class="nav-item"><span class="icon">🧩</span> Mods <span class="nav-badge">P2</span></a>
+  <a href="biomes.html" class="nav-item"><span class="icon">🌍</span> Biomes & Terrain <span class="nav-badge">P2</span></a>
+  <a href="animals.html" class="nav-item"><span class="icon">🐄</span> Animals & Livestock <span class="nav-badge">P2</span></a>
+  <a href="trade.html" class="nav-item"><span class="icon">💰</span> Trade & Economy <span class="nav-badge">P2</span></a>
+  <a href="crafting.html" class="nav-item"><span class="icon">⚗️</span> Crafting & Production <span class="nav-badge">P2</span></a>
 
 
   </div>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
-    <span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span> <span class="toggle-thumb"></span>
   </button>
 
-  <div class="nav-footer"><a href="about.html">📖 关于本站</a> · <a href="privacy.html">🔒 隐私政策</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a> · MVP v0.2</div>
+  <div class="nav-footer"><a href="about.html">📖 About</a> · <a href="privacy.html">🔒 Privacy</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
 </nav>
 
 <main>
-  <div class="breadcrumb"><a href="index.html">攻略总览</a> / 生物科技 DLC</div>
+  <div class="breadcrumb"><a href="index.html">Guide Index</a> / Biotech DLC <span class="lang-link"><a href="../rimworld-guide-dlc-biotech.html">中文版本</a></span></div>
 
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
-    <input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
-    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+    <input type="text" id="search-input" placeholder="Search this page..." oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button>
   </div>
-  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No matching results. Try a different term?</p></div>
 
   <section class="section" id="biotech">
-    <h2 class="section-title">🧬 生物科技 DLC (Biotech)</h2>
+    <h2 class="section-title">🧬 Biotech DLC</h2>
 
     <div class="card">
-      <h3><span class="emoji">👶</span> 生育与育儿</h3>
-      <p>小人可以怀孕生子了——异性恋小人同床有机会怀孕。</p>
+      <h3><span class="emoji">👶</span> Children & Reproduction</h3>
+      <p>Pawns can now have children — heterosexual pawns sharing a bed have a chance to conceive.</p>
       <ul>
-        <li>怀孕期18天，怀孕期间移速-20%，最后3天无法工作</li>
-        <li>婴儿出生后需要照顾：喂奶（母乳或婴儿食品）、玩耍、保持清洁</li>
-        <li>3岁→6岁→10岁→13岁各成长阶段，每阶段学习速度不同</li>
-        <li>给小孩分配学习日程：他们会在成长过程中自动学习技能</li>
-        <li>小孩的成长速度跟"学习期望值"挂钩——保持学习值高=13岁成年时技能不低</li>
-        <li>育儿工具：婴儿床、学校桌、黑板（加速学习）</li>
+        <li>Pregnancy lasts 18 days, movement speed -20%, unable to work in the last 3 days</li>
+        <li>Newborns need care: feeding (breast milk or baby food), playtime, and hygiene</li>
+        <li>Growth stages at ages 3→6→10→13, each stage has different learning rates</li>
+        <li>Assign learning schedules to children — they automatically learn skills as they grow</li>
+        <li>A child's growth speed is tied to their "Learning" need — keeping learning high means decent skills by adulthood at age 13</li>
+        <li>Childcare items: baby crib, school desk, blackboard (accelerates learning)</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">🧬</span> 基因系统</h3>
-      <p>可以给小人和俘虏植入基因，改变他们的能力。</p>
+      <h3><span class="emoji">🧬</span> Gene System</h3>
+      <p>You can implant genes into pawns and prisoners to alter their abilities.</p>
       <ul>
-        <li><strong>生殖基因（Germline）：</strong>可遗传，只能通过生育传给下一代</li>
-        <li><strong>异种基因（Xenogerm）：</strong>不可遗传，类似植入物，可随时装/拆</li>
-        <li>基因来源：从商人购买、从俘虏身上提取（需要基因提取器）、自己做（研究基因科技后）</li>
-        <li>基因复杂度限制：每个小人能装的基因数量有限，复杂度超过上限装不了</li>
+        <li><strong>Germline genes:</strong> Heritable, can only be passed down through reproduction</li>
+        <li><strong>Xenogerm:</strong> Not heritable, like an implant — can be installed/removed at any time</li>
+        <li>Gene sources: purchase from traders, extract from prisoners (needs gene extractor), craft your own (after researching gene technology)</li>
+        <li>Complexity limit: each pawn can only carry a limited number of genes — exceeding the limit prevents installation</li>
       </ul>
       <table>
-        <tr><th>基因</th><th>效果</th><th>复杂度</th><th>推荐度</th></tr>
-        <tr><td>快速愈合</td><td>伤口恢复速度×2</td><td>3</td><td>⭐⭐⭐⭐⭐ 战斗位必装</td></tr>
-        <tr><td>不死（Deathless）</td><td>不会死（除非大脑被毁）</td><td>8</td><td>⭐⭐⭐⭐ 关键小人保命</td></tr>
-        <tr><td>壮硕</td><td>+50%携带重量</td><td>2</td><td>⭐⭐⭐⭐</td></tr>
-        <tr><td>夜猫子</td><td>夜视+夜晚心情buff</td><td>1</td><td>⭐⭐⭐ 夜班工人</td></tr>
-        <tr><td>喷火</td><td>可以喷火攻击</td><td>2</td><td>⭐⭐⭐</td></tr>
-        <tr><td>极速</td><td>移速+20%</td><td>3</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><th>Gene</th><th>Effect</th><th>Complexity</th><th>Rating</th></tr>
+        <tr><td>Fast Wound Healing</td><td>Wound recovery speed ×2</td><td>3</td><td>⭐⭐⭐⭐⭐ Essential for combat pawns</td></tr>
+        <tr><td>Deathless</td><td>Won't die (unless the brain is destroyed)</td><td>8</td><td>⭐⭐⭐⭐ Keeps key pawns alive</td></tr>
+        <tr><td>Robust</td><td>+50% carry weight</td><td>2</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Night Owl</td><td>Night vision + nighttime mood buff</td><td>1</td><td>⭐⭐⭐ Night shift workers</td></tr>
+        <tr><td>Fire Breath</td><td>Can breathe fire</td><td>2</td><td>⭐⭐⭐</td></tr>
+        <tr><td>Fast Runner</td><td>Movement speed +20%</td><td>3</td><td>⭐⭐⭐⭐</td></tr>
       </table>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">🔬</span> 基因工程流程图</h3>
-      <p>从获取基因到植入小人，整个流程一目了然：</p>
+      <h3><span class="emoji">🔬</span> Gene Engineering Flowchart</h3>
+      <p>From gene acquisition to pawn implantation — the full process at a glance:</p>
       <figure class="guide-diagram">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" style="max-width:100%;height:auto;">
           <defs>
@@ -287,37 +290,37 @@
           <rect width="720" height="320" fill="#1a1a1f" rx="6"/>
 
           <!-- Source column -->
-          <text x="80" y="30" fill="#d4956b" font-size="12" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">📦 基因来源</text>
+          <text x="80" y="30" fill="#d4956b" font-size="12" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">📦 Gene Sources</text>
 
           <!-- Trade -->
           <rect x="20" y="50" width="120" height="38" rx="6" fill="#24242b" stroke="#5a9fd4" stroke-width="1" filter="url(#gene-sh)"/>
-          <text x="80" y="68" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">💰 贸易购买</text>
-          <text x="80" y="82" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">从商队/轨道贸易</text>
+          <text x="80" y="68" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">💰 Trade Purchase</text>
+          <text x="80" y="82" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">From caravans/orbital trade</text>
 
           <!-- Extract from prisoner -->
           <rect x="20" y="102" width="120" height="38" rx="6" fill="#24242b" stroke="#c0392b" stroke-width="1" filter="url(#gene-sh)"/>
-          <text x="80" y="120" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🧪 俘虏提取</text>
-          <text x="80" y="134" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">基因提取器</text>
+          <text x="80" y="120" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">🧪 Prisoner Extraction</text>
+          <text x="80" y="134" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">Gene extractor</text>
 
           <!-- Self research -->
           <rect x="20" y="154" width="120" height="38" rx="6" fill="#24242b" stroke="#4a9" stroke-width="1" filter="url(#gene-sh)"/>
-          <text x="80" y="172" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🔬 自己研发</text>
-          <text x="80" y="186" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">研究基因科技后</text>
+          <text x="80" y="172" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">🔬 Self Research</text>
+          <text x="80" y="186" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">After researching gene tech</text>
 
           <!-- Arrow sources → assembly -->
           <line x1="140" y1="69" x2="200" y2="69" stroke="#888" stroke-width="1.2" marker-end="url(#arr-gene)"/>
           <line x1="140" y1="121" x2="200" y2="121" stroke="#888" stroke-width="1.2" marker-end="url(#arr-gene)"/>
           <line x1="140" y1="173" x2="200" y2="173" stroke="#888" stroke-width="1.2" marker-end="url(#arr-gene)"/>
-          <text x="170" y="88" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">基因</text>
-          <text x="170" y="102" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">存入基因库</text>
+          <text x="170" y="88" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">Genes</text>
+          <text x="170" y="102" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">Deposited in gene bank</text>
 
           <!-- Assembly center -->
           <rect x="205" y="77" width="150" height="98" rx="8" fill="#1e1e24" stroke="#d4956b" stroke-width="2" filter="url(#gene-sh)"/>
-          <text x="280" y="102" fill="#d4956b" font-size="12" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🧬 基因组装台</text>
-          <text x="280" y="118" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="sans-serif">选择基因组合</text>
-          <text x="280" y="132" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="sans-serif">检查复杂度上限</text>
-          <text x="280" y="146" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">复杂度限制＝小人代谢值</text>
-          <text x="280" y="164" fill="#c0392b" font-size="10" text-anchor="middle" font-family="sans-serif">⚠️ 超了装不了</text>
+          <text x="280" y="102" fill="#d4956b" font-size="12" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">🧬 Gene Assembly Bench</text>
+          <text x="280" y="118" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="sans-serif">Select gene combination</text>
+          <text x="280" y="132" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="sans-serif">Check complexity limit</text>
+          <text x="280" y="146" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">Complexity limit = Pawn metabolism rate</text>
+          <text x="280" y="164" fill="#c0392b" font-size="10" text-anchor="middle" font-family="sans-serif">⚠️ Exceeded limit = can't install</text>
 
           <!-- Arrow assembly → type choice -->
           <line x1="355" y1="126" x2="420" y2="80" stroke="#d4956b" stroke-width="1.5" marker-end="url(#arr-gene)"/>
@@ -325,85 +328,85 @@
 
           <!-- Germline branch -->
           <rect x="425" y="56" width="140" height="48" rx="6" fill="#1e2a1e" stroke="#4a9" stroke-width="1.5" filter="url(#gene-sh)"/>
-          <text x="495" y="74" fill="#4a9" font-size="12" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🧬 生殖基因</text>
-          <text x="495" y="90" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="sans-serif">植入胚胎·可遗传后代</text>
-          <text x="495" y="102" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">只能通过生育传给下一代</text>
+          <text x="495" y="74" fill="#4a9" font-size="12" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">🧬 Germline Genes</text>
+          <text x="495" y="90" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="sans-serif">Implant in embryo · Heritable</text>
+          <text x="495" y="102" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">Only passed down through reproduction</text>
 
           <!-- Xenogerm branch -->
           <rect x="425" y="148" width="140" height="48" rx="6" fill="#1e1e2a" stroke="#5a9fd4" stroke-width="1.5" filter="url(#gene-sh)"/>
-          <text x="495" y="166" fill="#5a9fd4" font-size="12" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">💉 异种基因</text>
-          <text x="495" y="182" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="sans-serif">直接注入·不可遗传</text>
-          <text x="495" y="194" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">可随时装卸·类似植入物</text>
+          <text x="495" y="166" fill="#5a9fd4" font-size="12" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">💉 Xenogerm</text>
+          <text x="495" y="182" fill="#c8c8d0" font-size="10" text-anchor="middle" font-family="sans-serif">Direct injection · Not heritable</text>
+          <text x="495" y="194" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">Can install/remove anytime · Like an implant</text>
 
           <!-- Target -->
           <line x1="565" y1="80" x2="625" y2="80" stroke="#4a9" stroke-width="1.2" marker-end="url(#arr-gene)"/>
           <line x1="565" y1="172" x2="625" y2="172" stroke="#5a9fd4" stroke-width="1.2" marker-end="url(#arr-gene)"/>
 
           <rect x="630" y="60" width="70" height="35" rx="6" fill="#1e2424" stroke="#4a9" stroke-width="1" filter="url(#gene-sh)"/>
-          <text x="665" y="82" fill="#4a9" font-size="10" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">👶 胚胎</text>
+          <text x="665" y="82" fill="#4a9" font-size="10" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">👶 Embryo</text>
 
           <rect x="630" y="155" width="70" height="35" rx="6" fill="#1e2424" stroke="#5a9fd4" stroke-width="1" filter="url(#gene-sh)"/>
-          <text x="665" y="177" fill="#5a9fd4" font-size="10" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">🧑 小人</text>
+          <text x="665" y="177" fill="#5a9fd4" font-size="10" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">🧑 Pawn</text>
 
           <!-- Bottom: Complexity meter -->
           <rect x="205" y="240" width="360" height="28" rx="6" fill="#24242b" stroke="#333" stroke-width="1"/>
           <rect x="207" y="242" width="240" height="24" rx="5" fill="#d4956b" opacity="0.3"/>
-          <text x="385" y="259" fill="#d4956b" font-size="11" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft YaHei,sans-serif">⚡ 复杂度预算：已用/上限（超了就装不了）</text>
+          <text x="385" y="259" fill="#d4956b" font-size="11" font-weight="bold" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,sans-serif">⚡ Complexity budget: Used / Max (Exceeded = can't install)</text>
 
           <!-- Bottom tips -->
-          <text x="385" y="300" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">💡 好基因贵在精不在多——快速愈合+壮硕+极速是战斗位标配，3个基因复杂度才8，大部分小人都能装</text>
+          <text x="385" y="300" fill="#888896" font-size="10" text-anchor="middle" font-family="sans-serif">💡 Quality over quantity — Fast Wound Healing + Robust + Fast Runner is the combat meta loadout. 3 genes at complexity 8, most pawns can handle it.</text>
         </svg>
-        <figcaption>▲ 基因来源→组装→选择类型→植入目标。核心是复杂度预算——别贪多，选最关键的3-4个基因就够了。</figcaption>
+        <figcaption>▲ Gene sources → Assembly → Type selection → Implant target. The core is the complexity budget — don't get greedy, pick the 3-4 most critical genes and you're set.</figcaption>
       </figure>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">🤖</span> 机械师与机械体</h3>
-      <p>机械师（Mechanitor）能制造和控制机械体——机械化军团。</p>
+      <h3><span class="emoji">🤖</span> Mechanitor & Mechanoids</h3>
+      <p>A Mechanitor can build and control mechanoids — your own robotic army.</p>
       <ul>
-        <li>造一个机械师控制台后，小人可以成为机械师</li>
-        <li>机械体种类：搬运机（搬东西）、建造机（修建筑）、农业机（种田）、清洁机（扫地）、战斗机械体</li>
-        <li>机械体不需要吃饭睡觉，但需要充电（跟你的电网抢电）</li>
-        <li>机械体产生"污染"（Toxpack），太多的污染=全图毒气</li>
-        <li>机械师的"带宽"限制能控制的机械体数量——带宽不够就控制不了更多</li>
+        <li>After building a mechanitor console, a pawn can become a mechanitor</li>
+        <li>Mechanoid types: Lifters (hauling), Constructoids (building), Agricohand (farming), Cleansweepers (cleaning), combat mechanoids</li>
+        <li>Mechanoids don't need food or sleep, but they need recharging (competing with your power grid)</li>
+        <li>Mechanoids produce toxic wastepacks — too much pollution means map-wide toxic fallout</li>
+        <li>A mechanitor's bandwidth limits how many mechanoids they can control — insufficient bandwidth means you can't control more</li>
       </ul>
-      <div class="tip"><strong>💡 新手推荐：</strong>优先造搬运机+清洁机——这两个工作最耗时，交给机械体=你的人力解放。</div>
+      <div class="tip"><strong>💡 Newbie tip:</strong> Prioritize lifters + cleansweepers — these two jobs are the most time-consuming. Hand them to mechanoids = free up your pawns.</div>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">🧛</span> 血族（Sanguophage）</h3>
-      <p>血族是Biotech新增的特殊种族——永生+超强战斗力但有代价。</p>
+      <h3><span class="emoji">🧛</span> Sanguophages</h3>
+      <p>Sanguophages are a special xenotype introduced in Biotech — immortal + incredible combat power, but at a cost.</p>
       <ul>
-        <li>血族特性：不会老死、伤口快速自愈、不怕痛、速度快、力量大</li>
-        <li>代价：必须定期喝血（Hemogen），不喝血会进入"死眠"（Deathrest）</li>
-        <li>喝血可以从俘虏、动物、或者自愿捐献者身上抽取</li>
-        <li>血族能用特殊能力：凝血（止血）、长距跳跃、心灵操纵</li>
-        <li>如何获得血族：仪式转化（让普通小人变血族）或开局选血族剧本</li>
+        <li>Sanguophage traits: ageless, rapid wound regeneration, no pain, fast speed, high strength</li>
+        <li>Cost: must regularly consume hemogen — otherwise they enter deathrest</li>
+        <li>Hemogen can be extracted from prisoners, animals, or willing donors</li>
+        <li>Sanguophages have special abilities: coagulate (stop bleeding), long-jump, psychic manipulation</li>
+        <li>How to get sanguophages: ritual conversion (turn a normal pawn into a sanguophage) or choose the sanguophage scenario at start</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">⚗️</span> 污染管理</h3>
-      <p>机械体运行时产生有毒垃圾（Toxic Wastepack），不处理会腐烂成污染。</p>
+      <h3><span class="emoji">⚗️</span> Pollution Management</h3>
+      <p>Mechanoids produce toxic wastepacks during operation — if left untreated, they rot and release pollution.</p>
       <ul>
-        <li>污染扩散：地上污染会让土地变荒芜，植物死光，小人得病</li>
-        <li>处理方法：冷冻保存（放冷库里延缓腐烂）、发射出去（空投仓送走，但要小心惹火邻居）、净化泵（后期科技，慢慢清理）</li>
-        <li>冻结的有毒垃圾不会腐烂——冷库+专门的垃圾区=省心</li>
-        <li>污染也影响你的邻居——把毒垃圾往海盗那边倒=让他们自己头疼</li>
+        <li>Pollution spread: ground pollution turns soil barren, kills plants, and makes pawns sick</li>
+        <li>Solutions: freeze storage (keep in freezer to slow decay), launch away (drop pod them off, but watch out for angry neighbors), or pollution pump (late-game tech, slow cleanup)</li>
+        <li>Frozen toxic wastepacks don't rot — dedicated freezer + waste zone = peace of mind</li>
+        <li>Pollution also affects your neighbors — dumping waste near pirates means they deal with it</li>
       </ul>
     </div>
   </section>
 
   <nav class="page-nav">
-    <a href="rimworld-guide-dlc-ideology.html" class="prev">
-      <span><span class="nav-label">上一页</span>💡 文化 DLC</span>
+    <a href="dlc-ideology.html" class="prev">
+      <span><span class="nav-label">Previous</span>💡 Ideology</span>
     </a>
-    <a href="rimworld-guide-dlc-anomaly.html" class="next">
-      <span><span class="nav-label">下一页</span>🪱 异象 DLC</span>
+    <a href="dlc-anomaly.html" class="next">
+      <span><span class="nav-label">Next</span>🪱 Anomaly</span>
     </a>
   </nav>
 
-  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
 </main>
 
 <script>
@@ -444,11 +447,11 @@ function toggleTheme() {
   const isLight = document.body.classList.toggle('light');
   const icon = document.getElementById('theme-icon');
   const label = document.getElementById('theme-label');
-  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
-  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+  if (isLight) { icon.textContent = '☀️'; label.textContent = 'Light Mode'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = 'Dark Mode'; localStorage.setItem('rimworld-theme', 'dark'); }
 }
 (function loadTheme() {
-  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = 'Light Mode'; }
 })();
 
   // Back to top

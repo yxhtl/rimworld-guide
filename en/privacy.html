@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RimWorld Guide privacy policy: what data we collect, how we use it, and your rights. Includes Cookie usage and third-party services (Clarity, AdSense).">
+<meta name="keywords" content="RimWorld, Privacy Policy, Privacy, Cookie, Data Collection, GDPR">
+<link rel="canonical" href="https://yxhtl.com/en/privacy.html">
+<link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/privacy.html">
+<link rel="alternate" hreflang="en" href="https://yxhtl.com/en/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://yxhtl.com/privacy.html">
+<meta property="og:title" content="Privacy Policy | RimWorld Guide">
+<meta property="og:description" content="RimWorld Guide privacy policy: what data we collect, how we use it, and your rights. Includes Cookie usage and third-party services (Clarity, AdSense).">
+<meta property="og:url" content="https://yxhtl.com/en/privacy.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RimWorld Guide">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Privacy Policy | RimWorld Guide">
+<meta name="twitter:description" content="RimWorld Guide privacy policy: what data we collect, how we use it, and your rights.">
+<meta name="robots" content="index, follow">
+<title>Privacy Policy | RimWorld Guide</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #1a1a1f;
+    --bg-card: #24242b;
+    --bg-sidebar: #1e1e24;
+    --border: #333340;
+    --text: #c8c8d0;
+    --text-muted: #888896;
+    --accent: #d4956b;
+    --accent-dim: #a07050;
+    --red: #c0392b;
+    --green: #4a9;
+    --blue: #5a9fd4;
+    --yellow: #d4b65a;
+    --radius: 6px;
+    --transition: 0.2s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+  nav.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+  .sidebar-logo h1 { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
+  .sidebar-logo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+  .lang-switcher { padding: 0 20px 12px; border-bottom: 1px solid var(--border); margin-bottom: 12px; font-size: 0.78rem; display: flex; gap: 6px; align-items: center; }
+  .lang-switcher a { color: var(--accent); text-decoration: none; }
+  .lang-switcher a:hover { text-decoration: underline; }
+  .lang-switcher .active { color: var(--text-muted); cursor: default; }
+  .lang-link { font-size: 0.78rem; margin-left: auto; }
+  .lang-link a { color: var(--accent); text-decoration: none; }
+  .lang-link a:hover { text-decoration: underline; }
+  .nav-section { padding: 8px 20px 4px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-top: 8px; }
+  .nav-item { display: block; padding: 8px 20px; color: var(--text); text-decoration: none; font-size: 0.9rem; border-left: 3px solid transparent; transition: var(--transition); }
+  .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
+  .nav-item.active { border-left-color: var(--accent); background: rgba(212,149,107,0.08); color: var(--accent); }
+  .nav-item .icon { margin-right: 8px; }
+  .nav-badge { float: right; font-size: 0.65rem; background: var(--accent-dim); color: #fff; padding: 1px 6px; border-radius: 10px; margin-top: 2px; }
+  .nav-footer { margin-top: auto; padding: 16px 20px 0; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--text-muted); }
+  .nav-feedback { color: var(--accent-dim); text-decoration: none; transition: color var(--transition); }
+  .nav-feedback:hover { color: var(--accent); }
+  .nav-footer a { color: var(--accent); text-decoration: none; }
+  .nav-footer a:hover { text-decoration: underline; }
+
+  .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
+  .sidebar-overlay { display: none; }
+
+  main { flex: 1; max-width: 800px; padding: 40px 48px; overflow-y: auto; }
+
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .page-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid var(--accent); }
+  .page-header h2 { font-size: 1.6rem; color: #fff; margin-bottom: 6px; }
+  .page-header p { color: var(--text-muted); font-size: 0.9rem; }
+
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; }
+  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .card h3 .emoji { font-size: 1.2rem; }
+  .card p, .card li { font-size: 0.92rem; color: var(--text); }
+  .card p { margin-bottom: 10px; }
+  .card ul { padding-left: 20px; margin-bottom: 10px; }
+  .card li { margin-bottom: 6px; }
+  .emoji { font-size: 1.2em; margin-right: 6px; }
+  .key { background: #333; color: var(--accent); padding: 1px 6px; border-radius: 3px; font-size: 0.85rem; font-family: "Cascadia Code", "Fira Code", monospace; }
+
+  .search-wrap { position: relative; margin-bottom: 32px; }
+  .search-wrap input { width: 100%; padding: 12px 16px 12px 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.95rem; font-family: inherit; transition: var(--transition); }
+  .search-wrap input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(212,149,107,0.15); }
+  .search-wrap input::placeholder { color: var(--text-muted); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--text-muted); pointer-events: none; }
+  .search-clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem; padding: 4px 8px; border-radius: 3px; display: none; }
+  .search-clear:hover { color: var(--text); background: var(--border); }
+  .search-clear.visible { display: block; }
+  .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 1rem; }
+  .no-results.visible { display: block; }
+  .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+  .card.hidden, .section-title.hidden { display: none; }
+  .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
+
+  .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle .toggle-thumb { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background var(--transition); }
+  .theme-toggle .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
+  body.light .toggle-thumb { background: var(--accent); }
+  body.light .toggle-thumb::after { transform: translateX(16px); }
+
+  body.light { --bg: #f4f4f6; --bg-card: #ffffff; --bg-sidebar: #f0f0f3; --border: #d8d8de; --text: #3a3a44; --text-muted: #888896; --accent: #b87050; --accent-dim: #8a5040; }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    nav.sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100vh; transition: left var(--transition); }
+    nav.sidebar.open { left: 0; }
+    .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9; }
+    .sidebar-overlay.open { display: block; }
+    .mobile-nav-toggle { display: block; }
+    main { padding: 60px 16px 32px; }
+    .card { padding: 16px; }
+  }
+  @media print { nav.sidebar, .mobile-nav-toggle { display: none; } main { max-width: 100%; padding: 0; } body { background: #fff; color: #000; } }
+
+  .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); z-index: 50; color: var(--text); }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x9iflmg36h");
+</script>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld Guide</h1>
+    <p>From surviving to thriving</p>
+  </div>
+
+  <div class="lang-switcher">
+    <a href="../privacy.html">中文</a> <span class="active">| English</span>
+  </div>
+
+  <div class="nav-section">Navigation</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> Guide Index</a>
+
+  <div class="nav-section">Essentials</div>
+  <a href="getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> Survival Guide <span class="nav-badge">P0</span>
+  </a>
+  <a href="base-building.html" class="nav-item">
+    <span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span>
+  </a>
+
+  <div class="nav-section">Advanced</div>
+  <a href="combat.html" class="nav-item"><span class="icon">⚔️</span> Combat & Defense <span class="nav-badge">P1</span></a>
+  <a href="pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> Pawn Management <span class="nav-badge">P1</span></a>
+  <a href="research.html" class="nav-item"><span class="icon">🔬</span> Tech Tree <span class="nav-badge">P2</span></a>
+
+  <div class="nav-section">DLC</div>
+  <a href="dlc-royalty.html" class="nav-item"><span class="icon">👑</span> Royalty <span class="nav-badge">DLC</span></a>
+  <a href="dlc-ideology.html" class="nav-item"><span class="icon">💡</span> Ideology <span class="nav-badge">DLC</span></a>
+  <a href="dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> Biotech <span class="nav-badge">DLC</span></a>
+  <a href="dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">Extras</div>
+  <a href="mods.html" class="nav-item"><span class="icon">🧩</span> Mods <span class="nav-badge">P2</span></a>
+  <a href="biomes.html" class="nav-item"><span class="icon">🌍</span> Biomes & Terrain <span class="nav-badge">P2</span></a>
+  <a href="animals.html" class="nav-item"><span class="icon">🐄</span> Animals & Livestock <span class="nav-badge">P2</span></a>
+  <a href="trade.html" class="nav-item"><span class="icon">💰</span> Trade & Economy <span class="nav-badge">P2</span></a>
+  <a href="crafting.html" class="nav-item"><span class="icon">⚗️</span> Crafting & Production <span class="nav-badge">P2</span></a>
+
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer"><a href="about.html">📖 About</a> · <a href="privacy.html">🔒 Privacy</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
+</nav>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">Guide Index</a> / Privacy Policy <span class="lang-link"><a href="../privacy.html">中文版本</a></span></div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="Search this page..." oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button>
+  </div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No matching results. Try a different term?</p></div>
+
+  <div class="page-header">
+    <h2>🔒 Privacy Policy</h2>
+    <p>Straightforward, no beating around the bush</p>
+  </div>
+
+  <div class="card">
+    <h3>📌 In a Nutshell</h3>
+    <p>This site <strong>does not actively collect</strong> any of your personal information. You don't need an account, you don't need to log in, and you don't need to fill in anything to read the guides. However — the hosting platform and third-party tools automatically collect some basic data, detailed below.</p>
+  </div>
+
+  <div class="card">
+    <h3>🖥️ Hosting Service: GitHub Pages</h3>
+    <p>This site is hosted on <span class="key">GitHub Pages</span>, with all page files stored on GitHub's servers. When you visit this site, GitHub automatically logs:</p>
+    <ul>
+      <li>Your IP address</li>
+      <li>Access time and page paths</li>
+      <li>Browser type (User-Agent)</li>
+    </ul>
+    <p>This data is managed by GitHub — we can't see it or modify it. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a> for details.</p>
+  </div>
+
+  <div class="card">
+    <h3>📊 Analytics: Microsoft Clarity</h3>
+    <p>This site uses <span class="key">Microsoft Clarity</span> for behavioral analytics, to understand which pages visitors view and what they click. Clarity collects:</p>
+    <ul>
+      <li>Page view history (which pages you viewed and for how long)</li>
+      <li>Click and scroll behavior (which links you clicked, how far you scrolled)</li>
+      <li>Device info (screen size, browser type, operating system)</li>
+    </ul>
+    <p>Clarity <strong>does not collect</strong> personally identifiable information (no IP logging, no keyboard input recording, no form content). See the <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener">Microsoft Privacy Statement</a> for details.</p>
+  </div>
+
+  <div class="card">
+    <h3>📋 Feedback Form: Tencent Survey</h3>
+    <p>This site collects feedback via <span class="key">Tencent Survey</span> (<code>wj.qq.com</code>). When you submit feedback, Tencent Survey processes the data according to its own privacy policy — we only see the content you fill in.</p>
+    <p>The feedback form is <strong>optional</strong> — skipping it doesn't affect your ability to read the guides.</p>
+  </div>
+
+  <div class="card">
+    <h3>🍪 LocalStorage</h3>
+    <p>This site uses your browser's <span class="key">localStorage</span> to remember your theme preference (dark/light mode). This data:</p>
+    <ul>
+      <li>Only exists in your own browser</li>
+      <li>Is never uploaded to any server</li>
+      <li>Disappears when you clear your browser cache</li>
+    </ul>
+    <p>This site <strong>does not use</strong> any custom cookies. However, third-party services (see below) may use their own cookies.</p>
+  </div>
+
+  <div class="card">
+    <h3>📢 Advertising: Google AdSense</h3>
+    <p>This site uses <span class="key">Google AdSense</span> to display ads. Google uses cookies to serve interest-based ads. These cookies are controlled by Google, not by us.</p>
+    <ul>
+      <li>Google uses the <span class="key">DoubleClick DART Cookie</span> to show personalized ads based on your browsing history</li>
+      <li>You can opt out of personalized ads in <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ads Settings</a></li>
+      <li>Or opt out of multiple ad network cookies at once via the <a href="https://optout.networkadvertising.org" target="_blank" rel="noopener">Network Advertising Initiative</a></li>
+    </ul>
+    <p>For details on cookies used by third-party vendors (including Google), see <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google Advertising Technologies</a>.</p>
+  </div>
+
+  <div class="card">
+    <h3>🔗 External Links</h3>
+    <p>This site contains links to external websites (such as Steam, Ludeon Studios, Mod pages, etc.). Once you click these links, your privacy on those sites is governed by their respective privacy policies, not by this site.</p>
+  </div>
+
+  <div class="card">
+    <h3>⚖️ Disclaimer</h3>
+    <ul>
+      <li>This site's guides are based on RimWorld 1.4+ with all DLC. Future updates may make some content outdated.</li>
+      <li>RimWorld and all its DLC are copyright <span class="key">Ludeon Studios</span>. This site is a fan-made community guide, unaffiliated with Ludeon Studios.</li>
+      <li>All mods mentioned on this site are copyright their respective authors. Recommendations reflect personal usage experience only.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>📞 Privacy Concerns</h3>
+    <p>If you have any questions or concerns about privacy:</p>
+    <p>📞 <strong>Phone:</strong> 199 0778 5073</p>
+    <p>📋 <strong>Feedback Form:</strong> <a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener">Tencent Survey</a></p>
+    <p>📅 Last updated: <strong>June 20, 2026</strong></p>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    if (card.textContent.toLowerCase().includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = 'Light Mode'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = 'Dark Mode'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = 'Light Mode'; }
+})();
+
+  // Back to top
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>

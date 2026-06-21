@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="RimWorld 贸易与经济指南：轨道贸易、商队贸易、据点贸易三种交易方式对比，财富值与袭击难度机制详解，教你赚钱不引火烧身。">
-<meta name="keywords" content="RimWorld, 边缘世界, 攻略, 贸易, 轨道贸易, 商队, 财富值, 银币">
-<link rel="canonical" href="https://yxhtl.com/rimworld-guide-trade.html">
+<meta name="description" content="RimWorld trade guide: orbital trade, ground caravans, wealth & raid difficulty scaling, trading tips, and drop pod logistics.">
+<meta name="keywords" content="RimWorld, guide, trade, orbital trade, caravan, wealth, silver, economy, trading">
+<link rel="canonical" href="https://yxhtl.com/en/trade.html">
 <link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-trade.html">
 <link rel="alternate" hreflang="en" href="https://yxhtl.com/en/trade.html">
 <link rel="alternate" hreflang="x-default" href="https://yxhtl.com/rimworld-guide-trade.html">
-<meta property="og:title" content="贸易与经济 | RimWorld 攻略站">
-<meta property="og:description" content="RimWorld 贸易与经济指南：轨道贸易、商队贸易、据点贸易三种交易方式对比，财富值与袭击难度机制详解，教你赚钱不引火烧身。">
-<meta property="og:url" content="https://yxhtl.com/rimworld-guide-trade.html">
+<meta property="og:title" content="Trade & Economy | RimWorld Guide">
+<meta property="og:description" content="RimWorld trade guide: orbital trade, ground caravans, wealth & raid difficulty scaling, trading tips, and drop pod logistics.">
+<meta property="og:url" content="https://yxhtl.com/en/trade.html">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="RimWorld 攻略站">
+<meta property="og:site_name" content="RimWorld Guide">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="贸易与经济 | RimWorld 攻略站">
-<meta name="twitter:description" content="RimWorld 贸易与经济指南：轨道贸易、商队贸易、据点贸易三种交易方式对比，财富值与袭击难度机制详解，教你赚钱不引火烧身。">
+<meta name="twitter:title" content="Trade & Economy | RimWorld Guide">
+<meta name="twitter:description" content="RimWorld trade guide: orbital trade, ground caravans, wealth & raid difficulty scaling, trading tips, and drop pod logistics.">
 <meta name="robots" content="index, follow">
-<title>贸易与经济 | RimWorld 攻略站</title>
+<title>Trade & Economy | RimWorld Guide</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -39,7 +39,7 @@
   }
   html { scroll-behavior: smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.75;
@@ -81,20 +81,13 @@
   .nav-feedback:hover { color: var(--accent); }
   .nav-footer a { color: var(--accent); text-decoration: none; }
   .nav-footer a:hover { text-decoration: underline; }
- 
-  .reward-box { padding: 0 16px; margin-bottom: 4px; }
-  .reward-hint { font-size: 0.7rem; color: var(--text-muted); padding: 0 4px 8px; text-align: center; }
-  .reward-codes { display: flex; gap: 8px; justify-content: center; }
-  .reward-item { text-align: center; }
-  .reward-item img { width: 100px; height: 100px; border-radius: var(--radius); border: 2px solid var(--border); display: block; }
-  .reward-item span { font-size: 0.65rem; color: var(--text-muted); margin-top: 4px; display: block; }
 
   .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
   .sidebar-overlay { display: none; }
 
   main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
 
-  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); }
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; }
   .breadcrumb a { color: var(--accent); text-decoration: none; }
   .breadcrumb a:hover { text-decoration: underline; }
 
@@ -186,81 +179,82 @@
 </head>
 <body>
 
-<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
 <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-logo">
-    <h1>🪐 RimWorld 攻略站</h1>
-    <p>从活下去，到活得好</p>
+    <h1>🪐 RimWorld Guide</h1>
+    <p>From surviving to thriving</p>
   </div>
 
-  <div class="nav-section">导航</div>
-  <a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+  <div class="lang-switcher">
+    <a href="../rimworld-guide-trade.html">中文</a> <span class="active">| English</span>
+  </div>
 
-  <div class="nav-section">新手必备</div>
-  <a href="rimworld-guide-getting-started.html" class="nav-item">
-    <span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+  <div class="nav-section">Navigation</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> Guide Index</a>
+
+  <div class="nav-section">Essentials</div>
+  <a href="getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> Survival Guide <span class="nav-badge">P0</span>
   </a>
-  <a href="rimworld-guide-base-building.html" class="nav-item">
-    <span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+  <a href="base-building.html" class="nav-item">
+    <span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span>
   </a>
 
-  <div class="nav-section">进阶内容</div>
-  <a href="rimworld-guide-combat.html" class="nav-item"><span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span></a>
-  <a href="rimworld-guide-pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span></a>
-  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span></a>
+  <div class="nav-section">Advanced</div>
+  <a href="combat.html" class="nav-item"><span class="icon">⚔️</span> Combat & Defense <span class="nav-badge">P1</span></a>
+  <a href="pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> Pawn Management <span class="nav-badge">P1</span></a>
+  <a href="research.html" class="nav-item"><span class="icon">🔬</span> Tech Tree <span class="nav-badge">P2</span></a>
 
-  <div class="nav-section">DLC 内容</div>
-  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span></a>
+  <div class="nav-section">DLC</div>
+  <a href="dlc-royalty.html" class="nav-item"><span class="icon">👑</span> Royalty <span class="nav-badge">DLC</span></a>
+  <a href="dlc-ideology.html" class="nav-item"><span class="icon">💡</span> Ideology <span class="nav-badge">DLC</span></a>
+  <a href="dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> Biotech <span class="nav-badge">DLC</span></a>
+  <a href="dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> Anomaly <span class="nav-badge">DLC</span></a>
 
-  <div class="nav-section">扩展</div>
-  <a href="rimworld-guide-trade.html" class="nav-item active">
-    <span class="icon">💰</span> 贸易与经济 <span class="nav-badge">P2</span>
-  </a>
-  <a href="rimworld-guide-animals.html" class="nav-item">
-    <span class="icon">🐄</span> 动物与畜牧 <span class="nav-badge">P2</span>
-  </a>
-  <a href="rimworld-guide-mods.html" class="nav-item"><span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-biomes.html" class="nav-item"><span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span></a>
+  <div class="nav-section">Extras</div>
+  <a href="mods.html" class="nav-item"><span class="icon">🧩</span> Mods <span class="nav-badge">P2</span></a>
+  <a href="biomes.html" class="nav-item"><span class="icon">🌍</span> Biomes & Terrain <span class="nav-badge">P2</span></a>
+  <a href="animals.html" class="nav-item"><span class="icon">🐄</span> Animals & Livestock <span class="nav-badge">P2</span></a>
+  <a href="trade.html" class="nav-item active"><span class="icon">💰</span> Trade & Economy <span class="nav-badge">P2</span></a>
+  <a href="crafting.html" class="nav-item"><span class="icon">⚗️</span> Crafting & Production <span class="nav-badge">P2</span></a>
 
 
   </div>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
-    <span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span> <span class="toggle-thumb"></span>
   </button>
 
-  <div class="nav-footer"><a href="about.html">📖 关于本站</a> · <a href="privacy.html">🔒 隐私政策</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a> · MVP v0.2</div>
+  <div class="nav-footer"><a href="about.html">📖 About</a> · <a href="privacy.html">🔒 Privacy</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
 </nav>
 
 <main>
-  <div class="breadcrumb"><a href="index.html">攻略总览</a> / 贸易与经济</div>
+  <div class="breadcrumb"><a href="index.html">Guide Index</a> / Trade & Economy <span class="lang-link"><a href="../rimworld-guide-trade.html">中文版本</a></span></div>
 
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
-    <input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
-    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+    <input type="text" id="search-input" placeholder="Search this page..." oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button>
   </div>
-  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No matching results. Try a different term?</p></div>
 
   <section class="section" id="trade">
-    <h2 class="section-title">💰 贸易与经济</h2>
+    <h2 class="section-title">💰 Trade & Economy</h2>
 
     <div class="card">
-      <h3><span class="emoji">📡</span> 轨道贸易——躺着赚钱</h3>
-      <p>轨道贸易是 RimWorld 最基础的交易方式，你啥都不用动，坐在基地里等商船来就行了。</p>
+      <h3><span class="emoji">📡</span> Orbital Trade — Make Money Without Leaving Home</h3>
+      <p>Orbital trading is the most basic way to do business in RimWorld. You don't have to move a muscle — just sit in your base and wait for trade ships to come to you.</p>
       <table>
-        <tr><th>组件</th><th>说明</th></tr>
-        <tr><td><strong>轨道交易信标 (Orbital Trade Beacon)</strong></td><td>放在仓库中间，覆盖范围内的物品才能卖</td></tr>
-        <tr><td><strong>通讯台 (Comms Console)</strong></td><td>有人操作才能呼叫/接听商船</td></tr>
-        <tr><td><strong>商船类型</strong></td><td>普通商船（什么都收）、武器商船、奴隶商船、稀有品商船</td></tr>
-        <tr><td><strong>呼叫商队</strong></td><td>花 700 银可以从友好派系呼叫一支地面商队（通讯台操作）</td></tr>
-        <tr><td><strong>送礼</strong></td><td>往对方据点发射空投仓送礼物=提升好感，好感高了商船来得更频繁</td></tr>
+        <tr><th>Component</th><th>Description</th></tr>
+        <tr><td><strong>Orbital Trade Beacon</strong></td><td>Place it in the middle of your stockpile area — only items within its coverage can be sold</td></tr>
+        <tr><td><strong>Comms Console</strong></td><td>Needs a pawn to operate it to call / answer trade ships</td></tr>
+        <tr><td><strong>Ship Types</strong></td><td>General trader (buys anything), weapons trader, slave trader, rare goods trader</td></tr>
+        <tr><td><strong>Call Ground Caravan</strong></td><td>Spend 700 silver to call a ground caravan from a friendly faction (via comms console)</td></tr>
+        <tr><td><strong>Gifting</strong></td><td>Launch gift pods at faction settlements to improve relations — better relations mean more frequent trade ships</td></tr>
       </table>
-      <div class="tip"><strong>💡 小技巧：</strong>轨道交易信标的范围是圆形——把它放在冷库和仓库之间，两边都能覆盖到。</div>
+      <div class="tip"><strong>💡 Tip:</strong> The orbital trade beacon's coverage is a circle — place it between your freezer and warehouse to cover both zones with one beacon.</div>
       <figure class="guide-diagram">
         <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -278,10 +272,10 @@
           <!-- Coverage radius circle -->
           <circle cx="260" cy="220" r="160" fill="none" stroke="rgba(90,159,212,0.4)" stroke-width="2.5" stroke-dasharray="8,6"/>
 
-          <!-- 冷库 — within coverage -->
+          <!-- Freezer — within coverage -->
           <rect x="75" y="135" width="130" height="165" rx="8" fill="rgba(90,159,212,0.12)" stroke="rgba(90,159,212,0.3)" stroke-width="1.5"/>
           <text x="140" y="164" text-anchor="middle" fill="#5a9fd4" font-size="22">🧊</text>
-          <text x="140" y="188" text-anchor="middle" fill="#c8c8d0" font-size="13" font-weight="bold">冷库</text>
+          <text x="140" y="188" text-anchor="middle" fill="#c8c8d0" font-size="13" font-weight="bold">Freezer</text>
           <line x1="88" y1="205" x2="192" y2="205" stroke="rgba(200,200,208,0.2)" stroke-width="2" stroke-linecap="round"/>
           <line x1="88" y1="220" x2="192" y2="220" stroke="rgba(200,200,208,0.2)" stroke-width="2" stroke-linecap="round"/>
           <line x1="88" y1="235" x2="192" y2="235" stroke="rgba(200,200,208,0.2)" stroke-width="2" stroke-linecap="round"/>
@@ -289,34 +283,34 @@
           <rect x="105" y="209" width="6" height="6" rx="1" fill="rgba(200,200,208,0.3)"/>
           <rect x="115" y="224" width="6" height="6" rx="1" fill="rgba(200,200,208,0.3)"/>
           <rect x="95" y="239" width="6" height="6" rx="1" fill="rgba(200,200,208,0.3)"/>
-          <text x="140" y="291" text-anchor="middle" fill="#4a9" font-size="13">覆盖 ✅</text>
+          <text x="140" y="291" text-anchor="middle" fill="#4a9" font-size="13">Covered ✅</text>
 
-          <!-- 仓库 — within coverage -->
+          <!-- Storage — within coverage -->
           <rect x="195" y="310" width="165" height="95" rx="8" fill="rgba(212,149,107,0.12)" stroke="rgba(212,149,107,0.3)" stroke-width="1.5"/>
           <text x="277" y="336" text-anchor="middle" fill="#d4956b" font-size="22">📦</text>
-          <text x="277" y="358" text-anchor="middle" fill="#c8c8d0" font-size="13" font-weight="bold">仓库</text>
+          <text x="277" y="358" text-anchor="middle" fill="#c8c8d0" font-size="13" font-weight="bold">Storage</text>
           <rect x="227" y="368" width="14" height="12" rx="2" fill="rgba(200,200,208,0.12)" stroke="rgba(200,200,208,0.25)" stroke-width="1"/>
           <rect x="247" y="366" width="14" height="12" rx="2" fill="rgba(200,200,208,0.12)" stroke="rgba(200,200,208,0.25)" stroke-width="1"/>
           <rect x="267" y="369" width="14" height="12" rx="2" fill="rgba(200,200,208,0.12)" stroke="rgba(200,200,208,0.25)" stroke-width="1"/>
           <rect x="287" y="367" width="14" height="12" rx="2" fill="rgba(200,200,208,0.12)" stroke="rgba(200,200,208,0.25)" stroke-width="1"/>
-          <text x="277" y="396" text-anchor="middle" fill="#4a9" font-size="13">覆盖 ✅</text>
+          <text x="277" y="396" text-anchor="middle" fill="#4a9" font-size="13">Covered ✅</text>
 
-          <!-- 工坊 — outside coverage -->
+          <!-- Workshop — outside coverage -->
           <rect x="435" y="70" width="115" height="110" rx="8" fill="rgba(136,136,150,0.1)" stroke="rgba(136,136,150,0.25)" stroke-width="1.5"/>
           <text x="492" y="100" text-anchor="middle" fill="#888896" font-size="22">🔨</text>
-          <text x="492" y="122" text-anchor="middle" fill="#c8c8d0" font-size="13" font-weight="bold">工坊</text>
+          <text x="492" y="122" text-anchor="middle" fill="#c8c8d0" font-size="13" font-weight="bold">Workshop</text>
           <rect x="474" y="136" width="36" height="14" rx="2" fill="rgba(200,200,208,0.12)" stroke="rgba(200,200,208,0.25)" stroke-width="1"/>
           <rect x="485" y="134" width="12" height="4" rx="1" fill="rgba(200,200,208,0.2)"/>
-          <text x="492" y="171" text-anchor="middle" fill="#c0392b" font-size="13">❌ 未覆盖</text>
+          <text x="492" y="171" text-anchor="middle" fill="#c0392b" font-size="13">❌ Not covered</text>
 
-          <!-- 医院 — outside coverage -->
+          <!-- Hospital — outside coverage -->
           <rect x="565" y="195" width="140" height="125" rx="8" fill="rgba(200,200,208,0.06)" stroke="rgba(200,200,208,0.2)" stroke-width="1.5"/>
           <text x="635" y="226" text-anchor="middle" fill="#c8c8d0" font-size="22">🏥</text>
-          <text x="635" y="248" text-anchor="middle" fill="#c8c8d0" font-size="13" font-weight="bold">医院</text>
+          <text x="635" y="248" text-anchor="middle" fill="#c8c8d0" font-size="13" font-weight="bold">Hospital</text>
           <rect x="601" y="262" width="22" height="10" rx="3" fill="rgba(200,200,208,0.12)" stroke="rgba(200,200,208,0.25)" stroke-width="1"/>
           <rect x="629" y="262" width="22" height="10" rx="3" fill="rgba(200,200,208,0.12)" stroke="rgba(200,200,208,0.25)" stroke-width="1"/>
           <rect x="613" y="268" width="4" height="8" rx="1" fill="rgba(200,200,208,0.15)"/>
-          <text x="635" y="310" text-anchor="middle" fill="#c0392b" font-size="13">❌ 未覆盖</text>
+          <text x="635" y="310" text-anchor="middle" fill="#c0392b" font-size="13">❌ Not covered</text>
 
           <!-- Orbital trade beacon -->
           <circle cx="260" cy="220" r="30" fill="none" stroke="#d4b65a" stroke-width="1.2" opacity="0.25"/>
@@ -325,77 +319,77 @@
           <circle cx="260" cy="220" r="18" fill="#d4b65a" opacity="0.85"/>
           <circle cx="260" cy="220" r="14" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
           <text x="260" y="225" text-anchor="middle" fill="#1a1a1f" font-size="16">📡</text>
-          <text x="260" y="252" text-anchor="middle" fill="#d4b65a" font-size="10" opacity="0.7">轨道交易信标</text>
+          <text x="260" y="252" text-anchor="middle" fill="#d4b65a" font-size="10" opacity="0.7">Orbital Trade Beacon</text>
 
-          <!-- Arrow annotation: 信标放这里 → 两边都覆盖 -->
+          <!-- Arrow annotation: place beacon here → covers both -->
           <line x1="550" y1="185" x2="282" y2="218" stroke="#d4b65a" stroke-width="2" marker-end="url(#arrowhead)"/>
-          <text x="560" y="179" fill="#d4b65a" font-size="13" font-weight="bold">信标放这里</text>
-          <text x="560" y="197" fill="#d4b65a" font-size="13" font-weight="bold">→ 两边都覆盖</text>
+          <text x="560" y="179" fill="#d4b65a" font-size="13" font-weight="bold">Place beacon here</text>
+          <text x="560" y="197" fill="#d4b65a" font-size="13" font-weight="bold">→ covers both sides</text>
         </svg>
-        <figcaption>▲ 信标放冷库和仓库中间——一个信标覆盖两个最重要的库存区。工坊和医院不需要覆盖（你不会卖工作台和药）。</figcaption>
+        <figcaption>▲ Place the beacon between the freezer and storage — one beacon covers both critical stockpile zones. The workshop and hospital don't need coverage (you won't sell workbenches or medicine).</figcaption>
       </figure>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">🐫</span> 地面商队——主动出门做生意</h3>
+      <h3><span class="emoji">🐫</span> Ground Caravans — Go Out and Do Business</h3>
       <ul>
-        <li><strong>组成商队：</strong>世界地图上选小人+动物→选"组建商队"→他们会自动收拾物资</li>
-        <li><strong>坐骑很重要：</strong>马/驴/单峰驼=加速商队移速，没坐骑走得很慢</li>
-        <li><strong>路上有危险：</strong>商队路上会遇到伏击→带点武器和药</li>
-        <li><strong>价格更好：</strong>到了友方据点可以交易，价格比轨道商船好</li>
-        <li><strong>送礼外交：</strong>也可以带东西去找派系送礼→一次性提升大量好感</li>
-        <li><strong>远行前检查：</strong>食物带够（商队自己会吃）、药品带够、季节（冬天走得慢）</li>
+        <li><strong>Forming a caravan:</strong> On the world map, select pawns + animals → choose "Form Caravan" → they'll gather supplies automatically</li>
+        <li><strong>Mounts matter:</strong> Horses / donkeys / dromedaries increase caravan speed. Without mounts, travel is painfully slow</li>
+        <li><strong>Danger on the road:</strong> Caravans can be ambushed en route — bring some weapons and medicine</li>
+        <li><strong>Better prices:</strong> Trading at friendly faction settlements gives better prices than orbital traders</li>
+        <li><strong>Gifting diplomacy:</strong> Bring goods to factions as gifts — one trip can boost relations significantly</li>
+        <li><strong>Pre-departure check:</strong> Enough food (caravans eat on the road), enough medicine, check the season (winter slows travel)</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">📊</span> 财富值与袭击难度</h3>
-      <p>这是 RimWorld 玩家必须理解的核心机制——你的每一点财富都在决定敌人的强度。</p>
+      <h3><span class="emoji">📊</span> Wealth & Raid Difficulty</h3>
+      <p>This is the core mechanic every RimWorld player must understand — every point of your wealth determines enemy strength.</p>
       <table>
-        <tr><th>财富来源</th><th>说明</th></tr>
-        <tr><td><strong>建筑财富</strong></td><td>每堵墙、每块地板都算钱——别过度装修</td></tr>
-        <tr><td><strong>物品财富</strong></td><td>仓库存的每一件东西都算——别囤积</td></tr>
-        <tr><td><strong>小人财富</strong></td><td>每个小人、每件仿生体都算——仿生体加很多财富</td></tr>
-        <tr><td><strong>动物财富</strong></td><td>养的动物也计入——别留太多</td></tr>
-        <tr><td><strong>袭击点数</strong></td><td>财富值换算成袭击点数→决定来多少敌人+什么装备</td></tr>
+        <tr><th>Wealth Source</th><th>Description</th></tr>
+        <tr><td><strong>Building Wealth</strong></td><td>Every wall, every floor counts — don't over-decorate</td></tr>
+        <tr><td><strong>Item Wealth</strong></td><td>Everything stored in your stockpiles counts — don't hoard</td></tr>
+        <tr><td><strong>Pawn Wealth</strong></td><td>Every colonist, every bionic implant counts — bionics add a lot of wealth</td></tr>
+        <tr><td><strong>Animal Wealth</strong></td><td>Your animals count too — don't keep more than you need</td></tr>
+        <tr><td><strong>Raid Points</strong></td><td>Wealth converts to raid points → determines how many enemies come and what gear they bring</td></tr>
       </table>
-      <div class="tip warn"><strong>⚠️ 核心逻辑：</strong>你的财富涨得比防御涨得快=等死。囤积症是新手第一死因。造好防御工事之前，别疯狂挖矿、别铺金地板。</div>
+      <div class="tip warn"><strong>⚠️ Core Logic:</strong> If your wealth grows faster than your defenses, you're dead. Hoarding is the #1 cause of death for new players. Before you have solid defenses, don't mine like crazy and don't pave floors with gold.</div>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">💱</span> 交易技巧</h3>
+      <h3><span class="emoji">💱</span> Trading Tips</h3>
       <ul>
-        <li><strong>卖什么最划算：</strong>成瘾品（薄片/雅瑶/唤醒剂）&gt; 雕塑（大理石大型雕塑）&gt; 衣物（皮质风衣）&gt; 器官（慎用，影响心情）</li>
-        <li><strong>买什么值得：</strong>零件（前期买不起自己造）、高级医药（中期囤）、心灵冲击枪/护盾带（稀有品商船）</li>
-        <li><strong>交易价格影响因素：</strong>小人社交技能（最重要）、交易方好感度、小人是否健康（缺手缺眼=社交下降）</li>
-        <li><strong>别卖的东西：</strong>高级零部件（后期自己要用）、铀（做动力甲）、塑钢</li>
-        <li><strong>缺钱应急：</strong>熔炼不用的武器=回收钢铁，拆机械族尸体=零件+塑钢</li>
+        <li><strong>Best things to sell:</strong> Drugs (flake / yayo / wake-up) &gt; Sculptures (large marble sculpture) &gt; Clothing (duster, leather) &gt; Organs (use with caution — affects mood)</li>
+        <li><strong>Worth buying:</strong> Components (too expensive to craft early on), Industrial medicine (stock up mid-game), Shock lance / Shield belt (from rare goods traders)</li>
+        <li><strong>Price factors:</strong> Pawn social skill (most important), faction goodwill, pawn health (missing hand/eye = social penalty)</li>
+        <li><strong>Don't sell:</strong> Advanced components (you'll need them later), Uranium (power armor), Plasteel</li>
+        <li><strong>Emergency cash:</strong> Smelt unwanted weapons for steel, disassemble mechanoid corpses for components + plasteel</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">🏗️</span> 空投仓物流</h3>
+      <h3><span class="emoji">🏗️</span> Drop Pod Logistics</h3>
       <ul>
-        <li><strong>基本原理：</strong>空投仓可以往地图上任意位置发射物资</li>
-        <li><strong>用法1——送礼：</strong>往友方据点发射礼物=即时提升好感</li>
-        <li><strong>用法2——补给：</strong>商队出去了发现带少了东西→基地发射空投仓补给</li>
-        <li><strong>用法3——调配：</strong>多个基地之间的物资调配</li>
-        <li><strong>燃料：</strong>空投仓需要燃料（化合燃料），用精炼机从木头/食物提炼</li>
-        <li><strong>批量发射：</strong>一次装不满？部署多个空投仓组成队列</li>
+        <li><strong>Basic principle:</strong> Drop pods can launch supplies to any location on the map</li>
+        <li><strong>Use 1 — Gifting:</strong> Launch gifts at friendly settlements for instant goodwill boost</li>
+        <li><strong>Use 2 — Resupply:</strong> Caravan ran out of supplies on the road? Launch drop pods from base to resupply</li>
+        <li><strong>Use 3 — Transfer:</strong> Move supplies between multiple bases</li>
+        <li><strong>Fuel:</strong> Drop pods need fuel (chemfuel), refined from wood / food at a refinery</li>
+        <li><strong>Batch launch:</strong> Can't fit everything in one pod? Deploy multiple pods in a salvo</li>
       </ul>
     </div>
   </section>
 
   <nav class="page-nav">
-    <a href="rimworld-guide-animals.html" class="prev">
-      <span><span class="nav-label">上一页</span>🐄 动物与畜牧</span>
+    <a href="animals.html" class="prev">
+      <span><span class="nav-label">Previous</span>🐄 Animals & Livestock</span>
     </a>
-    <a href="rimworld-guide-crafting.html" class="next">
-      <span><span class="nav-label">下一页</span>⚗️ 制造与生产</span>
+    <a href="crafting.html" class="next">
+      <span><span class="nav-label">Next</span>⚗️ Crafting & Production</span>
     </a>
   </nav>
 
-  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
 </main>
 
 <script>
@@ -436,11 +430,11 @@ function toggleTheme() {
   const isLight = document.body.classList.toggle('light');
   const icon = document.getElementById('theme-icon');
   const label = document.getElementById('theme-label');
-  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
-  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+  if (isLight) { icon.textContent = '☀️'; label.textContent = 'Light Mode'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = 'Dark Mode'; localStorage.setItem('rimworld-theme', 'dark'); }
 }
 (function loadTheme() {
-  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = 'Light Mode'; }
 })();
 
   // Back to top

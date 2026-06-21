@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="RimWorld 开局生存指南：如何选人、选落地地点、第一天的操作顺序。三个小人的技能组合决定你能不能活过头三天，手把手教你每个关键决策。">
-<meta name="keywords" content="RimWorld, 边缘世界, 攻略, 开局, 选人, 生存, 新手开局">
-<link rel="canonical" href="https://yxhtl.com/rimworld-guide-getting-started.html">
+<meta name="description" content="RimWorld survival guide for beginners: how to pick colonists, choose a landing site, and what to do on day one. Your colonists' skill combos determine whether you survive the first three days.">
+<meta name="keywords" content="RimWorld, guide, beginner, survival, starting, colonist selection, landing site, tutorial">
+<link rel="canonical" href="https://yxhtl.com/en/getting-started.html">
 <link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-getting-started.html">
 <link rel="alternate" hreflang="en" href="https://yxhtl.com/en/getting-started.html">
 <link rel="alternate" hreflang="x-default" href="https://yxhtl.com/rimworld-guide-getting-started.html">
-<meta property="og:title" content="开局生存指南 | RimWorld 攻略站">
-<meta property="og:description" content="RimWorld 开局生存指南：如何选人、选落地地点、第一天的操作顺序。三个小人的技能组合决定你能不能活过头三天，手把手教你每个关键决策。">
-<meta property="og:url" content="https://yxhtl.com/rimworld-guide-getting-started.html">
+<meta property="og:title" content="Survival Guide | RimWorld Guide">
+<meta property="og:description" content="RimWorld survival guide for beginners: how to pick colonists, choose a landing site, and what to do on day one. Step-by-step walkthrough for every critical decision.">
+<meta property="og:url" content="https://yxhtl.com/en/getting-started.html">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="RimWorld 攻略站">
+<meta property="og:site_name" content="RimWorld Guide">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开局生存指南 | RimWorld 攻略站">
-<meta name="twitter:description" content="RimWorld 开局生存指南：如何选人、选落地地点、第一天的操作顺序。三个小人的技能组合决定你能不能活过头三天，手把手教你每个关键决策。">
+<meta name="twitter:title" content="Survival Guide | RimWorld Guide">
+<meta name="twitter:description" content="RimWorld survival guide for beginners: how to pick colonists, choose a landing site, and what to do on day one. Step-by-step walkthrough for every critical decision.">
 <meta name="robots" content="index, follow">
-<title>开局生存指南 | RimWorld 攻略站</title>
+<title>Survival Guide | RimWorld Guide</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -39,7 +39,7 @@
   }
   html { scroll-behavior: smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.75;
@@ -81,20 +81,13 @@
   .nav-feedback:hover { color: var(--accent); }
   .nav-footer a { color: var(--accent); text-decoration: none; }
   .nav-footer a:hover { text-decoration: underline; }
- 
-  .reward-box { padding: 0 16px; margin-bottom: 4px; }
-  .reward-hint { font-size: 0.7rem; color: var(--text-muted); padding: 0 4px 8px; text-align: center; }
-  .reward-codes { display: flex; gap: 8px; justify-content: center; }
-  .reward-item { text-align: center; }
-  .reward-item img { width: 100px; height: 100px; border-radius: var(--radius); border: 2px solid var(--border); display: block; }
-  .reward-item span { font-size: 0.65rem; color: var(--text-muted); margin-top: 4px; display: block; }
 
   .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
   .sidebar-overlay { display: none; }
 
   main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
 
-  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); }
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; }
   .breadcrumb a { color: var(--accent); text-decoration: none; }
   .breadcrumb a:hover { text-decoration: underline; }
 
@@ -186,113 +179,117 @@
 </head>
 <body>
 
-<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
 <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-logo">
-    <h1>🪐 RimWorld 攻略站</h1>
-    <p>从活下去，到活得好</p>
+    <h1>🪐 RimWorld Guide</h1>
+    <p>From surviving to thriving</p>
   </div>
 
-  <div class="nav-section">导航</div>
-  <a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+  <div class="lang-switcher">
+    <a href="../rimworld-guide-getting-started.html">中文</a> <span class="active">| English</span>
+  </div>
 
-  <div class="nav-section">新手必备</div>
-  <a href="rimworld-guide-getting-started.html" class="nav-item active">
-    <span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+  <div class="nav-section">Navigation</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> Guide Index</a>
+
+  <div class="nav-section">Essentials</div>
+  <a href="getting-started.html" class="nav-item active">
+    <span class="icon">🚀</span> Survival Guide <span class="nav-badge">P0</span>
   </a>
-  <a href="rimworld-guide-base-building.html" class="nav-item">
-    <span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+  <a href="base-building.html" class="nav-item">
+    <span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span>
   </a>
 
-  <div class="nav-section">进阶内容</div>
-  <a href="rimworld-guide-combat.html" class="nav-item"><span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span></a>
-  <a href="rimworld-guide-pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span></a>
-  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span></a>
+  <div class="nav-section">Advanced</div>
+  <a href="combat.html" class="nav-item"><span class="icon">⚔️</span> Combat & Defense <span class="nav-badge">P1</span></a>
+  <a href="pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> Pawn Management <span class="nav-badge">P1</span></a>
+  <a href="research.html" class="nav-item"><span class="icon">🔬</span> Tech Tree <span class="nav-badge">P2</span></a>
 
-  <div class="nav-section">DLC 内容</div>
-  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span></a>
+  <div class="nav-section">DLC</div>
+  <a href="dlc-royalty.html" class="nav-item"><span class="icon">👑</span> Royalty <span class="nav-badge">DLC</span></a>
+  <a href="dlc-ideology.html" class="nav-item"><span class="icon">💡</span> Ideology <span class="nav-badge">DLC</span></a>
+  <a href="dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> Biotech <span class="nav-badge">DLC</span></a>
+  <a href="dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> Anomaly <span class="nav-badge">DLC</span></a>
 
-  <div class="nav-section">扩展</div>
-  <a href="rimworld-guide-mods.html" class="nav-item"><span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-biomes.html" class="nav-item"><span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-animals.html" class="nav-item"><span class="icon">🐄</span> 动物与畜牧 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-trade.html" class="nav-item"><span class="icon">💰</span> 贸易与经济 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-crafting.html" class="nav-item"><span class="icon">⚗️</span> 制造与生产 <span class="nav-badge">P2</span></a>
+  <div class="nav-section">Extras</div>
+  <a href="mods.html" class="nav-item"><span class="icon">🧩</span> Mods <span class="nav-badge">P2</span></a>
+  <a href="biomes.html" class="nav-item"><span class="icon">🌍</span> Biomes & Terrain <span class="nav-badge">P2</span></a>
+  <a href="animals.html" class="nav-item"><span class="icon">🐄</span> Animals & Livestock <span class="nav-badge">P2</span></a>
+  <a href="trade.html" class="nav-item"><span class="icon">💰</span> Trade & Economy <span class="nav-badge">P2</span></a>
+  <a href="crafting.html" class="nav-item"><span class="icon">⚗️</span> Crafting & Production <span class="nav-badge">P2</span></a>
 
 
   </div>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
-    <span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span> <span class="toggle-thumb"></span>
   </button>
 
-  <div class="nav-footer"><a href="about.html">📖 关于本站</a> · <a href="privacy.html">🔒 隐私政策</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a> · MVP v0.2</div>
+  <div class="nav-footer"><a href="about.html">📖 About</a> · <a href="privacy.html">🔒 Privacy</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
 </nav>
 
 <main>
-  <div class="breadcrumb"><a href="index.html">攻略总览</a> / 开局生存指南</div>
+  <div class="breadcrumb"><a href="index.html">Guide Index</a> / Survival Guide <span class="lang-link"><a href="../rimworld-guide-getting-started.html">中文版本</a></span></div>
 
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
-    <input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
-    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+    <input type="text" id="search-input" placeholder="Search this page..." oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button>
   </div>
-  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No matching results. Try a different term?</p></div>
 
   <section class="section" id="getting-started">
-    <h2 class="section-title">🚀 开局生存指南</h2>
+    <h2 class="section-title">🚀 Survival Guide</h2>
 
     <div class="card">
-      <h3><span class="emoji">1.</span> 选人 —— 三个人决定你的命运</h3>
-      <p>开局选人是最重要的一步，比落地地点还关键。三个小人的技能组合直接决定你能不能活过头三天。</p>
+      <h3><span class="emoji">1.</span> Picking Colonists — Three People Decide Your Fate</h3>
+      <p>Colonist selection is the single most important step—more critical than your landing site. The skill combinations of your three starting pawns determine whether you'll survive the first three days.</p>
       <br>
       <table>
-        <tr><th>角色</th><th>必备技能</th><th>绝对不能有</th></tr>
-        <tr><td><strong>建造师</strong></td><td>建造 ≥ 8，手工 ≥ 5</td><td>懒虫、工作怠慢</td></tr>
-        <tr><td><strong>种植/烹饪</strong></td><td>种植 ≥ 8，烹饪 ≥ 6</td><td>纵火狂（会烧你家！）</td></tr>
-        <tr><td><strong>研究员/医生</strong></td><td>智识 ≥ 8，医疗 ≥ 6</td><td>工作怠慢、崩溃艺术家</td></tr>
+        <tr><th>Role</th><th>Required Skills</th><th>Deal Breakers</th></tr>
+        <tr><td><strong>Builder</strong></td><td>Construction ≥ 8, Crafting ≥ 5</td><td>Slothful, Lazy</td></tr>
+        <tr><td><strong>Grower/Cook</strong></td><td>Plants ≥ 8, Cooking ≥ 6</td><td>Pyromaniac (will burn your base!)</td></tr>
+        <tr><td><strong>Researcher/Doctor</strong></td><td>Intellectual ≥ 8, Medical ≥ 6</td><td>Lazy, Volatile</td></tr>
       </table>
-      <div class="tip warn"><strong>⚠️ 绝对避雷：</strong>纵火狂（Pyromaniac）、意志动荡（Volatile）、工作怠慢（Lazy）——这三个特性直接重roll，别犹豫。</div>
-      <div class="tip good"><strong>✅ 加分特性：</strong>过目不忘（Fast Learner）、意志如铁（Iron-Willed）、工作狂（Industrious）——见到直接锁。</div>
+      <div class="tip warn"><strong>⚠️ Instant Rerolls:</strong> Pyromaniac, Volatile, Lazy — if you see any of these three traits, reroll immediately. Don't hesitate.</div>
+      <div class="tip good"><strong>✅ God-Tier Traits:</strong> Fast Learner, Iron-Willed, Industrious — lock them in the moment you see them.</div>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">2.</span> 落地 —— 选对地方成功一半</h3>
+      <h3><span class="emoji">2.</span> Landing — The Right Spot Is Half the Battle</h3>
       <ul>
-        <li><strong>地形：</strong>新手选<span class="key">温带森林</span> 或 <span class="key">干旱灌木林</span>，别碰冰原和沙漠</li>
-        <li><strong>山地 vs 平原：</strong>山地易守难攻但会刷虫灾，平原好盖房但防守面大——新手推荐<span class="key">大丘陵</span>（有山但不多）</li>
-        <li><strong>生长季：</strong>至少选 <span class="key">30/60 天</span>（全年生长更好），否则种不出吃的</li>
-        <li><strong>石头类型：</strong>优先 <span class="key">花岗岩</span> > 石灰岩 > 砂岩（花岗岩墙体最硬，= 你活得久）</li>
-        <li><strong>派系距离：</strong>别离海盗太近，友善部落近一点方便贸易</li>
+        <li><strong>Terrain:</strong> Beginners should pick <span class="key">Temperate Forest</span> or <span class="key">Arid Shrubland</span>. Avoid ice sheets and deserts.</li>
+        <li><strong>Mountains vs. Flat:</strong> Mountains are defensible but spawn infestations. Flat terrain is easy to build on but hard to defend. <span class="key">Large Hills</span> is the sweet spot—some mountain cover without too many bugs.</li>
+        <li><strong>Growing Season:</strong> At least <span class="key">30/60 days</span> (year-round is ideal). Anything shorter and you can't grow enough food.</li>
+        <li><strong>Stone Type:</strong> Prioritize <span class="key">Granite</span> > Limestone > Sandstone. Granite walls are the toughest — and tougher walls = you live longer.</li>
+        <li><strong>Faction Proximity:</strong> Don't settle too close to pirates. Friendly tribe nearby is great for trade.</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">3.</span> 前 3 天行动清单</h3>
+      <h3><span class="emoji">3.</span> First 3 Days — Action Checklist</h3>
       <table>
-        <tr><th>顺序</th><th>做什么</th><th>为什么</th></tr>
-        <tr><td><span class="tag tag-p0">第1步</span></td><td><strong>划种植区 + 播种水稻</strong></td><td>水稻 3 天就能收第一茬，没吃的你啥都干不了</td></tr>
-        <tr><td><span class="tag tag-p0">第2步</span></td><td><strong>盖一间 7×7 木屋 + 屋顶</strong></td><td>当临时仓库和睡觉用，别盖太大——后面要换石头</td></tr>
-        <tr><td><span class="tag tag-p0">第3步</span></td><td><strong>放 3 个睡眠点 + 篝火</strong></td><td>小人睡地上不掉心情，但睡外面掉；篝火防止冻伤</td></tr>
-        <tr><td><span class="tag tag-p0">第4步</span></td><td><strong>屠宰落地动物 + 做简易餐</strong></td><td>打包食品只能撑几天，先杀落地就有的动物</td></tr>
-        <tr><td><span class="tag tag-p1">第5步</span></td><td><strong>划仓库（室内）+搬物资</strong></td><td>药品、食物、零件放外面会坏，赶紧搬进屋</td></tr>
-        <tr><td><span class="tag tag-p1">第6步</span></td><td><strong>做研究桌 + 开始研究</strong></td><td>第一优先级科技：电池 → 太阳能 → 制冷（冰箱）</td></tr>
+        <tr><th>Order</th><th>What to Do</th><th>Why</th></tr>
+        <tr><td><span class="tag tag-p0">Step 1</span></td><td><strong>Plant rice in a growing zone</strong></td><td>Rice harvests in ~3 days. Without food, nothing else matters.</td></tr>
+        <tr><td><span class="tag tag-p0">Step 2</span></td><td><strong>Build a 7×7 wooden hut + roof</strong></td><td>Temporary storage and sleeping quarters. Don't overbuild—you'll replace it with stone later.</td></tr>
+        <tr><td><span class="tag tag-p0">Step 3</span></td><td><strong>Place 3 sleeping spots + campfire</strong></td><td>Sleeping on the floor indoors is fine; sleeping outside tanks mood. Campfire prevents hypothermia.</td></tr>
+        <tr><td><span class="tag tag-p0">Step 4</span></td><td><strong>Butcher starting animals + cook simple meals</strong></td><td>Packaged meals only last a few days. Hunt the animals already on the map first.</td></tr>
+        <tr><td><span class="tag tag-p1">Step 5</span></td><td><strong>Set up indoor stockpile + haul supplies</strong></td><td>Medicine, food, and components deteriorate outdoors. Get them inside ASAP.</td></tr>
+        <tr><td><span class="tag tag-p1">Step 6</span></td><td><strong>Build research bench + start researching</strong></td><td>First tech priority: Batteries → Solar Panels → Air Conditioning (freezer).</td></tr>
       </table>
-      <div class="tip"><strong>💡 关键认知：</strong>RimWorld 的核心循环是"吃 → 住 → 防 → 研究"。第一要务永远是食物来源稳定，第二才是盖房子。</div>
+      <div class="tip"><strong>💡 Core Loop:</strong> RimWorld's survival loop is "Food → Shelter → Defense → Research." Stable food always comes first; building comes second.</div>
 
       <figure class="guide-diagram">
         <svg viewBox="0 0 720 520" xmlns="http://www.w3.org/2000/svg">
           <rect x="0" y="0" width="720" height="520" fill="#1a1a1f"/>
-          <text x="360" y="24" text-anchor="middle" fill="#ccc" font-size="14" font-weight="bold" font-family="sans-serif">前3天基地俯瞰布局</text>
+          <text x="360" y="24" text-anchor="middle" fill="#ccc" font-size="14" font-weight="bold" font-family="sans-serif">Day 1-3 Base Layout (Bird's-eye View)</text>
           <line x1="30" y1="36" x2="690" y2="36" stroke="#3a3a40" stroke-width="1"/>
 
           <!-- ===== TERRAIN ===== -->
           <rect x="30" y="50" width="660" height="430" fill="#2a2a28" stroke="#3a3a35" stroke-width="1" rx="4"/>
-          <text x="360" y="72" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">野外地面</text>
+          <text x="360" y="72" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Wild Terrain</text>
 
           <!-- Some trees for context -->
           <circle cx="80" cy="95" r="10" fill="#2a3a2a" stroke="#3a5a3a" stroke-width="1"/>
@@ -302,7 +299,7 @@
 
           <!-- ===== RICE FARMING ZONE (right side) ===== -->
           <rect x="430" y="90" width="230" height="170" fill="#2a3a20" stroke="#3a5a2a" stroke-width="2" stroke-dasharray="6,3" rx="3"/>
-          <text x="545" y="115" text-anchor="middle" fill="#4a9" font-size="14" font-weight="bold" font-family="sans-serif">🌾 水稻种植区</text>
+          <text x="545" y="115" text-anchor="middle" fill="#4a9" font-size="14" font-weight="bold" font-family="sans-serif">🌾 Rice Growing Zone</text>
 
           <!-- Rice rows -->
           <g fill="#4a7a2a" opacity="0.6">
@@ -316,18 +313,18 @@
 
           <!-- Step label for rice -->
           <rect x="430" y="265" width="120" height="22" rx="4" fill="#c0392b"/>
-          <text x="490" y="280" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">第1步：先种水稻</text>
+          <text x="490" y="280" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">Step 1: Plant Rice</text>
 
           <!-- Arrow from rice to hut -->
           <line x1="430" y1="180" x2="370" y2="180" stroke="#888" stroke-width="1" stroke-dasharray="4,4"/>
 
           <!-- ===== WOODEN HUT 7×7 (center-left) ===== -->
           <rect x="120" y="160" width="210" height="210" fill="#3a3528" stroke="#8a7050" stroke-width="3" rx="3"/>
-          <text x="225" y="150" text-anchor="middle" fill="#d4956b" font-size="14" font-weight="bold" font-family="sans-serif">🏚️ 临时木屋 7×7</text>
+          <text x="225" y="150" text-anchor="middle" fill="#d4956b" font-size="14" font-weight="bold" font-family="sans-serif">🏚️ Temp Wooden Hut 7×7</text>
 
           <!-- Roof indicator -->
           <rect x="130" y="170" width="190" height="100" fill="#4a4030" opacity="0.4" rx="2"/>
-          <text x="225" y="225" text-anchor="middle" fill="#888" font-size="10" font-family="sans-serif">有屋顶</text>
+          <text x="225" y="225" text-anchor="middle" fill="#888" font-size="10" font-family="sans-serif">Roofed</text>
 
           <!-- Three sleeping spots inside hut -->
           <rect x="150" y="280" width="28" height="18" rx="4" fill="#5a5a4a" stroke="#7a7a5a" stroke-width="1"/>
@@ -336,66 +333,66 @@
           <text x="212" y="293" text-anchor="middle" fill="#aaa" font-size="7" font-family="sans-serif">💤</text>
           <rect x="246" y="280" width="28" height="18" rx="4" fill="#5a5a4a" stroke="#7a7a5a" stroke-width="1"/>
           <text x="260" y="293" text-anchor="middle" fill="#aaa" font-size="7" font-family="sans-serif">💤</text>
-          <text x="225" y="312" text-anchor="middle" fill="#aaa" font-size="8" font-family="sans-serif">3个睡眠点</text>
+          <text x="225" y="312" text-anchor="middle" fill="#aaa" font-size="8" font-family="sans-serif">3 Sleeping Spots</text>
 
           <!-- Stockpile zone in hut -->
           <rect x="140" y="325" width="170" height="30" rx="3" fill="#3a3a30" stroke="#6a6a50" stroke-width="1" stroke-dasharray="3,2"/>
-          <text x="225" y="345" text-anchor="middle" fill="#aa8" font-size="9" font-family="sans-serif">📦 室内仓库 放药品/食物/零件</text>
+          <text x="225" y="345" text-anchor="middle" fill="#aa8" font-size="9" font-family="sans-serif">📦 Indoor Stockpile: Meds / Food / Parts</text>
 
           <!-- ===== CAMPFIRE (front of hut) ===== -->
           <circle cx="225" cy="410" r="22" fill="#3a2a1a" stroke="#8a6040" stroke-width="2"/>
           <circle cx="225" cy="410" r="10" fill="#c06020" opacity="0.7"/>
           <text x="225" y="413" text-anchor="middle" fill="#ffa" font-size="8" font-family="sans-serif">火</text>
-          <text x="225" y="445" text-anchor="middle" fill="#e8a060" font-size="11" font-weight="bold" font-family="sans-serif">🔥 篝火</text>
+          <text x="225" y="445" text-anchor="middle" fill="#e8a060" font-size="11" font-weight="bold" font-family="sans-serif">🔥 Campfire</text>
 
           <!-- ===== OUTDOOR STOCKPILE (near hut) ===== -->
           <rect x="360" y="340" width="80" height="50" rx="3" fill="#3a3028" stroke="#6a5a40" stroke-width="1" stroke-dasharray="3,2"/>
-          <text x="400" y="362" text-anchor="middle" fill="#bbb" font-size="10" font-family="sans-serif">临时堆放</text>
-          <text x="400" y="378" text-anchor="middle" fill="#bbb" font-size="10" font-family="sans-serif">木头</text>
+          <text x="400" y="362" text-anchor="middle" fill="#bbb" font-size="10" font-family="sans-serif">Temp Dump</text>
+          <text x="400" y="378" text-anchor="middle" fill="#bbb" font-size="10" font-family="sans-serif">Wood</text>
 
           <!-- ===== STEP LABELS (left column) ===== -->
           <rect x="30" y="165" width="70" height="22" rx="4" fill="#c0392b"/>
-          <text x="65" y="180" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">第2步：盖房</text>
+          <text x="65" y="180" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">Step 2: Hut</text>
 
           <rect x="30" y="305" width="90" height="22" rx="4" fill="#c0392b"/>
-          <text x="75" y="320" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">第3步：睡点篝火</text>
+          <text x="75" y="320" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">Step 3: Beds+Fire</text>
 
           <rect x="360" y="395" width="95" height="22" rx="4" fill="#d4b65a"/>
-          <text x="407" y="410" text-anchor="middle" fill="#1a1a1f" font-size="10" font-weight="bold" font-family="sans-serif">第5步：仓库</text>
+          <text x="407" y="410" text-anchor="middle" fill="#1a1a1f" font-size="10" font-weight="bold" font-family="sans-serif">Step 5: Stockpile</text>
 
           <!-- Step 4 label on left -->
           <rect x="30" y="395" width="85" height="22" rx="4" fill="#c0392b"/>
-          <text x="72" y="410" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">第4步：屠宰做饭</text>
+          <text x="72" y="410" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">Step 4: Cook</text>
 
           <!-- ===== BOTTOM TIP ===== -->
           <rect x="130" y="488" width="460" height="24" rx="4" fill="#222228"/>
-          <text x="360" y="505" text-anchor="middle" fill="#d4956b" font-size="10" font-family="sans-serif">💡 木屋只是临时的！有了石匠桌之后第一时间把墙换成石头——木头房被闪电劈中就全没了</text>
+          <text x="360" y="505" text-anchor="middle" fill="#d4956b" font-size="10" font-family="sans-serif">💡 The wooden hut is temporary! Replace walls with stone ASAP — one lightning strike and it's all gone.</text>
         </svg>
-        <figcaption>▲ 第1步种水稻 → 第2步盖木屋 → 第3步放睡点+篝火 → 第4步杀动物做饭 → 第5步搬物资进仓库。按①②③④⑤顺序来。</figcaption>
+        <figcaption>▲ Step 1 plant rice → Step 2 build hut → Step 3 sleeping spots + campfire → Step 4 butcher & cook → Step 5 haul supplies indoors. Follow ①②③④⑤ in order.</figcaption>
       </figure>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">4.</span> 第一周：从活下来到站稳脚</h3>
+      <h3><span class="emoji">4.</span> Week One: From Surviving to Stable</h3>
       <ul>
-        <li><strong>造屠宰台 + 灶台：</strong>简易餐吃不久，尽快做精致餐（需要灶台 + 素食 + 肉/蛋）</li>
-        <li><strong>划 3 间独立卧室：</strong>有独立房间 +5 心情，比睡大通铺强太多</li>
-        <li><strong>做石匠桌 + 切石头：</strong>木头墙不耐火（闪电一下全家烧没），尽快换石头墙</li>
-        <li><strong>造马蹄铁桩：</strong>最便宜的娱乐设施，防止小人"无聊"掉心情</li>
-        <li><strong>划垃圾储存区：</strong>尸体、石头渣子丢远点，别堆在屋里</li>
+        <li><strong>Build butcher table + stove:</strong> Simple meals won't last forever. Upgrade to fine meals ASAP (need stove + plants + meat/eggs).</li>
+        <li><strong>Build 3 individual bedrooms:</strong> Private rooms give +5 mood. Much better than a barracks.</li>
+        <li><strong>Build stonecutter's table + cut stone:</strong> Wood walls burn (one lightning strike = base gone). Switch to stone walls fast.</li>
+        <li><strong>Build a horseshoes pin:</strong> Cheapest recreation item. Prevents the "Recreation-starved" mood debuff.</li>
+        <li><strong>Set up a dumping stockpile:</strong> Corpses, rock chunks, and slag go far away — not inside your base.</li>
       </ul>
     </div>
   </section>
   <nav class="page-nav">
     <a href="index.html" class="prev">
-      <span><span class="nav-label">上一页</span>🏠 攻略总览</span>
+      <span><span class="nav-label">Previous</span>🏠 Guide Index</span>
     </a>
-    <a href="rimworld-guide-base-building.html" class="next">
-      <span><span class="nav-label">下一页</span>🏠 基地建设攻略</span>
+    <a href="base-building.html" class="next">
+      <span><span class="nav-label">Next</span>🏠 Base Building</span>
     </a>
   </nav>
 
-  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
 </main>
 
 <script>
@@ -436,11 +433,11 @@ function toggleTheme() {
   const isLight = document.body.classList.toggle('light');
   const icon = document.getElementById('theme-icon');
   const label = document.getElementById('theme-label');
-  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
-  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+  if (isLight) { icon.textContent = '☀️'; label.textContent = 'Light Mode'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = 'Dark Mode'; localStorage.setItem('rimworld-theme', 'dark'); }
 }
 (function loadTheme() {
-  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = 'Light Mode'; }
 })();
 
   // Back to top

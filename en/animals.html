@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="RimWorld 动物与畜牧攻略：驯服优先级排名表，拉布拉多/哈士奇搬运首选，马/驴商队必备，奶牛稳定产奶，附动物训练与工作分配详解。">
-<meta name="keywords" content="RimWorld, 边缘世界, 攻略, 动物, 畜牧, 驯服, 搬运, 哈士奇">
-<link rel="canonical" href="https://yxhtl.com/rimworld-guide-animals.html">
+<meta name="description" content="RimWorld animals guide: taming priority table, training & work assignments, pen vs free-range comparison, and common mistakes to avoid.">
+<meta name="keywords" content="RimWorld, animals, livestock, taming, training, hauling, husky, labrador, caravan, pen, free-range, animal guide, RimWorld guide">
+<link rel="canonical" href="https://yxhtl.com/en/animals.html">
 <link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-animals.html">
 <link rel="alternate" hreflang="en" href="https://yxhtl.com/en/animals.html">
 <link rel="alternate" hreflang="x-default" href="https://yxhtl.com/rimworld-guide-animals.html">
-<meta property="og:title" content="动物与畜牧 | RimWorld 攻略站">
-<meta property="og:description" content="RimWorld 动物与畜牧攻略：驯服优先级排名表，拉布拉多/哈士奇搬运首选，马/驴商队必备，奶牛稳定产奶，附动物训练与工作分配详解。">
-<meta property="og:url" content="https://yxhtl.com/rimworld-guide-animals.html">
+<meta property="og:title" content="Animals & Livestock | RimWorld Guide">
+<meta property="og:description" content="RimWorld animals guide: taming priority table, training & work assignments, pen vs free-range comparison, and common mistakes to avoid.">
+<meta property="og:url" content="https://yxhtl.com/en/animals.html">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="RimWorld 攻略站">
+<meta property="og:site_name" content="RimWorld Guide">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动物与畜牧 | RimWorld 攻略站">
-<meta name="twitter:description" content="RimWorld 动物与畜牧攻略：驯服优先级排名表，拉布拉多/哈士奇搬运首选，马/驴商队必备，奶牛稳定产奶，附动物训练与工作分配详解。">
+<meta name="twitter:title" content="Animals & Livestock | RimWorld Guide">
+<meta name="twitter:description" content="RimWorld animals guide: taming priority table, training & work assignments, pen vs free-range comparison, and common mistakes to avoid.">
 <meta name="robots" content="index, follow">
-<title>动物与畜牧 | RimWorld 攻略站</title>
+<title>Animals & Livestock | RimWorld Guide</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -39,7 +39,7 @@
   }
   html { scroll-behavior: smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.75;
@@ -81,20 +81,13 @@
   .nav-feedback:hover { color: var(--accent); }
   .nav-footer a { color: var(--accent); text-decoration: none; }
   .nav-footer a:hover { text-decoration: underline; }
- 
-  .reward-box { padding: 0 16px; margin-bottom: 4px; }
-  .reward-hint { font-size: 0.7rem; color: var(--text-muted); padding: 0 4px 8px; text-align: center; }
-  .reward-codes { display: flex; gap: 8px; justify-content: center; }
-  .reward-item { text-align: center; }
-  .reward-item img { width: 100px; height: 100px; border-radius: var(--radius); border: 2px solid var(--border); display: block; }
-  .reward-item span { font-size: 0.65rem; color: var(--text-muted); margin-top: 4px; display: block; }
 
   .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
   .sidebar-overlay { display: none; }
 
   main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
 
-  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); }
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; }
   .breadcrumb a { color: var(--accent); text-decoration: none; }
   .breadcrumb a:hover { text-decoration: underline; }
 
@@ -134,6 +127,7 @@
   .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
   .card.hidden, .section-title.hidden { display: none; }
   .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
+
   /* ========== Guide Diagrams ========== */
   .guide-diagram { margin: 20px 0 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
   .guide-diagram svg { display: block; width: 100%; height: auto; }
@@ -185,105 +179,111 @@
 </head>
 <body>
 
-<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
 <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-logo">
-    <h1>🪐 RimWorld 攻略站</h1>
-    <p>从活下去，到活得好</p>
+    <h1>🪐 RimWorld Guide</h1>
+    <p>From surviving to thriving</p>
   </div>
 
-  <div class="nav-section">导航</div>
-  <a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+  <div class="lang-switcher">
+    <a href="../rimworld-guide-animals.html">中文</a> <span class="active">| English</span>
+  </div>
 
-  <div class="nav-section">新手必备</div>
-  <a href="rimworld-guide-getting-started.html" class="nav-item">
-    <span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+  <div class="nav-section">Navigation</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> Guide Index</a>
+
+  <div class="nav-section">Essentials</div>
+  <a href="getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> Survival Guide <span class="nav-badge">P0</span>
   </a>
-  <a href="rimworld-guide-base-building.html" class="nav-item">
-    <span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+  <a href="base-building.html" class="nav-item">
+    <span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span>
   </a>
 
-  <div class="nav-section">进阶内容</div>
-  <a href="rimworld-guide-combat.html" class="nav-item"><span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span></a>
-  <a href="rimworld-guide-pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span></a>
-  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span></a>
+  <div class="nav-section">Advanced</div>
+  <a href="combat.html" class="nav-item"><span class="icon">⚔️</span> Combat & Defense <span class="nav-badge">P1</span></a>
+  <a href="pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> Pawn Management <span class="nav-badge">P1</span></a>
+  <a href="research.html" class="nav-item"><span class="icon">🔬</span> Tech Tree <span class="nav-badge">P2</span></a>
 
-  <div class="nav-section">DLC 内容</div>
-  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span></a>
-  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span></a>
+  <div class="nav-section">DLC</div>
+  <a href="dlc-royalty.html" class="nav-item"><span class="icon">👑</span> Royalty <span class="nav-badge">DLC</span></a>
+  <a href="dlc-ideology.html" class="nav-item"><span class="icon">💡</span> Ideology <span class="nav-badge">DLC</span></a>
+  <a href="dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> Biotech <span class="nav-badge">DLC</span></a>
+  <a href="dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> Anomaly <span class="nav-badge">DLC</span></a>
 
-  <div class="nav-section">扩展</div>
-  <a href="rimworld-guide-animals.html" class="nav-item active">
-    <span class="icon">🐄</span> 动物与畜牧 <span class="nav-badge">P2</span>
+  <div class="nav-section">Extras</div>
+  <a href="mods.html" class="nav-item"><span class="icon">🧩</span> Mods <span class="nav-badge">P2</span></a>
+  <a href="biomes.html" class="nav-item"><span class="icon">🌍</span> Biomes & Terrain <span class="nav-badge">P2</span></a>
+  <a href="animals.html" class="nav-item active">
+    <span class="icon">🐄</span> Animals & Livestock <span class="nav-badge">P2</span>
   </a>
-  <a href="rimworld-guide-mods.html" class="nav-item"><span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span></a>
-  <a href="rimworld-guide-biomes.html" class="nav-item"><span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span></a>
+  <a href="trade.html" class="nav-item"><span class="icon">💰</span> Trade & Economy <span class="nav-badge">P2</span></a>
+  <a href="crafting.html" class="nav-item"><span class="icon">⚗️</span> Crafting & Production <span class="nav-badge">P2</span></a>
 
 
   </div>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
-    <span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span> <span class="toggle-thumb"></span>
   </button>
 
-  <div class="nav-footer"><a href="about.html">📖 关于本站</a> · <a href="privacy.html">🔒 隐私政策</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a> · MVP v0.2</div>
+  <div class="nav-footer"><a href="about.html">📖 About</a> · <a href="privacy.html">🔒 Privacy</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
 </nav>
 
 <main>
-  <div class="breadcrumb"><a href="index.html">攻略总览</a> / 动物与畜牧</div>
+  <div class="breadcrumb"><a href="index.html">Guide Index</a> / Animals & Livestock <span class="lang-link"><a href="../rimworld-guide-animals.html">中文版本</a></span></div>
 
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
-    <input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
-    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+    <input type="text" id="search-input" placeholder="Search this page..." oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button>
   </div>
-  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No matching results. Try a different term?</p></div>
 
   <section class="section" id="animals">
-    <h2 class="section-title">🐄 动物与畜牧</h2>
+    <h2 class="section-title">🐄 Animals & Livestock</h2>
 
     <div class="card">
-      <h3><span class="emoji">🎯</span> 驯服优先级——哪些动物值得养</h3>
+      <h3><span class="emoji">🎯</span> Taming Priority — Which Animals Are Worth Raising</h3>
       <table>
-        <tr><th>动物</th><th>用途</th><th>食物需求</th><th>推荐度</th></tr>
-        <tr><td><strong>拉布拉多犬/哈士奇</strong></td><td>搬运</td><td>杂食（吃剩饭）</td><td>⭐⭐⭐⭐⭐ 搬运首选</td></tr>
-        <tr><td><strong>马/驴</strong></td><td>驮运+骑乘</td><td>草食（放牧）</td><td>⭐⭐⭐⭐⭐ 商队必备</td></tr>
-        <tr><td><strong>奶牛/牦牛</strong></td><td>产奶</td><td>草食</td><td>⭐⭐⭐⭐ 稳定食物来源</td></tr>
-        <tr><td><strong>鸡/鸭</strong></td><td>产蛋</td><td>草食（吃草）</td><td>⭐⭐⭐⭐ 蛋=肉食来源</td></tr>
-        <tr><td><strong>羊驼/绵羊</strong></td><td>产毛</td><td>草食</td><td>⭐⭐⭐ 毛=收入+保暖材料</td></tr>
-        <tr><td><strong>熊/巨型树懒</strong></td><td>战斗+搬运</td><td>杂食（吃得多）</td><td>⭐⭐⭐ 能打能搬但吃得多</td></tr>
-        <tr><td><strong>爆炸鼠</strong></td><td>自杀式防御</td><td>杂食</td><td>⭐⭐ 移动炸弹（会误伤）</td></tr>
+        <tr><th>Animal</th><th>Role</th><th>Diet</th><th>Rating</th></tr>
+        <tr><td><strong>Labrador Retriever / Husky</strong></td><td>Hauling</td><td>Omnivore (eats leftovers)</td><td>⭐⭐⭐⭐⭐ Best Haulers</td></tr>
+        <tr><td><strong>Horse / Donkey</strong></td><td>Pack animal + riding</td><td>Herbivore (grazes)</td><td>⭐⭐⭐⭐⭐ Essential for Caravans</td></tr>
+        <tr><td><strong>Cow / Yak</strong></td><td>Milk production</td><td>Herbivore</td><td>⭐⭐⭐⭐ Steady Food Source</td></tr>
+        <tr><td><strong>Chicken / Duck</strong></td><td>Egg laying</td><td>Herbivore (eats grass)</td><td>⭐⭐⭐⭐ Eggs = Meat Source</td></tr>
+        <tr><td><strong>Alpaca / Sheep</strong></td><td>Wool production</td><td>Herbivore</td><td>⭐⭐⭐ Wool = Income + Insulation</td></tr>
+        <tr><td><strong>Bear / Megasloth</strong></td><td>Combat + Hauling</td><td>Omnivore (eats a lot)</td><td>⭐⭐⭐ Fights and hauls but eats a ton</td></tr>
+        <tr><td><strong>Boomrat</strong></td><td>Suicide defense</td><td>Omnivore</td><td>⭐⭐ Walking bomb (friendly fire)</td></tr>
       </table>
-      <div class="tip"><strong>💡 建议：</strong>草食动物可以放牧（划一片草地区域），杂食/肉食动物需要喂食——养太多肉食动物会吃垮你的存粮。</div>
+      <div class="tip"><strong>💡 Tip:</strong> Herbivores can graze (zone a grassy area). Omnivores/carnivores need feeding — too many meat-eaters will drain your food stockpile.</div>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">🐕</span> 训练与工作——让动物干活</h3>
+      <h3><span class="emoji">🐕</span> Training & Work Assignments — Putting Animals to Work</h3>
       <table>
-        <tr><th>训练项目</th><th>需要技能</th><th>效果</th><th>优先级</th></tr>
-        <tr><td><strong>顺从 (Tameness)</strong></td><td>驯兽 0</td><td>基本驯服，可牵绳</td><td>入门</td></tr>
-        <tr><td><strong>护卫 (Guard)</strong></td><td>驯兽 3</td><td>跟随驯兽师战斗</td><td>⭐⭐</td></tr>
-        <tr><td><strong>攻击 (Attack)</strong></td><td>驯兽 5</td><td>主动攻击敌人</td><td>⭐⭐⭐</td></tr>
-        <tr><td><strong>救援 (Rescue)</strong></td><td>驯兽 7</td><td>拖走倒地小人到床上</td><td>⭐⭐⭐⭐</td></tr>
-        <tr><td><strong>搬运 (Haul)</strong></td><td>驯兽 8</td><td>自动搬东西到储存区</td><td>⭐⭐⭐⭐⭐ 游戏改变者</td></tr>
+        <tr><th>Training</th><th>Skill Required</th><th>Effect</th><th>Priority</th></tr>
+        <tr><td><strong>Tameness</strong></td><td>Animals 0</td><td>Basic taming, can be roped</td><td>Entry</td></tr>
+        <tr><td><strong>Guard</strong></td><td>Animals 3</td><td>Follows handler into battle</td><td>⭐⭐</td></tr>
+        <tr><td><strong>Attack</strong></td><td>Animals 5</td><td>Actively attacks enemies</td><td>⭐⭐⭐</td></tr>
+        <tr><td><strong>Rescue</strong></td><td>Animals 7</td><td>Drags downed pawns to bed</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td><strong>Haul</strong></td><td>Animals 8</td><td>Auto-carries items to stockpile</td><td>⭐⭐⭐⭐⭐ Game Changer</td></tr>
       </table>
-      <div class="tip good"><strong>✅ 关键认知：</strong>搬运是动物最有价值的技能——一群哈士奇=免费的24小时搬运工。比人造搬运机器人便宜多了。</div>
+      <div class="tip good"><strong>✅ Key Insight:</strong> Hauling is the most valuable animal skill — a pack of huskies = free 24/7 haulers. Way cheaper than fabricating hauling bots.</div>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">📦</span> 饲养管理——圈养 vs 放养</h3>
+      <h3><span class="emoji">📦</span> Raising Management — Pen vs Free-Range</h3>
       <ul>
-        <li><strong>圈养动物（鸡/牛/羊驼）：</strong>划围栏区域 → 放饲料或种蒲公英→ 定期屠宰控制数量</li>
-        <li><strong>搬运动物（狗/狼）：</strong>划活动区覆盖基地+冷库→ 它们自己会找吃的（别让它们进你的精致餐库存！）</li>
-        <li><strong>战斗动物（熊/豹/巨型树懒）：</strong>活动区限制在基地外围→ 敌人来了自动迎击</li>
-        <li><strong>划动物禁区：</strong>厨房、医院、餐厅——动物会掉毛掉脏</li>
-        <li><strong>自动屠宰：</strong>在动物面板设置"自动屠宰"，超过指定数量自动杀——控制存栏量</li>
+        <li><strong>Pen animals (chickens/cows/alpacas):</strong> Mark a fenced area → put down feed or grow dandelions → cull periodically to control numbers</li>
+        <li><strong>Hauling animals (dogs/wolves):</strong> Set allowed area covering base + freezer → they find their own food (keep them out of your fine meal stockpile!)</li>
+        <li><strong>Combat animals (bears/panthers/megasloths):</strong> Restrict allowed area to base perimeter → they auto-engage when enemies come</li>
+        <li><strong>Mark animal forbidden zones:</strong> Kitchen, hospital, dining room — animals shed fur and make a mess</li>
+        <li><strong>Auto-slaughter:</strong> Set "auto-slaughter" in the animals tab — automatically culls when population exceeds the limit</li>
       </ul>
       <figure class="guide-diagram">
-        <svg viewBox="0 0 720 440" xmlns="http://www.w3.org/2000/svg" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+        <svg viewBox="0 0 720 440" xmlns="http://www.w3.org/2000/svg" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
           <defs>
             <pattern id="straw" patternUnits="userSpaceOnUse" width="10" height="10">
               <rect width="10" height="10" fill="#b89a5a" opacity="0.12"/>
@@ -307,7 +307,7 @@
 
           <!-- ==================== LEFT SECTION: Pen ==================== -->
           <g id="pen-area">
-            <text x="175" y="24" fill="#5a9fd4" font-size="13" font-weight="bold" text-anchor="middle">圈养区 — 草食动物自己吃草</text>
+            <text x="175" y="24" fill="#5a9fd4" font-size="13" font-weight="bold" text-anchor="middle">Pen Area — Herbivores Graze Naturally</text>
             <rect x="15" y="38" width="320" height="195" rx="4" fill="none" stroke="#5a9fd4" stroke-width="2"/>
             <g fill="#5a9fd4" opacity="0.4">
               <circle cx="15" cy="38" r="3"/><circle cx="95" cy="38" r="3"/><circle cx="175" cy="38" r="3"/>
@@ -318,17 +318,17 @@
             </g>
             <rect x="260" y="54" width="68" height="38" rx="3" fill="#333340" stroke="#d4956b" stroke-width="1.5"/>
             <polygon points="258,54 294,36 330,54" fill="#d4956b" opacity="0.25" stroke="#d4956b" stroke-width="1"/>
-            <text x="294" y="78" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">畜棚</text>
+            <text x="294" y="78" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">Barn</text>
             <rect x="226" y="104" width="26" height="18" rx="2" fill="#c8c8d0" stroke="#888896" stroke-width="1"/>
-            <text x="239" y="117" fill="#2a2a30" font-size="10" font-weight="bold" text-anchor="middle">蛋箱</text>
+            <text x="239" y="117" fill="#2a2a30" font-size="10" font-weight="bold" text-anchor="middle">Nest</text>
             <rect x="30" y="74" width="100" height="24" rx="3" fill="#3a3a44" stroke="#d4956b" stroke-width="1.5"/>
             <line x1="35" y1="86" x2="125" y2="86" stroke="#55555f" stroke-width="1"/>
-            <text x="80" y="83" fill="#d4956b" font-size="10" text-anchor="middle">饲料槽</text>
+            <text x="80" y="83" fill="#d4956b" font-size="10" text-anchor="middle">Feed Trough</text>
             <rect x="145" y="155" width="130" height="58" rx="2" fill="url(#straw)" stroke="#b89a5a" stroke-width="1" stroke-opacity="0.5"/>
-            <text x="210" y="190" fill="#b89a5a" font-size="9" text-anchor="middle" opacity="0.9">干草地板</text>
+            <text x="210" y="190" fill="#b89a5a" font-size="9" text-anchor="middle" opacity="0.9">Hay Floor</text>
             <rect x="30" y="148" width="105" height="60" rx="2" fill="url(#grazing)" stroke="#4a9" stroke-width="1" stroke-opacity="0.5"/>
-            <text x="82" y="169" fill="#4a9" font-size="9" text-anchor="middle">蒲公英</text>
-            <text x="82" y="184" fill="#4a9" font-size="9" text-anchor="middle">牧草种植</text>
+            <text x="82" y="169" fill="#4a9" font-size="9" text-anchor="middle">Dandelions</text>
+            <text x="82" y="184" fill="#4a9" font-size="9" text-anchor="middle">Pasture</text>
             <text x="55" y="126" font-size="20">🐄</text>
             <text x="90" y="135" font-size="16">🐄</text>
             <text x="148" y="55" font-size="16">🐔</text>
@@ -339,41 +339,41 @@
 
           <!-- ==================== RIGHT SECTION: Free-range ==================== -->
           <g id="free-range-area">
-            <text x="535" y="24" fill="#4a9" font-size="13" font-weight="bold" text-anchor="middle">放养区 — 搬运/战斗动物自由活动</text>
+            <text x="535" y="24" fill="#4a9" font-size="13" font-weight="bold" text-anchor="middle">Free-Range Zone — Hauling/Combat Animals Roam Free</text>
             <rect x="365" y="38" width="340" height="195" rx="4" fill="#2d5a2d" opacity="0.08" stroke="#4a9" stroke-width="1.5" stroke-dasharray="6 4"/>
 
             <!-- Base building -->
             <rect x="375" y="50" width="88" height="118" rx="3" fill="#24242b" stroke="#c8c8d0" stroke-width="1.5"/>
-            <text x="419" y="68" fill="#ddd" font-size="10" text-anchor="middle" font-weight="bold">基地</text>
+            <text x="419" y="68" fill="#ddd" font-size="10" text-anchor="middle" font-weight="bold">Base</text>
             <rect x="380" y="76" width="78" height="24" rx="2" fill="#2a2a30" stroke="#444" stroke-width="1"/>
-            <text x="419" y="93" fill="#ddd" font-size="10" text-anchor="middle">厨房</text>
+            <text x="419" y="93" fill="#ddd" font-size="10" text-anchor="middle">Kitchen</text>
             <rect x="380" y="104" width="78" height="24" rx="2" fill="#2a2a30" stroke="#444" stroke-width="1"/>
-            <text x="419" y="121" fill="#ddd" font-size="10" text-anchor="middle">医院</text>
+            <text x="419" y="121" fill="#ddd" font-size="10" text-anchor="middle">Hospital</text>
             <rect x="380" y="132" width="78" height="22" rx="2" fill="#2a2a30" stroke="#444" stroke-width="1"/>
-            <text x="419" y="147" fill="#888" font-size="9" text-anchor="middle">走廊/入口</text>
+            <text x="419" y="147" fill="#888" font-size="9" text-anchor="middle">Hall/Entrance</text>
             <!-- Exit arrow -->
             <rect x="461" y="142" width="5" height="18" rx="2" fill="#4a9"/>
 
-            <!-- Forbidden zone — red border around kitchen+hospital, NO fill, NO hatching -->
+            <!-- Forbidden zone -- red border around kitchen+hospital, NO fill, NO hatching -->
             <rect x="378" y="74" width="82" height="56" rx="3" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="6 3"/>
             <!-- Warning label positioned OUTSIDE the building, to the right -->
-            <text x="478" y="103" fill="#c0392b" font-size="10" font-weight="bold" font-family="sans-serif">动物禁止进入</text>
-            <text x="478" y="117" fill="#c0392b" font-size="8" font-family="sans-serif">（划为禁区）</text>
+            <text x="478" y="103" fill="#c0392b" font-size="10" font-weight="bold" font-family="sans-serif">Animals Forbidden</text>
+            <text x="478" y="117" fill="#c0392b" font-size="8" font-family="sans-serif">(Mark as Forbidden Zone)</text>
 
             <!-- Arrow to storage -->
             <line x1="490" y1="58" x2="690" y2="58" stroke="#5a9fd4" stroke-width="2" marker-end="url(#arrowBlue)"/>
-            <text x="590" y="49" fill="#5a9fd4" font-size="9" text-anchor="middle">冷库 / 仓库</text>
+            <text x="590" y="49" fill="#5a9fd4" font-size="9" text-anchor="middle">Freezer / Storage</text>
 
             <!-- Animal sleeping spots -->
             <rect x="478" y="175" width="24" height="14" rx="7" fill="#3a3528" stroke="#d4b65a" stroke-width="1"/>
-            <text x="490" y="185" fill="#d4b65a" font-size="8" text-anchor="middle">睡点</text>
+            <text x="490" y="185" fill="#d4b65a" font-size="8" text-anchor="middle">Sleep</text>
             <rect x="510" y="182" width="24" height="14" rx="7" fill="#3a3528" stroke="#d4b65a" stroke-width="1"/>
-            <text x="522" y="192" fill="#d4b65a" font-size="8" text-anchor="middle">睡点</text>
-            <text x="500" y="210" fill="#d4b65a" font-size="9" text-anchor="middle">动物睡眠点</text>
+            <text x="522" y="192" fill="#d4b65a" font-size="8" text-anchor="middle">Sleep</text>
+            <text x="500" y="210" fill="#d4b65a" font-size="9" text-anchor="middle">Animal Sleeping Spots</text>
 
             <!-- Storage zone (animals allowed) -->
             <rect x="580" y="72" width="115" height="24" rx="3" fill="#24242b" stroke="#4a9" stroke-width="1.5" stroke-dasharray="3 2"/>
-            <text x="637" y="88" fill="#4a9" font-size="10" text-anchor="middle">储存区 可进</text>
+            <text x="637" y="88" fill="#4a9" font-size="10" text-anchor="middle">Storage Allowed</text>
 
             <!-- Dogs -->
             <text x="495" y="160" font-size="20">🐕</text>
@@ -385,45 +385,45 @@
           <g id="legend">
             <rect x="15" y="250" width="690" height="36" rx="4" fill="#24242b" stroke="#333340" stroke-width="1"/>
             <rect x="28" y="259" width="16" height="16" rx="2" fill="none" stroke="#5a9fd4" stroke-width="1.5"/>
-            <text x="50" y="272" fill="#c8c8d0" font-size="10">圈养区</text>
+            <text x="50" y="272" fill="#c8c8d0" font-size="10">Pen Area</text>
             <rect x="130" y="259" width="16" height="16" rx="2" fill="#2d5a2d" opacity="0.3" stroke="#4a9" stroke-width="1.5" stroke-dasharray="4 2"/>
-            <text x="152" y="272" fill="#c8c8d0" font-size="10">放养活动区</text>
+            <text x="152" y="272" fill="#c8c8d0" font-size="10">Free-Range Zone</text>
             <rect x="250" y="259" width="16" height="16" rx="2" fill="#c0392b" opacity="0.2" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5 3"/>
-            <text x="272" y="272" fill="#c8c8d0" font-size="10">禁区</text>
+            <text x="272" y="272" fill="#c8c8d0" font-size="10">Forbidden Zone</text>
             <rect x="330" y="259" width="16" height="16" rx="2" fill="#333340" stroke="#d4956b" stroke-width="1.5"/>
-            <text x="352" y="272" fill="#c8c8d0" font-size="10">畜棚 / 设施</text>
+            <text x="352" y="272" fill="#c8c8d0" font-size="10">Barn / Facilities</text>
             <rect x="440" y="259" width="16" height="16" rx="2" fill="#24242b" stroke="#5a9fd4" stroke-width="1" stroke-dasharray="3 2"/>
-            <text x="462" y="272" fill="#c8c8d0" font-size="10">储存 / 仓库</text>
+            <text x="462" y="272" fill="#c8c8d0" font-size="10">Storage / Warehouse</text>
           </g>
         </svg>
-        <figcaption>▲ 左边圈养产奶产蛋，右边放养干活。记住：厨房和医院一定划动物禁区。</figcaption>
+        <figcaption>▲ Pen area on the left for milk/eggs, free-range on the right for work animals. Remember: always mark kitchen and hospital as animal-forbidden zones.</figcaption>
       </figure>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">⚠️</span> 常见翻车与技巧</h3>
+      <h3><span class="emoji">⚠️</span> Common Mistakes & Pro Tips</h3>
       <ul>
-        <li>不要养爆炸鼠当宠物——一发流弹打中直接炸连锁</li>
-        <li>动物多了=财富值暴涨=袭击更难→ 别舍不得宰</li>
-        <li>绑定的动物死了=主人掉心情-8，持续很久→ 绑定的动物别派去前线</li>
-        <li>冬天没草=草食动物饿死→ 提前存干草或种蒲公英在室内</li>
-        <li>驯兽失败会激怒动物→ 驯高级动物前先存档</li>
-        <li>动物怀孕/下蛋/产奶都跟健康度和饱食度挂钩→ 吃饱才产出</li>
+        <li>Don't keep boomrats as pets — one stray bullet sets off a chain explosion</li>
+        <li>More animals = higher wealth = harder raids → don't hesitate to cull</li>
+        <li>Bonded animal dies = master gets -8 mood for a long time → don't send bonded animals to the front line</li>
+        <li>No grass in winter = herbivores starve → stockpile hay or grow dandelions indoors in advance</li>
+        <li>Failed taming attempt enrages the animal → save before taming high-level animals</li>
+        <li>Pregnancy, egg-laying, and milk production all depend on health and hunger → well-fed animals produce more</li>
       </ul>
-      <div class="tip warn"><strong>⚠️ 注意：</strong>动物也会得病（瘟疫/流感），瘟疫不治会传染全圈。准备好兽医药，染病就隔离。</div>
+      <div class="tip warn"><strong>⚠️ Note:</strong> Animals can get sick too (plague/flu). Plague spreads through the pen if untreated. Stock animal medicine and quarantine sick animals.</div>
     </div>
   </section>
 
   <nav class="page-nav">
-    <a href="rimworld-guide-biomes.html" class="prev">
-      <span><span class="nav-label">上一页</span>🌍 生态与地形</span>
+    <a href="biomes.html" class="prev">
+      <span><span class="nav-label">Previous</span>🌍 Biomes & Terrain</span>
     </a>
-    <a href="rimworld-guide-trade.html" class="next">
-      <span><span class="nav-label">下一页</span>💰 贸易与经济</span>
+    <a href="trade.html" class="next">
+      <span><span class="nav-label">Next</span>💰 Trade & Economy</span>
     </a>
   </nav>
 
-  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
 </main>
 
 <script>
@@ -464,11 +464,11 @@ function toggleTheme() {
   const isLight = document.body.classList.toggle('light');
   const icon = document.getElementById('theme-icon');
   const label = document.getElementById('theme-label');
-  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
-  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+  if (isLight) { icon.textContent = '☀️'; label.textContent = 'Light Mode'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = 'Dark Mode'; localStorage.setItem('rimworld-theme', 'dark'); }
 }
 (function loadTheme() {
-  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = 'Light Mode'; }
 })();
 
   // Back to top

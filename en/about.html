@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="About RimWorld Guide: a fan-made strategy website created by experienced RimWorld players. Learn about the site, its content, and how to contact us.">
+<meta name="keywords" content="RimWorld, guide, about, fan site, strategy, walkthrough">
+<link rel="canonical" href="https://yxhtl.com/en/about.html">
+<link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/about.html">
+<link rel="alternate" hreflang="en" href="https://yxhtl.com/en/about.html">
+<link rel="alternate" hreflang="x-default" href="https://yxhtl.com/about.html">
+<meta property="og:title" content="About | RimWorld Guide">
+<meta property="og:description" content="About RimWorld Guide: a fan-made strategy website created by experienced RimWorld players. Learn about the site, its content, and how to contact us.">
+<meta property="og:url" content="https://yxhtl.com/en/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RimWorld Guide">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About | RimWorld Guide">
+<meta name="twitter:description" content="About RimWorld Guide: a fan-made strategy website created by experienced RimWorld players. Learn about the site, its content, and how to contact us.">
+<meta name="robots" content="index, follow">
+<title>About | RimWorld Guide</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #1a1a1f;
+    --bg-card: #24242b;
+    --bg-sidebar: #1e1e24;
+    --border: #333340;
+    --text: #c8c8d0;
+    --text-muted: #888896;
+    --accent: #d4956b;
+    --accent-dim: #a07050;
+    --red: #c0392b;
+    --green: #4a9;
+    --blue: #5a9fd4;
+    --yellow: #d4b65a;
+    --radius: 6px;
+    --transition: 0.2s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+  nav.sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+  .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+  .sidebar-logo h1 { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
+  .sidebar-logo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+  .lang-switcher { padding: 0 20px 12px; border-bottom: 1px solid var(--border); margin-bottom: 12px; font-size: 0.78rem; display: flex; gap: 6px; align-items: center; }
+  .lang-switcher a { color: var(--accent); text-decoration: none; }
+  .lang-switcher a:hover { text-decoration: underline; }
+  .lang-switcher .active { color: var(--text-muted); cursor: default; }
+  .lang-link { font-size: 0.78rem; margin-left: auto; }
+  .lang-link a { color: var(--accent); text-decoration: none; }
+  .lang-link a:hover { text-decoration: underline; }
+  .nav-section { padding: 8px 20px 4px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-top: 8px; }
+  .nav-item { display: block; padding: 8px 20px; color: var(--text); text-decoration: none; font-size: 0.9rem; border-left: 3px solid transparent; transition: var(--transition); }
+  .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
+  .nav-item.active { border-left-color: var(--accent); background: rgba(212,149,107,0.08); color: var(--accent); }
+  .nav-item .icon { margin-right: 8px; }
+  .nav-badge { float: right; font-size: 0.65rem; background: var(--accent-dim); color: #fff; padding: 1px 6px; border-radius: 10px; margin-top: 2px; }
+  .nav-footer { margin-top: auto; padding: 16px 20px 0; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--text-muted); }
+  .nav-feedback { color: var(--accent-dim); text-decoration: none; transition: color var(--transition); }
+  .nav-feedback:hover { color: var(--accent); }
+  .nav-footer a { color: var(--accent); text-decoration: none; }
+  .nav-footer a:hover { text-decoration: underline; }
+
+  .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
+  .sidebar-overlay { display: none; }
+
+  main { flex: 1; max-width: 800px; padding: 40px 48px; overflow-y: auto; }
+
+  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .page-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid var(--accent); }
+  .page-header h2 { font-size: 1.6rem; color: #fff; margin-bottom: 6px; }
+  .page-header p { color: var(--text-muted); font-size: 0.9rem; }
+
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; }
+  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .card h3 .emoji { font-size: 1.2rem; }
+  .card p, .card li { font-size: 0.92rem; color: var(--text); }
+  .card p { margin-bottom: 10px; }
+  .card ul { padding-left: 20px; margin-bottom: 10px; }
+  .card li { margin-bottom: 6px; }
+
+  .search-wrap { position: relative; margin-bottom: 32px; }
+  .search-wrap input { width: 100%; padding: 12px 16px 12px 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.95rem; font-family: inherit; transition: var(--transition); }
+  .search-wrap input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(212,149,107,0.15); }
+  .search-wrap input::placeholder { color: var(--text-muted); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--text-muted); pointer-events: none; }
+  .search-clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem; padding: 4px 8px; border-radius: 3px; display: none; }
+  .search-clear:hover { color: var(--text); background: var(--border); }
+  .search-clear.visible { display: block; }
+  .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 1rem; }
+  .no-results.visible { display: block; }
+  .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+  .card.hidden { display: none; }
+  .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
+
+  .key { color: var(--accent); font-weight: 600; }
+  .emoji { font-size: 1.2em; margin-right: 6px; }
+
+  .contact-box {
+    background: rgba(90,159,212,0.08);
+    border: 1px solid rgba(90,159,212,0.3);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-top: 12px;
+  }
+  .contact-box a { color: var(--blue); }
+  .contact-box p { margin-bottom: 6px; }
+
+  .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle .toggle-thumb { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background var(--transition); }
+  .theme-toggle .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
+  body.light .toggle-thumb { background: var(--accent); }
+  body.light .toggle-thumb::after { transform: translateX(16px); }
+
+  body.light { --bg: #f4f4f6; --bg-card: #ffffff; --bg-sidebar: #f0f0f3; --border: #d8d8de; --text: #3a3a44; --text-muted: #888896; --accent: #b87050; --accent-dim: #8a5040; }
+  body.light .contact-box { background: rgba(90,159,212,0.06); }
+
+  .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); z-index: 50; color: var(--text); }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    nav.sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100vh; transition: left var(--transition); }
+    nav.sidebar.open { left: 0; }
+    .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9; }
+    .sidebar-overlay.open { display: block; }
+    .mobile-nav-toggle { display: block; }
+    main { padding: 60px 16px 32px; }
+    .card { padding: 16px; }
+  }
+  @media print { nav.sidebar, .mobile-nav-toggle { display: none; } main { max-width: 100%; padding: 0; } body { background: #fff; color: #000; } }
+</style>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x9iflmg36h");
+</script>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld Guide</h1>
+    <p>From surviving to thriving</p>
+  </div>
+
+  <div class="lang-switcher">
+    <a href="../about.html">中文</a> <span class="active">| English</span>
+  </div>
+
+  <div class="nav-section">Navigation</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> Guide Index</a>
+
+  <div class="nav-section">Essentials</div>
+  <a href="getting-started.html" class="nav-item"><span class="icon">🚀</span> Survival Guide <span class="nav-badge">P0</span></a>
+  <a href="base-building.html" class="nav-item"><span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span></a>
+
+  <div class="nav-section">Advanced</div>
+  <a href="combat.html" class="nav-item"><span class="icon">⚔️</span> Combat & Defense <span class="nav-badge">P1</span></a>
+  <a href="pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> Pawn Management <span class="nav-badge">P1</span></a>
+  <a href="research.html" class="nav-item"><span class="icon">🔬</span> Tech Tree <span class="nav-badge">P2</span></a>
+
+  <div class="nav-section">DLC</div>
+  <a href="dlc-royalty.html" class="nav-item"><span class="icon">👑</span> Royalty <span class="nav-badge">DLC</span></a>
+  <a href="dlc-ideology.html" class="nav-item"><span class="icon">💡</span> Ideology <span class="nav-badge">DLC</span></a>
+  <a href="dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> Biotech <span class="nav-badge">DLC</span></a>
+  <a href="dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">Extras</div>
+  <a href="mods.html" class="nav-item"><span class="icon">🧩</span> Mods <span class="nav-badge">P2</span></a>
+  <a href="biomes.html" class="nav-item"><span class="icon">🌍</span> Biomes & Terrain <span class="nav-badge">P2</span></a>
+  <a href="animals.html" class="nav-item"><span class="icon">🐄</span> Animals & Livestock <span class="nav-badge">P2</span></a>
+  <a href="trade.html" class="nav-item"><span class="icon">💰</span> Trade & Economy <span class="nav-badge">P2</span></a>
+  <a href="crafting.html" class="nav-item"><span class="icon">⚗️</span> Crafting & Production <span class="nav-badge">P2</span></a>
+
+
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer"><a href="about.html" style="font-weight:600;">📖 About</a> · <a href="privacy.html">🔒 Privacy</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
+</nav>
+
+<main>
+
+<div class="breadcrumb"><a href="index.html">Guide Index</a> / About <span class="lang-link"><a href="../about.html">中文版本</a></span></div>
+
+<div class="search-wrap">
+  <span class="search-icon">🔍</span>
+  <input type="text" id="search-input" placeholder="Search this page..." oninput="doSearch()">
+  <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button>
+</div>
+<div class="no-results" id="no-results"><span class="icon">🔍</span><p>No matching results. Try a different term?</p></div>
+
+<div class="page-header">
+  <h2>📖 About</h2>
+  <p>One person, one computer, a thousand hours of RimWorld</p>
+</div>
+
+<div class="card">
+  <h3>🎯 What This Site Is About</h3>
+  <p><span class="key">RimWorld Guide</span> is a survival handbook written for newcomers.</p>
+  <p>RimWorld has a steep learning curve — three people crash-land and nobody tells you where to start. Chop trees, dig into mountains, grow crops, defend against raids, keep your colonists from mental breaks... every step is a trap. I've played over a thousand hours and fallen into every single one.</p>
+  <p>This site strings together all those "I wish I'd known that earlier" moments so you can dodge the same pitfalls. Coverage includes:</p>
+  <ul>
+    <li><strong>Starting colonist and landing site selection</strong> — skill combos and biome choice for your first three pawns</li>
+    <li><strong>Base building</strong> — from the first wooden shack to a full survival base</li>
+    <li><strong>Combat and defense</strong> — killbox design, weapon choices, handling different raid types</li>
+    <li><strong>Pawn management</strong> — mood, skills, relationships... keeping your colony from falling apart</li>
+    <li><strong>Research</strong> — tech tree planning, what to research first and what to skip</li>
+    <li><strong>Four DLCs</strong> — Royalty, Ideology, Biotech, and Anomaly, each with complete guides</li>
+    <li><strong>Mod recommendations</strong> — essential mods and load order tips</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>👤 Who I Am</h3>
+  <p>Just a regular RimWorld player. Not a pro, not a speedrunner — just someone who loves this game.</p>
+  <p>When I first started I died in every way imaginable — killed by squirrels, starved in winter, my base burned down after a pawn fight... Over time I developed my own playstyle. I built this site to organize what I've learned and help clueless newcomers, just like I used to be.</p>
+  <p>The site currently has <strong>15 guide pages</strong> and <strong>16 original SVG diagrams</strong>, and it's still growing. If you find something wrong or have a better suggestion, I'd love to hear from you.</p>
+</div>
+
+<div class="card">
+  <h3>💰 How This Site Is Funded</h3>
+  <p>Domain and hosting come out of my own pocket. To offset costs, the site runs <span class="key">Google AdSense ads</span>.</p>
+  <p>Ads won't get in the way of your reading — no pop-ups, interstitials, or anything that blocks content. Just some display ads in the sidebar and at the bottom of articles. If you use an ad blocker, no hard feelings — all guide content is completely free.</p>
+  <p>If you find the guides useful, the best way to help is to <strong>share the site with other RimWorld players</strong>. More traffic means ad revenue can cover the costs.</p>
+</div>
+
+<div class="card">
+  <h3>📬 Contact</h3>
+  <p>Got questions, suggestions, or just want to chat? Here's how to reach me:</p>
+  <div class="contact-box">
+    <p>📋 <strong>Feedback form:</strong> <a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener">Tencent Survey</a> (recommended, I reply to everything)</p>
+    <p>📞 <strong>Phone:</strong> 199 0778 5073</p>
+    <p>🐙 <strong>GitHub:</strong> <a href="https://github.com/yxhtl/rimworld-guide" target="_blank" rel="noopener">yxhtl/rimworld-guide</a> (feel free to open an Issue)</p>
+  </div>
+</div>
+
+<button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    if (card.textContent.toLowerCase().includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = 'Light Mode'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = 'Dark Mode'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = 'Light Mode'; }
+})();
+
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>

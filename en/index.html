@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RimWorld beginner's guide: from surviving to thriving. Covers colonist selection, base building, combat & defense, pawn management, research, and DLC deep dives — plus mod recommendations.">
+<meta name="keywords" content="RimWorld, guide, beginner, survival, base building, combat, mods, DLC, tutorial">
+<link rel="canonical" href="https://yxhtl.com/en/">
+<link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/">
+<link rel="alternate" hreflang="en" href="https://yxhtl.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://yxhtl.com/">
+<meta property="og:title" content="RimWorld Guide | From Surviving to Thriving">
+<meta property="og:description" content="RimWorld beginner's guide: from surviving to thriving. Covers colonist selection, base building, combat, pawn management, research, DLC deep dives, and mod recommendations.">
+<meta property="og:url" content="https://yxhtl.com/en/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RimWorld Guide">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RimWorld Guide | From Surviving to Thriving">
+<meta name="twitter:description" content="RimWorld beginner's guide: from surviving to thriving. Covers colonist selection, base building, combat, pawn management, research, DLC deep dives, and mod recommendations.">
+<meta name="robots" content="index, follow">
+<title>RimWorld Guide | From Surviving to Thriving</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #1a1a1f;
+    --bg-card: #24242b;
+    --bg-sidebar: #1e1e24;
+    --border: #333340;
+    --text: #c8c8d0;
+    --text-muted: #888896;
+    --accent: #d4956b;
+    --accent-dim: #a07050;
+    --red: #c0392b;
+    --green: #4a9;
+    --blue: #5a9fd4;
+    --yellow: #d4b65a;
+    --radius: 6px;
+    --transition: 0.2s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+  nav.sidebar { width: 260px; min-width: 260px; background: var(--bg-sidebar); border-right: 1px solid var(--border); padding: 24px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; z-index: 10; }
+  .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+  .sidebar-logo h1 { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
+  .sidebar-logo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+  .lang-switcher { padding: 0 20px 12px; border-bottom: 1px solid var(--border); margin-bottom: 12px; font-size: 0.78rem; display: flex; gap: 6px; align-items: center; }
+  .lang-switcher a { color: var(--accent); text-decoration: none; }
+  .lang-switcher a:hover { text-decoration: underline; }
+  .lang-switcher .active { color: var(--text-muted); cursor: default; }
+  .lang-link { font-size: 0.78rem; margin-left: auto; }
+  .lang-link a { color: var(--accent); text-decoration: none; }
+  .lang-link a:hover { text-decoration: underline; }
+  .nav-section { padding: 8px 20px 4px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-top: 8px; }
+  .nav-item { display: block; padding: 8px 20px; color: var(--text); text-decoration: none; font-size: 0.9rem; border-left: 3px solid transparent; transition: var(--transition); }
+  .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
+  .nav-item.active { border-left-color: var(--accent); background: rgba(212,149,107,0.08); color: var(--accent); }
+  .nav-item .icon { margin-right: 8px; }
+  .nav-badge { float: right; font-size: 0.65rem; background: var(--accent-dim); color: #fff; padding: 1px 6px; border-radius: 10px; margin-top: 2px; }
+  .nav-footer { margin-top: auto; padding: 16px 20px 0; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--text-muted); }
+  .nav-feedback { color: var(--accent-dim); text-decoration: none; transition: color var(--transition); }
+  .nav-feedback:hover { color: var(--accent); }
+  .nav-footer a { color: var(--accent); text-decoration: none; }
+  .nav-footer a:hover { text-decoration: underline; }
+
+  .mobile-nav-toggle { display: none; position: fixed; top: 12px; left: 12px; z-index: 100; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: var(--radius); cursor: pointer; font-size: 1.2rem; }
+  .sidebar-overlay { display: none; }
+
+  main { flex: 1; max-width: 900px; padding: 40px 48px; overflow-y: auto; }
+
+  .hero { background: linear-gradient(135deg, #1e1e24 0%, #24242b 100%); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 32px; margin-bottom: 32px; text-align: center; }
+  .hero h2 { font-size: 1.8rem; color: #fff; margin-bottom: 8px; }
+  .hero p { font-size: 0.95rem; color: var(--text-muted); }
+
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 1.3rem; color: #fff; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; }
+  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .card h3 .emoji { font-size: 1.2rem; }
+  .card p, .card li { font-size: 0.92rem; color: var(--text); }
+
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+  .tag-p0 { background: var(--red); color: #fff; }
+  .tag-p1 { background: var(--yellow); color: #1a1a1f; }
+  .tag-p2 { background: var(--text-muted); color: #fff; }
+
+  .search-wrap { position: relative; margin-bottom: 32px; }
+  .search-wrap input { width: 100%; padding: 12px 16px 12px 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.95rem; font-family: inherit; transition: var(--transition); }
+  .search-wrap input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(212,149,107,0.15); }
+  .search-wrap input::placeholder { color: var(--text-muted); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--text-muted); pointer-events: none; }
+  .search-clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem; padding: 4px 8px; border-radius: 3px; display: none; }
+  .search-clear:hover { color: var(--text); background: var(--border); }
+  .search-clear.visible { display: block; }
+  .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 1rem; }
+  .no-results.visible { display: block; }
+  .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
+  .card.hidden, .section-title.hidden { display: none; }
+  .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
+
+  .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
+  .theme-toggle:hover { border-color: var(--accent); }
+  .theme-toggle .toggle-thumb { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background var(--transition); }
+  .theme-toggle .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
+  body.light .toggle-thumb { background: var(--accent); }
+  body.light .toggle-thumb::after { transform: translateX(16px); }
+
+  body.light { --bg: #f4f4f6; --bg-card: #ffffff; --bg-sidebar: #f0f0f3; --border: #d8d8de; --text: #3a3a44; --text-muted: #888896; --accent: #b87050; --accent-dim: #8a5040; }
+  body.light .hero { background: linear-gradient(135deg, #e8e8ed 0%, #f0f0f3 100%); }
+  body.light .tip { background: rgba(90,159,212,0.08); }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    nav.sidebar { position: fixed; left: -280px; top: 0; width: 280px; height: 100vh; transition: left var(--transition); }
+    nav.sidebar.open { left: 0; }
+    .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9; }
+    .sidebar-overlay.open { display: block; }
+    .mobile-nav-toggle { display: block; }
+    main { padding: 60px 16px 32px; }
+    .hero { padding: 20px; }
+    .hero h2 { font-size: 1.4rem; }
+    .card { padding: 16px; }
+  }
+  @media print { nav.sidebar, .mobile-nav-toggle { display: none; } main { max-width: 100%; padding: 0; } body { background: #fff; color: #000; } }
+
+  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .page-nav a { display: flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+  .page-nav a:hover { border-color: var(--accent); color: var(--accent); }
+  .page-nav .prev::before { content: '← '; }
+  .page-nav .next::after { content: ' →'; }
+  .page-nav .nav-label { font-size: 0.72rem; color: var(--text-muted); display: block; }
+
+  .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); z-index: 50; color: var(--text); }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x9iflmg36h");
+</script>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld Guide</h1>
+    <p>From surviving to thriving</p>
+  </div>
+
+  <div class="lang-switcher">
+    <a href="../index.html">中文</a> <span class="active">| English</span>
+  </div>
+
+  <div class="nav-section">Navigation</div>
+  <a href="index.html" class="nav-item active"><span class="icon">🏠</span> Guide Index</a>
+
+  <div class="nav-section">Essentials</div>
+  <a href="getting-started.html" class="nav-item"><span class="icon">🚀</span> Survival Guide <span class="nav-badge">P0</span></a>
+  <a href="base-building.html" class="nav-item"><span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span></a>
+
+  <div class="nav-section">Advanced</div>
+  <a href="combat.html" class="nav-item"><span class="icon">⚔️</span> Combat & Defense <span class="nav-badge">P1</span></a>
+  <a href="pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> Pawn Management <span class="nav-badge">P1</span></a>
+  <a href="research.html" class="nav-item"><span class="icon">🔬</span> Tech Tree <span class="nav-badge">P2</span></a>
+
+  <div class="nav-section">DLC</div>
+  <a href="dlc-royalty.html" class="nav-item"><span class="icon">👑</span> Royalty <span class="nav-badge">DLC</span></a>
+  <a href="dlc-ideology.html" class="nav-item"><span class="icon">💡</span> Ideology <span class="nav-badge">DLC</span></a>
+  <a href="dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> Biotech <span class="nav-badge">DLC</span></a>
+  <a href="dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">Extras</div>
+  <a href="mods.html" class="nav-item"><span class="icon">🧩</span> Mods <span class="nav-badge">P2</span></a>
+  <a href="biomes.html" class="nav-item"><span class="icon">🌍</span> Biomes & Terrain <span class="nav-badge">P2</span></a>
+  <a href="animals.html" class="nav-item"><span class="icon">🐄</span> Animals & Livestock <span class="nav-badge">P2</span></a>
+  <a href="trade.html" class="nav-item"><span class="icon">💰</span> Trade & Economy <span class="nav-badge">P2</span></a>
+  <a href="crafting.html" class="nav-item"><span class="icon">⚗️</span> Crafting & Production <span class="nav-badge">P2</span></a>
+
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer"><a href="about.html">📖 About</a> · <a href="privacy.html">🔒 Privacy</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
+</nav>
+
+<main>
+
+  <div class="hero">
+    <h2>🎯 RimWorld Survival Handbook</h2>
+    <p>
+      Just landed and don't know what to do? Keep getting wiped by raids? Colonists having mental breaks and fighting each other?
+      <br>This guide starts from zero — telling you what to do at each step, why, and in what order.
+    </p>
+  </div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="Search guides... (e.g., freezer, traps, traits, weapons)" oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button>
+  </div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No matching results. Try a different term?</p></div>
+
+  <div class="section">
+    <h2 class="section-title">📚 Guide Index</h2>
+
+    <a href="getting-started.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--red)">
+        <h3><span class="emoji">🚀</span> Survival Guide <span class="tag tag-p0" style="margin-left:8px">P0</span></h3>
+        <p>Colonist selection · Landing terrain · First 3 days checklist · Week one survival · The "Food→Shelter→Defense→Research" loop</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 4 cards · ~6 min read →</p>
+      </div>
+    </a>
+
+    <a href="base-building.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--red)">
+        <h3><span class="emoji">🏠</span> Base Building <span class="tag tag-p0" style="margin-left:8px">P0</span></h3>
+        <p>7 room layout specs · Freezer double-wall + airlock design · Power grid planning · Cleanliness & beauty · Stone vs wood walls</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 4 cards · ~5 min read →</p>
+      </div>
+    </a>
+
+    <a href="combat.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--yellow)">
+        <h3><span class="emoji">⚔️</span> Combat & Defense <span class="tag tag-p1" style="margin-left:8px">P1</span></h3>
+        <p>Killbox design · Trap corridors · Weapon tier list · Armor selection · 6 raid types & counter strategies</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 cards · ~8 min read →</p>
+      </div>
+    </a>
+
+    <a href="pawns.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--yellow)">
+        <h3><span class="emoji">🧑‍🌾</span> Pawn Management <span class="tag tag-p1" style="margin-left:8px">P1</span></h3>
+        <p>Work priority golden rules · Mood system quick reference · Trait selection guide · Bionics & implants · Schedule management</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 cards · ~7 min read →</p>
+      </div>
+    </a>
+
+    <a href="research.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--blue)">
+        <h3><span class="emoji">🔬</span> Tech Tree <span class="tag tag-p2" style="margin-left:8px">P2</span></h3>
+        <p>Standard research order table · Tribal vs New Arrivals differences · 9 key tech milestones · Research speed tips</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 4 cards · ~5 min read →</p>
+      </div>
+    </a>
+
+    <a href="mods.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--blue)">
+        <h3><span class="emoji">🧩</span> Mods <span class="tag tag-p2" style="margin-left:8px">P2</span></h3>
+        <p>Essential framework mods · 7 UI mods · 7 gameplay expansions · 5 content mods · 10-step load order</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 cards · ~6 min read →</p>
+      </div>
+    </a>
+
+    <a href="biomes.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--blue)">
+        <h3><span class="emoji">🌍</span> Biomes & Terrain <span class="tag tag-p2" style="margin-left:8px">P2</span></h3>
+        <p>10 biomes difficulty ranking · 5 terrain types compared · 7 hidden selection factors · 4 extreme weather counters</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 4 cards · ~6 min read →</p>
+      </div>
+    </a>
+
+    <a href="animals.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--blue)">
+        <h3><span class="emoji">🐄</span> Animals & Livestock <span class="tag tag-p2" style="margin-left:8px">P2</span></h3>
+        <p>Taming priority table · Training & work · Pen vs free-range · Common mistakes & tips</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 4 cards · ~5 min read →</p>
+      </div>
+    </a>
+
+    <a href="trade.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--blue)">
+        <h3><span class="emoji">💰</span> Trade & Economy <span class="tag tag-p2" style="margin-left:8px">P2</span></h3>
+        <p>Orbital trade · Ground caravans · Wealth & raid difficulty · Trading tips · Drop pod logistics</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 cards · ~6 min read →</p>
+      </div>
+    </a>
+
+    <a href="crafting.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid var(--blue)">
+        <h3><span class="emoji">⚗️</span> Crafting & Production <span class="tag tag-p2" style="margin-left:8px">P2</span></h3>
+        <p>Core production chains · Equipment material guide · Medicine production · Sculpture money printing · Efficiency tips</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 cards · ~7 min read →</p>
+      </div>
+    </a>
+
+    <a href="dlc-royalty.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid #c08040">
+        <h3><span class="emoji">👑</span> Royalty DLC <span class="tag tag-p2" style="margin-left:8px">DLC</span></h3>
+        <p>Empire title system · Psycasting powers · Royal permits · New weapons & armor · Bestowal ceremonies</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 cards · ~6 min read →</p>
+      </div>
+    </a>
+
+    <a href="dlc-ideology.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid #c08040">
+        <h3><span class="emoji">💡</span> Ideology DLC <span class="tag tag-p2" style="margin-left:8px">DLC</span></h3>
+        <p>Meme system · Precepts & mood · Rituals & celebrations · Role system · Relic pilgrimages</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 cards · ~6 min read →</p>
+      </div>
+    </a>
+
+    <a href="dlc-biotech.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid #c08040">
+        <h3><span class="emoji">🧬</span> Biotech DLC <span class="tag tag-p2" style="margin-left:8px">DLC</span></h3>
+        <p>Children & reproduction · Genetic modification · Mechanitor & mechanoids · Sanguophages · Pollution management</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 cards · ~7 min read →</p>
+      </div>
+    </a>
+
+    <a href="dlc-anomaly.html" style="text-decoration:none;color:inherit">
+      <div class="card" style="cursor:pointer;transition:var(--transition);border-left:3px solid #c08040">
+        <h3><span class="emoji">🪱</span> Anomaly DLC <span class="tag tag-p2" style="margin-left:8px">DLC</span></h3>
+        <p>Monolith research · Containment system · Entity bestiary · Dark technologies · Newbie survival guide</p>
+        <p style="font-size:0.8rem;color:var(--accent);margin-top:8px">📖 5 cards · ~6 min read →</p>
+      </div>
+    </a>
+  </div>
+
+  <nav class="page-nav">
+    <span></span>
+    <a href="getting-started.html" class="next">
+      <span><span class="nav-label">Next</span>🚀 Survival Guide</span>
+    </a>
+  </nav>
+
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+</main>
+
+<script>
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.querySelector('.sidebar-overlay').classList.toggle('open');
+}
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const sections = document.querySelectorAll('.section');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); });
+    sections.forEach(s => { s.querySelector('.section-title').classList.remove('hidden'); s.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    const text = card.textContent.toLowerCase();
+    if (text.includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  sections.forEach(section => {
+    const visibleCards = section.querySelectorAll('.card:not(.hidden)');
+    const title = section.querySelector('.section-title');
+    if (visibleCards.length === 0) title.classList.add('hidden');
+    else title.classList.remove('hidden');
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = 'Light Mode'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = 'Dark Mode'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = 'Light Mode'; }
+})();
+
+const backToTop = document.getElementById('back-to-top');
+window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>
