@@ -22,73 +22,11 @@
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
 <link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/guide.css">
 <style>
-main { flex: 1; max-width: 800px; padding: 40px 48px; overflow-y: auto; }
-
-  .breadcrumb { margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; }
-  .breadcrumb a { color: var(--accent); text-decoration: none; }
-  .breadcrumb a:hover { text-decoration: underline; }
-
-  .page-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid var(--accent); }
-  .page-header h2 { font-size: 1.6rem; color: #fff; margin-bottom: 6px; }
-  .page-header p { color: var(--text-muted); font-size: 0.9rem; }
-
-  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; }
-  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-  .card h3 .emoji { font-size: 1.2rem; }
-  .card p, .card li { font-size: 0.92rem; color: var(--text); }
-  .card p { margin-bottom: 10px; }
-  .card ul { padding-left: 20px; margin-bottom: 10px; }
-  .card li { margin-bottom: 6px; }
-
-  .search-wrap { position: relative; margin-bottom: 32px; }
-  .search-wrap input { width: 100%; padding: 12px 16px 12px 44px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-size: 0.95rem; font-family: inherit; transition: var(--transition); }
-  .search-wrap input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(212,149,107,0.15); }
-  .search-wrap input::placeholder { color: var(--text-muted); }
-  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; color: var(--text-muted); pointer-events: none; }
-  .search-clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.2rem; padding: 4px 8px; border-radius: 3px; display: none; }
-  .search-clear:hover { color: var(--text); background: var(--border); }
-  .search-clear.visible { display: block; }
-  .no-results { display: none; text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 1rem; }
-  .no-results.visible { display: block; }
-  .no-results .icon { font-size: 3rem; display: block; margin-bottom: 12px; }
-  .card.hidden { display: none; }
-  .search-highlight { background: var(--yellow); color: #1a1a1f; padding: 0 2px; border-radius: 2px; }
-
-  .key { color: var(--accent); font-weight: 600; }
-  .emoji { font-size: 1.2em; margin-right: 6px; }
-
-  .contact-box {
-    background: rgba(90,159,212,0.08);
-    border: 1px solid rgba(90,159,212,0.3);
-    border-radius: var(--radius);
-    padding: 16px 20px;
-    margin-top: 12px;
-  }
+  main { max-width: 800px; }
+  .contact-box { background: rgba(90,159,212,0.08); border: 1px solid rgba(90,159,212,0.3); border-radius: var(--radius); padding: 16px 20px; margin-top: 12px; }
   .contact-box a { color: var(--blue); }
-  .contact-box p { margin-bottom: 6px; }
-
-  .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
-  .theme-toggle:hover { border-color: var(--accent); }
-  .theme-toggle .toggle-thumb { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background var(--transition); }
-  .theme-toggle .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
-  body.light .toggle-thumb { background: var(--accent); }
-  body.light .toggle-thumb::after { transform: translateX(16px); }
-
-  body.light { --bg: #f4f4f6; --bg-card: #ffffff; --bg-sidebar: #f0f0f3; --border: #d8d8de; --text: #3a3a44; --text-muted: #888896; --accent: #b87050; --accent-dim: #8a5040; }
-  body.light .contact-box { background: rgba(90,159,212,0.06); }
-
-  .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity var(--transition); z-index: 50; color: var(--text); }
-  .back-to-top.visible { opacity: 1; pointer-events: auto; }
-  .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
-
-  @media (max-width: 768px) {
-    nav.sidebar.open { left: 0; }
-    .sidebar-overlay.open { display: block; }
-    main { padding: 60px 16px 32px; }
-    .card { padding: 16px; }
-  }
-  @media print { nav.sidebar, .mobile-nav-toggle { display: none; } main { max-width: 100%; padding: 0; } body { background: #fff; color: #000; } }
 </style>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -164,7 +102,7 @@ main { flex: 1; max-width: 800px; padding: 40px 48px; overflow-y: auto; }
 
 <div class="card">
   <h3>🎯 What This Site Is About</h3>
-  <p><span class="key">RimWorld Guide</span> is a survival handbook written for newcomers.</p>
+  <p><span class="term">RimWorld Guide</span> is a survival handbook written for newcomers.</p>
   <p>RimWorld has a steep learning curve — three people crash-land and nobody tells you where to start. Chop trees, dig into mountains, grow crops, defend against raids, keep your colonists from mental breaks... every step is a trap. I've played over a thousand hours and fallen into every single one.</p>
   <p>This site strings together all those "I wish I'd known that earlier" moments so you can dodge the same pitfalls. Coverage includes:</p>
   <ul>
@@ -187,7 +125,7 @@ main { flex: 1; max-width: 800px; padding: 40px 48px; overflow-y: auto; }
 
 <div class="card">
   <h3>💰 How This Site Is Funded</h3>
-  <p>Domain and hosting come out of my own pocket. To offset costs, the site runs <span class="key">Google AdSense ads</span>.</p>
+  <p>Domain and hosting come out of my own pocket. To offset costs, the site runs <span class="term">Google AdSense ads</span>.</p>
   <p>Ads won't get in the way of your reading — no pop-ups, interstitials, or anything that blocks content. Just some display ads in the sidebar and at the bottom of articles. If you use an ad blocker, no hard feelings — all guide content is completely free.</p>
   <p>If you find the guides useful, the best way to help is to <strong>share the site with other RimWorld players</strong>. More traffic means ad revenue can cover the costs.</p>
 </div>

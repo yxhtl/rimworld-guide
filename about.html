@@ -22,61 +22,11 @@
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
 <link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/guide.css">
 <style>
-  main {
-    flex: 1;
-    max-width: 800px;
-    padding: 40px 48px;
-    overflow-y: auto;
-  }
-  .page-header {
-    margin-bottom: 32px;
-    padding-bottom: 16px;
-    border-bottom: 2px solid var(--accent);
-  }
-  .page-header h2 { font-size: 1.6rem; color: #fff; margin-bottom: 6px; }
-  .page-header p { color: var(--text-muted); font-size: 0.9rem; }
-  .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-    margin-bottom: 20px;
-  }
-  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 12px; }
-  .card p { margin-bottom: 10px; }
-  .card ul { padding-left: 20px; margin-bottom: 10px; }
-  .card li { margin-bottom: 6px; }
-  .emoji { font-size: 1.2em; margin-right: 6px; }
-  .key { color: var(--accent); font-weight: 600; }
-  .contact-box {
-    background: rgba(90,159,212,0.08);
-    border: 1px solid rgba(90,159,212,0.3);
-    border-radius: var(--radius);
-    padding: 16px 20px;
-    margin-top: 12px;
-  }
+  main { max-width: 800px; }
+  .contact-box { background: rgba(90,159,212,0.08); border: 1px solid rgba(90,159,212,0.3); border-radius: var(--radius); padding: 16px 20px; margin-top: 12px; }
   .contact-box a { color: var(--blue); }
-  .back-to-top { display: none; position: fixed; bottom: 24px; right: 24px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; z-index: 100; transition: var(--transition); }
-  .back-to-top:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .back-to-top.visible { display: flex; align-items: center; justify-content: center; }
-  .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
-  .theme-toggle:hover { border-color: var(--accent); }
-  .theme-toggle .toggle-thumb { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background var(--transition); }
-  .theme-toggle .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
-  body.light .toggle-thumb { background: var(--accent); }
-  body.light .toggle-thumb::after { transform: translateX(16px); }
-
-  /* Light theme */
-  body.light { --bg: #f5f5f7; --bg-card: #ffffff; --bg-sidebar: #ebebed; --border: #d5d5da; --text: #2a2a2e; --text-muted: #6a6a6e; }
-  body.light .card { box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
-  body.light .contact-box { background: rgba(90,159,212,0.06); }
-
-  @media (max-width: 768px) {
-    nav.sidebar.open { left: 0; }
-    .sidebar-overlay.open { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 80; }
-    main { padding: 20px 16px; max-width: 100%; }
-  }
 </style>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -182,7 +132,7 @@
 
 <div class="card">
   <h3>🎯 这个站是干嘛的</h3>
-  <p><span class="key">RimWorld 攻略站</span> 是一份写给新手的边缘世界生存手册。</p>
+  <p><span class="term">RimWorld 攻略站</span> 是一份写给新手的边缘世界生存手册。</p>
   <p>RimWorld 这游戏上手门槛不低——开局三个人落地，没人告诉你该先干什么。砍树、挖山、种地、防 raids、哄小人别崩溃……每一步都有坑。我玩了上千小时，踩过的坑比走过的路还多。</p>
   <p>这个站就是把那些"早知道就好了"的东西串起来，让你少走弯路。覆盖内容：</p>
   <ul>
@@ -205,7 +155,7 @@
 
 <div class="card">
   <h3>💰 靠啥运营</h3>
-  <p>网站服务器和域名是自己掏的。为了补贴运营成本，本站会投放 <span class="key">Google AdSense 广告</span>。</p>
+  <p>网站服务器和域名是自己掏的。为了补贴运营成本，本站会投放 <span class="term">Google AdSense 广告</span>。</p>
   <p>广告不会影响你看攻略——我不会用弹窗、插屏或者任何挡内容的形式。就是侧栏和文章底部放点展示广告。如果你用的是广告拦截器也没关系，攻略内容完全免费。</p>
   <p>如果你觉得攻略有用，最能帮我的方式就是 <strong>分享给其他玩 RimWorld 的朋友</strong>。流量多了，广告收入自然能覆盖成本。</p>
 </div>

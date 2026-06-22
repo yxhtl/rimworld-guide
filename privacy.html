@@ -22,52 +22,9 @@
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
 <link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/guide.css">
 <style>
-  main {
-    flex: 1;
-    max-width: 800px;
-    padding: 40px 48px;
-    overflow-y: auto;
-  }
-  .page-header {
-    margin-bottom: 32px;
-    padding-bottom: 16px;
-    border-bottom: 2px solid var(--accent);
-  }
-  .page-header h2 { font-size: 1.6rem; color: #fff; margin-bottom: 6px; }
-  .page-header p { color: var(--text-muted); font-size: 0.9rem; }
-  .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-    margin-bottom: 20px;
-  }
-  .card h3 { font-size: 1.05rem; color: #fff; margin-bottom: 12px; }
-  .card p { margin-bottom: 10px; }
-  .card ul { padding-left: 20px; margin-bottom: 10px; }
-  .card li { margin-bottom: 6px; }
-  .emoji { font-size: 1.2em; margin-right: 6px; }
-  .key { color: var(--accent); font-weight: 600; }
-  .back-to-top { display: none; position: fixed; bottom: 24px; right: 24px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; z-index: 100; transition: var(--transition); }
-  .back-to-top:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .back-to-top.visible { display: flex; align-items: center; justify-content: center; }
-  .theme-toggle { display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin: 0 12px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 0.85rem; color: var(--text); font-family: inherit; transition: var(--transition); }
-  .theme-toggle:hover { border-color: var(--accent); }
-  .theme-toggle .toggle-thumb { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background var(--transition); }
-  .theme-toggle .toggle-thumb::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform var(--transition); }
-  body.light .toggle-thumb { background: var(--accent); }
-  body.light .toggle-thumb::after { transform: translateX(16px); }
-
-  /* Light theme */
-  body.light { --bg: #f5f5f7; --bg-card: #ffffff; --bg-sidebar: #ebebed; --border: #d5d5da; --text: #2a2a2e; --text-muted: #6a6a6e; }
-  body.light .card { box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
-
-  @media (max-width: 768px) {
-    nav.sidebar.open { left: 0; }
-    .sidebar-overlay.open { display: block; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 80; }
-    main { padding: 20px 16px; max-width: 100%; }
-  }
+  main { max-width: 800px; }
 </style>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -178,7 +135,7 @@
 
 <div class="card">
   <h3>🖥️ 托管服务：GitHub Pages</h3>
-  <p>本站托管在 <span class="key">GitHub Pages</span>，所有页面文件都放在 GitHub 的服务器上。当你访问本站时，GitHub 会自动记录：</p>
+  <p>本站托管在 <span class="term">GitHub Pages</span>，所有页面文件都放在 GitHub 的服务器上。当你访问本站时，GitHub 会自动记录：</p>
   <ul>
     <li>你的 IP 地址</li>
     <li>访问时间和页面路径</li>
@@ -189,7 +146,7 @@
 
 <div class="card">
   <h3>📊 访客统计：Microsoft Clarity</h3>
-  <p>本站用 <span class="key">Microsoft Clarity</span> 做行为分析，了解访客看了哪些页面、点了什么。Clarity 收集的是：</p>
+  <p>本站用 <span class="term">Microsoft Clarity</span> 做行为分析，了解访客看了哪些页面、点了什么。Clarity 收集的是：</p>
   <ul>
     <li>页面浏览记录（你看了哪些页面、看了多久）</li>
     <li>点击和滚动行为（你点了哪个链接、滚了多远）</li>
@@ -200,13 +157,13 @@
 
 <div class="card">
   <h3>📋 反馈表单：腾讯问卷</h3>
-  <p>本站通过 <span class="key">腾讯问卷</span>（<code>wj.qq.com</code>）收集反馈。你提交反馈时，腾讯问卷会按自己的隐私政策处理数据，我们这边只能看到你填的内容。</p>
+  <p>本站通过 <span class="term">腾讯问卷</span>（<code>wj.qq.com</code>）收集反馈。你提交反馈时，腾讯问卷会按自己的隐私政策处理数据，我们这边只能看到你填的内容。</p>
   <p>反馈表单是<strong>可选的</strong>——你不填也不影响看攻略。</p>
 </div>
 
 <div class="card">
   <h3>🍪 本地存储（LocalStorage）</h3>
-  <p>本站用浏览器的 <span class="key">localStorage</span> 记住你的主题偏好（暗色/亮色模式）。这个数据：</p>
+  <p>本站用浏览器的 <span class="term">localStorage</span> 记住你的主题偏好（暗色/亮色模式）。这个数据：</p>
   <ul>
     <li>只存在你自己的浏览器里</li>
     <li>不会被上传到任何服务器</li>
@@ -217,9 +174,9 @@
 
 <div class="card">
   <h3>📢 广告：Google AdSense</h3>
-  <p>本站使用 <span class="key">Google AdSense</span> 展示广告。Google 会使用 Cookie 来投放与你兴趣相关的广告。这些 Cookie 由 Google 控制，不是我们控制的。</p>
+  <p>本站使用 <span class="term">Google AdSense</span> 展示广告。Google 会使用 Cookie 来投放与你兴趣相关的广告。这些 Cookie 由 Google 控制，不是我们控制的。</p>
   <ul>
-    <li>Google 使用 <span class="key">DoubleClick DART Cookie</span> 来根据你的浏览历史展示个性化广告</li>
+    <li>Google 使用 <span class="term">DoubleClick DART Cookie</span> 来根据你的浏览历史展示个性化广告</li>
     <li>你可以在 <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google 广告设置</a> 中关闭个性化广告</li>
     <li>也可以在 <a href="https://optout.networkadvertising.org" target="_blank" rel="noopener">Network Advertising Initiative</a> 统一退订多家广告网络的 Cookie</li>
   </ul>
@@ -235,7 +192,7 @@
   <h3>⚖️ 免责声明</h3>
   <ul>
     <li>本站攻略内容基于 RimWorld 1.4+ 全DLC 版本，后续版本更新可能导致部分内容过时</li>
-    <li>RimWorld 游戏及其所有 DLC 的版权归 <span class="key">Ludeon Studios</span> 所有。本站是玩家社区自制攻略，与 Ludeon Studios 无关</li>
+    <li>RimWorld 游戏及其所有 DLC 的版权归 <span class="term">Ludeon Studios</span> 所有。本站是玩家社区自制攻略，与 Ludeon Studios 无关</li>
     <li>本站提到的 Mod 均为其各自作者的版权，推荐仅代表个人使用经验</li>
   </ul>
 </div>
