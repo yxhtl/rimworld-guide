@@ -50,6 +50,9 @@ main { max-width: 900px; padding: 40px 48px; }
 .card-with-diagram { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
 @media (max-width: 860px) { .card-with-diagram { grid-template-columns: 1fr; } }
 
+/* ========== SVG Global ========== */
+svg { max-width: 100%; height: auto; }
+
 /* ========== SVG Diagram Labels ========== */
 .guide-diagram .label-text { font-size: 11px; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; fill: var(--text); }
 
@@ -62,6 +65,12 @@ main { max-width: 900px; padding: 40px 48px; }
 .page-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid var(--accent); }
 .page-header h2 { font-size: 1.6rem; color: #fff; margin-bottom: 6px; }
 .page-header p { color: var(--text-muted); font-size: 0.9rem; }
+
+/* ========== Heading Sub Text ========== */
+.heading-sub { font-size: 0.8rem; color: var(--text-muted); font-weight: 400; }
+
+/* ========== Nav Current Page Highlight ========== */
+.nav-current { font-weight: 600; }
 
 /* ========== Highlighted Term ========== */
 .term { color: var(--accent); font-weight: 600; }
