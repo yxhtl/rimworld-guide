@@ -56,44 +56,74 @@ function parseSvgElements(html) {
     const svgContent = match[1];
     const rects = [], texts = [], lines = [];
 
-    const rectRegex = /<rect[^>]*\/?>/gi;
-    let rm;
-    while ((rm = rectRegex.exec(svgContent)) !== null) {
-      const tag = rm[0];
-      const x = parseFloat((tag.match(/x="([^"]*)"/) || [])[1]);
-      const y = parseFloat((tag.match(/y="([^"]*)"/) || [])[1]);
-      const w = parseFloat((tag.match(/width="([^"]*)"/) || [])[1]);
-      const h = parseFloat((tag.match(/height="([^"]*)"/) || [])[1]);
-      if (!isNaN(x) && !isNaN(y) && !isNaN(w) && !isNaN(h)) {
-        rects.push({ x, y, width: w, height: h });
-      }
-    }
+    // 追踪 <g transform="translate(x, y)"> 嵌套偏移
+    const transformStack = [{ tx: 0, ty: 0 }];
+    const lines_content = svgContent.split('\n');
 
-    const textRegex = /<text[^>]*>([\s\S]*?)<\/text>/gi;
-    let tm;
-    while ((tm = textRegex.exec(svgContent)) !== null) {
-      const tag = tm[0];
-      const rawContent = tm[1].replace(/<[^>]*>/g, '').trim();
-      const x = parseFloat((tag.match(/x="([^"]*)"/) || [])[1]);
-      const y = parseFloat((tag.match(/y="([^"]*)"/) || [])[1]);
-      const fontSize = parseFloat((tag.match(/font-size="([^"]*)"/) || [])[1]);
-      const fontWeight = (tag.match(/font-weight="([^"]*)"/) || [])[1] || 'normal';
-      const textAnchor = (tag.match(/text-anchor="([^"]*)"/) || [])[1] || 'start';
-      if (!isNaN(x) && !isNaN(y) && !isNaN(fontSize) && rawContent) {
-        texts.push({ x, y, fontSize, fontWeight, textAnchor, content: rawContent });
+    for (const line of lines_content) {
+      // 检测 <g transform="translate(...)">
+      const gOpen = line.match(/<g\s+[^>]*transform="translate\(\s*([-\d.]+)\s*[, ]\s*([-\d.]+)\s*\)"/);
+      if (gOpen) {
+        const tx = parseFloat(gOpen[1]);
+        const ty = parseFloat(gOpen[2]);
+        const prev = transformStack[transformStack.length - 1];
+        transformStack.push({ tx: prev.tx + tx, ty: prev.ty + ty });
       }
-    }
+      if (/<\/g>/.test(line)) {
+        if (transformStack.length > 1) transformStack.pop();
+      }
 
-    const lineRegex = /<line[^>]*\/?>/gi;
-    let lm;
-    while ((lm = lineRegex.exec(svgContent)) !== null) {
-      const tag = lm[0];
-      const x1 = parseFloat((tag.match(/x1="([^"]*)"/) || [])[1]);
-      const y1 = parseFloat((tag.match(/y1="([^"]*)"/) || [])[1]);
-      const x2 = parseFloat((tag.match(/x2="([^"]*)"/) || [])[1]);
-      const y2 = parseFloat((tag.match(/y2="([^"]*)"/) || [])[1]);
-      if (!isNaN(x1) && !isNaN(y1) && !isNaN(x2) && !isNaN(y2)) {
-        lines.push({ x1, y1, x2, y2 });
+      const cur = transformStack[transformStack.length - 1];
+
+      // 解析 <rect>
+      const rectMatch = line.match(/<rect[^>]*\/?>/);
+      if (rectMatch) {
+        const tag = rectMatch[0];
+        const x = parseFloat((tag.match(/x="([^"]*)"/) || [])[1]);
+        const y = parseFloat((tag.match(/y="([^"]*)"/) || [])[1]);
+        const w = parseFloat((tag.match(/width="([^"]*)"/) || [])[1]);
+        const h = parseFloat((tag.match(/height="([^"]*)"/) || [])[1]);
+        if (!isNaN(x) && !isNaN(y) && !isNaN(w) && !isNaN(h)) {
+          rects.push({ x: x + cur.tx, y: y + cur.ty, width: w, height: h });
+        }
+      }
+
+      // 解析 <text>
+      const textMatch = line.match(/<text[^>]*>([\s\S]*?)<\/text>/);
+      if (textMatch) {
+        const tag = textMatch[0];
+        const rawContent = textMatch[1].replace(/<[^>]*>/g, '').trim();
+        const x = parseFloat((tag.match(/x="([^"]*)"/) || [])[1]);
+        const y = parseFloat((tag.match(/y="([^"]*)"/) || [])[1]);
+        const fontSize = parseFloat((tag.match(/font-size="([^"]*)"/) || [])[1]);
+        const fontWeight = (tag.match(/font-weight="([^"]*)"/) || [])[1] || 'normal';
+        let textAnchor = (tag.match(/text-anchor="([^"]*)"/) || [])[1];
+        // 检查 CSS class 里的 text-anchor（tl-txt/tl-nt/tl-lbl 在 guide.css 里都是 middle）
+        if (!textAnchor) {
+          const classMatch = tag.match(/class="([^"]*)"/);
+          const classes = classMatch ? classMatch[1].split(/\s+/) : [];
+          const CENTER_CLASSES = ['tl-txt', 'tl-nt', 'tl-lbl'];
+          if (classes.some(c => CENTER_CLASSES.includes(c))) {
+            textAnchor = 'middle';
+          }
+        }
+        if (!textAnchor) textAnchor = 'start';
+        if (!isNaN(x) && !isNaN(y) && !isNaN(fontSize) && rawContent) {
+          texts.push({ x: x + cur.tx, y: y + cur.ty, fontSize, fontWeight, textAnchor, content: rawContent });
+        }
+      }
+
+      // 解析 <line>
+      const lineMatch = line.match(/<line[^>]*\/?>/);
+      if (lineMatch) {
+        const tag = lineMatch[0];
+        const x1 = parseFloat((tag.match(/x1="([^"]*)"/) || [])[1]);
+        const y1 = parseFloat((tag.match(/y1="([^"]*)"/) || [])[1]);
+        const x2 = parseFloat((tag.match(/x2="([^"]*)"/) || [])[1]);
+        const y2 = parseFloat((tag.match(/y2="([^"]*)"/) || [])[1]);
+        if (!isNaN(x1) && !isNaN(y1) && !isNaN(x2) && !isNaN(y2)) {
+          lines.push({ x1: x1 + cur.tx, y1: y1 + cur.ty, x2: x2 + cur.tx, y2: y2 + cur.ty });
+        }
       }
     }
 
@@ -163,15 +193,21 @@ function checkFile(filePath) {
         continue;
       }
 
-      // 找到该文字所在的内容矩形
+      // 找到该文字所在的内容矩形（选水平中心最近的，避免匹配到内部装饰条）
       let foundRect = null;
+      let bestCenterDist = Infinity;
       for (const rect of contentRects) {
         if (isTextInRect(text.y, rect.y, rect.height, text.fontSize)) {
           const bounds = getTextBounds(text.x, textWidth, text.textAnchor);
           const rectRight = rect.x + rect.width;
           if (bounds.right > rect.x && bounds.left < rectRight) {
-            foundRect = rect;
-            break;
+            const rectCenterX = rect.x + rect.width / 2;
+            const textCenterX = text.x;
+            const dist = Math.abs(textCenterX - rectCenterX);
+            if (dist < bestCenterDist) {
+              foundRect = rect;
+              bestCenterDist = dist;
+            }
           }
         }
       }
