@@ -68,6 +68,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/combat.html"/>
   </url>
   <url>
+    <loc>https://yxhtl.com/rimworld-guide-wealth.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-wealth.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/wealth.html"/>
+  </url>
+  <url>
     <loc>https://yxhtl.com/rimworld-guide-pawns.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -221,6 +229,14 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-combat.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/combat.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/wealth.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-wealth.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/wealth.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/en/pawns.html</loc>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HM32STKNVV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HM32STKNVV');
+</script>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?71f28761d7809372b129ffb5598d0451";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RimWorld 财富管理终极指南：为什么越富越危险？袭击点数计算公式、财富控制策略、如何把钱变成战斗力。不想微操财富？还有财富独立模式。一篇讲透 RimWorld 最反直觉的隐藏机制。">
+<meta name="keywords" content="RimWorld, 边缘世界, 攻略, 财富管理, 袭击强度, 袭击点数, 财富控制, 难度">
+<link rel="canonical" href="https://yxhtl.com/rimworld-guide-wealth.html">
+<link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-wealth.html">
+<link rel="alternate" hreflang="en" href="https://yxhtl.com/en/wealth.html">
+<link rel="alternate" hreflang="x-default" href="https://yxhtl.com/rimworld-guide-wealth.html">
+<meta property="og:title" content="RimWorld 财富管理全攻略：袭击强度计算 + 财富控制 + 钱变战斗力 | RimWorld 攻略站">
+<meta property="og:description" content="RimWorld 财富管理终极指南：为什么越富越危险？袭击点数计算公式、财富控制策略、如何把钱变成战斗力。不想微操财富？还有财富独立模式。一篇讲透 RimWorld 最反直觉的隐藏机制。">
+<meta property="og:image" content="https://yxhtl.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://yxhtl.com/rimworld-guide-wealth.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RimWorld 攻略站">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RimWorld 财富管理全攻略：袭击强度计算 + 财富控制 + 钱变战斗力 | RimWorld 攻略站">
+<meta name="twitter:description" content="RimWorld 财富管理终极指南：为什么越富越危险？袭击点数计算公式、财富控制策略、如何把钱变成战斗力。">
+<meta name="twitter:image" content="https://yxhtl.com/og-image.png">
+<meta name="robots" content="index, follow">
+<title>RimWorld 财富管理全攻略：袭击强度计算 + 财富控制 + 钱变战斗力 | RimWorld 攻略站</title>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/guide.css">
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x9iflmg36h");
+</script>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld 攻略站</h1>
+    <p>从活下去，到活得好</p>
+  </div>
+
+  <div class="lang-switcher">
+    <span class="active">中文</span> | <a href="en/wealth.html">English</a>
+  </div>
+
+  <div class="nav-section">导航</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+
+  <div class="nav-section">新手必备</div>
+  <a href="rimworld-guide-getting-started.html" class="nav-item"><span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span></a>
+  <a href="rimworld-guide-base-building.html" class="nav-item"><span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span></a>
+  <a href="rimworld-guide-temperature.html" class="nav-item"><span class="icon">🌡️</span> 温度与冷藏 <span class="nav-badge">P0</span></a>
+  <a href="rimworld-guide-power.html" class="nav-item"><span class="icon">⚡</span> 电力系统 <span class="nav-badge">P0</span></a>
+
+  <div class="nav-section">进阶内容</div>
+  <a href="rimworld-guide-combat.html" class="nav-item"><span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-wealth.html" class="nav-item active"><span class="icon">📊</span> 财富管理 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span></a>
+
+  <div class="nav-section">DLC 内容</div>
+  <a href="rimworld-guide-dlc-royalty.html" class="nav-item"><span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-ideology.html" class="nav-item"><span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span></a>
+  <a href="rimworld-guide-dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">扩展</div>
+  <a href="rimworld-guide-mods.html" class="nav-item"><span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-biomes.html" class="nav-item"><span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-animals.html" class="nav-item"><span class="icon">🐄</span> 动物与畜牧 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-trade.html" class="nav-item"><span class="icon">💰</span> 贸易与经济 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-crafting.html" class="nav-item"><span class="icon">⚗️</span> 制造与生产 <span class="nav-badge">P2</span></a>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+    <span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer"><a href="about.html">📖 关于本站</a> · <a href="privacy.html">🔒 隐私政策</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a> · MVP v0.2</div>
+</nav>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">攻略总览</a> / 财富管理 <span class="lang-link"><a href="en/wealth.html">English Version</a></span></div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+  </div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+
+  <section class="section" id="wealth">
+    <h2 class="section-title">📊 财富管理</h2>
+
+    <div class="card">
+      <h3><span class="emoji">🤯</span> RimWorld 最反直觉的机制——越富越危险</h3>
+      <p>大多数游戏里，攒资源 = 变强。RimWorld 恰恰相反：<strong>你的殖民地财富直接决定袭击规模。</strong>存了 500 份精致餐？500 块金砖？300 件剥皮来的部落装？每一样都在增加下一波袭击的人数。</p>
+      <br>
+      <p>很多新手发帖问："为什么我什么都没干，袭击越来越猛？"——因为你的冷库在悄悄替你"招兵买马"。</p>
+      <br>
+      <p><strong>核心公式一句话：</strong></p>
+      <p style="font-size:1.1em;text-align:center;padding:8px;background:var(--card-bg, #2a2a30);border-radius:6px;"><strong>叙事者财富 = 物品价值 × 100% + 生物价值 × 100% + 建筑价值 × 50%</strong></p>
+      <br>
+      <p>关键点：<strong>建筑只算一半。</strong>花在墙壁、地板、家具上的钱对袭击的影响比囤积物品小得多。这就是为什么「造防御设施」永远比「囤货」划算。</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🧮</span> 袭击点数怎么算</h3>
+      <p>游戏把「叙事者财富」转成「袭击点数」，再乘以难度倍率，最后用点数"购买"袭击者。</p>
+      <br>
+      <table>
+        <tr><th>叙事者财富</th><th>财富点数</th><th>参考：这大概是什么水平</th></tr>
+        <tr><td>0 – 14,000</td><td>0</td><td>空降第一天，财富基本不影响袭击</td></tr>
+        <tr><td>50,000</td><td>~310</td><td>早期殖民地，几个房间+基础物资</td></tr>
+        <tr><td>100,000</td><td>~620</td><td>稳定中期，已有冷库+工坊</td></tr>
+        <tr><td>200,000</td><td>~1,240</td><td>繁荣殖民地，多重建筑+库存</td></tr>
+        <tr><td>400,000</td><td>2,400</td><td>进入递减区，再多财富点数涨得慢</td></tr>
+        <tr><td>1,000,000（上限）</td><td>4,200</td><td>封顶，到此为止财富不再增加威胁</td></tr>
+      </table>
+      <br>
+      <p><strong>然后乘以难度倍率：</strong></p>
+      <table>
+        <tr><th>难度</th><th>威胁倍率</th><th>每增加约多少财富 = 多一个部落袭击者</th></tr>
+        <tr><td>冒险故事</td><td>60%</td><td>~$5,700</td></tr>
+        <tr><td>荒野求生（默认）</td><td>100%</td><td>~$3,400</td></tr>
+        <tr><td>冷酷无情</td><td>220%</td><td>~$1,550</td></tr>
+        <tr><td>自定义 500%</td><td>500%</td><td>~$680</td></tr>
+      </table>
+      <br>
+      <p><strong>点数怎么"买"袭击者：</strong></p>
+      <ul>
+        <li>部落战士 ≈ 30-60 点/人</li>
+        <li>装备精良的海盗 ≈ 90 点/人</li>
+        <li>机械镰刀 ≈ 150 点/只</li>
+        <li>机械蜈蚣 ≈ 400 点/只</li>
+      </ul>
+
+      <div class="tip">
+        <strong>💡 关键结论：</strong>在荒野求生难度下，你多囤 ~$3,400 的货，就多一个部落袭击者。在 500% 难度下，仅仅多 $680 就多一个人。高难度下财富管理不是可选项，是必修课。
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">📋</span> 什么算财富、什么不算</h3>
+      <table>
+        <tr><th>✅ 算财富</th><th>❌ 不算财富</th></tr>
+        <tr><td>地图上所有可搬运的物品（含禁止搬运的）</td><td>未开采的矿石、石块、陨石</td></tr>
+        <tr><td>驯养动物、殖民者、囚犯（动物和殖民者按市场价 100% 计）</td><td>未占领的远古威胁墙/物品</td></tr>
+        <tr><td>地板、墙壁、家具（按 50% 计）</td><td>机械集群建筑（击败后未占领状态）</td></tr>
+        <tr><td>尸体（每个新鲜尸体 ~$250）、污染衣物</td><td>腐烂/干枯的尸体</td></tr>
+        <tr><td>小人/囚犯/动物背包里的物品</td><td>远行队带出地图的物品</td></tr>
+        <tr><td>低温休眠舱和运输舱里的物品</td><td>已绑定的人格武器（价值归零）</td></tr>
+        <tr><td>拆卸下来的家具（按物品 100% 计）</td><td>访客身上的装备</td></tr>
+        <tr><td>—</td><td>研究等级和灵能等级</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">📉</span> 财富控制——少即是多</h3>
+      <p>控制财富不是让你过穷日子，而是<strong>不囤没用的东西</strong>。六条实操策略：</p>
+
+      <h4>1. 不要过量生产</h4>
+      <ul>
+        <li>一个小人每天吃 20 份生食。5×5 种植区够养一个小人一年。别种 30×30 然后让几千份稻米烂冷库里</li>
+        <li>别把全地图的矿挖了堆仓库——矿在山上不算财富，挖下来就算</li>
+        <li>不要大量制药或做饭囤着，除非马上要交易</li>
+      </ul>
+
+      <h4>2. 销毁垃圾</h4>
+      <ul>
+        <li>烧尸体、熔炼垃圾武器、烧毁破烂衣物</li>
+        <li>让不想要的物品在水里自然腐烂（水中腐烂速度最快）</li>
+        <li>用碎片手榴弹或燃烧瓶炸垃圾堆</li>
+        <li>远行队大法：组队 → 把垃圾装上驮运动物 → 离图 → 大地图上丢弃</li>
+      </ul>
+
+      <h4>3. 送礼给派系</h4>
+      <ul>
+        <li>多余的食物、皮革、药品、白银装运输舱送出去</li>
+        <li>不仅消除财富，还提升好感度——好感够了可以呼叫友军支援</li>
+        <li>一举两得：减财富 + 建联盟</li>
+      </ul>
+
+      <h4>4. 房间合并使用</h4>
+      <ul>
+        <li>餐厅+娱乐室+兵营合并成一个大房间。一套雕塑同时提升三个房间的评价</li>
+        <li>谒见厅和仪式厅也可以跟餐厅合并</li>
+      </ul>
+
+      <h4>5. 武器故意降到 50% 耐久</h4>
+      <ul>
+        <li>武器 50% 耐久 = 只有 10% 的价值，但功能完全不受影响</li>
+        <li>一把传奇电荷步枪从 $4,010 跌到 $401，减少的财富值相当于少了一个部落袭击者</li>
+        <li>让不用的武器自然老化或故意不开维修</li>
+      </ul>
+
+      <h4>6. 把财富停放在远行队</h4>
+      <ul>
+        <li>远行队里的物品不计入殖民地财富</li>
+        <li>让一个小人带着驮运动物停在友好派系基地——那里不会触发伏击</li>
+        <li>大宗贵重物品（如复活液、治愈液）不想卖就放远行队</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">💱</span> 财富投资——把钱变成战斗力</h3>
+      <p>如果控制不了财富，那就把财富转化成防御能力。交易本身会损失市场价值（买卖差价），所以<strong>花钱 = 减财富</strong>。关键是把钱花在刀刃上：</p>
+      <br>
+      <table>
+        <tr><th>买什么</th><th>为什么</th><th>优先级</th></tr>
+        <tr><td>末日火箭/三重火箭</td><td>一次性用完，一波敌人全灭。消费 = 永久减财富</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>零件</td><td>永远缺。ABC——Always Buy Components</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>灵能冲击/狂暴枪</td><td>单次使用，紧急控场。用完消失</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>动物脉冲器</td><td>一次性，召唤全图动物帮你打架</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>护盾背包</td><td>一次性防御气泡</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>技能训练器/灵能训练器</td><td>使用即消失，永久提升小人</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>更好的武器和护甲</td><td>提升每个小人的战斗力。武器可降耐久减财富</td><td>⭐⭐⭐</td></tr>
+        <tr><td>炮塔+迫击炮+炮管</td><td>永久防御投资，建筑只算 50% 财富</td><td>⭐⭐⭐</td></tr>
+        <tr><td>高级零件、黄金</td><td>后期制造必需品，用量少价值高</td><td>⭐⭐⭐</td></tr>
+        <tr><td>已绑定人格武器</td><td>财富值为零！终极投资品</td><td>⭐⭐⭐⭐⭐</td></tr>
+      </table>
+
+      <div class="tip">
+        <strong>💡 核心思维：</strong>一块金砖躺在仓库里 = 纯纯地增加威胁。一把末日火箭 = 减少财富的同时增加战斗力。永远把休眠资产转换成可消耗战力。
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🔧</span> 不想管财富？——财富独立模式</h3>
+      <p>如果你觉得微操财富太累、太反直觉，游戏给了你一条退路：</p>
+      <ul>
+        <li><strong>财富独立模式：</strong>在自定义难度设置里开启。袭击强度不再跟财富挂钩，而是<strong>随时间线性增长</strong>，到设定年份封顶 $1,000,000</li>
+        <li><strong>优点：</strong>你可以尽情囤货、装修、建豪华基地，不用担心仓库里的东西引来灭顶之灾</li>
+        <li><strong>缺点：</strong>游戏节奏变了——如果发展慢了，时间到了袭击还是会变强，你可能来不及准备</li>
+        <li><strong>位置：</strong>选项 → 游戏设置 → 自定义难度 → 启用「财富独立进度模式」</li>
+      </ul>
+      <p>如果你在 500% 难度下想玩种田党，开这个模式是唯一的选择。</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">📈</span> 定期看财富曲线</h3>
+      <p>养成习惯，每隔一段时间检查财富走势：</p>
+      <ul>
+        <li><strong>查看位置：</strong>历史 → 统计标签 → 财富图表</li>
+        <li><strong>看什么：</strong>财富曲线是不是在平稳增长，还是有突然的飙升（比如挖了一大片金子、收了一波大丰收）</li>
+        <li><strong>如果看到飙升：</strong>立刻清一波库存——送礼、销毁或交易换装备</li>
+        <li><strong>一般规律：</strong>荒野求生难度下，只要你别刻意囤货，财富自然会跟着防御能力一起涨，不需要过度焦虑</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">❌</span> 常见误区</h3>
+      <ol>
+        <li><strong>"我必须保持极端穷困"：</strong>不用。荒野求生及以下难度，正常发展完全不需要刻意压财富。财富管理的重点是<strong>不囤没用的东西</strong>，不是不发展</li>
+        <li><strong>"地板和墙壁会大幅增加袭击"：</strong>不会。建筑只算 50% 财富。5,000 块木地板才加一个部落袭击者（荒野求生）。放心装修</li>
+        <li><strong>"东西禁止搬运就不算财富"：</strong>算的。地图上任何可搬运物品都算财富，无论是否禁止、是否放在存储区</li>
+        <li><strong>"拆下来的家具不算财富"：</strong>反而算更多。安装的家具按 50% 计，拆成物品后按 100% 计</li>
+        <li><strong>"新手不能玩 500% 难度"：</strong>能玩，但必须理解财富系统。500% 下每 $680 多一个人——不控制财富基本等于自杀</li>
+        <li><strong>"多招小人能分摊财富影响"：</strong>恰恰相反。每个殖民者自身价值就是财富，而且还增加袭击点数。小人的战斗力增幅必须 > 财富增幅才划算</li>
+      </ol>
+    </div>
+  </section>
+
+  <nav class="page-nav">
+    <a href="rimworld-guide-combat.html" class="prev">
+      <span><span class="nav-label">上一页</span>⚔️ 战斗与防御</span>
+    </a>
+    <a href="rimworld-guide-pawns.html" class="next">
+      <span><span class="nav-label">下一页</span>🧑‍🌾 小人管理</span>
+    </a>
+  </nav>
+
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    if (card.textContent.toLowerCase().includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = '亮色模式'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = '暗色模式'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = '亮色模式'; }
+})();
+
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HM32STKNVV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HM32STKNVV');
+</script>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?71f28761d7809372b129ffb5598d0451";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Complete RimWorld wealth management guide: why richer = more dangerous, raid point formula, wealth control strategies, how to convert wealth into combat power. Or skip the micromanagement entirely with Wealth-Independent mode. Master RimWorld's most counter-intuitive hidden mechanic.">
+<meta name="keywords" content="RimWorld, wealth management, raid points, raid strength, wealth control, difficulty, guide">
+<link rel="canonical" href="https://yxhtl.com/en/wealth.html">
+<link rel="alternate" hreflang="en" href="https://yxhtl.com/en/wealth.html">
+<link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-wealth.html">
+<link rel="alternate" hreflang="x-default" href="https://yxhtl.com/rimworld-guide-wealth.html">
+<meta property="og:title" content="RimWorld Wealth Management Guide: Raid Points Formula + Wealth Control + Convert Wealth to Combat Power">
+<meta property="og:description" content="Complete RimWorld wealth management guide: why richer = more dangerous, raid point formula, wealth control strategies, how to convert wealth into combat power. Or skip the micromanagement entirely with Wealth-Independent mode.">
+<meta property="og:image" content="https://yxhtl.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://yxhtl.com/en/wealth.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RimWorld Guide">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RimWorld Wealth Management Guide: Raid Points Formula + Wealth Control + Convert Wealth to Combat Power">
+<meta name="twitter:description" content="Complete RimWorld wealth management guide: why richer = more dangerous, raid point formula, wealth control strategies, how to convert wealth into combat power.">
+<meta name="twitter:image" content="https://yxhtl.com/og-image.png">
+<meta name="robots" content="index, follow">
+<title>RimWorld Wealth Management Guide: Raid Points + Wealth Control + Combat Power</title>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/guide.css">
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x9iflmg36h");
+</script>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld Guide</h1>
+    <p>From Surviving to Thriving</p>
+  </div>
+
+  <div class="lang-switcher">
+    <a href="../rimworld-guide-wealth.html">中文</a> | <span class="active">English</span>
+  </div>
+
+  <div class="nav-section">Navigation</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> Guide Overview</a>
+
+  <div class="nav-section">Essential</div>
+  <a href="getting-started.html" class="nav-item"><span class="icon">🚀</span> Getting Started <span class="nav-badge">P0</span></a>
+  <a href="base-building.html" class="nav-item"><span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span></a>
+  <a href="temperature.html" class="nav-item"><span class="icon">🌡️</span> Temperature & Freezer <span class="nav-badge">P0</span></a>
+  <a href="power.html" class="nav-item"><span class="icon">⚡</span> Power Systems <span class="nav-badge">P0</span></a>
+
+  <div class="nav-section">Advanced</div>
+  <a href="combat.html" class="nav-item"><span class="icon">⚔️</span> Combat & Defense <span class="nav-badge">P1</span></a>
+  <a href="wealth.html" class="nav-item active"><span class="icon">📊</span> Wealth Management <span class="nav-badge">P1</span></a>
+  <a href="pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> Pawn Management <span class="nav-badge">P1</span></a>
+  <a href="research.html" class="nav-item"><span class="icon">🔬</span> Research Tree <span class="nav-badge">P2</span></a>
+
+  <div class="nav-section">DLCs</div>
+  <a href="dlc-royalty.html" class="nav-item"><span class="icon">👑</span> Royalty <span class="nav-badge">DLC</span></a>
+  <a href="dlc-ideology.html" class="nav-item"><span class="icon">💡</span> Ideology <span class="nav-badge">DLC</span></a>
+  <a href="dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> Biotech <span class="nav-badge">DLC</span></a>
+  <a href="dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">More</div>
+  <a href="mods.html" class="nav-item"><span class="icon">🧩</span> Mods <span class="nav-badge">P2</span></a>
+  <a href="biomes.html" class="nav-item"><span class="icon">🌍</span> Biomes <span class="nav-badge">P2</span></a>
+  <a href="animals.html" class="nav-item"><span class="icon">🐄</span> Animals <span class="nav-badge">P2</span></a>
+  <a href="trade.html" class="nav-item"><span class="icon">💰</span> Trade & Economy <span class="nav-badge">P2</span></a>
+  <a href="crafting.html" class="nav-item"><span class="icon">⚗️</span> Crafting <span class="nav-badge">P2</span></a>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer"><a href="about.html">📖 About</a> · <a href="privacy.html">🔒 Privacy</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
+</nav>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">Guide Overview</a> / Wealth Management <span class="lang-link"><a href="../rimworld-guide-wealth.html">中文版本</a></span></div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="Search this page…" oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button>
+  </div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No results found. Try a different keyword?</p></div>
+
+  <section class="section" id="wealth">
+    <h2 class="section-title">📊 Wealth Management</h2>
+
+    <div class="card">
+      <h3><span class="emoji">🤯</span> RimWorld's Most Counter-Intuitive Mechanic — Richer = More Danger</h3>
+      <p>In most games, hoarding resources = getting stronger. RimWorld flips this: <strong>your colony's wealth directly determines raid size.</strong> Stockpiled 500 fine meals? 500 gold bricks? 300 pieces of stripped tribalwear? Every single one is silently recruiting more raiders for your next attack.</p>
+      <br>
+      <p>New players often ask: "Why are raids getting bigger when I haven't done anything?" — Because your freezer has been doing the recruiting for you.</p>
+      <br>
+      <p><strong>The core formula in one line:</strong></p>
+      <p style="font-size:1.1em;text-align:center;padding:8px;background:var(--card-bg, #2a2a30);border-radius:6px;"><strong>Storyteller Wealth = Item Value × 100% + Creature Value × 100% + Building Value × 50%</strong></p>
+      <br>
+      <p>Key insight: <strong>Buildings only count at half value.</strong> Money spent on walls, floors, and furniture contributes far less to raid strength than hoarded items. This is why "build defenses" always beats "hoard loot."</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🧮</span> How Raid Points Are Calculated</h3>
+      <p>The game converts Storyteller Wealth into Raid Points, multiplies by difficulty, then uses those points to "buy" raiders.</p>
+      <br>
+      <table>
+        <tr><th>Storyteller Wealth</th><th>Wealth Points</th><th>What This Looks Like</th></tr>
+        <tr><td>0 – 14,000</td><td>0</td><td>Fresh landing, wealth barely affects raids</td></tr>
+        <tr><td>50,000</td><td>~310</td><td>Early colony, few rooms + basic supplies</td></tr>
+        <tr><td>100,000</td><td>~620</td><td>Stable mid-game, freezer + workshop</td></tr>
+        <tr><td>200,000</td><td>~1,240</td><td>Thriving colony, multiple buildings + stockpiles</td></tr>
+        <tr><td>400,000</td><td>2,400</td><td>Diminishing returns begin—extra wealth matters less</td></tr>
+        <tr><td>1,000,000 (cap)</td><td>4,200</td><td>Hard cap—wealth stops increasing threat</td></tr>
+      </table>
+      <br>
+      <p><strong>Then multiplied by difficulty threat scale:</strong></p>
+      <table>
+        <tr><th>Difficulty</th><th>Threat Scale</th><th>~Wealth per extra tribal raider</th></tr>
+        <tr><td>Adventure Story</td><td>60%</td><td>~$5,700</td></tr>
+        <tr><td>Strive to Survive (default)</td><td>100%</td><td>~$3,400</td></tr>
+        <tr><td>Losing is Fun</td><td>220%</td><td>~$1,550</td></tr>
+        <tr><td>Custom 500%</td><td>500%</td><td>~$680</td></tr>
+      </table>
+      <br>
+      <p><strong>How points "buy" raiders:</strong></p>
+      <ul>
+        <li>Tribal warrior ≈ 30-60 points each</li>
+        <li>Well-armed pirate ≈ 90 points each</li>
+        <li>Scyther ≈ 150 points each</li>
+        <li>Centipede ≈ 400 points each</li>
+      </ul>
+
+      <div class="tip">
+        <strong>💡 Key takeaway:</strong> On Strive to Survive, every ~$3,400 of extra hoarded goods = one more tribal raider. On 500% difficulty, just $680 adds one. At high difficulty, wealth management isn't optional—it's mandatory.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">📋</span> What Counts as Wealth (and What Doesn't)</h3>
+      <table>
+        <tr><th>✅ Counts as Wealth</th><th>❌ Does NOT Count</th></tr>
+        <tr><td>All haulable items on the map (including forbidden)</td><td>Unmined ores, stone chunks, meteors</td></tr>
+        <tr><td>Tamed animals, colonists, prisoners (100% market value)</td><td>Unclaimed ancient danger walls/items</td></tr>
+        <tr><td>Floors, walls, furniture (at 50% value)</td><td>Mech cluster buildings (unclaimed after defeat)</td></tr>
+        <tr><td>Corpses (~$250 each fresh), tainted clothes</td><td>Rotten/desiccated corpses</td></tr>
+        <tr><td>Items in pawn/prisoner/animal inventories</td><td>Items on caravans outside your map</td></tr>
+        <tr><td>Items in cryptosleep caskets or transport pods</td><td>Bonded persona weapons (zero value)</td></tr>
+        <tr><td>Uninstalled furniture (at 100% as an item)</td><td>Guest inventories and equipment</td></tr>
+        <tr><td>—</td><td>Research levels and psycasting levels</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">📉</span> Wealth Control — Less Is More</h3>
+      <p>Wealth management isn't about living in poverty—it's about <strong>not hoarding useless stuff.</strong> Six practical strategies:</p>
+
+      <h4>1. Don't Overproduce</h4>
+      <ul>
+        <li>One colonist eats ~20 raw food/day. A 5×5 growing zone feeds one colonist for a year. Don't plant 30×30 fields and let thousands of rice rot in the freezer</li>
+        <li>Don't mine every ore vein on the map—ore in the ground doesn't count as wealth until you mine it</li>
+        <li>Don't mass-produce drugs or meals you won't use or trade soon</li>
+      </ul>
+
+      <h4>2. Destroy Junk</h4>
+      <ul>
+        <li>Burn corpses, smelt unwanted weapons, burn tattered apparel</li>
+        <li>Let unwanted items rot in water (fastest deterioration rate)</li>
+        <li>Use frag grenades or molotovs on junk piles</li>
+        <li>Caravan trick: form a caravan → load junk onto pack animals → leave the map → drop items on the world map</li>
+      </ul>
+
+      <h4>3. Gift Surplus to Factions</h4>
+      <ul>
+        <li>Send excess food, leather, drugs, and silver as gifts via transport pods</li>
+        <li>Destroys wealth while boosting goodwill—high enough goodwill lets you call for military aid</li>
+        <li>Two birds with one stone: less wealth + stronger alliances</li>
+      </ul>
+
+      <h4>4. Combine Rooms</h4>
+      <ul>
+        <li>Merge dining + recreation + barracks into one impressive room. One set of sculptures boosts three room types simultaneously</li>
+        <li>Throne rooms and ritual rooms can also combine with dining/recreation</li>
+      </ul>
+
+      <h4>5. Let Weapons Degrade to 50% HP</h4>
+      <ul>
+        <li>Weapons at 50% durability = only 10% of their market value, with zero loss of function</li>
+        <li>A legendary charge rifle drops from $4,010 to $401—that wealth reduction alone is worth about one fewer tribal raider</li>
+        <li>Let unused weapons naturally degrade or disable repair on them</li>
+      </ul>
+
+      <h4>6. Park Wealth in Caravans</h4>
+      <ul>
+        <li>Items on caravans don't count toward colony wealth</li>
+        <li>Park a colonist with pack animals at a friendly faction base—ambushes are impossible there</li>
+        <li>High-value items you don't want to sell (resurrector serums, healer serums) can sit in a caravan indefinitely</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">💱</span> Wealth Investment — Convert Wealth into Combat Power</h3>
+      <p>If you can't control wealth, convert it into defense. Trading always loses market value (buy/sell spread), so <strong>spending money = reducing wealth.</strong> The key is spending it on the right things:</p>
+      <br>
+      <table>
+        <tr><th>Buy This</th><th>Why</th><th>Priority</th></tr>
+        <tr><td>Doomsday/Triple Rocket Launchers</td><td>Single-use, wipes entire raids. Consumed = permanent wealth reduction</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Components</td><td>Always in demand. ABC—Always Buy Components</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Psychic Shock/Insanity Lances</td><td>Single-use emergency crowd control. Gone after use</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Animal Pulsers</td><td>Single-use, summons all wildlife to fight for you</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Low-Shield Packs</td><td>Single-use defensive bubble</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Skilltrainers & Psytrainers</td><td>Consumed on use, permanently improves pawns</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Better Weapons & Armor</td><td>Improves every colonist's combat power. Weapons can degrade to 50% to further reduce wealth</td><td>⭐⭐⭐</td></tr>
+        <tr><td>Turrets + Mortars + Barrels</td><td>Permanent defense investment. Buildings only count at 50% wealth</td><td>⭐⭐⭐</td></tr>
+        <tr><td>Advanced Components, Gold</td><td>Essential for late-game crafting, high value in small quantities</td><td>⭐⭐⭐</td></tr>
+        <tr><td>Bonded Persona Weapons</td><td>Zero wealth value! Ultimate investment item</td><td>⭐⭐⭐⭐⭐</td></tr>
+      </table>
+
+      <div class="tip">
+        <strong>💡 Core mindset:</strong> A gold brick sitting in storage = pure threat increase. A doomsday rocket launcher = reduced wealth + increased combat power. Always convert dormant assets into consumable combat capability.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🔧</span> Don't Want to Manage Wealth? — Wealth-Independent Mode</h3>
+      <p>If micromanaging wealth feels tedious or counter-intuitive, the game gives you an escape hatch:</p>
+      <ul>
+        <li><strong>Wealth-Independent Progress Mode:</strong> Enable in custom difficulty settings. Raid strength scales with <strong>time passed</strong> instead of colony wealth, linearly increasing to a cap of $1,000,000 at a configurable year</li>
+        <li><strong>Pros:</strong> You can hoard, decorate, and build a luxurious base without your stockpiles summoning armageddon</li>
+        <li><strong>Cons:</strong> The game rhythm changes—if you develop slowly, raids will still get stronger on the timer and you may not be ready</li>
+        <li><strong>Where to find it:</strong> Options → Gameplay → Custom Difficulty → Enable "Wealth-Independent Progress Mode"</li>
+      </ul>
+      <p>If you want to play a peaceful farming colony on 500% difficulty, this is your only option.</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">📈</span> Check Your Wealth Graph Regularly</h3>
+      <p>Make it a habit to check your wealth trend periodically:</p>
+      <ul>
+        <li><strong>Where to look:</strong> History → Statistics tab → Wealth graph</li>
+        <li><strong>What to watch for:</strong> Is the wealth curve rising smoothly, or are there sudden spikes (e.g., mining a gold vein, a bumper harvest)?</li>
+        <li><strong>If you see a spike:</strong> Immediately clear inventory—gift, destroy, or trade for equipment</li>
+        <li><strong>General rule:</strong> On Strive to Survive and below, as long as you're not deliberately hoarding, your wealth will naturally grow alongside your defenses. No need for excessive anxiety</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">❌</span> Common Misconceptions</h3>
+      <ol>
+        <li><strong>"I must stay extremely poor":</strong> Not necessary. On Strive to Survive and below, normal progression requires zero deliberate wealth management. The point is <strong>not hoarding useless junk</strong>, not avoiding development</li>
+        <li><strong>"Floors and walls massively increase raids":</strong> They don't. Buildings only count at 50%. It takes 5,000 wood floor tiles to add one tribal raider (Strive to Survive). Decorate freely</li>
+        <li><strong>"Forbidding items removes them from wealth":</strong> No. All haulable items on the map count, whether forbidden or in a stockpile or not</li>
+        <li><strong>"Uninstalled furniture doesn't count":</strong> It counts MORE. Installed furniture = 50% value. Uninstalled as an item = 100% value</li>
+        <li><strong>"New players can't handle 500% difficulty":</strong> They can, but only by understanding the wealth system. At 500%, every $680 adds one raider—ignoring wealth is suicide</li>
+        <li><strong>"Recruiting more colonists spreads the wealth impact":</strong> The opposite is true. Each colonist IS wealth, and they also add separate pawn points. A colonist's combat contribution must exceed their wealth contribution to be worthwhile</li>
+      </ol>
+    </div>
+  </section>
+
+  <nav class="page-nav">
+    <a href="combat.html" class="prev">
+      <span><span class="nav-label">Previous</span>⚔️ Combat & Defense</span>
+    </a>
+    <a href="pawns.html" class="next">
+      <span><span class="nav-label">Next</span>🧑‍🌾 Pawn Management</span>
+    </a>
+  </nav>
+
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    if (card.textContent.toLowerCase().includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = 'Light Mode'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = 'Dark Mode'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = 'Light Mode'; }
+})();
+
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>
