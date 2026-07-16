@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HM32STKNVV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HM32STKNVV');
+</script>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?71f28761d7809372b129ffb5598d0451";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Complete RimWorld temperature & freezer guide: how to build a walk-in freezer from scratch, double-wall insulation, airlock design, cooler math, heat wave and cold snap survival. Master temperature control so your food never rots.">
+<meta name="keywords" content="RimWorld, freezer, temperature, cooler, insulation, heat wave, food preservation, airlock, guide">
+<link rel="canonical" href="https://yxhtl.com/en/temperature.html">
+<link rel="alternate" hreflang="en" href="https://yxhtl.com/en/temperature.html">
+<link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-temperature.html">
+<link rel="alternate" hreflang="x-default" href="https://yxhtl.com/rimworld-guide-temperature.html">
+<meta property="og:title" content="RimWorld Temperature & Freezer Guide: Cooler Setup + Insulation + Heat Wave Survival">
+<meta property="og:description" content="Complete RimWorld temperature & freezer guide: how to build a walk-in freezer from scratch, double-wall insulation, airlock design, cooler math, heat wave and cold snap survival. Master temperature control so your food never rots.">
+<meta property="og:image" content="https://yxhtl.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://yxhtl.com/en/temperature.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RimWorld Guide">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RimWorld Temperature & Freezer Guide: Cooler Setup + Insulation + Heat Wave Survival">
+<meta name="twitter:description" content="Complete RimWorld temperature & freezer guide: how to build a walk-in freezer from scratch, double-wall insulation, airlock design, cooler math, heat wave and cold snap survival.">
+<meta name="twitter:image" content="https://yxhtl.com/og-image.png">
+<meta name="robots" content="index, follow">
+<title>RimWorld Temperature & Freezer Guide: Cooler Setup + Insulation + Heat Waves</title>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/guide.css">
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x9iflmg36h");
+</script>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld Guide</h1>
+    <p>From Surviving to Thriving</p>
+  </div>
+
+  <div class="lang-switcher">
+    <a href="../rimworld-guide-temperature.html">中文</a> | <span class="active">English</span>
+  </div>
+
+  <div class="nav-section">Navigation</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> Guide Overview</a>
+
+  <div class="nav-section">Essential</div>
+  <a href="getting-started.html" class="nav-item">
+    <span class="icon">🚀</span> Getting Started <span class="nav-badge">P0</span>
+  </a>
+  <a href="base-building.html" class="nav-item">
+    <span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span>
+  </a>
+  <a href="temperature.html" class="nav-item active">
+    <span class="icon">🌡️</span> Temperature & Freezer <span class="nav-badge">P0</span>
+  </a>
+
+  <div class="nav-section">Advanced</div>
+  <a href="combat.html" class="nav-item"><span class="icon">⚔️</span> Combat & Defense <span class="nav-badge">P1</span></a>
+  <a href="pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> Pawn Management <span class="nav-badge">P1</span></a>
+  <a href="research.html" class="nav-item"><span class="icon">🔬</span> Research Tree <span class="nav-badge">P2</span></a>
+
+  <div class="nav-section">DLCs</div>
+  <a href="dlc-royalty.html" class="nav-item"><span class="icon">👑</span> Royalty <span class="nav-badge">DLC</span></a>
+  <a href="dlc-ideology.html" class="nav-item"><span class="icon">💡</span> Ideology <span class="nav-badge">DLC</span></a>
+  <a href="dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> Biotech <span class="nav-badge">DLC</span></a>
+  <a href="dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">More</div>
+  <a href="mods.html" class="nav-item"><span class="icon">🧩</span> Mods <span class="nav-badge">P2</span></a>
+  <a href="biomes.html" class="nav-item"><span class="icon">🌍</span> Biomes <span class="nav-badge">P2</span></a>
+  <a href="animals.html" class="nav-item"><span class="icon">🐄</span> Animals <span class="nav-badge">P2</span></a>
+  <a href="trade.html" class="nav-item"><span class="icon">💰</span> Trade & Economy <span class="nav-badge">P2</span></a>
+  <a href="crafting.html" class="nav-item"><span class="icon">⚗️</span> Crafting <span class="nav-badge">P2</span></a>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer"><a href="about.html">📖 About</a> · <a href="privacy.html">🔒 Privacy</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
+</nav>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">Guide Overview</a> / Temperature & Freezer <span class="lang-link"><a href="../rimworld-guide-temperature.html">中文版本</a></span></div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="Search this page…" oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button>
+  </div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No results found. Try a different keyword?</p></div>
+
+  <section class="section" id="temperature">
+    <h2 class="section-title">🌡️ Temperature & Freezer Guide</h2>
+
+    <div class="card">
+      <h3><span class="emoji">🧊</span> Freezer Design — The Heart of Food Preservation</h3>
+      <p>The freezer is the heart of any RimWorld base. No freezer = no stored food = starvation in winter. But many new players build a cooler and still find their food rotting. Here's why—and how to fix it.</p>
+      <br>
+      <p><strong>The Golden Trio: Double Walls + Airlock + Dual Coolers.</strong> Miss one, and your freezer is barely functional.</p>
+
+      <table>
+        <tr><th>Element</th><th>How To</th><th>Why</th></tr>
+        <tr><td>Target Temp</td><td>Set coolers to <strong>-9°C</strong></td><td>Food stops spoiling below 0°C. -9°C provides a safety buffer—door openings and heat waves won't immediately push it above freezing</td></tr>
+        <tr><td>Double Walls</td><td>Build <strong>two layers</strong> (any material)</td><td>The game only calculates two layers of insulation—a third does nothing. Material doesn't affect insulation, but stone doesn't burn</td></tr>
+        <tr><td>Airlock</td><td>Door → 1 empty tile → Door</td><td>The outer door closes before the inner one opens, preventing hot air from flooding in. Use wood/steel autodoors for fast operation</td></tr>
+        <tr><td>Cooler Count</td><td><strong>1 cooler per ~60 tiles</strong></td><td>An 8×8 freezer (64 tiles) needs 1 cooler. Scale up proportionally for larger rooms</td></tr>
+        <tr><td>Cooler Direction</td><td>Blue → inside · Red → outside</td><td>The red side exhausts heat. If it faces a wall or enclosed room, the cooler fails entirely</td></tr>
+        <tr><td>Stagger Temps</td><td>Set multiple coolers to different targets</td><td>E.g. -8°C and -10°C. Once target is reached, one cooler drops to 20W standby while the other handles minor fluctuations—saving power with built-in redundancy</td></tr>
+      </table>
+
+      <div class="tip warn">
+        <strong>⚠️ #1 New Player Mistake:</strong> Cooler red side facing indoors or blocked by a wall—hot exhaust has nowhere to go, cooler stops working. Check every cooler: the red arrow MUST point to outdoors or an unroofed tile.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">📐</span> Freezer Layout in Practice</h3>
+      <p>A good freezer isn't just about slapping down a cooler. Position and traffic flow matter just as much:</p>
+      <ul>
+        <li><strong>Between fields and kitchen:</strong> Farmers harvest → freezer → cook grabs ingredients. The shorter the path, the higher the efficiency</li>
+        <li><strong>Kitchen adjacent but separate:</strong> Don't put the stove inside the freezer (stoves produce heat). Build the kitchen as its own room sharing a wall with the freezer</li>
+        <li><strong>Store meals in the airlock:</strong> Put finished meals in the airlock buffer zone. Colonists grab meals without ever entering the freezer—only haulers and cooks go inside</li>
+        <li><strong>Don't use the freezer as a hallway:</strong> Foot traffic is the enemy of stable temperature. The freezer should be a dead-end room</li>
+        <li><strong>Restrict animals:</strong> Animals hold doors open and let cold air escape. Set freezer doors to forbid animal passage</li>
+        <li><strong>Stockpile zones by type:</strong> Separate raw meat, vegetables, and meals into different zones with appropriate priorities</li>
+      </ul>
+
+      <figure class="guide-diagram">
+        <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="sh-airlock"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/></filter>
+            <filter id="sh-cooler"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#000" flood-opacity="0.25"/></filter>
+            <marker id="arr-bat" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0,1 L9,5 L0,9 Z" fill="#d4b65a"/>
+            </marker>
+          </defs>
+          <rect x="0" y="0" width="720" height="420" fill="#1a1a1f"/>
+
+          <text x="360" y="22" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="sans-serif">Standard Freezer Design — 3 Keys: Double Walls + Airlock + Dual Coolers</text>
+          <line x1="60" y1="34" x2="660" y2="34" stroke="#3a3a40" stroke-width="1"/>
+
+          <rect x="50" y="44" width="620" height="32" rx="4" fill="#2a2a30" stroke="#444" stroke-width="1"/>
+          <text x="360" y="65" text-anchor="middle" fill="#888" font-size="12" font-family="sans-serif">🏜️ Outdoors (~25°C)</text>
+
+          <rect x="50" y="76" width="620" height="14" fill="#5e5e68" stroke="#6e6e78" stroke-width="1"/>
+          <rect x="50" y="90" width="620" height="14" fill="#5e5e68" stroke="#6e6e78" stroke-width="1"/>
+          <text x="270" y="100" text-anchor="end" fill="#ddd" font-size="10" font-weight="bold" font-family="sans-serif">Double Walls (2 layers = 2× insulation)</text>
+          <text x="450" y="100" text-anchor="start" fill="#ddd" font-size="10" font-weight="bold" font-family="sans-serif">Prevents cold air loss</text>
+
+          <rect x="50" y="120" width="620" height="170" fill="#1a2838" stroke="#3a5a7a" stroke-width="2" rx="4"/>
+          <rect x="54" y="124" width="612" height="8" rx="1" fill="#5e5e68"/>
+          <rect x="54" y="282" width="612" height="8" rx="1" fill="#5e5e68"/>
+          <rect x="54" y="124" width="8" height="166" rx="1" fill="#5e5e68"/>
+          <rect x="658" y="124" width="8" height="166" rx="1" fill="#5e5e68"/>
+          <text x="360" y="148" text-anchor="middle" fill="#5a9fd4" font-size="14" font-weight="bold" font-family="sans-serif">🧊 Freezer Interior · Target -9°C · Min 8×8 Tiles</text>
+
+          <rect x="80" y="158" width="160" height="36" rx="4" fill="#2a3a2a" stroke="#3a5a3a" stroke-width="1"/>
+          <text x="160" y="180" text-anchor="middle" fill="#8a8" font-size="12" font-weight="bold" font-family="sans-serif">🥩 Raw Meat</text>
+
+          <rect x="280" y="158" width="160" height="36" rx="4" fill="#2a3a2a" stroke="#3a5a3a" stroke-width="1"/>
+          <text x="360" y="180" text-anchor="middle" fill="#8a8" font-size="12" font-weight="bold" font-family="sans-serif">🌽 Vegetables</text>
+
+          <rect x="480" y="158" width="160" height="36" rx="4" fill="#2a3a2a" stroke="#3a5a3a" stroke-width="1"/>
+          <text x="560" y="180" text-anchor="middle" fill="#8a8" font-size="12" font-weight="bold" font-family="sans-serif">🍳 Prepared Meals</text>
+
+          <rect x="295" y="78" width="130" height="42" fill="#3a3a44" stroke="#6a6a74" stroke-width="2" rx="3" filter="url(#sh-airlock)"/>
+          <text x="360" y="94" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">🚪 Airlock</text>
+          <text x="360" y="108" text-anchor="middle" fill="#aaa" font-size="10" font-family="sans-serif">Only entrance</text>
+          <rect x="301" y="82" width="8" height="34" rx="2" fill="#4a7"/>
+          <rect x="411" y="82" width="8" height="34" rx="2" fill="#4a7"/>
+          <text x="260" y="130" text-anchor="end" fill="#4a9" font-size="10" font-family="sans-serif">↑ To outdoors</text>
+          <text x="460" y="130" text-anchor="start" fill="#4a9" font-size="10" font-family="sans-serif">↓ To freezer</text>
+
+          <rect x="650" y="138" width="20" height="22" rx="3" fill="#4a6090" stroke="#6a80b0" stroke-width="1" filter="url(#sh-cooler)"/>
+          <rect x="670" y="138" width="20" height="22" rx="3" fill="#c0392b" stroke="#d05040" stroke-width="1"/>
+          <text x="660" y="153" text-anchor="middle" fill="#aad" font-size="10" font-family="sans-serif">❄️</text>
+          <text x="680" y="153" text-anchor="middle" fill="#faa" font-size="10" font-family="sans-serif">🔥</text>
+          <text x="680" y="134" text-anchor="middle" fill="#e74c3c" font-size="10" font-family="sans-serif">↓ Exhaust to outdoors</text>
+
+          <rect x="650" y="190" width="20" height="22" rx="3" fill="#4a6090" stroke="#6a80b0" stroke-width="1" filter="url(#sh-cooler)"/>
+          <rect x="670" y="190" width="20" height="22" rx="3" fill="#c0392b" stroke="#d05040" stroke-width="1"/>
+          <text x="660" y="205" text-anchor="middle" fill="#aad" font-size="10" font-family="sans-serif">❄️</text>
+          <text x="680" y="205" text-anchor="middle" fill="#faa" font-size="10" font-family="sans-serif">🔥</text>
+
+          <text x="660" y="240" text-anchor="middle" fill="#5a9fd4" font-size="10" font-weight="bold" font-family="sans-serif">Coolers × 2</text>
+          <text x="660" y="255" text-anchor="middle" fill="#aaa" font-size="10" font-family="sans-serif">Blue → Freezer</text>
+          <text x="660" y="270" text-anchor="middle" fill="#aaa" font-size="10" font-family="sans-serif">Red → Outdoors</text>
+
+          <rect x="540" y="302" width="90" height="32" rx="4" fill="#6a6a30" stroke="#8a8a40" stroke-width="1.5"/>
+          <text x="585" y="322" text-anchor="middle" fill="#ffa" font-size="11" font-weight="bold" font-family="sans-serif">🔋 Backup Battery ×1</text>
+
+          <line x1="585" y1="302" x2="585" y2="201" stroke="#d4b65a" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="585" y1="201" x2="650" y2="201" stroke="#d4b65a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-bat)"/>
+
+          <text x="50" y="360" fill="#888" font-size="10" font-family="sans-serif">↔ Min 8×8 (64 tiles) · Scale up with population · +4 tiles wide per 3 colonists</text>
+
+          <rect x="100" y="378" width="520" height="26" rx="4" fill="#1e1e24" stroke="#333" stroke-width="1"/>
+          <rect x="115" y="387" width="14" height="8" rx="2" fill="#5e5e68"/><text x="135" y="396" fill="#bbb" font-size="10" font-family="sans-serif">Double Wall</text>
+          <rect x="200" y="387" width="14" height="8" rx="2" fill="#4a7"/><text x="220" y="396" fill="#bbb" font-size="10" font-family="sans-serif">Airlock Door</text>
+          <rect x="310" y="387" width="14" height="8" rx="2" fill="#4a6090"/><text x="330" y="396" fill="#bbb" font-size="10" font-family="sans-serif">Cooler (Cold)</text>
+          <rect x="420" y="387" width="14" height="8" rx="2" fill="#c0392b"/><text x="440" y="396" fill="#bbb" font-size="10" font-family="sans-serif">Cooler (Hot Exhaust)</text>
+          <rect x="550" y="387" width="14" height="8" rx="2" fill="#6a6a30"/><text x="570" y="396" fill="#bbb" font-size="10" font-family="sans-serif">Backup Battery</text>
+        </svg>
+        <figcaption>▲ The three essentials: ① Double-wall insulation ② Airlock to minimize temperature leak ③ Dual coolers + backup battery for power outages. Nail these three and your food never spoils.</figcaption>
+      </figure>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🌡️</span> How Temperature Works</h3>
+      <p>RimWorld's temperature simulation is surprisingly realistic. Understanding the mechanics prevents most rookie mistakes:</p>
+      <ul>
+        <li><strong>Coolers only cool, never heat:</strong> If outdoor temps drop below your freezer temp, the cooler simply stays idle—the freezer gets colder, which is fine. The cooler won't reverse and warm things up</li>
+        <li><strong>One cooler = fixed cooling power:</strong> Setting it to -1°C or -100°C doesn't change how fast it cools. It just runs longer to reach the lower target. To increase cooling capacity, add more coolers</li>
+        <li><strong>Low-power standby:</strong> Once the target temperature is reached, coolers drop to 20W. Staggering temperatures across multiple coolers exploits this for efficiency</li>
+        <li><strong>Heaters work the same way:</strong> Same mechanics, opposite direction. Fixed output, quantity matters more than the target temperature setting</li>
+        <li><strong>Room size matters:</strong> Larger rooms need more coolers/heaters to maintain temperature. An 8×8 freezer and a 20×20 freezer are completely different beasts</li>
+        <li><strong>Roof coverage is mandatory:</strong> Any unroofed tile makes the room the same temperature as outdoors. Always check roof coverage on enclosed rooms</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🧱</span> Insulation — Double Walls Are All You Need</h3>
+      <p>Insulation is the foundation of temperature control. Fortunately, the rules are simple:</p>
+      <ul>
+        <li><strong>Double walls are optimal:</strong> A third layer provides zero additional benefit—the game only checks two tiles of insulation. Two layers max, anything more is wasted materials</li>
+        <li><strong>Material doesn't affect insulation:</strong> Wood walls insulate exactly as well as stone walls. Choose stone because it's non-flammable and has more HP</li>
+        <li><strong>Doors are the weak point:</strong> Doors don't insulate—hence the need for airlocks (double doors with a gap) to minimize temperature leakage</li>
+        <li><strong>Autodoors beat manual doors:</strong> Faster opening = less cold air escaping. Wood autodoors are fastest; stone autodoors are slower but fireproof</li>
+        <li><strong>Mountain bases = natural insulation:</strong> Overhead mountain tiles provide massive passive insulation. A freezer dug into a mountain needs far less cooling power in summer</li>
+        <li><strong>Void Barrier (Anomaly DLC):</strong> The ultimate insulation material, far outperforming stone walls. If you have Anomaly, build your freezer with these</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🔥</span> Heat Waves & Cold Snaps — Extreme Weather Survival</h3>
+
+      <h4>☀️ Heat Waves</h4>
+      <ul>
+        <li><strong>Add temporary coolers:</strong> Build 1-2 extra coolers when a heat wave hits. Tear them down or switch them off after it passes</li>
+        <li><strong>Passive coolers cannot freeze food:</strong> They only cool rooms to ~15-17°C—nowhere near freezing. Use them for bedrooms to prevent heatstroke, not for food preservation</li>
+        <li><strong>Double walls + mountain = resilience:</strong> Well-insulated freezers experience far smaller temperature spikes during heat waves. This is a site selection consideration from day one</li>
+        <li><strong>Ensure cooler exhaust ventilation:</strong> During heat waves, exhaust heat is even hotter. Make absolutely sure the red side isn't venting into an enclosed space</li>
+        <li><strong>Supercool before the wave:</strong> If you have surplus power, crank the freezer down to -15°C or lower before the heat wave arrives as a thermal buffer</li>
+      </ul>
+
+      <h4>❄️ Cold Snaps</h4>
+      <ul>
+        <li><strong>Heat indoor workspaces:</strong> Bedrooms and workshops need heaters set to 21°C. Colonists sleeping in sub-zero rooms develop hypothermia</li>
+        <li><strong>Campfires:</strong> The tribal-start heating solution. No electricity needed, but consumes wood and can't maintain a precise temperature</li>
+        <li><strong>Geothermal heating:</strong> If your map has steam geysers, build bedrooms nearby—free heating for life</li>
+        <li><strong>Freezers are fine during cold snaps:</strong> Outdoor sub-zero temps mean your coolers barely run. But check indoor crops—they die below freezing</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🔌</span> Power Outages — Don't Panic During Solar Flares</h3>
+      <ul>
+        <li><strong>Solar flares last 12 hours max:</strong> This is hard-coded. Frozen food easily survives 12 hours without cooling. Keep the freezer door closed during the flare and temperature will recover naturally afterward. Do NOT deconstruct walls</li>
+        <li><strong>Dedicated backup battery:</strong> Place one battery near the freezer, disconnected from the main grid via a switch. Keep it charged. When a short circuit or outage hits, flip the switch to power only the coolers. Note: batteries still fail during solar flares</li>
+        <li><strong>Fuel generators as backup:</strong> Wood-fired or chemfuel generators aren't affected by sunlight. Use them when batteries run dry</li>
+        <li><strong>Packaged survival meals:</strong> They never spoil. Keep a long-term stockpile of 50-100 outside the freezer on shelves. This is your ultimate emergency food reserve</li>
+        <li><strong>Pemmican (tribal):</strong> No freezing required, extremely long shelf life. The most important food reserve for tribal starts</li>
+      </ul>
+      <div class="tip">
+        <strong>💡 Pro tip:</strong> Always keep 50-100 packaged survival meals on shelves outside the freezer. No matter how long the power is out, this food won't rot.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">📋</span> What Needs Freezing?</h3>
+      <table>
+        <tr><th>Needs Freezing</th><th>Doesn't Need Freezing</th></tr>
+        <tr><td>All raw food (meat, vegetables, eggs, milk)</td><td>Packaged survival meals (never spoils)</td></tr>
+        <tr><td>Prepared meals (simple, fine, lavish)</td><td>Pemmican (extremely long shelf life)</td></tr>
+        <tr><td>Herbal medicine</td><td>Kibble (never spoils—store on shelves)</td></tr>
+        <tr><td>Psychoid leaves, psilocap</td><td>Most manufactured drugs (no spoil timer)</td></tr>
+        <tr><td>—</td><td>Blood, organs (no freezing needed)</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">❌</span> Common Freezer Mistakes</h3>
+      <ol>
+        <li><strong>Cooler red side blocked:</strong> Red arrow facing a wall or indoors = hot exhaust trapped = cooler failure. Deconstruct the wall or rotate the cooler</li>
+        <li><strong>Door held open:</strong> Check door settings—"Hold Open" should be false. Especially problematic when haulers move bulk items</li>
+        <li><strong>Temperature set to exactly 0°C:</strong> Right at the freezing threshold. One door opening pushes it to 1°C and spoilage begins. Set to at least -5°C</li>
+        <li><strong>Single-layer walls:</strong> Poor insulation collapses during heat waves. Add a second layer—material doesn't matter</li>
+        <li><strong>Deconstructing walls during solar flares:</strong> Never do this. Food won't spoil in 12 hours. Removing walls makes temperature recovery after the flare even slower</li>
+        <li><strong>Insufficient cooling during heat waves:</strong> One cooler that works fine at normal temps may fail when outdoor temps hit 50°C. Install a backup cooler in advance</li>
+        <li><strong>Animals near the freezer:</strong> Animals open doors, hold them open, and let cold air escape. Restrict animal access to the freezer zone entirely</li>
+      </ol>
+    </div>
+  </section>
+
+  <nav class="page-nav">
+    <a href="base-building.html" class="prev">
+      <span><span class="nav-label">Previous</span>🏠 Base Building</span>
+    </a>
+    <a href="combat.html" class="next">
+      <span><span class="nav-label">Next</span>⚔️ Combat & Defense</span>
+    </a>
+  </nav>
+
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    if (card.textContent.toLowerCase().includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = 'Light Mode'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = 'Dark Mode'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = 'Light Mode'; }
+})();
+
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>
