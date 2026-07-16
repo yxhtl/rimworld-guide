@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HM32STKNVV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HM32STKNVV');
+</script>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?71f28761d7809372b129ffb5598d0451";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Complete RimWorld power guide: solar vs wind vs geothermal vs chemfuel comparison, battery strategy, Zzzzt short circuit prevention, grid design best practices. From early wind turbines to late-game geothermal, master colony power management.">
+<meta name="keywords" content="RimWorld, power, electricity, generator, solar, wind, geothermal, battery, Zzzzt, short circuit, conduit, guide">
+<link rel="canonical" href="https://yxhtl.com/en/power.html">
+<link rel="alternate" hreflang="en" href="https://yxhtl.com/en/power.html">
+<link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-power.html">
+<link rel="alternate" hreflang="x-default" href="https://yxhtl.com/rimworld-guide-power.html">
+<meta property="og:title" content="RimWorld Power Guide: Generator Comparison + Battery Strategy + Zzzzt Prevention">
+<meta property="og:description" content="Complete RimWorld power guide: solar vs wind vs geothermal vs chemfuel comparison, battery strategy, Zzzzt short circuit prevention, grid design best practices. From early wind turbines to late-game geothermal, master colony power management.">
+<meta property="og:image" content="https://yxhtl.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://yxhtl.com/en/power.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RimWorld Guide">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RimWorld Power Guide: Generator Comparison + Battery Strategy + Zzzzt Prevention">
+<meta name="twitter:description" content="Complete RimWorld power guide: solar vs wind vs geothermal vs chemfuel comparison, battery strategy, Zzzzt short circuit prevention, grid design best practices.">
+<meta name="twitter:image" content="https://yxhtl.com/og-image.png">
+<meta name="robots" content="index, follow">
+<title>RimWorld Power Guide: Generator Comparison + Battery Strategy + Zzzzt Prevention</title>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/guide.css">
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x9iflmg36h");
+</script>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h1>🪐 RimWorld Guide</h1>
+    <p>From Surviving to Thriving</p>
+  </div>
+
+  <div class="lang-switcher">
+    <a href="../rimworld-guide-power.html">中文</a> | <span class="active">English</span>
+  </div>
+
+  <div class="nav-section">Navigation</div>
+  <a href="index.html" class="nav-item"><span class="icon">🏠</span> Guide Overview</a>
+
+  <div class="nav-section">Essential</div>
+  <a href="getting-started.html" class="nav-item"><span class="icon">🚀</span> Getting Started <span class="nav-badge">P0</span></a>
+  <a href="base-building.html" class="nav-item"><span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span></a>
+  <a href="temperature.html" class="nav-item"><span class="icon">🌡️</span> Temperature & Freezer <span class="nav-badge">P0</span></a>
+  <a href="power.html" class="nav-item active"><span class="icon">⚡</span> Power Systems <span class="nav-badge">P0</span></a>
+
+  <div class="nav-section">Advanced</div>
+  <a href="combat.html" class="nav-item"><span class="icon">⚔️</span> Combat & Defense <span class="nav-badge">P1</span></a>
+  <a href="pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> Pawn Management <span class="nav-badge">P1</span></a>
+  <a href="research.html" class="nav-item"><span class="icon">🔬</span> Research Tree <span class="nav-badge">P2</span></a>
+
+  <div class="nav-section">DLCs</div>
+  <a href="dlc-royalty.html" class="nav-item"><span class="icon">👑</span> Royalty <span class="nav-badge">DLC</span></a>
+  <a href="dlc-ideology.html" class="nav-item"><span class="icon">💡</span> Ideology <span class="nav-badge">DLC</span></a>
+  <a href="dlc-biotech.html" class="nav-item"><span class="icon">🧬</span> Biotech <span class="nav-badge">DLC</span></a>
+  <a href="dlc-anomaly.html" class="nav-item"><span class="icon">🪱</span> Anomaly <span class="nav-badge">DLC</span></a>
+
+  <div class="nav-section">More</div>
+  <a href="mods.html" class="nav-item"><span class="icon">🧩</span> Mods <span class="nav-badge">P2</span></a>
+  <a href="biomes.html" class="nav-item"><span class="icon">🌍</span> Biomes <span class="nav-badge">P2</span></a>
+  <a href="animals.html" class="nav-item"><span class="icon">🐄</span> Animals <span class="nav-badge">P2</span></a>
+  <a href="trade.html" class="nav-item"><span class="icon">💰</span> Trade & Economy <span class="nav-badge">P2</span></a>
+  <a href="crafting.html" class="nav-item"><span class="icon">⚗️</span> Crafting <span class="nav-badge">P2</span></a>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span> <span class="toggle-thumb"></span>
+  </button>
+
+  <div class="nav-footer"><a href="about.html">📖 About</a> · <a href="privacy.html">🔒 Privacy</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
+</nav>
+
+<main>
+  <div class="breadcrumb"><a href="index.html">Guide Overview</a> / Power Systems <span class="lang-link"><a href="../rimworld-guide-power.html">中文版本</a></span></div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="Search this page…" oninput="doSearch()">
+    <button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button>
+  </div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No results found. Try a different keyword?</p></div>
+
+  <section class="section" id="power">
+    <h2 class="section-title">⚡ Power Systems</h2>
+
+    <div class="card">
+      <h3><span class="emoji">📊</span> Generator Comparison — All Six Sources at a Glance</h3>
+      <p>RimWorld has six power sources, each with specific use cases. Picking the wrong combination = winter blackout = freezer thaw = colony wipe.</p>
+      <br>
+      <table>
+        <tr><th>Generator</th><th>Max Output</th><th>Stability</th><th>Battery Needed?</th><th>Fuel Needed?</th><th>Key Limitation</th></tr>
+        <tr><td>🌋 Geothermal</td><td>3,600W</td><td>⭐⭐⭐⭐⭐ Constant 24/7</td><td>❌ No</td><td>❌ No</td><td>Must be on a steam geyser—location fixed</td></tr>
+        <tr><td>💧 Watermill</td><td>1,100W</td><td>⭐⭐⭐⭐⭐ Constant</td><td>❌ No</td><td>❌ No</td><td>Requires river; fails if river freezes</td></tr>
+        <tr><td>⛽ Chemfuel</td><td>1,000W</td><td>⭐⭐⭐⭐ Constant</td><td>❌ No</td><td>✅ 4.5 chemfuel/day</td><td>Needs ongoing fuel supply + refueling labor</td></tr>
+        <tr><td>🪵 Wood-Fired</td><td>1,000W</td><td>⭐⭐⭐⭐ Constant</td><td>❌ No</td><td>✅ 22 wood/day</td><td>2.4× less efficient than chemfuel</td></tr>
+        <tr><td>💨 Wind Turbine</td><td>0–3,450W</td><td>⭐⭐ Highly variable</td><td>✅ Must</td><td>❌ No</td><td>Needs 7×18 clear zone</td></tr>
+        <tr><td>☀️ Solar Panel</td><td>0–1,700W</td><td>⭐ Daytime only</td><td>✅ Must</td><td>❌ No</td><td>Zero output at night and during eclipses</td></tr>
+      </table>
+
+      <div class="tip">
+        <strong>💡 TL;DR:</strong> Geothermal > Watermill > Chemfuel > Wood-Fired > Wind + Solar. If there's a geyser available, build geothermal. No geyser? Find a river. Neither? Go chemfuel—tame boomalopes for the easiest fuel supply.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🌋</span> Geothermal — The Ultimate Power Source</h3>
+      <p>Geothermal is RimWorld's perfect power source: 3,600W constant output, immune to weather/day/night/seasons, no batteries, no fuel.</p>
+      <ul>
+        <li><strong>Requirements:</strong> Geothermal research + 400 steel + 8 components. Must be built on a steam geyser</li>
+        <li><strong>One is enough:</strong> A single geothermal generator (3,600W) can power an entire early-to-mid game colony. Two will carry you to endgame</li>
+        <li><strong>Defend it:</strong> Raiders actively target geothermal generators. Wall them in with double-thick stone walls, or expand your base to encompass nearby geysers</li>
+        <li><strong>Location is the only limit:</strong> Steam geysers are finite and randomly placed. If a geyser is far away, run a long conduit—but bury it in stone walls for fire protection</li>
+        <li><strong>Research priority:</strong> Geothermal research is P1 priority—right after Microelectronics and Flak Armor. Research it early and enjoy permanent power</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">⛽</span> Chemfuel Generators — The Best Fuel Option</h3>
+      <p>1,000W constant output, consumes 4.5 chemfuel/day. The real question is: where does the chemfuel come from?</p>
+      <br>
+      <table>
+        <tr><th>Fuel Source</th><th>Yield</th><th>Efficiency</th></tr>
+        <tr><td>🐄 Tamed Boomalopes</td><td>1 boomalope = 11 fuel/day ≈ 2.4 generators</td><td>⭐⭐⭐⭐⭐ Best method—just milk them</td></tr>
+        <tr><td>🌾 Crop Refining</td><td>Rice/corn → Chemfuel Refinery</td><td>⭐⭐⭐⭐ Requires farming + refining labor</td></tr>
+        <tr><td>🪵 Wood Refining</td><td>9 wood/day = 1,000W (2.4× more efficient than wood-fired)</td><td>⭐⭐⭐ Always refine wood, never burn it directly</td></tr>
+        <tr><td>🛢️ Deep Drilling</td><td>Late-game underground oil</td><td>⭐⭐⭐⭐⭐ Unlimited, but high tech requirement</td></tr>
+        <tr><td>🍄 Nutrifungus (Ideology DLC)</td><td>Grow in caves → refine to chemfuel</td><td>⭐⭐⭐⭐ Great for mountain bases</td></tr>
+      </table>
+      <br>
+      <p><strong>Key insight:</strong> For the same 1,000W output—a chemfuel generator burns 9 wood/day (after refining), while a wood-fired generator burns 22 wood/day (direct burn). <strong>Chemfuel is 2.4× more efficient than wood-fired.</strong> Unless you're a tribal start without refining tech, always use chemfuel, never burn wood directly.</p>
+
+      <div class="tip">
+        <strong>🐑 The Boomalope Method:</strong> Tame 2-3 boomalopes to sustain 5-6 chemfuel generators indefinitely—zero farming, zero refining. Just milk them daily. Caveat: boomalopes explode on death. Keep them in a separate pen far from storage.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">💨☀️</span> Wind + Solar — The Early-Game Combo</h3>
+      <p>Wind and solar are free power sources available from day one, but both are unreliable—combining them compensates for each other's weaknesses.</p>
+      <ul>
+        <li><strong>Complementary profiles:</strong> Calm sunny days = solar carries the load. Stormy nights = wind picks up. The probability of both failing simultaneously is far lower than either alone</li>
+        <li><strong>Space trick:</strong> Solar panels can be placed inside wind turbine clearance zones—they don't count as obstacles. This lets you stack them perfectly</li>
+        <li><strong>Batteries required:</strong> Unstable sources need batteries. Aim for 1-2 batteries per 2-3 wind turbines to last through a calm night</li>
+        <li><strong>Solar weather penalties:</strong> Rain/snow reduces solar output by 50-80%. Winter daylight drops to 6-8 hours. Pure solar WILL fail in winter</li>
+        <li><strong>Eclipses:</strong> Solar panels produce nothing. You'll rely entirely on wind or batteries to survive</li>
+      </ul>
+      <div class="tip warn">
+        <strong>⚠️ Transitional power, not permanent:</strong> Wind + solar is the best early-game option, but you should transition to geothermal or chemfuel as soon as they become available. The fewer days you rely on battery-smoothed power, the better.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🔋</span> Batteries — Capacity, Strategy & Protection</h3>
+      <ul>
+        <li><strong>Capacity:</strong> Each battery stores 600 Wd (watt-days). Simple math: one battery can power a 60W lamp for 10 days</li>
+        <li><strong>Only 50% charging efficiency:</strong> You need 1,200W of surplus to fill one 600 Wd battery—half the energy is lost as heat</li>
+        <li><strong>Use as few as possible:</strong> Fewer batteries = less stored power = smaller Zzzzt explosions. With geothermal and chemfuel, you can run zero batteries</li>
+        <li><strong>Backup battery bank:</strong> Build 3 batteries behind a switch—charge them fully, then disconnect. They sit isolated from the grid, immune to Zzzzt. Flip the switch only in emergencies</li>
+        <li><strong>Uninstall charged batteries:</strong> Fully charged batteries can be minified (uninstalled) and stored as items—immune to Zzzzt. Reinstall in emergencies. They do slowly self-discharge at 5 Wd</li>
+        <li><strong>Keep indoors:</strong> Batteries exposed to rain will explode. Always place them under a roof or indoors</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">💥</span> Short Circuits (Zzzzt Event) — Mechanics & Prevention</h3>
+      <p>The Zzzzt event is RimWorld's most common electrical disaster: a random conduit shorts out, detonating all stored battery power on that network. Blast radius scales with total stored charge.</p>
+      <br>
+      <table>
+        <tr><th>Stored Power</th><th>Blast Radius</th><th>Consequence</th></tr>
+        <tr><td>1,000 Wd (1-2 batteries)</td><td>~3 tiles</td><td>Snaps a wire, quick repair</td></tr>
+        <tr><td>10,000 Wd (~17 batteries)</td><td>~7 tiles</td><td>Destroys a room, may injure colonists</td></tr>
+        <tr><td>90,000 Wd (~150 batteries)</td><td>~15 tiles</td><td>Levels half your base, unrecoverable</td></tr>
+      </table>
+      <br>
+      <p><strong>How Zzzzt works:</strong></p>
+      <ul>
+        <li><strong>Conduits trigger it, not batteries.</strong> Any conduit network with stored battery power can randomly short. This cannot be fully prevented in vanilla</li>
+        <li><strong>Explosion size = total stored power on that network.</strong> This is why "minimize batteries" is the ultimate solution</li>
+        <li><strong>All batteries drain to zero.</strong> After the explosion, every battery on the affected grid is empty—so you get explosion + colony-wide blackout simultaneously</li>
+      </ul>
+      <br>
+      <p><strong>Six prevention strategies (by importance):</strong></p>
+      <ol>
+        <li><strong>Minimize batteries.</strong> Use geothermal and chemfuel. Zero batteries = zero Zzzzt risk</li>
+        <li><strong>Split your grid.</strong> Use switches to divide the grid into isolated segments. One segment blowing doesn't affect others</li>
+        <li><strong>Isolate backup batteries behind switches.</strong> Keep them disconnected from the main grid at all times</li>
+        <li><strong>Run conduits through stone walls.</strong> Stone doesn't burn and can contain small-to-medium explosions. Never run conduits near wood walls, chemfuel stockpiles, or explosives</li>
+        <li><strong>Avoid long exposed conduit runs.</strong> Don't leave conduits exposed next to flammable or explosive materials</li>
+        <li><strong>Minify charged batteries.</strong> Store them as items for emergencies—they're immune to Zzzzt in item form</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">🔌</span> Grid Design Best Practices</h3>
+      <ul>
+        <li><strong>Distribute generation:</strong> Don't cluster all generators in one corner—one raid can knock out your entire colony's power. Spread generators out and interconnect them with switches</li>
+        <li><strong>Redundant wiring:</strong> Run conduits in a grid pattern, not a single line—a single broken conduit shouldn't isolate half your base</li>
+        <li><strong>Dedicated circuits for critical equipment:</strong> Freezer coolers and sun lamps should each have their own battery + switch, isolated from the main grid. Main grid Zzzzt won't touch your freezer</li>
+        <li><strong>Sun lamp trick:</strong> Connect 2 solar panels directly to 1 sun lamp with NO batteries—the lamp only runs during the day, the panels only generate during the day. Natural synchronization, zero Zzzzt risk</li>
+        <li><strong>Appliances must be indoors:</strong> Batteries, workbenches, smelters, and crematoriums must be under a roof. Rain = short circuit = explosion</li>
+        <li><strong>Fuel generators go outdoors:</strong> Wood-fired and chemfuel generators produce heat while running. Placing them indoors can cause overheating</li>
+        <li><strong>Label your switches:</strong> Rename switches clearly—"Freezer Backup", "Main Grid - Barracks", "Defense Turrets"—so you don't flip the wrong one in an emergency</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">📈</span> Power Progression Roadmap</h3>
+      <table>
+        <tr><th>Stage</th><th>Power Mix</th><th>Batteries</th><th>Notes</th></tr>
+        <tr><td>🏕️ Early (Day 1-30)</td><td>Wind ×2-3 + Solar ×2-3</td><td>1-2</td><td>Free, complementary. Stack solar in wind zones</td></tr>
+        <tr><td>🏠 Mid (Day 30-90)</td><td>+ Chemfuel ×2-3</td><td>1-2 (start reducing)</td><td>Research refining → tame boomalopes → stable baseload. Phase out wind/solar</td></tr>
+        <tr><td>🏰 Late (Day 90+)</td><td>+ Geothermal (build on every available geyser)</td><td>0 (emergency backup only)</td><td>Geothermal as core, chemfuel for supplement. All batteries disconnected as emergency reserve</td></tr>
+        <tr><td>🔮 Endgame</td><td>All geothermal + deep-drilled chemfuel</td><td>0</td><td>Zero batteries, zero Zzzzt, zero fluctuations. Power never fails</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3><span class="emoji">❌</span> Common Power Mistakes</h3>
+      <ol>
+        <li><strong>Building dozens of batteries:</strong> One Zzzzt can level half your base. More batteries = more danger. Work toward zero-battery operation</li>
+        <li><strong>Pure solar in winter:</strong> Winter daylight is only 6 hours—solar alone cannot sustain a colony. Always have wind or fueled generators for winter backup</li>
+        <li><strong>Batteries in the rain:</strong> Battery explosion → chain reaction → total grid failure. All electrical equipment goes indoors</li>
+        <li><strong>Conduits near fuel stockpiles:</strong> Short circuit → ignites chemfuel → chain explosions. Run conduits through stone walls whenever possible</li>
+        <li><strong>All generators in one spot:</strong> One raid = total power loss. Distribute generation and interconnect with switches</li>
+        <li><strong>Ignoring geothermal research:</strong> Geothermal is the strongest power source in the game, yet many new players delay researching it. Make it P1 priority</li>
+        <li><strong>Forgetting the refinery's 170W draw:</strong> Refining chemfuel consumes power itself. Subtract 170W from your net gain when calculating efficiency</li>
+      </ol>
+    </div>
+  </section>
+
+  <nav class="page-nav">
+    <a href="temperature.html" class="prev">
+      <span><span class="nav-label">Previous</span>🌡️ Temperature & Freezer</span>
+    </a>
+    <a href="combat.html" class="next">
+      <span><span class="nav-label">Next</span>⚔️ Combat & Defense</span>
+    </a>
+  </nav>
+
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+</main>
+
+<script>
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); document.querySelector('.sidebar-overlay').classList.toggle('open'); }
+
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const clearBtn = document.getElementById('search-clear');
+  const noResults = document.getElementById('no-results');
+  const allCards = document.querySelectorAll('.card');
+  let totalVisible = 0;
+  clearBtn.classList.toggle('visible', q.length > 0);
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); });
+    noResults.classList.remove('visible'); return;
+  }
+  allCards.forEach(card => {
+    if (card.textContent.toLowerCase().includes(q)) { card.classList.remove('hidden'); totalVisible++; highlightInCard(card, q); }
+    else { card.classList.add('hidden'); card.querySelectorAll('.search-highlight').forEach(h => h.replaceWith(h.textContent)); }
+  });
+  noResults.classList.toggle('visible', totalVisible === 0);
+}
+function highlightInCard(card, query) {
+  const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, { acceptNode: n => n.textContent.toLowerCase().includes(query) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentNode.classList.contains('search-highlight')) return;
+    const text = node.textContent, regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const frag = document.createDocumentFragment(); let lastIdx = 0, match;
+    while ((match = regex.exec(text)) !== null) { frag.appendChild(document.createTextNode(text.slice(lastIdx, match.index))); const mark = document.createElement('mark'); mark.className = 'search-highlight'; mark.textContent = match[0]; frag.appendChild(mark); lastIdx = regex.lastIndex; }
+    if (lastIdx > 0) { frag.appendChild(document.createTextNode(text.slice(lastIdx))); node.parentNode.replaceChild(frag, node); }
+  });
+}
+function clearSearch() { document.getElementById('search-input').value = ''; doSearch(); document.getElementById('search-input').focus(); }
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search-input').focus(); } if (e.key === 'Escape') { document.getElementById('search-input').blur(); clearSearch(); } });
+
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (isLight) { icon.textContent = '☀️'; label.textContent = 'Light Mode'; localStorage.setItem('rimworld-theme', 'light'); }
+  else { icon.textContent = '🌙'; label.textContent = 'Dark Mode'; localStorage.setItem('rimworld-theme', 'dark'); }
+}
+(function loadTheme() {
+  if (localStorage.getItem('rimworld-theme') === 'light') { document.body.classList.add('light'); document.getElementById('theme-icon').textContent = '☀️'; document.getElementById('theme-label').textContent = 'Light Mode'; }
+})();
+
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function(){ backToTop.classList.toggle('visible', window.scrollY > 400); });
+  function scrollToTop(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+</script>
+</body>
+</html>

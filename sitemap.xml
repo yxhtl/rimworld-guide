@@ -52,6 +52,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/temperature.html"/>
   </url>
   <url>
+    <loc>https://yxhtl.com/rimworld-guide-power.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-power.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/power.html"/>
+  </url>
+  <url>
     <loc>https://yxhtl.com/rimworld-guide-combat.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -197,6 +205,14 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-temperature.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/temperature.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/power.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-power.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/power.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/en/combat.html</loc>
