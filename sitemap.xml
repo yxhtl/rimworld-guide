@@ -84,6 +84,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/pawns.html"/>
   </url>
   <url>
+    <loc>https://yxhtl.com/rimworld-guide-mood.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-mood.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/mood.html"/>
+  </url>
+  <url>
     <loc>https://yxhtl.com/rimworld-guide-research.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -245,6 +253,14 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-pawns.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/pawns.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/mood.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-mood.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/mood.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/en/research.html</loc>
