@@ -116,6 +116,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/drugs.html"/>
   </url>
   <url>
+    <loc>https://yxhtl.com/rimworld-guide-medical.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-medical.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/medical.html"/>
+  </url>
+  <url>
     <loc>https://yxhtl.com/rimworld-guide-research.html</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -309,6 +317,14 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-drugs.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/drugs.html"/>
+  </url>
+  <url>
+    <loc>https://yxhtl.com/en/medical.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://yxhtl.com/rimworld-guide-medical.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yxhtl.com/en/medical.html"/>
   </url>
   <url>
     <loc>https://yxhtl.com/en/research.html</loc>
