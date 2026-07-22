@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yxhtl.com/sitemap.xml
+Sitemap: https://rimworld.yxhtl.com/sitemap.xml
