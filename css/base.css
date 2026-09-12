@@ -52,6 +52,7 @@ nav.sidebar {
 .lang-link a:hover { text-decoration: underline; }
 .nav-section { padding: 8px 20px 4px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-top: 8px; }
 .nav-item { display: block; padding: 8px 20px; color: var(--text); text-decoration: none; font-size: 0.9rem; border-left: 3px solid transparent; transition: var(--transition); }
+.sidebar .nav-section + .nav-item { margin-top: 2px; }
 .nav-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
 .nav-item.active { border-left-color: var(--accent); background: rgba(212,149,107,0.08); color: var(--accent); }
 .nav-item .icon { margin-right: 8px; }
