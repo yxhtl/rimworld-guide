@@ -1,0 +1,28 @@
+.fire-guide .page-header { padding: 28px; border: 1px solid var(--border); border-top: 4px solid var(--accent); border-radius: var(--radius); background: linear-gradient(120deg, rgba(212,149,107,.14), transparent); }
+.fire-guide .page-header h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.3; margin: 10px 0; }
+.fire-guide .eyebrow { color: var(--accent); font-size: .78rem; letter-spacing: .12em; }
+.fire-guide .rescue-grid, .fire-guide .scene-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.fire-guide .rescue-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom: 28px; }
+.fire-guide .rescue-grid .card { margin: 0; padding: 20px; }
+.fire-guide .rescue-grid strong { display: block; color: var(--accent); font-size: .78rem; margin-bottom: 10px; }
+.fire-guide .scene-grid .card { border-top: 3px solid var(--accent); }
+.fire-guide .flow { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 22px 0; counter-reset: step; }
+.fire-guide .flow li { position: relative; padding: 18px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; counter-increment: step; }
+.fire-guide .flow li::before { content: '0' counter(step); display: block; font-size: 1.5rem; color: var(--accent); margin-bottom: 8px; }
+.fire-guide .flow li:not(:last-child)::after { content: '→'; position: absolute; right: -13px; top: 42%; color: var(--accent); z-index: 1; }
+.fire-guide .page-toc { display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: .86rem; }
+.fire-guide .table-wrap { overflow-x: auto; }
+.fire-guide th, .fire-guide td { padding: 12px 10px; vertical-align: top; overflow-wrap: anywhere; }
+.fire-guide details { border-top: 1px solid var(--border); padding-top: 14px; margin-top: 16px; }
+.fire-guide summary { cursor: pointer; color: var(--accent); padding-bottom: 8px; }
+.fire-guide .checklist { list-style: none; padding: 0; display: grid; gap: 12px; }
+.fire-guide .checklist li { padding: 12px 14px; border-left: 3px solid var(--green); background: rgba(68,170,153,.08); }
+.fire-guide .section, .fire-guide [id^="fire-"] { scroll-margin-top: 24px; }
+@media (max-width: 650px) {
+  .fire-guide .rescue-grid, .fire-guide .scene-grid { grid-template-columns: 1fr; }
+  .fire-guide .flow { grid-template-columns: 1fr; }
+  .fire-guide .flow li { padding-left: 58px; min-height: 66px; }
+  .fire-guide .flow li::before { position: absolute; left: 14px; top: 12px; }
+  .fire-guide .flow li:not(:last-child)::after { content: '↓'; right: 20px; top: auto; bottom: -18px; }
+  .fire-guide .page-header { padding: 20px; }
+}

@@ -34,6 +34,7 @@ main { max-width: 900px; padding: 40px 48px; }
 
 /* ========== Clickable Card Variants ========== */
 .card-clickable { cursor: pointer; transition: var(--transition); }
+.card-clickable:hover { transform: translateY(-2px); border-color: var(--accent); }
 .card-p0 { border-left: 3px solid var(--red); }
 .card-p1 { border-left: 3px solid var(--yellow); }
 .card-p2 { border-left: 3px solid var(--blue); }
@@ -89,6 +90,20 @@ svg { max-width: 100%; height: auto; }
 .tag-p0 { background: var(--red); color: #fff; }
 .tag-p1 { background: var(--yellow); color: #1a1a1f; }
 .tag-p2 { background: var(--text-muted); color: #fff; }
+
+/* ========== Emergency Guide Hub ========== */
+.emergency-hub { padding: 24px; background: linear-gradient(135deg, rgba(192,57,43,.1), rgba(212,149,107,.05)); border: 1px solid var(--border); border-radius: var(--radius); }
+.emergency-hub .section-title { margin-bottom: 8px; }
+.emergency-hub > p { color: var(--text-muted); font-size: .9rem; margin-bottom: 18px; }
+.emergency-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.emergency-grid .card { margin: 0; padding: 18px; min-height: 132px; }
+.emergency-grid .card h3 { font-size: .98rem; }
+.emergency-grid .card p { font-size: .84rem; margin: 0; }
+.emergency-links { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.emergency-links a { display: block; padding: 12px; color: var(--text); text-decoration: none; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; font-size: .84rem; line-height: 1.4; }
+.emergency-links a:hover { color: var(--accent); border-color: var(--accent); }
+@media (max-width: 860px) { .emergency-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .emergency-links { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .emergency-hub { padding: 18px; } .emergency-grid { grid-template-columns: 1fr; } .emergency-links { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* ========== Table ========== */
 table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }

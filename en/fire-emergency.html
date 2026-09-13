@@ -5,30 +5,31 @@
 <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?71f28761d7809372b129ffb5598d0451";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://rimworld.yxhtl.com/en/food-emergency.html">
-<link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/food-emergency.html">
-<link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-food-emergency.html">
-<link rel="alternate" hreflang="x-default" href="https://rimworld.yxhtl.com/rimworld-food-emergency.html">
+<link rel="canonical" href="https://rimworld.yxhtl.com/en/fire-emergency.html">
+<link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/fire-emergency.html">
+<link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-fire-emergency.html">
+<link rel="alternate" hreflang="x-default" href="https://rimworld.yxhtl.com/rimworld-fire-emergency.html">
 <meta property="og:image" content="https://rimworld.yxhtl.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://rimworld.yxhtl.com/en/food-emergency.html">
+<meta property="og:url" content="https://rimworld.yxhtl.com/en/fire-emergency.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RimWorld Guide">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://rimworld.yxhtl.com/og-image.png">
 <meta name="robots" content="index, follow">
-<title>RimWorld Food Emergency | RimWorld Guide</title>
+<title>RimWorld Fire Emergency | RimWorld Guide</title>
 <link rel="icon" href="../brand-image.svg">
 <link rel="stylesheet" href="../css/base.css">
 <link rel="stylesheet" href="../css/guide.css">
 <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","x9iflmg36h");</script>
   <script src="../js/site.js" defer></script>
-<meta name="description" content="RimWorld Food Emergency：Restore meals, diagnose blocked production and prevent another shortage.">
-<meta property="og:title" content="RimWorld Food Emergency">
-<meta property="og:description" content="RimWorld Food Emergency：Restore meals, diagnose blocked production and prevent another shortage.">
-<meta name="twitter:title" content="RimWorld Food Emergency">
-<meta name="twitter:description" content="RimWorld Food Emergency：Restore meals, diagnose blocked production and prevent another shortage.">
+<meta name="description" content="Triage a colony fire, check firefighting jobs, protect exits and restore essential services.">
+<meta property="og:title" content="RimWorld Fire Emergency">
+<meta property="og:description" content="Triage a colony fire, check firefighting jobs, protect exits and restore essential services.">
+<meta name="twitter:title" content="RimWorld Fire Emergency">
+<meta name="twitter:description" content="Triage a colony fire, check firefighting jobs, protect exits and restore essential services.">
+<link rel="stylesheet" href="../css/fire-emergency.css">
 </head>
 <body>
 <button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
@@ -40,7 +41,7 @@
 <p>From Surviving to Thriving</p>
 </div>
   <div class="lang-switcher">
-<a href="../rimworld-food-emergency.html">中文</a> | <span class="active">English</span>
+<a href="../rimworld-fire-emergency.html">中文</a> | <span class="active">English</span>
 </div>
   <div class="nav-section">Navigation</div>
 <a href="index.html" class="nav-item">
@@ -81,7 +82,7 @@
 <span class="icon">💊</span> Drugs System <span class="nav-badge">P1</span>
 </a>
 <a class="nav-item" href="medical.html">Medical care</a>
-<a class="nav-item active" href="food-emergency.html">🍲 Food Emergency</a>
+<a class="nav-item active" href="fire-emergency.html">🔥 Fire Emergency</a>
 <a href="research.html" class="nav-item">
 <span class="icon">🔬</span> Research Tree <span class="nav-badge">P2</span>
 </a>
@@ -123,9 +124,9 @@
 <br>
 <a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
 </nav>
-<main>
+<main class="fire-guide">
   <div class="breadcrumb">
-<a href="index.html">Guide overview</a> / Food Emergency</div>
+<a href="index.html">Guide overview</a> / Fire Emergency</div>
   <div class="search-wrap">
 <span class="search-icon">🔍</span>
 <input type="text" id="search-input" placeholder="Search this page…" oninput="doSearch()">
@@ -135,105 +136,101 @@
 <span class="icon">🔍</span>
 <p>No results found. Try a different keyword?</p>
 </div>
-  <header class="page-header">
-<h1>🍲 RimWorld Food Emergency</h1>
-<p>Secure today’s meals before rebuilding reserves.</p>
-</header>
-<section class="section" id="rescue">
-<h2 class="section-title">Secure the next meal, then restore production</h2>
-<div class="card">
-<h3>1. Separate food on hand from future harvests</h3>
-<p>Pause and count accessible meals, usable ingredients, mature crops and crops still growing separately. Exclude forbidden or unreachable stacks. A planted field is not food available for the next meal.</p>
-<p>Inspect the hungriest pawn first: food policy, allowed area and drafted status can block eating. Bedridden patients need someone available to deliver food.</p>
+  <header class="page-header"><span class="eyebrow">COLONY EMERGENCY / 03</span>
+<h1>🔥 RimWorld Fire Emergency</h1>
+<p>Triage a colony fire, check firefighting jobs, protect exits and restore essential services.</p></header>
+<div class="rescue-grid">
+<div class="card card-p0"><strong>NOW · RESCUE</strong>
+<h3>Account for pawns and exits</h3>
+<p>Prioritize burning, downed and bedridden pawns; preserve medical coverage.</p></div>
+<div class="card card-p1"><strong>NEXT · CONTAIN</strong>
+<h3>Contain what you can reach safely</h3>
+<p>Check home area, work capability and a safe retreat before committing workers.</p></div>
+<div class="card card-p2"><strong>THEN · RECOVER</strong>
+<h3>Flames out? Check the heat</h3>
+<p>Check injuries, rooms and meals before returning to ordinary jobs.</p></div>
 </div>
-<div class="card">
-<h3>2. Trace one complete cooking job</h3>
-<ol>
-<li>Check stove power or fuel.</li>
-<li>Open bills: check suspension, target count, allowed ingredients, ingredient radius and assigned worker.</li>
-<li>Select an eligible, undrafted cook and try prioritizing the stove. Read the rejection message before changing unrelated settings.</li>
-<li>Watch ingredient collection, cooking, output hauling and eating. A completed meal alone does not prove everyone can access it.</li>
-</ol>
+<nav class="page-toc" aria-label="On this page"><a href="#fire-1">Response flow</a>
+<a href="#fire-2">Job checks</a>
+<a href="#scenes">Scenarios</a>
+<a href="#fire-5">Firefoam</a>
+<a href="#fire-6">Recovery</a></nav>
+<section class="section">
+<div class="card" id="fire-1">
+<h3>01 / Follow the rescue sequence</h3>
+<ol class="flow">
+<li>Pause and locate pawns</li>
+<li>Identify a safe exit</li>
+<li>Assign rescue and containment</li>
+<li>Treat, then restore services</li></ol>
+<div class="tip warn"><strong>Withdraw when: </strong>heat injuries appear, exits are threatened or a responder collapses. Reassess before sending another pawn along the same route.</div>
+<details>
+<summary>Read the full steps</summary>
+<p>Locate burning, downed and bedridden pawns and identify an exit. Check nearby fuel, shells and combustible structures before assigning the whole colony to firefighting. Separate rescue, containment and medical coverage. In a small colony, preserve someone who can retrieve and treat an injured responder.</p></details>
+</div></section>
+<section class="section">
+<div class="card" id="fire-2">
+<h3>02 / Diagnose missing firefighting jobs</h3>
+<div class="table-wrap"><table><thead><tr><th scope="col">Symptom</th><th scope="col">Inspect</th><th scope="col">Next action</th></tr></thead><tbody><tr><td>Nobody responds</td><td>Firefighting capability, assignment and current state</td><td>Choose an available, capable pawn</td></tr>
+<tr><td>Fire is visible but ignored</td><td>Home and allowed areas</td><td>Include only the area you intend to protect</td></tr>
+<tr><td>Route fails or detours</td><td>Doors, hazards and exits</td><td>Use a safe approach; withdraw without an exit</td></tr></tbody></table></div>
+<details>
+<summary>Read the full steps</summary>
+<p>Check that the selected pawn can firefight, is available, and can reach the target within the home and allowed areas. Automatic firefighting depends on those areas. Avoid expanding the home area across the map just to chase distant flames: responders may leave the colony exposed or spend the emergency travelling.</p></details>
+</div></section>
+<section class="section" id="scenes">
+<h2 class="section-title">03 / Indoor fire and wildfire need different priorities</h2>
+<div class="scene-grid">
+<div class="card" id="fire-3">
+<h3>🏠 Indoors: heat and exits</h3>
+<p>Small visible flames do not mean a safe room. Inspect temperature and pawn health before entry.</p>
+<div class="tip warn">Do not let a rescue become a chain of casualties.</div>
+<details>
+<summary>Read the full steps</summary>
+<p>Inspect room temperature and responder health, not just visible flames. Enclosed fires can create dangerous heat. Withdraw and reassess when heat injuries appear, an exit is threatened or a responder goes down. Do not send successive rescuers along the same failing route. Any ventilation work also needs a safe approach and escape.</p></details>
 </div>
-<div class="card">
-<h3>3. Choose an available stopgap</h3>
-<table>
-<tr>
-<th>Available resource</th>
-<th>Action</th>
-<th>Tradeoff</th>
-</tr>
-<tr>
-<td>Raw ingredients</td>
-<td>Prioritize simple meals and ingredients close to spoiling</td>
-<td>Requires a working cooking station and cook</td>
-</tr>
-<tr>
-<td>Nearby wild food</td>
-<td>Harvest along safe routes and haul it home</td>
-<td>Supply is limited and unreliable</td>
-</tr>
-<tr>
-<td>Huntable wildlife</td>
-<td>Check retaliation risk, weapons and retrieval route</td>
-<td>Hunting injuries can worsen the emergency; carcasses still need processing</td>
-</tr>
-<tr>
-<td>Fuel during a blackout</td>
-<td>Consider a fueled stove or campfire</td>
-<td>Manage fuel, heat and fire risk</td>
-</tr>
-</table>
-<p>Raw food can carry mood and food-poisoning costs. If a paste dispenser already exists, check its power and hoppers; building a new production system is not an immediate meal.</p>
+<div class="card" id="fire-4">
+<h3>🌲 Outdoors: protect what is threatened</h3>
+<p>Protect exits, food and occupied buildings before chasing distant flames.</p>
+<div class="tip">Do not make rain your only plan.</div>
+<details>
+<summary>Read the full steps</summary>
+<p>Decide whether flames threaten exits, food or occupied buildings before committing workers. A distant wildfire may not justify abandoning essential jobs. Inspect the fire edge, nearby fuel and the route responders will use. Keep the response within an area you can control, do not depend on rain, and avoid routes exposed to enemy fire during a raid.</p></details>
+</div></div></section>
+<section class="section">
+<div class="card" id="fire-5">
+<h3>04 / Firefoam: before and after</h3>
+<p><strong>Before: </strong>Inspect coverage, condition and activation controls.</p>
+<p><strong>After: </strong>Check spent protection and arrange replacement.</p>
+<details>
+<summary>Read the full steps</summary>
+<p>Select an existing firefoam popper and inspect coverage and condition. Its presence does not prove every threatened location is protected. The reference describes automatic activation on detecting fire and a manual trigger; use the current game interface. Do not send a pawn through a growing fire to install a last-minute device. Inspect spent protection and arrange replacement afterward.</p></details>
+</div></section>
+<section class="section">
+<div class="card" id="fire-6">
+<h3>05 / Check before reopening</h3>
+<ul class="checklist">
+<li>✓ Account for everyone and treat burns and heat injuries.</li>
+<li>✓ Check temperature, roof support, doors and routes.</li>
+<li>✓ Keep meals, rest and essential power running.</li>
+<li>✓ Inspect fire protection and record where control was lost.</li></ul>
+<details>
+<summary>Read the full steps</summary>
+<p>Treat burns and heat injuries first. Check temperature, roof support, doors and exits before reopening the area. Inspect power connections, food and treatment facilities for damage. Pause optional expansion while meals, rest and basic care recover. Cleaning ash is less urgent than restoring those functions.</p></details>
 </div>
-<div class="card">
-<h3>4. Check the carcass-to-meat branch</h3>
-<p>Fresh animal corpses need an accessible butchering facility, a suitable bill and a worker. If no meat reaches the kitchen, inspect that branch separately. Keep butchering out of the cooking room and assign cleaning.</p>
-</div>
-<div class="card">
-<h3>5. Restore harvesting and hauling</h3>
-<p>Temporarily pause nonessential construction, research and distant mining. Give harvesting, hauling and cooking explicit coverage. For a small colony, allow backups rather than assigning every pawn a single exclusive role.</p>
-<p>If the cook spends most of the day walking, place a small ingredient buffer near the stove. If ingredients sit in the field, check haulers, storage filters, available space and safe access before expanding farmland.</p>
-</div>
-<div class="card">
-<h3>6. Verify storage in practice</h3>
-<p>Check the actual room temperature and the food stack's spoilage status, including during the night. A cooler's target is not proof that food is preserved. Process vulnerable ingredients first while repairs are underway.</p>
-</div>
-<div class="card">
-<h3>7. Set a reserve from observed demand</h3>
-<p>Observe a normal day's consumption before setting your production target. Visitors, prisoners, animal access and special genes can change demand. Compare usable reserves with the gap until the next reliable harvest and allow a margin for disruption.</p>
-<p>This is a planning method, not a universal game formula. Keep a backup cook and review priorities after raids, illness or seasonal changes.</p>
-</div>
-<div class="card">
-<h3>Recovery checklist</h3>
-<ul>
-<li>Hungry colonists have eaten and patients receive meals.</li>
-<li>Another production cycle runs without manual orders.</li>
-<li>Cooking continues while the primary cook rests.</li>
-<li>Usable reserves bridge the next harvest, with a fallback for refrigeration failure.</li>
-</ul>
-<p>If repeated forced orders are still needed, inspect priorities, bills and access before restarting optional projects.</p>
-</div>
-</section>
+<div class="card" id="fire-7">
+<h3>Next: fix the most important weakness</h3>
+<p>Record where control was lost, which job lacked coverage and which route failed. Fix that weakness before expanding the prevention plan. Consider separating combustible stock, using less flammable construction or adding foam protection. Avoid a colony-wide rebuild that removes workers from food and medical duties just after an emergency.</p>
+</div></section>
 <section class="section">
 <h2 class="section-title">Scope and sources</h2>
 <div class="card">
-<p>General base-game workflow for the site’s RimWorld 1.6.x scope. DLC, genes and mods may change requirements. Source review: 2026-09-13; no claim of in-game testing.</p>
-<p>
-<a href="https://rimworldwiki.com/wiki/Food">RimWorld Wiki：Food</a> · <a href="https://rimworldwiki.com/wiki/Butcher_table">Butcher table</a>
-</p>
-</div>
-</section>
-<section class="section"><h2 class="section-title">Other emergency guides</h2><div class="emergency-links"><a href="power-emergency.html">⚡ Power emergency</a><a href="fire-emergency.html">🔥 Fire emergency</a><a href="defense-check.html">🛡️ Defense check</a><a href="mental-break.html">🧠 Mental break response</a></div></section>
+<p>General base-game workflow within this site’s RimWorld 1.6.x scope. Mods and special abilities may differ. Sources reviewed 2026-09-13; no in-game testing claimed. The Fire reference flags outdated mechanics, so exact spread, damage and temperature thresholds are not prescribed here.</p>
+<p><a data-source-link href="https://rimworldwiki.com/wiki/Fire">RimWorld Wiki：Fire</a> · <a data-source-link href="https://rimworldwiki.com/wiki/Firefoam_popper">Firefoam popper</a></p></div></section>
+<section class="section"><h2 class="section-title">Other emergency guides</h2><div class="emergency-links"><a href="food-emergency.html">🍲 Food emergency</a><a href="power-emergency.html">⚡ Power emergency</a><a href="defense-check.html">🛡️ Defense check</a><a href="mental-break.html">🧠 Mental break response</a></div></section>
 <nav class="page-nav">
-  <a href="drugs.html" class="prev">
-<span>
-<span class="nav-label">Previous</span>💊 Drugs System</span>
-</a>
-  <a href="research.html" class="next">
-<span>
-<span class="nav-label">Next</span>🔬 Research Tree</span>
-</a>
+<a href="power-emergency.html">Power emergency</a>
+<a href="medical.html">Medical care</a>
 </nav>
 <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
 </main>
@@ -246,6 +243,14 @@ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='k'){
 function toggleTheme(){const isLight=document.body.classList.toggle('light');const icon=document.getElementById('theme-icon');const label=document.getElementById('theme-label');if(isLight){icon.textContent='☀️';label.textContent='Light Mode';localStorage.setItem('rimworld-theme','light')}else{icon.textContent='🌙';label.textContent='Dark Mode';localStorage.setItem('rimworld-theme','dark')}}
 (function loadTheme(){if(localStorage.getItem('rimworld-theme')==='light'){document.body.classList.add('light');document.getElementById('theme-icon').textContent='☀️';document.getElementById('theme-label').textContent='Light Mode'}})();
 const backToTop=document.getElementById('back-to-top');window.addEventListener('scroll',function(){backToTop.classList.toggle('visible',window.scrollY>400)});function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+</script>
+<script>
+document.getElementById('search-input').addEventListener('input', function () {
+  const query = this.value.trim().toLowerCase();
+  document.querySelectorAll('main details').forEach(function (detail) {
+    detail.open = query.length > 0 && detail.textContent.toLowerCase().includes(query);
+  });
+});
 </script>
 </body>
 </html>

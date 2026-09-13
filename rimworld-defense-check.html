@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HM32STKNVV"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HM32STKNVV');</script>
+<script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?71f28761d7809372b129ffb5598d0451";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://rimworld.yxhtl.com/rimworld-defense-check.html">
+<link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-defense-check.html">
+<link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/defense-check.html">
+<link rel="alternate" hreflang="x-default" href="https://rimworld.yxhtl.com/rimworld-defense-check.html">
+<meta property="og:image" content="https://rimworld.yxhtl.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://rimworld.yxhtl.com/rimworld-defense-check.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RimWorld 攻略站">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rimworld.yxhtl.com/og-image.png">
+<meta name="robots" content="index, follow">
+<title>RimWorld 防守检查 | RimWorld 攻略站</title>
+<link rel="icon" href="brand-image.svg">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/guide.css">
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","x9iflmg36h");</script>
+  <script src="js/site.js" defer></script>
+<meta name="description" content="袭击前快速检查掩体、路线、武器和撤退点；遇袭后按威胁恢复基地。">
+<meta property="og:title" content="RimWorld 防守检查">
+<meta property="og:description" content="袭击前快速检查掩体、路线、武器和撤退点；遇袭后按威胁恢复基地。">
+<meta name="twitter:title" content="RimWorld 防守检查">
+<meta name="twitter:description" content="袭击前快速检查掩体、路线、武器和撤退点；遇袭后按威胁恢复基地。">
+<link rel="stylesheet" href="css/fire-emergency.css">
+</head>
+<body>
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()">
+</div>
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+<h1>🪐 RimWorld 攻略站</h1>
+<p>从活下去，到活得好</p>
+</div>
+  <div class="lang-switcher">
+<span class="active">中文</span> | <a href="en/defense-check.html">English</a>
+</div>
+  <div class="nav-section">导航</div>
+<a href="index.html" class="nav-item">
+<span class="icon">🏠</span> 攻略总览</a>
+  <div class="nav-section">新手必备</div>
+<a href="rimworld-guide-getting-started.html" class="nav-item">
+<span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span>
+</a>
+<a href="rimworld-guide-base-building.html" class="nav-item">
+<span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span>
+</a>
+<a href="rimworld-guide-temperature.html" class="nav-item">
+<span class="icon">🌡️</span> 温度与冷藏 <span class="nav-badge">P0</span>
+</a>
+<a href="rimworld-guide-power.html" class="nav-item">
+<span class="icon">⚡</span> 电力系统 <span class="nav-badge">P0</span>
+</a>
+<a href="rimworld-guide-farming.html" class="nav-item">
+<span class="icon">🌾</span> 种植攻略 <span class="nav-badge">P0</span>
+</a>
+  <div class="nav-section">进阶内容</div>
+<a href="rimworld-guide-combat.html" class="nav-item">
+<span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span>
+</a>
+<a href="rimworld-guide-wealth.html" class="nav-item">
+<span class="icon">📊</span> 财富管理 <span class="nav-badge">P1</span>
+</a>
+<a href="rimworld-guide-pawns.html" class="nav-item">
+<span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span>
+</a>
+<a href="rimworld-guide-mood.html" class="nav-item">
+<span class="icon">😊</span> 心情系统 <span class="nav-badge">P1</span>
+</a>
+<a href="rimworld-guide-work.html" class="nav-item">
+<span class="icon">📋</span> 工作优先级 <span class="nav-badge">P1</span>
+</a>
+<a href="rimworld-guide-drugs.html" class="nav-item">
+<span class="icon">💊</span> 药物系统 <span class="nav-badge">P1</span>
+</a>
+<a class="nav-item" href="rimworld-guide-medical.html">🏥 手术与器官</a>
+<a class="nav-item active" href="rimworld-defense-check.html">🛡️ 防守检查</a>
+<a href="rimworld-guide-research.html" class="nav-item">
+<span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span>
+</a>
+  <div class="nav-section">DLC 内容</div>
+<a href="rimworld-guide-dlc-royalty.html" class="nav-item">
+<span class="icon">👑</span> 皇权 Royalty <span class="nav-badge">DLC</span>
+</a>
+<a href="rimworld-guide-dlc-ideology.html" class="nav-item">
+<span class="icon">💡</span> 文化 Ideology <span class="nav-badge">DLC</span>
+</a>
+<a href="rimworld-guide-dlc-biotech.html" class="nav-item">
+<span class="icon">🧬</span> 生物科技 Biotech <span class="nav-badge">DLC</span>
+</a>
+<a href="rimworld-guide-dlc-anomaly.html" class="nav-item">
+<span class="icon">🪱</span> 异象 Anomaly <span class="nav-badge">DLC</span>
+</a>
+  <div class="nav-section">扩展</div>
+<a href="rimworld-guide-mods.html" class="nav-item">
+<span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span>
+</a>
+<a href="rimworld-guide-biomes.html" class="nav-item">
+<span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span>
+</a>
+<a href="rimworld-guide-animals.html" class="nav-item">
+<span class="icon">🐄</span> 动物与畜牧 <span class="nav-badge">P2</span>
+</a>
+<a href="rimworld-guide-trade.html" class="nav-item">
+<span class="icon">💰</span> 贸易与经济 <span class="nav-badge">P2</span>
+</a>
+<a href="rimworld-guide-crafting.html" class="nav-item">
+<span class="icon">⚗️</span> 制造与生产 <span class="nav-badge">P2</span>
+</a>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+<span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb">
+</span>
+</button>
+  <div class="nav-footer">
+<a href="about.html">📖 关于本站</a> · <a href="privacy.html">🔒 隐私政策</a>
+<br>
+<a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a> · MVP v0.2</div>
+</nav>
+<main class="fire-guide">
+  <div class="breadcrumb">
+<a href="index.html">攻略总览</a> / 防守检查</div>
+  <div class="search-wrap">
+<span class="search-icon">🔍</span>
+<input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()">
+<button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button>
+</div>
+  <div class="no-results" id="no-results">
+<span class="icon">🔍</span>
+<p>没有找到匹配的内容，试试换个关键词？</p>
+</div>
+  <header class="page-header"><span class="eyebrow">殖民地应急手册 / 04</span>
+<h1>🛡️ RimWorld 防守检查</h1>
+<p>袭击前快速检查掩体、路线、武器和撤退点；遇袭后按威胁恢复基地。</p></header>
+<div class="rescue-grid">
+<div class="card card-p0"><strong>现在 · 拉人</strong><h3>先判断敌人在哪、谁必须参战</h3><p>先暂停，清点敌人、伤员和不该参战的人。</p></div>
+<div class="card card-p1"><strong>接着 · 布防</strong><h3>只守能互相支援的位置</h3><p>先找有掩体、能后撤、不会堵死救援路线的位置。</p></div>
+<div class="card card-p2"><strong>最后 · 收尾</strong><h3>战斗结束前不急着分散</h3><p>先确认敌人状态和火灾，再救人、灭火、修关键设施。</p></div>
+</div>
+<nav class="page-toc" aria-label="本页目录">
+<a href="#defense-check-flow">处理流程</a>
+<a href="#defense-check-checks">排查表</a>
+<a href="#defense-check-scenes">场景取舍</a>
+<a href="#defense-check-recovery">恢复清单</a>
+</nav>
+<section class="section" id="defense-check-flow">
+<div class="card"><h3>01 / 先按顺序止损</h3>
+<ol class="flow"><li>暂停，确认袭击方式</li><li>撤走不参战者</li><li>选防守点与退路</li><li>交战后先救人</li></ol>
+<div class="tip warn"><strong>别急着围上去：</strong>行动前先留出安全路线、医疗空间和能撤退的人手。</div>
+<figure class="guide-diagram" aria-labelledby="defense-layout-caption">
+<svg viewBox="0 0 840 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="防线、掩体、撤退路线和医疗区示意图">
+  <rect width="840" height="400" fill="#1a1a1f"/>
+  <path d="M40 55H640V345H40Z" fill="#24242b" stroke="#555562" stroke-width="3"/>
+  <path d="M640 145H800M640 255H800" stroke="#555562" stroke-width="3"/>
+  <path d="M620 145V255" stroke="#d4956b" stroke-width="12" stroke-linecap="round"/>
+  <text x="678" y="116" fill="#d4956b" font-size="19" font-weight="700">敌人方向</text>
+  <path d="M785 183l-34 18 34 18" fill="none" stroke="#c0392b" stroke-width="5"/>
+  <circle cx="550" cy="200" r="26" fill="#c0392b"/><text x="550" y="207" text-anchor="middle" fill="#fff" font-size="15">敌</text>
+  <path d="M452 110V290" stroke="#d4956b" stroke-width="8" stroke-dasharray="13 10"/>
+  <text x="452" y="94" text-anchor="middle" fill="#d4956b" font-size="17" font-weight="700">掩体线</text>
+  <g fill="#5a9fd4"><rect x="402" y="135" width="28" height="34" rx="4"/><rect x="402" y="218" width="28" height="34" rx="4"/><rect x="465" y="135" width="28" height="34" rx="4"/><rect x="465" y="218" width="28" height="34" rx="4"/></g>
+  <g fill="#fff"><circle cx="370" cy="152" r="14"/><circle cx="370" cy="238" r="14"/><circle cx="330" cy="195" r="14"/></g>
+  <text x="330" y="285" text-anchor="middle" fill="#c8c8d0" font-size="16">防守者：留出横向移动空间</text>
+  <rect x="105" y="120" width="150" height="150" rx="10" fill="#2d3b42" stroke="#5a9fd4" stroke-width="2"/>
+  <text x="180" y="178" text-anchor="middle" fill="#fff" font-size="19" font-weight="700">医疗与撤退点</text>
+  <text x="180" y="208" text-anchor="middle" fill="#c8c8d0" font-size="15">伤员先往这里走</text>
+  <path d="M350 195H255" stroke="#44aa99" stroke-width="7" stroke-dasharray="11 8"/>
+  <path d="M255 195l21-13v26z" fill="#44aa99"/>
+  <text x="302" y="178" text-anchor="middle" fill="#44aa99" font-size="15">撤退通道</text>
+  <text x="40" y="378" fill="#888896" font-size="14">示意：实际站位按地形、门、敌人类型和当前路线调整。</text>
+</svg>
+<figcaption id="defense-layout-caption">一条能打、能撤、能救人的防线，比“站得更近”更重要。</figcaption>
+</figure>
+</div>
+</section>
+<section class="section" id="defense-check-checks">
+<div class="card"><h3>02 / 按症状检查</h3>
+<div class="table-wrap"><table><thead><tr><th>看到什么</th><th>先查哪里</th><th>下一步</th></tr></thead>
+<tbody><tr><td>小人没去防守</td><td>征召状态、允许区域和路线</td><td>先把非战斗人员撤开，再让参战者到同一防线</td></tr><tr><td>人到了但互相挡住</td><td>掩体、门口和射线</td><td>拉开站位，留出撤退与救援通道</td></tr><tr><td>敌人没进预想路线</td><td>敌人类型、入口和基地薄弱点</td><td>不要硬等；改守当前能控制的入口</td></tr></tbody></table></div>
+</div>
+</section>
+<section class="section" id="defense-check-scenes">
+<h2 class="section-title">03 / 场景不同，处理重点不同</h2>
+<div class="scene-grid"><div class="card"><h3>🏠 基地入口 入口：把退路当成防线的一部分</h3><p>掩体有用，但必须还能撤人、救伤员和关门。</p></div><div class="card"><h3>🌲 野外或突袭 野外：先别把所有人派出去</h3><p>敌人在外面不代表立即全员出击；先保住住处和撤离路线。</p></div></div>
+<figure class="guide-diagram" aria-labelledby="defense-order-caption">
+<svg viewBox="0 0 840 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="袭击发生后的优先级顺序图">
+  <rect width="840" height="170" fill="#1a1a1f"/>
+  <g font-family="system-ui, sans-serif" text-anchor="middle"><g><rect x="32" y="35" width="170" height="92" rx="12" fill="#33272a" stroke="#c0392b" stroke-width="2"/><text x="117" y="76" fill="#fff" font-size="18" font-weight="700">发现袭击</text><text x="117" y="102" fill="#c8c8d0" font-size="14">暂停并看入口</text></g><g><rect x="245" y="35" width="170" height="92" rx="12" fill="#302f25" stroke="#d4956b" stroke-width="2"/><text x="330" y="76" fill="#fff" font-size="18" font-weight="700">撤走非战斗者</text><text x="330" y="102" fill="#c8c8d0" font-size="14">别堵住防线</text></g><g><rect x="458" y="35" width="170" height="92" rx="12" fill="#283440" stroke="#5a9fd4" stroke-width="2"/><text x="543" y="76" fill="#fff" font-size="18" font-weight="700">占据掩体</text><text x="543" y="102" fill="#c8c8d0" font-size="14">留退路和救援路</text></g><g><rect x="671" y="35" width="137" height="92" rx="12" fill="#263831" stroke="#44aa99" stroke-width="2"/><text x="740" y="76" fill="#fff" font-size="18" font-weight="700">战后恢复</text><text x="740" y="102" fill="#c8c8d0" font-size="14">先救人灭火</text></g></g>
+  <g stroke="#d4956b" stroke-width="4" fill="none"><path d="M205 81h30"/><path d="M418 81h30"/><path d="M631 81h30"/></g><g fill="#d4956b"><path d="M235 81l-9-6v12z"/><path d="M448 81l-9-6v12z"/><path d="M661 81l-9-6v12z"/></g>
+</svg>
+<figcaption id="defense-order-caption">战斗期间别把“搬战利品”插进这条顺序里。</figcaption>
+</figure>
+</section>
+<section class="section">
+<div class="card"><h3>04 / 稳定后再处理长期方案</h3>
+<p>检查武器、护甲和医疗安排；先把能可靠使用的装备交给正确的人。</p><div class="tip">不要为换装备而让防线空出来。</div>
+</div>
+</section>
+<section class="section" id="defense-check-recovery">
+<div class="card"><h3>05 / 恢复前的检查单</h3><ul class="checklist"><li>✓ 敌人位置、入口和撤退方向都已确认。</li><li>✓ 非战斗人员、病人和儿童已远离交战区。</li><li>✓ 防线不会堵死撤退、救援或关门路线。</li><li>✓ 战后优先级已经明确：救人、灭火、医疗、电力与食物。</li></ul></div>
+<div class="card"><h3>下一步：只先修最关键的一处</h3><p>战斗结束后，先确认敌人确实不再威胁基地，再处理战利品和尸体。若这次总是在同一处失守，先修那个入口、路线或分工，不要立刻重做整座基地。</p></div>
+</section>
+<section class="section">
+<h2 class="section-title">适用范围与来源</h2>
+<div class="card"><p>按本站 RimWorld 1.6.x 范围整理的应急流程。模组、特质、DLC 和袭击条件可能改变最佳处理方式；执行前先看当前局面。资料核对：2026-09-13，未声称游戏内实测。</p>
+<p><a data-source-link href="rimworld-guide-combat.html">战斗与防御详解</a></p></div>
+</section>
+<section class="section"><h2 class="section-title">其他急救页</h2><div class="emergency-links"><a href="rimworld-food-emergency.html">🍲 食物断供急救</a><a href="rimworld-power-emergency.html">⚡ 停电急救</a><a href="rimworld-fire-emergency.html">🔥 起火急救</a><a href="rimworld-mental-break.html">🧠 精神崩溃急救</a></div></section>
+<nav class="page-nav">
+<a href="rimworld-fire-emergency.html">起火急救</a>
+<a href="rimworld-guide-combat.html">战斗与防御详解</a>
+</nav>
+<button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+</main>
+<script>
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('open')}
+function doSearch(){const q=document.getElementById('search-input').value.trim().toLowerCase();const clearBtn=document.getElementById('search-clear');const noResults=document.getElementById('no-results');const allCards=document.querySelectorAll('.card');let totalVisible=0;clearBtn.classList.toggle('visible',q.length>0);if(!q){allCards.forEach(c=>{c.classList.remove('hidden');c.querySelectorAll('.search-highlight').forEach(h=>h.replaceWith(h.textContent))});noResults.classList.remove('visible');return}allCards.forEach(card=>{if(card.textContent.toLowerCase().includes(q)){card.classList.remove('hidden');totalVisible++;highlightInCard(card,q)}else{card.classList.add('hidden');card.querySelectorAll('.search-highlight').forEach(h=>h.replaceWith(h.textContent))}});noResults.classList.toggle('visible',totalVisible===0)}
+function highlightInCard(card,query){const walker=document.createTreeWalker(card,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.textContent.toLowerCase().includes(query)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT});const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);nodes.forEach(node=>{if(node.parentNode.classList.contains('search-highlight'))return;const text=node.textContent,regex=new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`,'gi');const frag=document.createDocumentFragment();let lastIdx=0,match;while((match=regex.exec(text))!==null){frag.appendChild(document.createTextNode(text.slice(lastIdx,match.index)));const mark=document.createElement('mark');mark.className='search-highlight';mark.textContent=match[0];frag.appendChild(mark);lastIdx=regex.lastIndex}if(lastIdx>0){frag.appendChild(document.createTextNode(text.slice(lastIdx)));node.parentNode.replaceChild(frag,node)}})}
+function clearSearch(){document.getElementById('search-input').value='';doSearch();document.getElementById('search-input').focus()}
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();document.getElementById('search-input').focus()}if(e.key==='Escape'){document.getElementById('search-input').blur();clearSearch()}});
+function toggleTheme(){const isLight=document.body.classList.toggle('light');const icon=document.getElementById('theme-icon');const label=document.getElementById('theme-label');if(isLight){icon.textContent='☀️';label.textContent='亮色模式';localStorage.setItem('rimworld-theme','light')}else{icon.textContent='🌙';label.textContent='暗色模式';localStorage.setItem('rimworld-theme','dark')}}
+(function loadTheme(){if(localStorage.getItem('rimworld-theme')==='light'){document.body.classList.add('light');document.getElementById('theme-icon').textContent='☀️';document.getElementById('theme-label').textContent='亮色模式'}})();
+const backToTop=document.getElementById('back-to-top');window.addEventListener('scroll',function(){backToTop.classList.toggle('visible',window.scrollY>400)});function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+</script>
+<script>
+document.getElementById('search-input').addEventListener('input', function () {
+  const query = this.value.trim().toLowerCase();
+  document.querySelectorAll('main details').forEach(function (detail) {
+    detail.open = query.length > 0 && detail.textContent.toLowerCase().includes(query);
+  });
+});
+</script>
+</body>
+</html>
