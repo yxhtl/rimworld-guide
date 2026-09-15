@@ -4,7 +4,7 @@
   <!-- ====== Chinese Pages ====== -->
   <url>
     <loc>https://rimworld.yxhtl.com/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/"/>
@@ -29,7 +29,7 @@
   </url>
   <url>
     <loc>https://rimworld.yxhtl.com/rimworld-guide-getting-started.html</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-guide-getting-started.html"/>
@@ -69,7 +69,7 @@
   </url>
   <url>
     <loc>https://rimworld.yxhtl.com/rimworld-guide-combat.html</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-guide-combat.html"/>
@@ -157,7 +157,7 @@
   </url>
   <url>
     <loc>https://rimworld.yxhtl.com/rimworld-guide-trade.html</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-guide-trade.html"/>
@@ -207,7 +207,7 @@
   <!-- ====== English Pages ====== -->
   <url>
     <loc>https://rimworld.yxhtl.com/en/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/"/>
@@ -232,7 +232,7 @@
   </url>
   <url>
     <loc>https://rimworld.yxhtl.com/en/getting-started.html</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-guide-getting-started.html"/>
@@ -272,7 +272,7 @@
   </url>
   <url>
     <loc>https://rimworld.yxhtl.com/en/combat.html</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-guide-combat.html"/>
@@ -360,7 +360,7 @@
   </url>
   <url>
     <loc>https://rimworld.yxhtl.com/en/trade.html</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-guide-trade.html"/>
@@ -426,8 +426,8 @@
   </url>
   <url><loc>https://rimworld.yxhtl.com/rimworld-beginner-troubleshooting.html</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority><xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-beginner-troubleshooting.html"/><xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/beginner-troubleshooting.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rimworld.yxhtl.com/rimworld-beginner-troubleshooting.html"/></url>
   <url><loc>https://rimworld.yxhtl.com/en/beginner-troubleshooting.html</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority><xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-beginner-troubleshooting.html"/><xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/beginner-troubleshooting.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://rimworld.yxhtl.com/rimworld-beginner-troubleshooting.html"/></url>
-  <url><loc>https://rimworld.yxhtl.com/rimworld-food-emergency.html</loc><lastmod>2026-09-13</lastmod><xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-food-emergency.html"/><xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/food-emergency.html"/></url>
-  <url><loc>https://rimworld.yxhtl.com/en/food-emergency.html</loc><lastmod>2026-09-13</lastmod><xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-food-emergency.html"/><xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/food-emergency.html"/></url>
+  <url><loc>https://rimworld.yxhtl.com/rimworld-food-emergency.html</loc><lastmod>2026-09-16</lastmod><xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-food-emergency.html"/><xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/food-emergency.html"/></url>
+  <url><loc>https://rimworld.yxhtl.com/en/food-emergency.html</loc><lastmod>2026-09-16</lastmod><xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-food-emergency.html"/><xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/food-emergency.html"/></url>
 <url><loc>https://rimworld.yxhtl.com/rimworld-power-emergency.html</loc><lastmod>2026-09-13</lastmod><xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-power-emergency.html"/><xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/power-emergency.html"/></url>
 <url><loc>https://rimworld.yxhtl.com/en/power-emergency.html</loc><lastmod>2026-09-13</lastmod><xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-power-emergency.html"/><xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/power-emergency.html"/></url>
 <url>
@@ -442,8 +442,8 @@
 <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-fire-emergency.html"/>
 <xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/fire-emergency.html"/>
 </url>
-<url><loc>https://rimworld.yxhtl.com/rimworld-defense-check.html</loc><lastmod>2026-09-13</lastmod><xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-defense-check.html"/><xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/defense-check.html"/></url>
-<url><loc>https://rimworld.yxhtl.com/en/defense-check.html</loc><lastmod>2026-09-13</lastmod><xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-defense-check.html"/><xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/defense-check.html"/></url>
+<url><loc>https://rimworld.yxhtl.com/rimworld-defense-check.html</loc><lastmod>2026-09-16</lastmod><xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-defense-check.html"/><xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/defense-check.html"/></url>
+<url><loc>https://rimworld.yxhtl.com/en/defense-check.html</loc><lastmod>2026-09-16</lastmod><xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-defense-check.html"/><xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/defense-check.html"/></url>
 <url><loc>https://rimworld.yxhtl.com/rimworld-mental-break.html</loc><lastmod>2026-09-13</lastmod><xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-mental-break.html"/><xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/mental-break.html"/></url>
 <url><loc>https://rimworld.yxhtl.com/en/mental-break.html</loc><lastmod>2026-09-13</lastmod><xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-mental-break.html"/><xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/mental-break.html"/></url>
 </urlset>
