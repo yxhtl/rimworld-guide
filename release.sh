@@ -3,7 +3,8 @@
 # 安全发布：默认只检查；--push 时只收已跟踪改动，未跟踪路径必须显式传入。
 set -Eeuo pipefail
 
-REMOTES=(github origin)
+# RimWorld 仅发布到 GitHub；origin（Gitee）保留为历史备份，不参与发布。
+REMOTES=(github)
 
 network_git() {
   # Codex 的隔离 PowerShell 身份无法使用 Schannel；仅网络 Git 命令改走 Git for Windows 自带 OpenSSL。
