@@ -100,6 +100,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/prisoners.html"/>
   </url>
   <url>
+    <loc>https://rimworld.yxhtl.com/rimworld-guide-quests.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-guide-quests.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/quests.html"/>
+  </url>
+  <url>
     <loc>https://rimworld.yxhtl.com/rimworld-guide-mood.html</loc>
     <lastmod>2026-07-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -309,6 +317,14 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-guide-prisoners.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/prisoners.html"/>
+  </url>
+  <url>
+    <loc>https://rimworld.yxhtl.com/en/quests.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-guide-quests.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/quests.html"/>
   </url>
   <url>
     <loc>https://rimworld.yxhtl.com/en/mood.html</loc>
