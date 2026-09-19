@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
 </script>
   <script src="../js/site.js" defer></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":"https://rimworld.yxhtl.com/en/trade.html","headline":"RimWorld Trade and Economy Guide","description":"RimWorld trade guide: orbital trade, caravans, profitable goods and wealth control.","inLanguage":"en","dateModified":"2026-09-16","isPartOf":{"@type":"WebSite","name":"RimWorld Guide","url":"https://rimworld.yxhtl.com/"}}
+{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":"https://rimworld.yxhtl.com/en/trade.html","headline":"RimWorld Trade and Economy Guide","description":"RimWorld trade guide: orbital trade, caravans, profitable goods and wealth control.","inLanguage":"en","dateModified":"2026-09-19","isPartOf":{"@type":"WebSite","name":"RimWorld Guide","url":"https://rimworld.yxhtl.com/"}}
 </script></head>
 <body>
 
@@ -122,13 +122,13 @@ var _hmt = _hmt || [];
       <p>Orbital trading is the most basic way to do business in RimWorld. You don't have to move a muscle — just sit in your base and wait for trade ships to come to you.</p>
       <table>
         <tr><th>Component</th><th>Description</th></tr>
-        <tr><td><strong>Orbital Trade Beacon</strong></td><td>Place it in the middle of your stockpile area — only items within its coverage can be sold</td></tr>
+        <tr><td><strong>Orbital Trade Beacon</strong></td><td>When powered, only tradeable items in its range are available for orbital trade; use the build preview and item range as the final check.</td></tr>
         <tr><td><strong>Comms Console</strong></td><td>Needs a pawn to operate it to call / answer trade ships</td></tr>
-        <tr><td><strong>Ship Types</strong></td><td>General trader (buys anything), weapons trader, slave trader, rare goods trader</td></tr>
-        <tr><td><strong>Call Ground Caravan</strong></td><td>Spend 700 silver to call a ground caravan from a friendly faction (via comms console)</td></tr>
-        <tr><td><strong>Gifting</strong></td><td>Launch gift pods at faction settlements to improve relations — better relations mean more frequent trade ships</td></tr>
+        <tr><td><strong>Ship Types</strong></td><td>Stock and buying rules vary by trader type. Open the trade window, then filter around the colony's current need.</td></tr>
+        <tr><td><strong>Call Ground Caravan</strong></td><td>You can request a ground caravan from a friendly faction through the comms console; trust the current game UI for the silver cost.</td></tr>
+        <tr><td><strong>Gifting</strong></td><td>Gift pods can improve faction relations. Decide whether the colony currently needs the materials more than the relationship gain.</td></tr>
       </table>
-      <div class="tip"><strong>💡 Tip:</strong> The orbital trade beacon's coverage is a circle — place it between your freezer and warehouse to cover both zones with one beacon.</div>
+      <div class="tip"><strong>💡 Tip:</strong> Put the freezer and sell-stock inside the beacon's real coverage first. Walls affect coverage, so use the in-game build preview while placing it.</div>
       <figure class="guide-diagram">
         <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -200,7 +200,7 @@ var _hmt = _hmt || [];
           <text x="560" y="179" fill="#d4b65a" font-size="13" font-weight="bold">Place beacon here</text>
           <text x="560" y="197" fill="#d4b65a" font-size="13" font-weight="bold">→ covers both sides</text>
         </svg>
-        <figcaption>▲ Place the beacon between the freezer and storage — one beacon covers both critical stockpile zones. The workshop and hospital don't need coverage (you won't sell workbenches or medicine).</figcaption>
+        <figcaption>▲ Placing a beacon between freezer and storage is a common starter layout. This diagram shows the idea only; use the in-game build preview for real coverage and wall blocking.</figcaption>
       </figure>
     </div>
 
@@ -210,7 +210,7 @@ var _hmt = _hmt || [];
         <li><strong>Forming a caravan:</strong> On the world map, select pawns + animals → choose "Form Caravan" → they'll gather supplies automatically</li>
         <li><strong>Mounts matter:</strong> Horses / donkeys / dromedaries increase caravan speed. Without mounts, travel is painfully slow</li>
         <li><strong>Danger on the road:</strong> Caravans can be ambushed en route — bring some weapons and medicine</li>
-        <li><strong>Better prices:</strong> Trading at friendly faction settlements gives better prices than orbital traders</li>
+        <li><strong>Settlement trading:</strong> Friendly faction bases give a settlement trade bonus, but count round-trip time, supplies, and home defense before leaving.</li>
         <li><strong>Gifting diplomacy:</strong> Bring goods to factions as gifts — one trip can boost relations significantly</li>
         <li><strong>Pre-departure check:</strong> Enough food (caravans eat on the road), enough medicine, check the season (winter slows travel)</li>
       </ul>
@@ -235,7 +235,7 @@ var _hmt = _hmt || [];
       <ul>
         <li><strong>Best things to sell:</strong> Drugs (flake / yayo / wake-up) &gt; Sculptures (large marble sculpture) &gt; Clothing (duster, leather) &gt; Organs (use with caution — affects mood)</li>
         <li><strong>Worth buying:</strong> Components (too expensive to craft early on), Industrial medicine (stock up mid-game), Shock lance / Shield belt (from rare goods traders)</li>
-        <li><strong>Price factors:</strong> Pawn social skill (most important), faction goodwill, pawn health (missing hand/eye = social penalty)</li>
+        <li><strong>Price factors:</strong> Use a stronger social pawn to negotiate and read the price tooltip in the trade window; difficulty and the trading partner also affect the outcome.</li>
         <li><strong>Don't sell:</strong> Advanced components (you'll need them later), Uranium (power armor), Plasteel</li>
         <li><strong>Emergency cash:</strong> Smelt unwanted weapons for steel, disassemble mechanoid corpses for components + plasteel</li>
       </ul>
@@ -262,6 +262,10 @@ var _hmt = _hmt || [];
     <div class="card"><h3><span class="emoji">2.</span> Three trade situations</h3><ul><li><strong>An orbital trader arrives:</strong> sell compact high-value goods first and buy components or medicine. Do not search the entire stockpile at the last minute.</li><li><strong>You are forming a caravan:</strong> calculate travel days, supplies, route, and the base's remaining defenders. Do not take every capable colonist.</li><li><strong>You suddenly have a lot of money:</strong> check whether wealth grew beyond your current firepower and population. Improve defense and medical coverage first.</li></ul><p>For the wealth trade-off, see <a href="wealth.html">Wealth Management</a>; for product supply, see <a href="crafting.html">Crafting &amp; Production</a>.</p></div>
   </section>
   <section class="section" id="recommended-route"><h2 class="section-title">🧭 Once silver arrives, do this next</h2><div class="emergency-links"><a href="wealth.html">📊 Check wealth risk</a><a href="defense-check.html">🛡️ Inspect defense gaps</a><a href="combat.html">⚔️ Turn budget into reliable firepower</a></div></section>
+  <section class="section" id="version-and-sources">
+    <h2 class="section-title">🔎 Version and source check</h2>
+    <div class="card"><p><strong>Scope:</strong> base game 1.6 series; last checked 2026-09-19. Beacon range, trade stock, and caravan-request costs can vary with version, DLC, and mods, so use the current game UI before committing to a trade.</p><p><strong>Sources for this page:</strong> <a href="https://ludeon.com/blog/2026/06/update-1-6-4850-released/" target="_blank" rel="noopener">Ludeon 1.6.4850 update notes</a>, <a href="https://rimworldwiki.com/wiki/Orbital_trade_beacon" target="_blank" rel="noopener">RimWorld Wiki: Orbital Trade Beacon</a>, and <a href="https://rimworldwiki.com/wiki/Trade" target="_blank" rel="noopener">RimWorld Wiki: Trade</a>.</p></div>
+  </section>
   <nav class="page-nav">
     <a href="animals.html" class="prev">
       <span><span class="nav-label">Previous</span>🐄 Animals & Livestock</span>

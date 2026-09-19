@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HM32STKNVV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HM32STKNVV');</script>
+<script>var _hmt=_hmt||[];(function(){var hm=document.createElement('script');hm.async=true;hm.src='https://hm.baidu.com/hm.js?71f28761d7809372b129ffb5598d0451';document.head.appendChild(hm)})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RimWorld 囚犯处理攻略：从抓捕、牢房设置、招募与释放，到越狱应对。先判断值不值得留，再把风险控制在牢门内。">
+<meta name="keywords" content="RimWorld, 边缘世界, 囚犯, 招募, 牢房, 越狱, 狱卒, 攻略">
+<link rel="canonical" href="https://rimworld.yxhtl.com/rimworld-guide-prisoners.html">
+<link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-guide-prisoners.html">
+<link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/prisoners.html">
+<link rel="alternate" hreflang="x-default" href="https://rimworld.yxhtl.com/rimworld-guide-prisoners.html">
+<meta property="og:title" content="RimWorld 囚犯、招募与越狱防控攻略 | RimWorld 攻略站">
+<meta property="og:description" content="抓到人后先怎么做、谁值得招、牢房怎么不失控，一页按顺序处理。">
+<meta property="og:image" content="https://rimworld.yxhtl.com/og-image.png">
+<meta property="og:url" content="https://rimworld.yxhtl.com/rimworld-guide-prisoners.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RimWorld 攻略站">
+<meta name="twitter:card" content="summary_large_image">
+<title>RimWorld 囚犯、招募与越狱防控攻略 | RimWorld 攻略站</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/guide.css">
+<script src="js/site.js" defer></script>
+</head>
+<body>
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo"><h1>🪐 RimWorld 攻略站</h1><p>从活下去，到活得好</p></div>
+  <div class="lang-switcher"><span class="active">中文</span> | <a href="en/prisoners.html">English</a></div>
+  <div class="nav-section">导航</div><a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
+  <div class="nav-section">新手必备</div>
+  <a href="rimworld-guide-getting-started.html" class="nav-item"><span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span></a>
+  <a href="rimworld-guide-base-building.html" class="nav-item"><span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span></a>
+  <a href="rimworld-guide-temperature.html" class="nav-item"><span class="icon">🌡️</span> 温度与冷藏 <span class="nav-badge">P0</span></a>
+  <a href="rimworld-guide-power.html" class="nav-item"><span class="icon">⚡</span> 电力系统 <span class="nav-badge">P0</span></a>
+  <a href="rimworld-guide-farming.html" class="nav-item"><span class="icon">🌾</span> 种植攻略 <span class="nav-badge">P0</span></a>
+  <div class="nav-section">进阶内容</div>
+  <a href="rimworld-guide-combat.html" class="nav-item"><span class="icon">⚔️</span> 战斗与防御 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> 小人管理 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-prisoners.html" class="nav-item active"><span class="icon">🔒</span> 囚犯与招募 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-work.html" class="nav-item"><span class="icon">📋</span> 工作优先级 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-medical.html" class="nav-item"><span class="icon">🏥</span> 医疗与伤病处理 <span class="nav-badge">P1</span></a>
+  <a href="rimworld-guide-research.html" class="nav-item"><span class="icon">🔬</span> 科技研究路线 <span class="nav-badge">P2</span></a>
+  <div class="nav-section">扩展</div>
+  <a href="rimworld-guide-trade.html" class="nav-item"><span class="icon">💰</span> 贸易与经济 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-biomes.html" class="nav-item"><span class="icon">🌍</span> 生态与地形 <span class="nav-badge">P2</span></a>
+  <a href="rimworld-guide-mods.html" class="nav-item"><span class="icon">🧩</span> Mod 推荐 <span class="nav-badge">P2</span></a>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题"><span id="theme-icon">🌙</span> <span id="theme-label">暗色模式</span> <span class="toggle-thumb"></span></button>
+  <div class="nav-footer"><a href="about.html">📖 关于本站</a> · <a href="privacy.html">🔒 隐私政策</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 反馈/纠错</a> · MVP v0.2</div>
+</nav>
+<main>
+  <div class="breadcrumb"><a href="index.html">攻略总览</a> / 囚犯与招募 <span class="lang-link"><a href="en/prisoners.html">English Version</a></span></div>
+  <div class="search-wrap"><span class="search-icon">🔍</span><input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()"><button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清除搜索">✕</button></div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>没有找到匹配的内容，试试换个关键词？</p></div>
+  <div class="page-toc"><h4>📑 本页目录</h4><ol>
+    <li><a href="#after-capture">抓到人后，先做这四步</a></li>
+    <li><a href="#cell">最低可用牢房</a></li>
+    <li><a href="#recruit">招募：看得见的进度</a></li>
+    <li><a href="#decision">招、放还是别留</a></li>
+    <li><a href="#breakout">越狱：把伤害留在门内</a></li>
+  </ol></div>
+
+  <section class="section" id="prisoners">
+    <h2 class="section-title">🔒 囚犯、招募与越狱防控</h2>
+    <div class="card" id="after-capture">
+      <h3><span class="emoji">1.</span> 抓到人后，先做这四步</h3>
+      <p>别把每个倒地敌人都拖回基地。囚犯会占用医疗、食物、狱卒和防守注意力；先决定是否值得接这个长期账。</p>
+      <table><tr><th>顺序</th><th>现在要看什么</th><th>马上要做什么</th></tr>
+      <tr><td>① 安全</td><td>战场还有没有火、敌人或需要救的己方伤员</td><td>先稳住殖民者；安全后再右键“抓捕”倒地目标</td></tr>
+      <tr><td>② 床位</td><td>封闭房间里是否有空的囚犯床或囚犯睡眠位</td><td>没有就先在室内放一个睡眠位并设为囚犯</td></tr>
+      <tr><td>③ 成本</td><td>伤势、成瘾、长期疾病和本局医疗压力</td><td>别为一个暂时用不上的人挤占救治与药品</td></tr>
+      <tr><td>④ 去向</td><td>技能、特性、是否“坚定忠诚”、人口缺口</td><td>在囚犯页明确设为招募或释放，不让他无目标地占床</td></tr></table>
+      <div class="tip good"><strong>✅ 简单判断：</strong>能补上你当前缺的关键岗位、又能安全养住，才值得留；只是“看着技能不错”但会拖垮医疗或粮食，就先别抓。</div>
+    </div>
+
+    <div class="card" id="cell">
+      <h3><span class="emoji">2.</span> 最低可用牢房：封闭、能睡、能吃、能救</h3>
+      <p>牢房不是放一张床就结束。抓捕需要一个封闭房间和空的囚犯床位；囚犯会照常需要食物、温度和医疗。</p>
+      <table><tr><th>必须有</th><th>检查方法</th><th>常见翻车</th></tr>
+      <tr><td>封闭空间</td><td>墙、门和制冷机等把房间完整围住</td><td>门被设为保持开启，或墙缺一格，能走的囚犯会直接离图</td></tr>
+      <tr><td>囚犯床位</td><td>选中床或睡眠位，勾选“囚犯”，并确认有空位</td><td>把殖民者和囚犯混在同一房间；房间会整体转成囚犯房</td></tr>
+      <tr><td>食物与温度</td><td>看食物是否能送达、房间是否过热或过冷</td><td>只顾锁门，结果囚犯饿倒或病倒，狱卒全去救火</td></tr>
+      <tr><td>医疗条件</td><td>需要救治时，确认医疗设置和可用药品</td><td>把重伤囚犯放进去后不看医疗，错过救治窗口</td></tr></table>
+      <div class="tip warn"><strong>⚠️ 位置别贪近：</strong>牢房可以靠近医院，方便救治；但别贴着军械、主通道或外墙出口。越狱时，离武器和地图边越远，你越有时间处理。</div>
+    </div>
+
+    <div class="card" id="recruit">
+      <h3><span class="emoji">3.</span> 招募不是点一下就等人来：先降抵抗，再等说服</h3>
+      <p>在囚犯信息页把目标设为“招募”，并确保至少一名殖民者允许做<strong>狱卒</strong>工作。狱卒会交谈、降低抵抗；抵抗归零后，才会开始尝试招募。</p>
+      <table><tr><th>屏幕上的信号</th><th>你该做什么</th><th>不要误判成</th></tr>
+      <tr><td>抵抗仍大于 0</td><td>保持招募任务、让社交较好的人承担狱卒，并把房间维持在可住状态</td><td>“卡住了”——这阶段本来还不会成功招募</td></tr>
+      <tr><td>抵抗为 0</td><td>继续观察招募尝试和殖民地实际人手需求</td><td>“下一次一定成功”——招募仍有概率和条件</td></tr>
+      <tr><td>坚定忠诚</td><td>不要把它排进常规招募计划；考虑释放或有对应 DLC 机制时再另行处理</td><td>多等几天就能用基础招募解决</td></tr></table>
+      <p>囚犯心情和狱卒的社交能力都会影响进展。想要人更稳定加入后，接着去看 <a href="rimworld-guide-work.html">工作优先级</a> 和 <a href="rimworld-guide-mood.html">心情系统</a>，别让新成员一进来就被错误排班压垮。</p>
+    </div>
+
+    <div class="card" id="decision">
+      <h3><span class="emoji">4.</span> 招、放还是别留：用殖民地缺口做决定</h3>
+      <table><tr><th>情况</th><th>更合适的动作</th><th>理由</th></tr>
+      <tr><td>缺医生、厨师、建造或种植，目标能补位且养得起</td><td>招募</td><td>人口解决的是当前瓶颈，不是单纯增加人数</td></tr>
+      <tr><td>目标不能常规招募，或伤病与成瘾会长期压住本局</td><td>释放或不抓</td><td>少一个需要看守的人，通常比多一个问题更安全</td></tr>
+      <tr><td>对方阵营不是永久敌对，且能健康走出地图</td><td>释放</td><td>有机会改善关系；是否生效以该阵营和当前游戏提示为准</td></tr>
+      <tr><td>你只是暂时要制止己方精神崩溃</td><td>先看精神崩溃急救页</td><td>抓捕己方会带来后续关系和心情代价，不该当日常管理手段</td></tr></table>
+      <div class="tip"><strong>💡 不要混写 DLC：</strong>奴隶、转化、血液相关处理等属于 DLC 或特定机制；这页基础流程只负责“要不要抓、能不能招、怎么不越狱”。</div>
+    </div>
+
+    <div class="card" id="breakout">
+      <h3><span class="emoji">5.</span> 越狱时：先封路线，再低伤害压制</h3>
+      <p>囚犯越狱时能开门，还可能去拿附近武器。每名囚犯都会独立触发越狱事件；关得越多，事件出现的机会也随之增加。</p>
+      <ol>
+        <li><strong>暂停非必要工作：</strong>先征召附近殖民者，关好通往武器库、医院和外墙出口的门。</li>
+        <li><strong>别把武器放在牢门边：</strong>清掉囚犯能顺手捡到的武器和危险物，主军械库与牢房分开。</li>
+        <li><strong>想保住人就别火力过量：</strong>用近战或低伤害方式压制，倒地后重新抓捕；处理完立刻救治。</li>
+        <li><strong>事后找“为什么能跑”：</strong>检查保持开启的门、缺口、床位状态和通向地图边的最短路线，不只补一扇门就算完。</li>
+      </ol>
+      <p>越狱撞上袭击或火灾时，优先级回到“殖民者安全、火势、伤员”。具体站位和撤退路线看 <a href="rimworld-guide-combat.html">战斗与防御</a>；医疗拥堵则看 <a href="rimworld-guide-medical.html">医疗与伤病处理</a>。</p>
+    </div>
+  </section>
+
+  <section class="section" id="version-and-sources">
+    <h2 class="section-title">🔎 版本与资料核验</h2>
+    <div class="card"><p><strong>适用范围：</strong>基础游戏 1.6 系列；最后核验：2026-09-19。囚犯选项、阵营关系和可用处理方式会受 DLC、Mod 与故事叙述者设置影响，操作前以当前囚犯面板和游戏提示为准。</p><p><strong>本页依据：</strong><a href="https://ludeon.com/blog/2025/06/announcing-odyssey-and-update-1-6/" target="_blank" rel="noopener">Ludeon：1.6 更新公告</a>、<a href="https://rimworldwiki.com/wiki/Prisoner" target="_blank" rel="noopener">RimWorld Wiki：Prisoner</a>。</p></div>
+  </section>
+  <nav class="page-nav"><a href="rimworld-guide-pawns.html" class="prev"><span><span class="nav-label">上一页</span>🧑‍🌾 小人管理</span></a><a href="rimworld-guide-medical.html" class="next"><span><span class="nav-label">下一页</span>🏥 医疗与伤病处理</span></a></nav>
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="回到顶部">↑</button>
+</main>
+<script>
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('open')}
+function doSearch(){const q=document.getElementById('search-input').value.trim().toLowerCase(),clearBtn=document.getElementById('search-clear'),noResults=document.getElementById('no-results'),cards=document.querySelectorAll('.card');let shown=0;clearBtn.classList.toggle('visible',q.length>0);cards.forEach(card=>{const visible=!q||card.textContent.toLowerCase().includes(q);card.classList.toggle('hidden',!visible);if(visible)shown++});noResults.classList.toggle('visible',q.length>0&&shown===0)}
+function clearSearch(){document.getElementById('search-input').value='';doSearch();document.getElementById('search-input').focus()}
+function toggleTheme(){const light=document.body.classList.toggle('light');document.getElementById('theme-icon').textContent=light?'☀️':'🌙';document.getElementById('theme-label').textContent=light?'亮色模式':'暗色模式';localStorage.setItem('rimworld-theme',light?'light':'dark')}
+if(localStorage.getItem('rimworld-theme')==='light'){document.body.classList.add('light');document.getElementById('theme-icon').textContent='☀️';document.getElementById('theme-label').textContent='亮色模式'}
+const backToTop=document.getElementById('back-to-top');window.addEventListener('scroll',()=>backToTop.classList.toggle('visible',window.scrollY>400));function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+</script>
+</body>
+</html>

@@ -49,6 +49,9 @@ var _hmt = _hmt || [];
     })(window, document, "clarity", "script", "x9iflmg36h");
 </script>
   <script src="../js/site.js" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":"https://rimworld.yxhtl.com/en/base-building.html","headline":"RimWorld Base Building Guide","description":"RimWorld base building guide: room layouts, power planning, and freezer design.","inLanguage":"en","dateModified":"2026-09-19","isPartOf":{"@type":"WebSite","name":"RimWorld Guide","url":"https://rimworld.yxhtl.com/"}}
+</script>
 </head>
 <body>
 
@@ -120,10 +123,10 @@ var _hmt = _hmt || [];
       <p>Rooms in RimWorld aren't just random squares — each room type has a "purpose" check that affects work speed and mood.</p>
       <br>
       <table>
-        <tr><th>Room Type</th><th>Recommended Size</th><th>Key Furniture</th><th>Priority</th></tr>
+        <tr><th>Room Type</th><th>Starter Example Size</th><th>Key Furniture</th><th>Priority</th></tr>
         <tr><td>Bedroom</td><td>5×5 (25 tiles)</td><td>Bed, nightstand, dresser, flower pot</td><td>⭐ Better impression = +1~2 mood per level</td></tr>
         <tr><td>Kitchen</td><td>4×5</td><td>Stove (against wall), light</td><td>⭐ Must be clean — dirty kitchen = food poisoning</td></tr>
-        <tr><td>Freezer</td><td>8×8 minimum</td><td>Double walls, double doors, cooler ×2</td><td>⭐ Set to -9°C, prepare for heat waves & outages</td></tr>
+        <tr><td>Freezer</td><td>8×8 starter example</td><td>Insulation, door buffer, cooling sized to conditions</td><td>⭐ Target below 0°C; add cooling for heat or larger rooms</td></tr>
         <tr><td>Dining/Rec Room</td><td>8×8 (combined)</td><td>Tables, chairs, recreation items</td><td>⭐ Combined saves space & materials, double bonus</td></tr>
         <tr><td>Research Lab</td><td>5×6</td><td>Research bench, multi-analyzer (later)</td><td>⭐ Keep clean for faster research speed</td></tr>
         <tr><td>Workshop</td><td>10×10</td><td>Workbenches, tool cabinets against wall</td><td>⭐ Tool cabinet covers two benches</td></tr>
@@ -259,7 +262,7 @@ var _hmt = _hmt || [];
           <rect x="180" y="488" width="360" height="20" rx="4" fill="#222228"/>
           <text x="360" y="502" text-anchor="middle" fill="#bbb" font-size="7" font-family="sans-serif">All rooms: stone walls × floor tiles × one light · Prioritize flooring in kitchen & hospital</text>
         </svg>
-        <figcaption>▲ 5 core room layouts top-down view. Smaller rooms (bedroom/kitchen/hospital) on top, larger rooms (dining-rec/workshop) below. Copy sizes and furniture directly.</figcaption>
+        <figcaption>▲ Five starter room layouts. Smaller rooms (bedroom/kitchen/hospital) are on top, larger rooms (dining-rec/workshop) below. Adjust sizes and furniture for population, equipment, and terrain.</figcaption>
       </figure>
     </div>
 
@@ -267,11 +270,11 @@ var _hmt = _hmt || [];
       <h3><span class="emoji">🧊</span> Freezer Design</h3>
       <p>The freezer is the heart of your base — no freezer means no food stockpile, and no food stockpile means you don't survive the winter.</p>
       <ul>
-        <li><strong>Double walls:</strong> Build two layers of walls around the freezer for twice the insulation</li>
+        <li><strong>Insulation and doors:</strong> Double walls and a door buffer reduce temperature swings from outdoors and door traffic, but are not mandatory on every map.</li>
         <li><strong>Airlock:</strong> Add a 1×2 buffer room with two doors to minimize cold air loss when pawns enter</li>
-        <li><strong>Cooler placement:</strong> Red side faces outdoors, blue side faces the freezer interior</li>
-        <li><strong>Temp setting:</strong> Target -9°C. Add a second cooler if one isn't enough — summer heat waves demand it</li>
-        <li><strong>Backup power:</strong> Place a dedicated battery connected only to coolers — gives you 12 hours of buffer during power outages</li>
+        <li><strong>Cooler placement:</strong> Place the cooler in a wall, with its red side facing an area that can shed heat and its blue side facing the freezer.</li>
+        <li><strong>Temp setting:</strong> A freezer target must be below 0°C. Start around -5 to -10°C, then add cooling for outside temperature, room size, and door traffic.</li>
+        <li><strong>Backup power:</strong> Reserve a separate circuit or stored power for coolers. Runtime depends on stored power and the actual load; there is no guaranteed fixed duration.</li>
       </ul>
       <div class="tip warn">
         <strong>⚠️ Common mistake:</strong> Door "hold open" not set to false — pawns leave the door open while hauling, all the cold air escapes. Always check door settings!
@@ -309,7 +312,7 @@ var _hmt = _hmt || [];
           <rect x="54" y="282" width="612" height="8" rx="1" fill="#5e5e68"/>
           <rect x="54" y="124" width="8" height="166" rx="1" fill="#5e5e68"/>
           <rect x="658" y="124" width="8" height="166" rx="1" fill="#5e5e68"/>
-          <text x="360" y="148" text-anchor="middle" fill="#5a9fd4" font-size="14" font-weight="bold" font-family="sans-serif">🧊 Freezer Interior · Target -9°C · Min 8×8 tiles</text>
+          <text x="360" y="148" text-anchor="middle" fill="#5a9fd4" font-size="14" font-weight="bold" font-family="sans-serif">🧊 Freezer Interior · Below 0°C · 8×8 Starter Example</text>
 
           <!-- 食物分区 -->
           <rect x="80" y="158" width="160" height="36" rx="4" fill="#2a3a2a" stroke="#3a5a3a" stroke-width="1"/>
@@ -358,7 +361,7 @@ var _hmt = _hmt || [];
           <line x1="585" y1="201" x2="650" y2="201" stroke="#d4b65a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-bat)"/>
 
           <!-- 尺寸说明 -->
-          <text x="50" y="360" fill="#888" font-size="11" font-family="sans-serif">↔ Min 8×8 (64 tiles) · Scale up with population · Add 4 tiles width per 3 pawns</text>
+          <text x="50" y="360" fill="#888" font-size="11" font-family="sans-serif">↔ 8×8 (64 tiles) starter example · Adjust for stock, population, and outside heat</text>
 
           <!-- 图例（底部，增加间距） -->
           <rect x="100" y="378" width="520" height="26" rx="4" fill="#1e1e24" stroke="#333" stroke-width="1"/>
@@ -368,7 +371,7 @@ var _hmt = _hmt || [];
           <rect x="370" y="387" width="14" height="8" rx="2" fill="#c0392b"/><text x="390" y="396" fill="#bbb" font-size="10" font-family="sans-serif">Cooler Hot Side</text>
           <rect x="480" y="387" width="14" height="8" rx="2" fill="#6a6a30"/><text x="500" y="396" fill="#bbb" font-size="10" font-family="sans-serif">Backup Battery</text>
         </svg>
-        <figcaption>▲ Three essentials: 1 Double walls for insulation, 2 Airlock prevents cold loss, 3 Dual coolers + backup battery for power outage protection. Get these right and your food never spoils.</figcaption>
+        <figcaption>▲ Three useful tools: 1 insulation, 2 a door buffer, and 3 cooling plus backup power sized to the load. Actual performance still depends on outdoor temperature, room size, and door traffic.</figcaption>
       </figure>
     </div>
 
@@ -398,6 +401,10 @@ var _hmt = _hmt || [];
     <div class="card"><h3><span class="emoji">1.</span> Four upgrades, one result each</h3><table><tr><th>Stage</th><th>Finish first</th><th>Layout focus</th><th>Can wait</th></tr><tr><td>Temporary camp</td><td>One roofed multi-use room</td><td>Medicine, food, and components go indoors</td><td>Private bedrooms and decoration</td></tr><tr><td>Work core</td><td>Short kitchen, freezer, and stockpile routes</td><td>Frequent items do not cross half the map</td><td>Every workbench at once</td></tr><tr><td>Stone shell</td><td>Stone walls for kitchen, batteries, and bedrooms</td><td>Protect rooms that cannot burn first</td><td>A wall around the whole map</td></tr><tr><td>Defense expansion</td><td>Separate entrance, cover, and hospital routes</td><td>Casualties use the inside; enemies stay outside</td><td>Long corridors made only for looks</td></tr></table></div>
     <div class="card"><h3><span class="emoji">2.</span> Which rooms belong together?</h3><table><tr><th>Room</th><th>Keep close to</th><th>Keep away from</th></tr><tr><td>Kitchen</td><td>Freezer and ingredient storage</td><td>Hospital, corpse area, workshop</td></tr><tr><td>Hospital</td><td>Bedrooms and an internal corridor</td><td>Main gate, firing line, kitchen</td></tr><tr><td>Workshop</td><td>Material storage and finished goods</td><td>Dining room and bedrooms</td></tr></table><div class="tip warn"><strong>⚠️ Do not wall the whole map first:</strong> when resources are tight, protect the entrance, kitchen, and freezer. Expand walls after stone, labor, and firepower catch up.</div></div>
     <div class="card"><h3><span class="emoji">🧭</span> Stabilize the base, then assign the people</h3><p>Once the roof, food, freezer, and key routes are stable, do not open several more projects at once. Make sure cooking, care, building, and hauling have coverage. Continue with <a href="work.html">work priorities</a>.</p></div>
+  </section>
+  <section class="section" id="version-and-sources">
+    <h2 class="section-title">🔎 Version and source check</h2>
+    <div class="card"><p><strong>Scope:</strong> base game 1.6 series; last checked 2026-09-19. Room size, cooler count, and backup-power needs are starter guidance, not a replacement for checking this colony's temperature and load.</p><p><strong>Sources for this page:</strong> <a href="https://ludeon.com/blog/2026/06/update-1-6-4850-released/" target="_blank" rel="noopener">Ludeon 1.6.4850 update notes</a>, <a href="https://rimworldwiki.com/wiki/Basics" target="_blank" rel="noopener">RimWorld Wiki: Basics</a>, and <a href="https://www.rimworldwiki.com/wiki/Cooler" target="_blank" rel="noopener">RimWorld Wiki: Cooler</a>.</p></div>
   </section>
   <nav class="page-nav">
     <a href="getting-started.html" class="prev">

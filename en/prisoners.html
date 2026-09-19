@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HM32STKNVV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HM32STKNVV');</script>
+<script>var _hmt=_hmt||[];(function(){var hm=document.createElement('script');hm.async=true;hm.src='https://hm.baidu.com/hm.js?71f28761d7809372b129ffb5598d0451';document.head.appendChild(hm)})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RimWorld prisoner guide: capture, prison setup, recruitment, release, and prison-break response. Decide who is worth keeping and keep the risk behind the door.">
+<meta name="keywords" content="RimWorld, prisoners, recruitment, prison cell, prison break, warden, guide">
+<link rel="canonical" href="https://rimworld.yxhtl.com/en/prisoners.html">
+<link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/prisoners.html">
+<link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-guide-prisoners.html">
+<link rel="alternate" hreflang="x-default" href="https://rimworld.yxhtl.com/rimworld-guide-prisoners.html">
+<meta property="og:title" content="RimWorld Prisoners, Recruitment & Breakouts Guide | RimWorld Guide">
+<meta property="og:description" content="What to do after a capture, who to recruit, and how to keep a prison from becoming a new emergency.">
+<meta property="og:image" content="https://rimworld.yxhtl.com/og-image.png">
+<meta property="og:url" content="https://rimworld.yxhtl.com/en/prisoners.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RimWorld Guide">
+<meta name="twitter:card" content="summary_large_image">
+<title>RimWorld Prisoners, Recruitment & Breakouts Guide | RimWorld Guide</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/guide.css">
+<script src="../js/site.js" defer></script>
+</head>
+<body>
+<button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo"><h1>🪐 RimWorld Guide</h1><p>From surviving to thriving</p></div>
+  <div class="lang-switcher"><a href="../rimworld-guide-prisoners.html">中文</a> | <span class="active">English</span></div>
+  <div class="nav-section">Navigation</div><a href="index.html" class="nav-item"><span class="icon">🏠</span> Guide Index</a>
+  <div class="nav-section">Essentials</div>
+  <a href="getting-started.html" class="nav-item"><span class="icon">🚀</span> Survival Guide <span class="nav-badge">P0</span></a>
+  <a href="base-building.html" class="nav-item"><span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span></a>
+  <a href="temperature.html" class="nav-item"><span class="icon">🌡️</span> Temperature & Freezer <span class="nav-badge">P0</span></a>
+  <a href="power.html" class="nav-item"><span class="icon">⚡</span> Power Systems <span class="nav-badge">P0</span></a>
+  <a href="farming.html" class="nav-item"><span class="icon">🌾</span> Farming <span class="nav-badge">P0</span></a>
+  <div class="nav-section">Advanced</div>
+  <a href="combat.html" class="nav-item"><span class="icon">⚔️</span> Combat & Defense <span class="nav-badge">P1</span></a>
+  <a href="pawns.html" class="nav-item"><span class="icon">🧑‍🌾</span> Pawn Management <span class="nav-badge">P1</span></a>
+  <a href="prisoners.html" class="nav-item active"><span class="icon">🔒</span> Prisoners & Recruitment <span class="nav-badge">P1</span></a>
+  <a href="work.html" class="nav-item"><span class="icon">📋</span> Work Priorities <span class="nav-badge">P1</span></a>
+  <a href="medical.html" class="nav-item"><span class="icon">🏥</span> Medical Care <span class="nav-badge">P1</span></a>
+  <a href="research.html" class="nav-item"><span class="icon">🔬</span> Tech Tree <span class="nav-badge">P2</span></a>
+  <div class="nav-section">Extras</div>
+  <a href="trade.html" class="nav-item"><span class="icon">💰</span> Trade & Economy <span class="nav-badge">P2</span></a>
+  <a href="biomes.html" class="nav-item"><span class="icon">🌍</span> Biomes & Terrain <span class="nav-badge">P2</span></a>
+  <a href="mods.html" class="nav-item"><span class="icon">🧩</span> Mods <span class="nav-badge">P2</span></a>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span> <span class="toggle-thumb"></span></button>
+  <div class="nav-footer"><a href="about.html">📖 About</a> · <a href="privacy.html">🔒 Privacy</a><br><a href="https://wj.qq.com/s2/27063338/6554/" target="_blank" rel="noopener" class="nav-feedback">📩 Feedback</a> · MVP v0.2</div>
+</nav>
+<main>
+  <div class="breadcrumb"><a href="index.html">Guide Index</a> / Prisoners & Recruitment <span class="lang-link"><a href="../rimworld-guide-prisoners.html">中文版本</a></span></div>
+  <div class="search-wrap"><span class="search-icon">🔍</span><input type="text" id="search-input" placeholder="Search this page…" oninput="doSearch()"><button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button></div>
+  <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No results found. Try another keyword?</p></div>
+  <div class="page-toc"><h4>📑 On this page</h4><ol>
+    <li><a href="#after-capture">Four steps after a capture</a></li>
+    <li><a href="#cell">The minimum viable cell</a></li>
+    <li><a href="#recruit">Recruitment you can track</a></li>
+    <li><a href="#decision">Recruit, release, or do not keep them</a></li>
+    <li><a href="#breakout">Keep a breakout contained</a></li>
+  </ol></div>
+
+  <section class="section" id="prisoners">
+    <h2 class="section-title">🔒 Prisoners, Recruitment & Breakouts</h2>
+    <div class="card" id="after-capture">
+      <h3><span class="emoji">1.</span> Four steps after a capture</h3>
+      <p>Do not haul every downed raider home. A prisoner consumes medicine, food, warden time, and defensive attention. First decide whether this is a long-term problem your colony can afford.</p>
+      <table><tr><th>Order</th><th>Check now</th><th>Do next</th></tr>
+      <tr><td>① Safety</td><td>Is there still fire, an enemy, or an untreated colonist?</td><td>Stabilize your colonists first, then right-click a downed target to capture.</td></tr>
+      <tr><td>② Bed space</td><td>Is there an enclosed room with an empty prisoner bed or sleeping spot?</td><td>If not, place an indoor sleeping spot and mark it for prisoners first.</td></tr>
+      <tr><td>③ Cost</td><td>Injuries, addictions, chronic conditions, and your current medical load.</td><td>Do not displace urgent care or medicine for a pawn you do not need.</td></tr>
+      <tr><td>④ Destination</td><td>Skills, traits, unwavering loyalty, and the role your colony lacks.</td><td>Set Recruit or Release in the Prisoner tab; do not leave a captive occupying a bed without a purpose.</td></tr></table>
+      <div class="tip good"><strong>✅ Simple rule:</strong> keep a captive only when they fill a real bottleneck and you can safely support them. A good-looking skill is not enough if the prisoner destabilizes food or medical care.</div>
+    </div>
+
+    <div class="card" id="cell">
+      <h3><span class="emoji">2.</span> The minimum viable cell: enclosed, sleeping, fed, treated</h3>
+      <p>A bed alone is not a prison. Capturing requires an enclosed room with an empty prisoner bed; prisoners still need food, workable temperature, and medical attention.</p>
+      <table><tr><th>Must have</th><th>How to check</th><th>Common failure</th></tr>
+      <tr><td>Enclosure</td><td>Walls, doors, coolers, and similar barriers fully close the room.</td><td>A held-open door or one missing wall tile lets a mobile prisoner walk off the map.</td></tr>
+      <tr><td>Prisoner bed</td><td>Select a bed or sleeping spot, set it for prisoners, and verify it is free.</td><td>Mixing colonists with prisoners; the room will convert to prisoner use.</td></tr>
+      <tr><td>Food and temperature</td><td>Check that food can reach the cell and that it is not too hot or cold.</td><td>Locking the door but letting the captive collapse from hunger or exposure.</td></tr>
+      <tr><td>Medical care</td><td>When treatment is needed, check medical settings and available medicine.</td><td>Capturing a badly injured pawn and never checking the treatment queue.</td></tr></table>
+      <div class="tip warn"><strong>⚠️ Do not put it on the fastest escape route:</strong> a cell may sit near a hospital for tending, but keep it away from weapons, the main corridor, and an outer-map exit.</div>
+    </div>
+
+    <div class="card" id="recruit">
+      <h3><span class="emoji">3.</span> Recruitment: resistance first, persuasion second</h3>
+      <p>Set the prisoner to <strong>Recruit</strong> and ensure at least one colonist is assigned to Warden work. Wardens talk to the prisoner and reduce resistance; recruiting attempts start only after resistance reaches zero.</p>
+      <table><tr><th>What you see</th><th>What to do</th><th>Do not mistake it for</th></tr>
+      <tr><td>Resistance above 0</td><td>Keep the recruit order, give a socially capable colonist Warden work, and keep the cell livable.</td><td>A stalled process; recruitment cannot succeed yet.</td></tr>
+      <tr><td>Resistance at 0</td><td>Keep watching recruitment attempts and your actual staffing need.</td><td>A guaranteed recruit on the next conversation.</td></tr>
+      <tr><td>Unwaveringly loyal</td><td>Do not schedule it as an ordinary recruitment project; release it or use an appropriate DLC mechanism separately.</td><td>Something ordinary recruiting will solve by waiting longer.</td></tr></table>
+      <p>Prisoner mood and the warden's social ability affect progress. When someone does join, use <a href="work.html">Work Priorities</a> and <a href="mood.html">Mood System</a> so bad scheduling does not immediately create a new crisis.</p>
+    </div>
+
+    <div class="card" id="decision">
+      <h3><span class="emoji">4.</span> Recruit, release, or do not keep them</h3>
+      <table><tr><th>Situation</th><th>Better action</th><th>Why</th></tr>
+      <tr><td>You lack a doctor, cook, builder, or grower; the pawn fills that role and is supportable</td><td>Recruit</td><td>Population should remove a current bottleneck, not merely raise headcount.</td></tr>
+      <tr><td>The pawn cannot be ordinarily recruited, or its conditions would consume the colony long-term</td><td>Release or do not capture</td><td>One fewer pawn to guard is often safer than one more problem.</td></tr>
+      <tr><td>Their faction is not permanently hostile and they can leave the map healthy</td><td>Release</td><td>It may improve relations; check the faction and current game message instead of assuming it will.</td></tr>
+      <tr><td>You only need to stop a colonist's mental break</td><td>Use the mental-break emergency guide first</td><td>Arresting your own pawn has later relationship and mood costs; it is not routine management.</td></tr></table>
+      <div class="tip"><strong>💡 Keep DLC separate:</strong> slavery, conversion, and blood-related handling are DLC or special mechanics. This base-game route answers whether to capture, whether ordinary recruitment is possible, and how to contain the risk.</div>
+    </div>
+
+    <div class="card" id="breakout">
+      <h3><span class="emoji">5.</span> During a breakout: close routes, then use low damage</h3>
+      <p>Breaking-out prisoners can open doors and may take nearby weapons. Breakout events are rolled per prisoner, so holding more people also creates more opportunities for one to happen.</p>
+      <ol>
+        <li><strong>Pause nonessential jobs:</strong> draft nearby colonists and shut doors toward the armoury, hospital, and outer exits.</li>
+        <li><strong>Keep weapons away from the door:</strong> clear dropped weapons and dangerous items, and separate the main armoury from the prison.</li>
+        <li><strong>If you want the pawn alive, do not overkill:</strong> use melee or low-damage control, recapture once downed, then treat them.</li>
+        <li><strong>Fix the route, not only the result:</strong> check held-open doors, gaps, bed status, and the shortest path to the map edge.</li>
+      </ol>
+      <p>If a breakout overlaps a raid or fire, return to colonist safety, fire, and injuries first. See <a href="combat.html">Combat & Defense</a> for positions and retreats, or <a href="medical.html">Medical Care</a> for a crowded treatment queue.</p>
+    </div>
+  </section>
+
+  <section class="section" id="version-and-sources">
+    <h2 class="section-title">🔎 Version and source check</h2>
+    <div class="card"><p><strong>Scope:</strong> base game 1.6 series; last checked 2026-09-19. Prisoner controls, faction outcomes, and available handling methods can vary with DLC, mods, and storyteller settings, so confirm the current Prisoner tab and in-game prompts before committing.</p><p><strong>Sources for this page:</strong> <a href="https://ludeon.com/blog/2025/06/announcing-odyssey-and-update-1-6/" target="_blank" rel="noopener">Ludeon: update 1.6 announcement</a> and <a href="https://rimworldwiki.com/wiki/Prisoner" target="_blank" rel="noopener">RimWorld Wiki: Prisoner</a>.</p></div>
+  </section>
+  <nav class="page-nav"><a href="pawns.html" class="prev"><span><span class="nav-label">Previous</span>🧑‍🌾 Pawn Management</span></a><a href="medical.html" class="next"><span><span class="nav-label">Next</span>🏥 Medical Care</span></a></nav>
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+</main>
+<script>
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('open')}
+function doSearch(){const q=document.getElementById('search-input').value.trim().toLowerCase(),clearBtn=document.getElementById('search-clear'),noResults=document.getElementById('no-results'),cards=document.querySelectorAll('.card');let shown=0;clearBtn.classList.toggle('visible',q.length>0);cards.forEach(card=>{const visible=!q||card.textContent.toLowerCase().includes(q);card.classList.toggle('hidden',!visible);if(visible)shown++});noResults.classList.toggle('visible',q.length>0&&shown===0)}
+function clearSearch(){document.getElementById('search-input').value='';doSearch();document.getElementById('search-input').focus()}
+function toggleTheme(){const light=document.body.classList.toggle('light');document.getElementById('theme-icon').textContent=light?'☀️':'🌙';document.getElementById('theme-label').textContent=light?'Light Mode':'Dark Mode';localStorage.setItem('rimworld-theme',light?'light':'dark')}
+if(localStorage.getItem('rimworld-theme')==='light'){document.body.classList.add('light');document.getElementById('theme-icon').textContent='☀️';document.getElementById('theme-label').textContent='Light Mode'}
+const backToTop=document.getElementById('back-to-top');window.addEventListener('scroll',()=>backToTop.classList.toggle('visible',window.scrollY>400));function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+</script>
+</body>
+</html>
