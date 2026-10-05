@@ -1,10 +1,109 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="RimWorld beginner troubleshooting: what to check when pawns idle, food runs out, power fails, or medical care falls behind."><link rel="canonical" href="https://rimworld.yxhtl.com/en/beginner-troubleshooting.html"><link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-beginner-troubleshooting.html"><link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/beginner-troubleshooting.html"><link rel="alternate" hreflang="x-default" href="https://rimworld.yxhtl.com/rimworld-beginner-troubleshooting.html"><title>RimWorld Beginner Troubleshooting Guide</title><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/guide.css"><script async src="https://www.googletagmanager.com/gtag/js?id=G-HM32STKNVV"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HM32STKNVV');</script><script src="../js/site.js" defer></script></head><body><main class="sources-page"><div class="breadcrumb"><a href="index.html">Guide Overview</a> / Beginner Troubleshooting <span class="lang-link"><a href="../rimworld-beginner-troubleshooting.html">中文</a></span></div><h1>🧯 RimWorld Beginner Troubleshooting</h1><p>Fix the problem that can kill pawns, end food supply, or cause immediate collapse first. Then return to the long-term work.</p><section><h2>Pawns are idle</h2><ol><li><strong>Work:</strong> is a higher priority consuming their time?</li><li><strong>Allowed area:</strong> is the target outside their zone?</li><li><strong>Valid job:</strong> do the materials, blueprint, and target actually exist?</li></ol><p><a href="work.html">Check work priorities →</a></p><h2>Food is running out</h2><ol><li>Check prepared meals, not only raw ingredients.</li><li>Connect harvesting, hauling, processing, and cooking.</li><li>Pause nonessential research and construction so the cook is free.</li></ol><p><a href="getting-started.html">Fix the early food chain →</a>　<a href="temperature.html">Refrigeration and storage →</a></p><h2>Power or temperature fails</h2><ol><li>Check connections, generation, and whether key devices are switched off.</li><li>Restore refrigeration, medical care, and sleeping areas before every other consumer.</li><li>Then check roof coverage, doors, and whether temperature control reaches the room.</li></ol><p><a href="power.html">Power guide →</a>　<a href="temperature.html">Temperature guide →</a></p><h2>A pawn is down or getting worse</h2><ol><li>Rescue to safety, treat, and assign rest.</li><li>Confirm doctor, bed, and allowed medicine are available.</li><li>Wait on elective surgery; concentrate resources when care is life-saving.</li></ol><p><a href="medical.html">Medical triage and surgery checklist →</a></p><h2>Mood is collapsing</h2><ol><li>Find the newest cause: pain, hunger, sleep, environment, or loss.</li><li>Remove the easiest recoverable problem first, then fix housing and recreation.</li><li>Reduce travel, combat, and high-risk tasks near a mental break.</li></ol><p><a href="mood.html">Mood and mental state →</a></p><div class="tip good"><strong>How to use this page:</strong> solve one emergency, stabilize, then return to building and research.</div></section>
-<section class="section"><h2>Power outage walkthrough</h2><p><a href="power-emergency.html">Open the power emergency guide</a></p></section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HM32STKNVV"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HM32STKNVV');</script>
+  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement('script');hm.async=true;hm.src='https://hm.baidu.com/hm.js?71f28761d7809372b129ffb5598d0451';document.head.appendChild(hm)})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Why are RimWorld pawns idle? Troubleshoot work priorities, allowed areas, paths, materials, blueprints and bills when construction, cooking or crafting will not run.">
+  <link rel="canonical" href="https://rimworld.yxhtl.com/en/beginner-troubleshooting.html">
+  <link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/beginner-troubleshooting.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-beginner-troubleshooting.html">
+  <link rel="alternate" hreflang="x-default" href="https://rimworld.yxhtl.com/rimworld-beginner-troubleshooting.html">
+  <meta property="og:title" content="Why are RimWorld pawns idle? Work, area, path and bill troubleshooting | RimWorld Guide">
+  <meta property="og:description" content="When a pawn idles, a bench will not run, or construction stalls, trace the actual missing condition in five steps.">
+  <meta property="og:image" content="https://rimworld.yxhtl.com/og-image.png">
+  <meta property="og:url" content="https://rimworld.yxhtl.com/en/beginner-troubleshooting.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RimWorld Guide">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Why are RimWorld pawns idle? Work, area, path and bill troubleshooting | RimWorld Guide</title>
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🪐&lt;/text&gt;&lt;/svg&gt;">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/guide.css">
+  <script src="../js/site.js" defer></script>
+</head>
+<body>
+  <button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+  <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-logo"><h1>🪐 RimWorld Guide</h1><p>From surviving to thriving</p></div>
+    <div class="lang-switcher"><a href="../rimworld-beginner-troubleshooting.html">中文</a> | <span class="active">English</span></div>
+    <div class="nav-section">Navigation</div>
+    <a href="index.html" class="nav-item"><span class="icon">🏠</span> Guide Index</a>
+    <div class="nav-section">Essentials</div>
+    <a href="getting-started.html" class="nav-item"><span class="icon">🚀</span> Survival Guide <span class="nav-badge">P0</span></a>
+    <a href="base-building.html" class="nav-item"><span class="icon">🏠</span> Base Building <span class="nav-badge">P0</span></a>
+    <a href="work.html" class="nav-item"><span class="icon">📋</span> Work Priorities <span class="nav-badge">P1</span></a>
+    <a href="beginner-troubleshooting.html" class="nav-item active"><span class="icon">🧩</span> Why Pawns Idle <span class="nav-badge">P0</span></a>
+    <div class="nav-section">Related guides</div>
+    <a href="crafting.html" class="nav-item"><span class="icon">⚗️</span> Crafting & Production <span class="nav-badge">P2</span></a>
+    <a href="power.html" class="nav-item"><span class="icon">⚡</span> Power Systems <span class="nav-badge">P0</span></a>
+    <a href="food-emergency.html" class="nav-item"><span class="icon">🍲</span> Food emergency</a>
+    <a href="disease-emergency.html" class="nav-item"><span class="icon">🩺</span> Disease & infection</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><span id="theme-icon">🌙</span> <span id="theme-label">Dark Mode</span><span class="toggle-thumb"></span></button>
+    <div class="nav-footer"><a href="about.html">📖 About</a> · <a href="privacy.html">🔒 Privacy</a></div>
+  </nav>
+  <main>
+    <div class="breadcrumb"><a href="index.html">Guide Index</a> / Why pawns idle <span class="lang-link"><a href="../rimworld-beginner-troubleshooting.html">中文版本</a></span></div>
+    <div class="search-wrap"><span class="search-icon">🔍</span><input type="text" id="search-input" placeholder="Search this page…" oninput="doSearch()"><button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="Clear search">✕</button></div>
+    <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No results found. Try another keyword.</p></div>
+    <div class="page-toc"><h4>📑 On this page</h4><ol><li><a href="#state">Is the pawn actually available to work?</a></li><li><a href="#work">Work tab: enabled is not immediate</a></li><li><a href="#access">Areas, doors and pathing</a></li><li><a href="#target">Blueprints, materials and valid targets</a></li><li><a href="#bill">Why a workbench skips its bills</a></li></ol></div>
 
-<section class="section">
-<h2>Fire response</h2>
-<p><a href="fire-emergency.html">Open the fire emergency guide</a></p>
-</section>
-<section class="section"><h2>Defense Check</h2><p><a href="defense-check.html">Open the emergency guide</a></p></section>
-<section class="section"><h2>Mental Break Response</h2><p><a href="mental-break.html">Open the emergency guide</a></p></section>
-</main></body></html>
+    <section class="section">
+      <h2 class="section-title">🧩 Why pawns idle: find the one missing condition instead of scrambling the whole Work tab</h2>
+      <div class="card" id="state">
+        <h3><span class="emoji">1.</span> First, confirm that the pawn is actually available to work</h3>
+        <p>“Idle” does not always mean something is broken. Select the pawn and check their current state: drafted, downed, on a mental break, or meeting food, rest, recreation, or other urgent needs. Separate that state from “no valid job exists” before changing settings.</p>
+        <table><tr><th>What you see</th><th>What it means</th><th>Do this first</th></tr><tr><td>Drafted, downed, or in a mental break</td><td>Normal Work-tab jobs will not run</td><td>Undraft, rescue, or resolve the active crisis</td></tr><tr><td>Eating, resting, or recreating</td><td>A need or schedule is temporarily ahead of work</td><td>Let the current action finish, then see whether idling continues</td></tr><tr><td>No prioritize option appears when you right-click</td><td>At least one condition for that pawn or target fails</td><td>Try a suitable pawn, then check work, access, and the target</td></tr></table>
+        <div class="tip"><strong>💡 Fast isolation:</strong> pick one clear blueprint, crop, or bench and right-click it with a suitable pawn. Whether a valid action appears tells you more than the fact that the pawn looks idle.</div>
+      </div>
+
+      <div class="card" id="work">
+        <h3><span class="emoji">2.</span> Work tab: enabled is not immediate</h3>
+        <p>In manual priorities, a blank box disables the work type and smaller numbers are more urgent. Within the same priority, a pawn checks work types from left to right, so Construction can be enabled yet continuously lose to hauling, growing, care, or another available job.</p>
+        <ol><li><strong>Confirm the work type is not blank:</strong> Construction for blueprints, Cooking for meals, Crafting for production, and Growing for sowing or harvest.</li><li><strong>Find higher or equal-priority competition:</strong> temporarily raise the work you need instead of setting the whole row to 1.</li><li><strong>Check incapabilities:</strong> a backstory restriction is not low skill; that pawn cannot take that work at all.</li><li><strong>Change one cause at a time:</strong> observe whether the pawn begins, otherwise you will not know which setting mattered.</li></ol>
+        <p>For the normal division of labor, manual mode, and colony-size setups, use <a href="work.html">Work Priorities</a>. This page only answers why the current job is not running.</p>
+      </div>
+
+      <div class="card" id="access">
+        <h3><span class="emoji">3.</span> Areas, doors, and paths: a target can exist without being usable</h3>
+        <p>Allowed areas affect where a pawn can work. Locked doors, restricted zones, collapsed passages, threats, extreme conditions, and sealed rooms can also leave a task without a usable route. Check the pawn, target tile, and required materials together.</p>
+        <table><tr><th>Check</th><th>Typical block</th><th>How to verify the fix</th></tr><tr><td>Pawn</td><td>Assigned to an indoor, medical, or temporary safety area</td><td>Temporarily make them unrestricted, or include the target in their current area</td></tr><tr><td>Target</td><td>Behind a door, in a restricted zone, or in an unreachable room</td><td>Right-click it and look for the actual work option</td></tr><tr><td>Materials</td><td>Forbidden, behind a door, or outside the usable route</td><td>Check that both the pawn and materials are reachable and allowed</td></tr></table>
+        <div class="tip warn"><strong>⚠️ Do not only inspect the painted area:</strong> a pawn can cross a restricted space to travel, but cannot interact with a target outside their allowed area. Check the task tile and material location.</div>
+      </div>
+
+      <div class="card" id="target">
+        <h3><span class="emoji">4.</span> Blueprints, materials, and valid targets: no valid job means no work</h3>
+        <p>Construction, harvest, and hauling often stall because there is no task that can currently finish. A blueprint can lack materials, a crop may not be ready, an item may be forbidden, or another pawn may already own that exact task.</p>
+        <ul><li><strong>Construction:</strong> select the blueprint and confirm material quantity, permitted material, and a reachable build tile.</li><li><strong>Growing and harvest:</strong> confirm there is a mature crop or a sowable tile; pawns do not work outside their allowed area.</li><li><strong>Hauling:</strong> confirm the item is allowed and a stockpile, shelf, or task destination accepts it.</li><li><strong>One exact target:</strong> one concrete job normally has one worker; test a nearby separate target instead of sending several pawns to the same tile.</li></ul>
+        <p>For a production-chain problem, continue to <a href="crafting.html">Crafting & Production</a>. If a freezer, kitchen, or appliance failure is causing the chain reaction, stabilize <a href="power.html">Power</a> and <a href="food-emergency.html">Food emergency</a> first.</p>
+      </div>
+
+      <div class="card" id="bill">
+        <h3><span class="emoji">5.</span> A workbench will not run: inspect the bill, not only the bench</h3>
+        <p>A bench exists and Craft or Cook is enabled does not mean work will begin. Pawns attempt active bills they qualify for. A suspended bill, satisfied quantity, ingredient filter, ingredient radius, skill or worker filter can make every bill get skipped.</p>
+        <ol><li><strong>Open Bills:</strong> confirm the bill is not suspended and its target quantity is not already met.</li><li><strong>Check ingredient filters and radius:</strong> having an item is not enough if it does not match the bill or sits outside the allowed search radius.</li><li><strong>Check product conditions:</strong> for “do until you have X”, inspect current products, storage, and any quality condition.</li><li><strong>Check device conditions:</strong> restore fuel or power for equipment that needs it; use <a href="power-emergency.html">Power emergency</a> for an outage.</li><li><strong>Force one test:</strong> right-click the bench with a suitable pawn. The in-game failure message is more reliable than guessing.</li></ol>
+        <div class="tip good"><strong>✅ A completed diagnosis:</strong> you can name who will do one concrete task, where they get materials, which path they use, and which bill or order creates the result. It is not “everyone is now priority 1.”</div>
+      </div>
+    </section>
+
+    <section class="section" id="version-and-sources">
+      <h2 class="section-title">🔎 Version and source check</h2>
+      <div class="card"><p><strong>Scope:</strong> everyday pawn work and workbench tasks in RimWorld 1.6; last checked 2026-09-23. DLC, mods, backstories, device type, and the live map can change a specific option. Use the pawn inspector, Work tab, and bill messages in your game as the final authority.</p><p><strong>Sources:</strong> <a href="https://rimworldwiki.com/index.php?title=Work" target="_blank" rel="noopener">RimWorld Wiki: Work</a>, <a href="https://www.rimworldwiki.com/wiki/Allowed_area" target="_blank" rel="noopener">Allowed area</a>, <a href="https://www.rimworldwiki.com/wiki/Bill" target="_blank" rel="noopener">Bill</a>, and <a href="https://rimworldwiki.com/wiki/Prioritize" target="_blank" rel="noopener">Prioritize</a>.</p></div>
+    </section>
+
+    <nav class="page-nav"><a href="work.html" class="prev"><span><span class="nav-label">Previous</span>📋 Work Priorities</span></a><a href="crafting.html" class="next"><span><span class="nav-label">Next</span>⚗️ Crafting & Production</span></a></nav>
+    <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+  </main>
+  <script>
+    function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('open')}
+    function doSearch(){const q=document.getElementById('search-input').value.trim().toLowerCase(),clearBtn=document.getElementById('search-clear'),noResults=document.getElementById('no-results'),cards=document.querySelectorAll('.card');let shown=0;clearBtn.classList.toggle('visible',q.length>0);cards.forEach(card=>{const visible=!q||card.textContent.toLowerCase().includes(q);card.classList.toggle('hidden',!visible);if(visible)shown++});noResults.classList.toggle('visible',q.length>0&&shown===0)}
+    function clearSearch(){document.getElementById('search-input').value='';doSearch();document.getElementById('search-input').focus()}
+    function toggleTheme(){const light=document.body.classList.toggle('light');document.getElementById('theme-icon').textContent=light?'☀️':'🌙';document.getElementById('theme-label').textContent=light?'Light Mode':'Dark Mode';localStorage.setItem('rimworld-theme',light?'light':'dark')}
+    if(localStorage.getItem('rimworld-theme')==='light'){document.body.classList.add('light');document.getElementById('theme-icon').textContent='☀️';document.getElementById('theme-label').textContent='Light Mode'}
+    const backToTop=document.getElementById('back-to-top');window.addEventListener('scroll',()=>backToTop.classList.toggle('visible',window.scrollY>400));function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+  </script>
+</body>
+</html>
