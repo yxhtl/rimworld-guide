@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HM32STKNVV"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HM32STKNVV');</script>
+<script>
+  if (location.hostname === "rimworld.yxhtl.com") {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ window.dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', 'G-HM32STKNVV');
+    var analyticsScript = document.createElement('script');
+    analyticsScript.async = true;
+    analyticsScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-HM32STKNVV';
+    document.head.appendChild(analyticsScript);
+  }
+</script>
 <script>var _hmt=_hmt||[];(function(){var hm=document.createElement('script');hm.async=true;hm.src='https://hm.baidu.com/hm.js?71f28761d7809372b129ffb5598d0451';document.head.appendChild(hm)})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
