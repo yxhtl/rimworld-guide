@@ -283,17 +283,18 @@ var _hmt = _hmt || [];
     </div>
 
     <div class="card">
-      <h3><span class="emoji">🔌</span> Power Outages — Don't Panic During Solar Flares</h3>
+      <h3><span class="emoji">🔌</span><span>Freezer Power Loss — Ordinary Outage or Solar Flare?</span></h3>
       <ul>
-        <li><strong>Solar flares last 12 hours max:</strong> This is hard-coded. Frozen food easily survives 12 hours without cooling. Keep the freezer door closed during the flare and temperature will recover naturally afterward. Do NOT deconstruct walls</li>
-        <li><strong>Dedicated backup battery:</strong> Place one battery near the freezer, disconnected from the main grid via a switch. Keep it charged. When a short circuit or outage hits, flip the switch to power only the coolers. Note: batteries still fail during solar flares</li>
-        <li><strong>Fuel generators as backup:</strong> Wood-fired or chemfuel generators aren't affected by sunlight. Use them when batteries run dry</li>
+        <li><strong>Check for a solar flare first:</strong> The vanilla event normally lasts about 3.6–12 in-game hours. Coolers cannot operate during it; neither backup batteries nor fuel generators bypass that restriction. Mods may change the event rules</li>
+        <li><strong>Backup power is for ordinary outages:</strong> With no flare active, check power connections, generation, and stored energy. Then connect a charged, isolated backup battery or start a fueled wood-fired or chemfuel generator. Runtime depends on stored energy and actual load; there is no fixed 12-hour guarantee</li>
+        <li><strong>During a flare, preserve the cold without assuming food is safe:</strong> Reduce door openings and traffic; leave freezer walls intact. Check actual room temperature and each food stack's remaining spoil time, and use food closest to rotting first. After the event, verify cooler power and a return to freezing temperature, rather than just checking the target setting</li>
         <li><strong>Packaged survival meals:</strong> They never spoil. Keep a long-term stockpile of 50-100 outside the freezer on shelves. This is your ultimate emergency food reserve</li>
         <li><strong>Pemmican (tribal):</strong> No freezing required, extremely long shelf life. The most important food reserve for tribal starts</li>
       </ul>
       <div class="tip">
         <strong>💡 Pro tip:</strong> Always keep 50-100 packaged survival meals on shelves outside the freezer. No matter how long the power is out, this food won't rot.
       </div>
+      <p>Section checked: 2026-10-26 · <a data-source-link href="https://rimworldwiki.com/wiki/Events#Solar_flare" target="_blank" rel="noopener noreferrer">Solar flares and disabled electronics</a> · <a data-source-link href="https://rimworldwiki.com/wiki/Events_Guide#Freezers" target="_blank" rel="noopener noreferrer">Food spoilage during outages</a>. Based on vanilla event references; not personally playtested.</p>
     </div>
 
     <div class="card">
@@ -315,7 +316,7 @@ var _hmt = _hmt || [];
         <li><strong>Door held open:</strong> Check door settings—"Hold Open" should be false. Especially problematic when haulers move bulk items</li>
         <li><strong>Temperature set to exactly 0°C:</strong> Right at the freezing threshold. One door opening pushes it to 1°C and spoilage begins. Set to at least -5°C</li>
         <li><strong>Single-layer walls:</strong> Poor insulation collapses during heat waves. Add a second layer—material doesn't matter</li>
-        <li><strong>Deconstructing walls during solar flares:</strong> Never do this. Food won't spoil in 12 hours. Removing walls makes temperature recovery after the flare even slower</li>
+        <li><strong>Deconstructing freezer walls during a solar flare:</strong> This compromises insulation. Keep the room enclosed and check remaining food spoil times; a flare lasting at most 12 hours does not guarantee that every food stack is safe</li>
         <li><strong>Insufficient cooling during heat waves:</strong> One cooler that works fine at normal temps may fail when outdoor temps hit 50°C. Install a backup cooler in advance</li>
         <li><strong>Animals near the freezer:</strong> Animals open doors, hold them open, and let cold air escape. Restrict animal access to the freezer zone entirely</li>
       </ol>
