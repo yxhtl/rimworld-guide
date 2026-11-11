@@ -21,14 +21,14 @@ var _hmt = _hmt || [];
 <script async src="https://hm.baidu.com/hm.js?71f28761d7809372b129ffb5598d0451"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="RimWorld 科技研究全攻略：从原始科技到星际航行，9个关键科技节点详解，标准开局研究顺序表，实验室该放什么生产设施。新手看完就知道先点什么科技。附部落开局和坠毁开局的不同研究路线对比。">
+<meta name="description" content="RimWorld 原版研究路线攻略：坠毁与部落开局怎么选科技，从机械加工、微电子基础、多元分析仪到零部件自制的前置与研究设备。">
 <meta name="keywords" content="RimWorld, 边缘世界, 攻略, 科技研究, 电池, 太阳能, 地热, 研究路线">
 <link rel="canonical" href="https://rimworld.yxhtl.com/rimworld-guide-research.html">
 <link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-guide-research.html">
 <link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/research.html">
 <link rel="alternate" hreflang="x-default" href="https://rimworld.yxhtl.com/rimworld-guide-research.html">
-<meta property="og:title" content="RimWorld 科技树全解：研究路线图 + 最优解锁顺序（新手照着点就行） | RimWorld 攻略站">
-<meta property="og:description" content="RimWorld 科技研究全攻略：从原始科技到星际航行，9个关键科技节点详解，标准开局研究顺序表，实验室该放什么生产设施。新手看完就知道先点什么科技。附部落开局和坠毁开局的不同研究路线对比。">
+<meta property="og:title" content="RimWorld 科技研究路线：开局优先级与零部件自制 | RimWorld 攻略站">
+<meta property="og:description" content="RimWorld 原版研究路线攻略：坠毁与部落开局怎么选科技，从机械加工、微电子基础、多元分析仪到零部件自制的前置与研究设备。">
 <meta property="og:image" content="https://rimworld.yxhtl.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -36,11 +36,11 @@ var _hmt = _hmt || [];
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RimWorld 攻略站">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RimWorld 科技树全解：研究路线图 + 最优解锁顺序（新手照着点就行） | RimWorld 攻略站">
-<meta name="twitter:description" content="RimWorld 科技研究全攻略：从原始科技到星际航行，9个关键科技节点详解，标准开局研究顺序表，实验室该放什么生产设施。新手看完就知道先点什么科技。附部落开局和坠毁开局的不同研究路线对比。">
+<meta name="twitter:title" content="RimWorld 科技研究路线：开局优先级与零部件自制 | RimWorld 攻略站">
+<meta name="twitter:description" content="RimWorld 原版研究路线攻略：坠毁与部落开局怎么选科技，从机械加工、微电子基础、多元分析仪到零部件自制的前置与研究设备。">
 <meta name="twitter:image" content="https://rimworld.yxhtl.com/og-image.png">
 <meta name="robots" content="index, follow">
-<title>RimWorld 科技树全解：研究路线图 + 最优解锁顺序（新手照着点就行） | RimWorld 攻略站</title>
+<title>RimWorld 科技研究路线：开局优先级与零部件自制 | RimWorld 攻略站</title>
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
 <link rel="stylesheet" href="css/base.css">
@@ -130,20 +130,19 @@ var _hmt = _hmt || [];
     <h2 class="section-title">🔬 科技研究路线</h2>
 
     <div class="card">
-      <h3><span class="emoji">📋</span> 研究路线总览（新手标准开局）</h3>
-      <p>适用于 <span class="key">劫掠逃生 (Crashlanded)</span> 开局，已经给你排好优先级了，照着点就行：</p>
+      <h3><span class="emoji">📋</span> 迫降开局先研究什么</h3>
+      <p>原版 <span class="key">迫降 (Crashlanded)</span> 已完成电力、空调和岩石切割。先确认当前殖民地最缺供电、储粮还是装备，再选研究。以下按 1.6.4871 原版研究定义核对。</p>
       <table>
-        <tr><th>科技名称</th><th>顺序</th><th>为什么先研究它</th></tr>
-        <tr><td><span class="key">电池 (Batteries)</span></td><td><span class="tag tag-p0">第1个</span></td><td>没电池晚上就断电，太阳能板白天发的电存不住等于白搭</td></tr>
-        <tr><td><span class="key">太阳能板 (Solar Panels)</span></td><td><span class="tag tag-p0">第2个</span></td><td>稳定的自发电来源，摆脱对地热蒸汽间歇泉的位置依赖</td></tr>
-        <tr><td><span class="key">制冷 (Air Conditioning)</span></td><td><span class="tag tag-p0">第3个</span></td><td>冷库=存粮，没有冷库你的食物撑不过第一个冬天</td></tr>
-        <tr><td><span class="key">石匠 (Stonecutting)</span></td><td><span class="tag tag-p0">第4个</span></td><td>木头房一把火就没了，石头墙才是永远的家</td></tr>
-        <tr><td><span class="key">微电子基础 (Microelectronics)</span></td><td><span class="tag tag-p1">第5个</span></td><td>解锁高级研究桌和通讯台，能叫商队能摇人</td></tr>
-        <tr><td><span class="key">精密装配 (Precision Machining)</span></td><td><span class="tag tag-p1">第6个</span></td><td>能做零件了，修东西修设备不用再等路过的贸易商队</td></tr>
-        <tr><td><span class="key">高级研究 (Advanced Research)</span></td><td><span class="tag tag-p2">第7个</span></td><td>解锁仿生学和飞船科技，正式进入后期</td></tr>
-        <tr><td><span class="key">地热发电 (Geothermal)</span></td><td><span class="tag tag-p2">第8个</span></td><td>24小时稳定3600W，一个地热机够大半个基地用</td></tr>
+        <tr><th>科技名称</th><th>何时考虑</th><th>用途与前置</th></tr>
+        <tr><td><span class="key">电力、空调与岩石切割</span></td><td><span class="tag tag-p0">开局已有</span></td><td>可以先建发电和冷库，按防火需要加工石材</td></tr>
+        <tr><td><span class="key">蓄电池／太阳能板</span></td><td><span class="tag tag-p0">按电网选</span></td><td>间歇供电可先研究储电。太阳能板白天发电，这两个研究各自只要求电力</td></tr>
+        <tr><td><span class="key">机械加工 (Machining)</span></td><td><span class="tag tag-p1">按装备需求</span></td><td>需要电力和锻造，解锁机械加工台。它也是多元分析仪的前置之一</td></tr>
+        <tr><td><span class="key">微电子基础 (Microelectronics)</span></td><td><span class="tag tag-p1">升级研究</span></td><td>解锁高级研究台和通讯台，可与机械加工按需要安排先后</td></tr>
+        <tr><td><span class="key">多元分析仪 (Multi-analyzer)</span></td><td><span class="tag tag-p2">冲零部件</span></td><td>完成机械加工和微电子基础后，在高级研究台研究；建好后连接研究台</td></tr>
+        <tr><td><span class="key">精密装配 (Fabrication)</span></td><td><span class="tag tag-p2">零部件自制</span></td><td>使用连接多元分析仪的高级研究台完成研究，解锁精密装配台</td></tr>
+        <tr><td><span class="key">地热能 (Geothermal power)</span></td><td><span class="tag tag-p2">按地图选</span></td><td>附近有合适的蒸汽喷口时可提前研究，前置是电力</td></tr>
       </table>
-      <div class="tip"><strong>💡 核心逻辑：</strong>先保证有电 → 再保证有饭吃 → 然后升级材料 → 最后冲高科技。这条线别跳步，跳了就得返工。</div>
+      <div class="tip"><strong>💡 缺零部件时：</strong>精密装配台本身要用 12 个零部件和 2 个高级零部件。提前预留材料，再安排手工至少 8 级的殖民者上台制作。</div>
     </div>
 
     <div class="card">
@@ -152,19 +151,19 @@ var _hmt = _hmt || [];
       <table>
         <tr><th>开局类型</th><th>推荐研究策略</th><th>核心差异</th></tr>
         <tr>
-          <td><span class="key">标准开局 (Crashlanded)</span></td>
-          <td>电力 → 冷库 → 石匠 → 微电子 → 精密装配</td>
-          <td>三人开局，自带基础科技，稳稳按标准路线走就行</td>
+          <td><span class="key">迫降 (Crashlanded)</span></td>
+          <td>先用已有的电力、空调和岩石切割，再按供电或装备瓶颈选研究</td>
+          <td>三人开局，已有空调科技，可以直接着手建冷库</td>
         </tr>
         <tr>
-          <td><span class="key">部落开局 (Tribal)</span></td>
-          <td>复杂衣物 → 复杂家具 → 恶魔素 → 冲电力</td>
-          <td>研究速度极慢，别想着一上来搞电。先点出防寒衣物和家具保证生存，恶魔素研究出精神茶（啤酒替代品）撑心情，最后才碰电力</td>
+          <td><span class="key">失落的部落 (Lost Tribe)</span></td>
+          <td>按气候、储粮和防御缺口选择衣物、家具或电力</td>
+          <td>原版部落以新石器科技等级起步，高等级研究成本更高。先用已解锁的设施解决眼前缺口</td>
         </tr>
         <tr>
-          <td><span class="key">富探险家 (Rich Explorer)</span></td>
-          <td>微电子基础 → 高级研究 → 精密装配</td>
-          <td>自带部分科技和资源，直接跳基础冲后期，快速形成装备碾压</td>
+          <td><span class="key">富有的探险家 (The Rich Explorer)</span></td>
+          <td>先看单人开局的生存和防御需求，再选择装备或研究路线</td>
+          <td>优先确认研究界面中已完成的项目，按现有物资安排研究时间</td>
         </tr>
       </table>
     </div>
@@ -173,144 +172,61 @@ var _hmt = _hmt || [];
       <h3><span class="emoji">🎯</span> 关键科技节点速查</h3>
       <p>这些科技是真正的分水岭，点到就是质变：</p>
       <table>
-        <tr><th>科技名称</th><th>解锁内容</th><th>为什么重要</th></tr>
-        <tr><td><span class="key">制冷</span></td><td>冷库建造</td><td>食物保存从几天变几年。不研究冷库？冬天等着吃老鼠吧</td></tr>
+        <tr><th>科技名称</th><th>解锁内容</th><th>什么时候用</th></tr>
+        <tr><td><span class="key">空调</span></td><td>制冷机</td><td>通电后可给冷库降温。坠毁开局已完成此项</td></tr>
         <tr><td><span class="key">石匠</span></td><td>石材加工</td><td>石头墙防火，再也不用担心一记闪电把你家烧光</td></tr>
-        <tr><td><span class="key">微电子基础</span></td><td>通讯台 + 高级研究桌</td><td>通讯台能呼叫商队和盟友支援，可以说是保命技能</td></tr>
-        <tr><td><span class="key">精密装配</span></td><td>零件制作</td><td>自己能做零件了，不用跪求贸易商队，修理和建造都自由了</td></tr>
+        <tr><td><span class="key">微电子基础</span></td><td>通讯台 + 高级研究台</td><td>通讯台能呼叫商队和盟友支援，可以说是保命技能</td></tr>
+        <tr><td><span class="key">机械加工</span></td><td>机械加工台</td><td>用于枪械等加工以及拆解机械体，也是研究多元分析仪的前置之一</td></tr>
         <tr><td><span class="key">地热发电机</span></td><td>地热发电</td><td>24小时稳定3600W，再也不用看风力和太阳能的脸色</td></tr>
         <tr><td><span class="key">水培 (Hydroponics)</span></td><td>室内种植</td><td>冰原、沙漠也能量产粮食，地盘自给自足</td></tr>
-        <tr><td><span class="key">仿生体 (Bionics)</span></td><td>仿生部件制作</td><td>给小人换零件，移动速度和战斗力直接质变</td></tr>
-        <tr><td><span class="key">制造技术 (Fabrication)</span></td><td>高级零部件制作</td><td>能做高级装备 = 装备自由，不再依赖掉落和商队</td></tr>
-        <tr><td><span class="key">星际航行基础 (Starship)</span></td><td>飞船建造</td><td>造飞船 = 通关条件，这就是最终目标</td></tr>
+        <tr><td><span class="key">精密装配 (Fabrication)</span></td><td>精密装配台与零部件制作</td><td>在精密装配台用 12 钢制作 1 个零部件</td></tr>
+        <tr><td><span class="key">高级精密装配 (Advanced fabrication)</span></td><td>高级零部件制作</td><td>在同一台设备上制作高级零部件，前置是精密装配</td></tr>
+        <tr><td><span class="key">仿生学 (Bionic replacements)</span></td><td>仿生部件制作</td><td>研究前需完成精密装配与简易假体（Prosthetics）</td></tr>
+        <tr><td><span class="key">星际航行基础 (Starflight basics)</span></td><td>飞船研究路线</td><td>前置是高级精密装配。继续研究具体飞船部件</td></tr>
       </table>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">🗺️</span> 科技树路线图（俯瞰版）</h3>
-      <p>推荐的研究路线，四个阶段从下往上看，仿生体独立为终极目标：</p>
+      <h3><span class="emoji">🗺️</span> 零部件自制的研究路线</h3>
+      <p>想自制零部件，先完成机械加工和微电子基础，再在高级研究台上研究多元分析仪。装好并连接分析仪后，继续研究精密装配。</p>
       <figure class="guide-diagram">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 500" >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 218" role="img" aria-labelledby="research-route-title">
+          <title id="research-route-title">机械加工和微电子基础汇入多元分析仪，再到精密装配和高级精密装配</title>
           <defs>
-            <marker id="arr-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M0,1 L9,5 L0,9 Z" fill="#888896"/>
+            <marker id="research-route-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0 0L10 5L0 10z" fill="#d4b65a"/>
             </marker>
-            <marker id="arr-u" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M0,1 L9,5 L0,9 Z" fill="#d4956b"/>
-            </marker>
-            <filter id="sh-e"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#000" flood-opacity="0.25"/></filter>
-            <filter id="sh-m"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.3"/></filter>
-            <filter id="sh-l"><feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#000" flood-opacity="0.35"/></filter>
-            <filter id="sh-u"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#4a9" flood-opacity="0.35"/></filter>
           </defs>
-          <rect width="720" height="500" fill="#1a1a1f" rx="6"/>
-
-          <!-- ===== 图例 ===== -->
-          <rect x="20" y="14" width="12" height="12" rx="3" fill="#c0392b" opacity="0.85"/>
-          <text x="38" y="25" fill="#c8c8d0" font-size="11" font-family="sans-serif">早期·生存</text>
-          <rect x="130" y="14" width="12" height="12" rx="3" fill="#d4b65a" opacity="0.85"/>
-          <text x="148" y="25" fill="#c8c8d0" font-size="11" font-family="sans-serif">中期·独立</text>
-          <rect x="240" y="14" width="12" height="12" rx="3" fill="#5a9fd4" opacity="0.85"/>
-          <text x="258" y="25" fill="#c8c8d0" font-size="11" font-family="sans-serif">后期·扩张</text>
-          <rect x="350" y="14" width="12" height="12" rx="3" fill="#4a9" opacity="0.85"/>
-          <text x="368" y="25" fill="#c8c8d0" font-size="11" font-family="sans-serif">终极·仿生</text>
-
-          <!-- ===== 终极阶段：仿生体（独立层级 · 发光特效 · 右置分离） ===== -->
-          <rect x="16" y="65" width="48" height="22" rx="4" fill="#4a9" opacity="0.9"/>
-          <text x="40" y="80" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="sans-serif">终极</text>
-
-          <rect x="472" y="46" width="155" height="56" rx="10" fill="none" stroke="#4a9" stroke-width="2.5" opacity="0.25" filter="url(#sh-u)"/>
-          <rect x="478" y="52" width="145" height="48" rx="8" fill="#1a2e1a" stroke="#4a9" stroke-width="1.5" filter="url(#sh-u)"/>
-          <text x="550" y="73" fill="#4a9" font-size="14" font-weight="bold" text-anchor="middle" font-family="sans-serif">🦾 仿生体 ⭐</text>
-          <text x="550" y="91" fill="#6a6" font-size="10" text-anchor="middle" font-family="sans-serif">仿生部件 · 终极进化</text>
-
-          <text x="630" y="70" fill="#4a9" font-size="10" font-family="sans-serif">→ 制造技术</text>
-          <text x="630" y="86" fill="#4a9" font-size="10" font-family="sans-serif">→ 🚀 飞船通关</text>
-
-          <!-- ===== 后期阶段 ===== -->
-          <rect x="16" y="153" width="48" height="22" rx="4" fill="#5a9fd4" opacity="0.85"/>
-          <text x="40" y="168" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="sans-serif">后期</text>
-
-          <rect x="76" y="142" width="130" height="44" rx="7" fill="#24242b" stroke="#5a9fd4" stroke-width="1.5" filter="url(#sh-l)"/>
-          <text x="141" y="161" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">🔬 高级研究</text>
-          <text x="141" y="177" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">解锁仿生+飞船</text>
-
-          <rect x="220" y="142" width="120" height="44" rx="7" fill="#24242b" stroke="#5a9fd4" stroke-width="1.5" filter="url(#sh-l)"/>
-          <text x="280" y="161" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">🌋 地热发电</text>
-          <text x="280" y="177" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">24h·3600W</text>
-
-          <rect x="354" y="142" width="120" height="44" rx="7" fill="#24242b" stroke="#5a9fd4" stroke-width="1.5" filter="url(#sh-l)"/>
-          <text x="414" y="161" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">🌱 水培</text>
-          <text x="414" y="177" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">室内量产粮食</text>
-
-          <!-- ===== 中期阶段 ===== -->
-          <rect x="16" y="269" width="48" height="22" rx="4" fill="#d4b65a" opacity="0.85"/>
-          <text x="40" y="284" fill="#1a1a1f" font-size="11" font-weight="bold" text-anchor="middle" font-family="sans-serif">中期</text>
-
-          <text x="598" y="236" fill="#5a9fd4" font-size="10" font-family="sans-serif">⚠ 富探险家</text>
-          <text x="598" y="250" fill="#5a9fd4" font-size="10" font-family="sans-serif">直接从中期开始</text>
-
-          <rect x="478" y="220" width="110" height="44" rx="7" fill="#24242b" stroke="#d4b65a" stroke-width="1.5" filter="url(#sh-m)"/>
-          <text x="533" y="239" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle" font-family="sans-serif">⚙️ 精密装配</text>
-          <text x="533" y="255" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">自己做零件</text>
-
-          <rect x="478" y="294" width="110" height="44" rx="7" fill="#24242b" stroke="#d4b65a" stroke-width="1.5" filter="url(#sh-m)"/>
-          <text x="533" y="313" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle" font-family="sans-serif">💻 微电子基础</text>
-          <text x="533" y="329" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">通讯台+研究桌</text>
-
-          <!-- ===== 早期阶段 ===== -->
-          <rect x="16" y="391" width="48" height="22" rx="4" fill="#c0392b" opacity="0.85"/>
-          <text x="40" y="406" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="sans-serif">早期</text>
-
-          <text x="598" y="396" fill="#b8860b" font-size="10" font-family="sans-serif">⚠ 部落开局</text>
-          <text x="598" y="410" fill="#b8860b" font-size="10" font-family="sans-serif">先冲衣物再回来</text>
-
-          <rect x="76" y="380" width="110" height="44" rx="7" fill="#24242b" stroke="#c0392b" stroke-width="1.5" filter="url(#sh-e)"/>
-          <text x="131" y="399" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">🔋 电池</text>
-          <text x="131" y="415" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">存电·晚上不瞎</text>
-
-          <rect x="210" y="380" width="110" height="44" rx="7" fill="#24242b" stroke="#c0392b" stroke-width="1.5" filter="url(#sh-e)"/>
-          <text x="265" y="399" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">☀️ 太阳能板</text>
-          <text x="265" y="415" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">稳定发电</text>
-
-          <rect x="344" y="380" width="110" height="44" rx="7" fill="#24242b" stroke="#c0392b" stroke-width="1.5" filter="url(#sh-e)"/>
-          <text x="399" y="399" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">❄️ 制冷</text>
-          <text x="399" y="415" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">冷库=存粮</text>
-
-          <rect x="478" y="380" width="110" height="44" rx="7" fill="#24242b" stroke="#c0392b" stroke-width="1.5" filter="url(#sh-e)"/>
-          <text x="533" y="399" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">🪨 石匠</text>
-          <text x="533" y="415" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">石头墙=防火</text>
-
-          <!-- ===== 箭头：精确连接模块中点 ===== -->
-          <!-- 早期水平流：电池 → 太阳能 → 制冷 → 石匠（连线打在模块垂直中点 y=402） -->
-          <line x1="186" y1="402" x2="206" y2="402" stroke="#888896" stroke-width="1.5" marker-end="url(#arr-r)"/>
-          <line x1="320" y1="402" x2="340" y2="402" stroke="#888896" stroke-width="1.5" marker-end="url(#arr-r)"/>
-          <line x1="454" y1="402" x2="474" y2="402" stroke="#888896" stroke-width="1.5" marker-end="url(#arr-r)"/>
-
-          <!-- 早期→中期：石匠顶边中点(533,380) → 微电子底边中点(533,338) -->
-          <line x1="533" y1="380" x2="533" y2="338" stroke="#d4956b" stroke-width="2" marker-end="url(#arr-u)"/>
-
-          <!-- 中期内部：微电子顶边中点(533,294) → 精密装配底边中点(533,264) -->
-          <line x1="533" y1="294" x2="533" y2="264" stroke="#d4956b" stroke-width="2" marker-end="url(#arr-u)"/>
-
-          <!-- 中期→后期：精密装配顶边中点(533,220) → 分发横线(y=124) -->
-          <line x1="533" y1="220" x2="533" y2="124" stroke="#d4956b" stroke-width="2" marker-end="url(#arr-u)"/>
-
-          <!-- 分发横线：横跨全部后期节点 + 仿生体落点 -->
-          <line x1="141" y1="124" x2="550" y2="124" stroke="#d4956b" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.4"/>
-
-          <!-- 分发下落至后期节点顶边 -->
-          <line x1="141" y1="124" x2="141" y2="142" stroke="#d4956b" stroke-width="1" opacity="0.3"/>
-          <line x1="280" y1="124" x2="280" y2="142" stroke="#d4956b" stroke-width="1" opacity="0.3"/>
-          <line x1="414" y1="124" x2="414" y2="142" stroke="#d4956b" stroke-width="1" opacity="0.3"/>
-
-          <!-- 仿生体连线：分发横线右端 ↑上接 仿生体底边中点(550,100)，用绿色区分 -->
-          <line x1="550" y1="124" x2="550" y2="100" stroke="#4a9" stroke-width="2" marker-end="url(#arr-u)"/>
-
-          <!-- 底部总结 -->
-          <text x="360" y="480" fill="#d4956b" font-size="11" font-weight="bold" text-anchor="middle" font-family="sans-serif">💡 核心思路：先电→再冷→后石→通信→零件 → 后期扩散 → 仿生体终极进化</text>
+          <rect width="720" height="218" rx="12" fill="#1a1a1f"/>
+          <g fill="#24242b" stroke="#5a9fd4" stroke-width="1.5">
+            <rect x="22" y="32" width="138" height="54" rx="8"/>
+            <rect x="22" y="132" width="138" height="54" rx="8"/>
+            <rect x="206" y="82" width="138" height="54" rx="8"/>
+            <rect x="388" y="82" width="138" height="54" rx="8"/>
+            <rect x="569" y="82" width="129" height="54" rx="8"/>
+          </g>
+          <g fill="none" stroke="#d4b65a" stroke-width="2">
+            <path d="M160 59H181V159H160"/>
+            <path d="M181 109H203" marker-end="url(#research-route-arrow)"/>
+            <path d="M344 109H385" marker-end="url(#research-route-arrow)"/>
+            <path d="M526 109H566" marker-end="url(#research-route-arrow)"/>
+          </g>
+          <g fill="#fff" font-family="sans-serif" font-size="15" font-weight="bold" text-anchor="middle">
+            <text x="91" y="56">机械加工</text>
+            <text x="91" y="156">微电子基础</text>
+            <text x="275" y="106">多元分析仪</text>
+            <text x="457" y="106">精密装配</text>
+            <text x="634" y="106">高级精密装配</text>
+          </g>
+          <g fill="#b8bdcd" font-family="sans-serif" font-size="11" text-anchor="middle">
+            <text x="91" y="73">前置：电力与锻造</text>
+            <text x="91" y="173">解锁高级研究台</text>
+            <text x="275" y="123">研究后建造并连接</text>
+            <text x="457" y="123">制作零部件</text>
+            <text x="634" y="123">制作高级零部件</text>
+          </g>
         </svg>
-        <figcaption>▲ 从下往上看：早期四件套是生存底线 → 中期微电子+精密装配自给自足 → 后期科技扩散 → 仿生体是终极进化目标。</figcaption>
+        <figcaption>▲ 仿生学另需简易假体。走飞船路线时，高级精密装配之后研究星际航行基础。</figcaption>
       </figure>
     </div>
 
@@ -319,12 +235,11 @@ var _hmt = _hmt || [];
       <p>同样的时间，有人研究快一倍——区别全在这些细节里：</p>
       <ul>
         <li>研究桌放 <span class="key">无菌地砖</span> 上，干净环境提升研究速度，脏乱差会拖慢进度</li>
-        <li><span class="key">多重分析仪 (Multi-analyzer)</span> 连到研究桌，研究速度 +10%，造一个不亏</li>
+        <li><span class="key">多元分析仪 (Multi-analyzer)</span> 连到高级研究台，既能加快研究，也是精密装配等项目所需的设备</li>
         <li><span class="tag tag-p0">重点</span> 安排一个<span class="key">专职研究员</span>，别让研究位兼建筑挖矿——专注才是最快的速度</li>
-        <li>智识 ≥ 8 的小人研究效率明显提升，低于 5 的别让他碰研究桌，纯属浪费时间</li>
-        <li>夜里研究工作，桌旁放盏<span class="key">灯</span>。黑暗中研究速度 -20%，一盏灯的事别省</li>
+        <li>按殖民者实际的研究速度与工作优先级分配研究。低智识的小人也能做研究，只是进度通常更慢</li>
+        <li>夜里研究时给房间照明，并检查研究台供电和研究员工作状态</li>
         <li>后期可以造 <span class="key">多个研究桌</span> + 多个研究员并行研究，科技树直接起飞</li>
-        <li>研究加速药剂 (Research Accelerator) 有就用，不用留着过年</li>
         <li>研究重要科技前，把全基地智识最高的人调去专职研究，最大化效率</li>
       </ul>
     </div>

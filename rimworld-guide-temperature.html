@@ -21,14 +21,14 @@ var _hmt = _hmt || [];
 <script async src="https://hm.baidu.com/hm.js?71f28761d7809372b129ffb5598d0451"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="RimWorld 温度与冷藏完整攻略：冷库从零搭建教程、双墙气闸隔热原理、制冷机数量计算、热浪寒流生存指南。一篇搞懂温控系统，食物永远不坏。">
+<meta name="description" content="RimWorld 温度与冷藏攻略：冷库搭建、双墙与气闸、制冷机朝向和数量排查，以及热浪、寒流和停电时的保冷办法。">
 <meta name="keywords" content="RimWorld, 边缘世界, 攻略, 冷藏室, 冷库, 温度, 制冷机, 隔热, 热浪, 食物保存">
 <link rel="canonical" href="https://rimworld.yxhtl.com/rimworld-guide-temperature.html">
 <link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-guide-temperature.html">
 <link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/temperature.html">
 <link rel="alternate" hreflang="x-default" href="https://rimworld.yxhtl.com/rimworld-guide-temperature.html">
 <meta property="og:title" content="RimWorld 温度与冷藏全攻略：冷库建造 + 隔热原理 + 热浪应对 | RimWorld 攻略站">
-<meta property="og:description" content="RimWorld 温度与冷藏完整攻略：冷库从零搭建教程、双墙气闸隔热原理、制冷机数量计算、热浪寒流生存指南。一篇搞懂温控系统，食物永远不坏。">
+<meta property="og:description" content="RimWorld 温度与冷藏攻略：冷库搭建、双墙与气闸、制冷机朝向和数量排查，以及热浪、寒流和停电时的保冷办法。">
 <meta property="og:image" content="https://rimworld.yxhtl.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -37,7 +37,7 @@ var _hmt = _hmt || [];
 <meta property="og:site_name" content="RimWorld 攻略站">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="RimWorld 温度与冷藏全攻略：冷库建造 + 隔热原理 + 热浪应对 | RimWorld 攻略站">
-<meta name="twitter:description" content="RimWorld 温度与冷藏完整攻略：冷库从零搭建教程、双墙气闸隔热原理、制冷机数量计算、热浪寒流生存指南。一篇搞懂温控系统，食物永远不坏。">
+<meta name="twitter:description" content="RimWorld 温度与冷藏攻略：冷库搭建、双墙与气闸、制冷机朝向和数量排查，以及热浪、寒流和停电时的保冷办法。">
 <meta name="twitter:image" content="https://rimworld.yxhtl.com/og-image.png">
 <meta name="robots" content="index, follow">
 <title>RimWorld 温度与冷藏全攻略：冷库建造 + 隔热原理 + 热浪应对 | RimWorld 攻略站</title>
@@ -123,24 +123,23 @@ var _hmt = _hmt || [];
     <h2 class="section-title">🌡️ 温度与冷藏</h2>
 
     <div class="card">
-      <h3><span class="emoji">🧊</span> 冷库设计——食物永不坏的核心</h3>
-      <p>冷库是 RimWorld 基地的心脏。食物不冻 = 冬天饿死，就是这么简单。但很多新手造了制冷机还是烂菜，问题出在哪？</p>
-      <br>
-      <p><strong>黄金三要素：双墙 + 气闸 + 双制冷机。</strong>缺一个都会让你的冷库形同虚设。</p>
+      <h3><span class="emoji">🧊</span> 冷库设计与降温排查</h3>
+      <p>造了制冷机却冻不住食物时，先看<strong>房间实际温度</strong>。确认有电、蓝面朝冷库、红面能排热，检查屋顶和门。小冷库可以从一台制冷机试起，隔热和排热都正常、白天仍压不到 0°C 以下时，再缩小冷库或补一台。</p>
 
       <table>
         <tr><th>要素</th><th>做法</th><th>为什么</th></tr>
-        <tr><td>目标温度</td><td>制冷机设 <strong>-9°C</strong></td><td>0°C 以下食物停止腐败，-9°C 是安全缓冲——开门、热浪不会立刻飙到零上</td></tr>
+        <tr><td>目标温度</td><td>可先设 <strong>-9°C</strong></td><td>实际室温低于 0°C 时可停止食物腐败进度。留出温度缓冲，再看白天高温和开门时能否保持冻结</td></tr>
         <tr><td>双墙</td><td>冷库外墙做<strong>两层</strong>（任意材料）</td><td>游戏只计算两层隔热——第三层没用。材料不影响隔热值，但石头防火更好</td></tr>
         <tr><td>气闸门</td><td>门 → 1格空 → 门</td><td>外门关闭后内门才开，避免冷气直接冲出去。用木头/钢自动门——开关快、冷气流失少</td></tr>
-        <tr><td>制冷机数量</td><td><strong>1 台 / 60 格</strong></td><td>8×8 的冷库（64格）1台足够，更大就按比例加</td></tr>
-        <tr><td>制冷机朝向</td><td>蓝面 → 冷库内 · 红面 → 室外</td><td>红面排热气。堵在墙里 = 制冷机罢工 = 整个冷库废掉</td></tr>
-        <tr><td>错开温度</td><td>多台制冷机各设不同温度</td><td>如 -8°C 和 -10°C。温度达标后一台进入低功耗待机(20W)，剩一台维持——省电又有备份</td></tr>
+        <tr><td>制冷机数量</td><td>按实际温度加减</td><td>室外温度、房间大小、隔热和出入频率都会影响所需台数</td></tr>
+        <tr><td>制冷机朝向</td><td>蓝面 → 冷库内 · 红面 → 可散热处</td><td>优先把红面朝室外或露天排热井，给两侧留出空间。排热侧过热会降低制冷效果</td></tr>
+        <tr><td>错开温度</td><td>多台制冷机各设不同温度</td><td>例如主机设 -10°C、辅助机设 -8°C。平时主机维持，升温时辅助机再投入制冷</td></tr>
       </table>
 
       <div class="tip warn">
-        <strong>⚠️ 新手翻车 TOP 1：</strong>制冷机红面朝向室内或堵墙——热气排不出去，制冷机直接失效。检查每个制冷机的红面，确保它指向室外或无屋顶区域。
+        <strong>⚠️ 降不下温时：</strong>检查红面外侧有没有墙或封闭的小房间。优先改善排热，再考虑加制冷机。
       </div>
+      <p>原版制冷机与食物腐败机制核对于 1.6.4871。<a data-source-link href="https://rimworldwiki.com/wiki/Cooler" target="_blank" rel="noopener noreferrer">制冷机的排热与冷库用法</a></p>
     </div>
 
     <div class="card">
@@ -166,7 +165,7 @@ var _hmt = _hmt || [];
           </defs>
           <rect x="0" y="0" width="720" height="420" fill="#1a1a1f"/>
 
-          <text x="360" y="22" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="sans-serif">冷库标准设计 —— 三要素：双墙 + 气闸 + 双制冷机</text>
+          <text x="360" y="22" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="sans-serif">冷库布局示例 · 双墙、气闸与室外排热</text>
           <line x1="60" y1="34" x2="660" y2="34" stroke="#3a3a40" stroke-width="1"/>
 
           <rect x="50" y="44" width="620" height="32" rx="4" fill="#2a2a30" stroke="#444" stroke-width="1"/>
@@ -174,7 +173,7 @@ var _hmt = _hmt || [];
 
           <rect x="50" y="76" width="620" height="14" fill="#5e5e68" stroke="#6e6e78" stroke-width="1"/>
           <rect x="50" y="90" width="620" height="14" fill="#5e5e68" stroke="#6e6e78" stroke-width="1"/>
-          <text x="270" y="100" text-anchor="end" fill="#ddd" font-size="10" font-weight="bold" font-family="sans-serif">双墙（两层石墙 = 隔热×2）</text>
+          <text x="270" y="100" text-anchor="end" fill="#ddd" font-size="10" font-weight="bold" font-family="sans-serif">双墙减少热量交换</text>
           <text x="450" y="100" text-anchor="start" fill="#ddd" font-size="10" font-weight="bold" font-family="sans-serif">防止冷气外泄</text>
 
           <rect x="50" y="120" width="620" height="170" fill="#1a2838" stroke="#3a5a7a" stroke-width="2" rx="4"/>
@@ -182,7 +181,7 @@ var _hmt = _hmt || [];
           <rect x="54" y="282" width="612" height="8" rx="1" fill="#5e5e68"/>
           <rect x="54" y="124" width="8" height="166" rx="1" fill="#5e5e68"/>
           <rect x="658" y="124" width="8" height="166" rx="1" fill="#5e5e68"/>
-          <text x="360" y="148" text-anchor="middle" fill="#5a9fd4" font-size="14" font-weight="bold" font-family="sans-serif">🧊 冷库内部 · 目标 -9°C · 最小 8×8 格</text>
+          <text x="360" y="148" text-anchor="middle" fill="#5a9fd4" font-size="14" font-weight="bold" font-family="sans-serif">🧊 冷库内部 · 示例设定 -9°C</text>
 
           <rect x="80" y="158" width="160" height="36" rx="4" fill="#2a3a2a" stroke="#3a5a3a" stroke-width="1"/>
           <text x="160" y="180" text-anchor="middle" fill="#8a8" font-size="12" font-weight="bold" font-family="sans-serif">🥩 肉类存放</text>
@@ -222,7 +221,7 @@ var _hmt = _hmt || [];
           <line x1="585" y1="302" x2="585" y2="201" stroke="#d4b65a" stroke-width="1.5" stroke-dasharray="4,3"/>
           <line x1="585" y1="201" x2="650" y2="201" stroke="#d4b65a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-bat)"/>
 
-          <text x="50" y="360" fill="#888" font-size="10" font-family="sans-serif">↔ 最小 8×8（64格）· 人口多按比例扩大 · 每多 3 人加 4 格宽</text>
+          <text x="50" y="360" fill="#888" font-size="10" font-family="sans-serif">↔ 按存货与制冷能力调整大小</text>
 
           <rect x="100" y="378" width="520" height="26" rx="4" fill="#1e1e24" stroke="#333" stroke-width="1"/>
           <rect x="115" y="387" width="14" height="8" rx="2" fill="#5e5e68"/><text x="135" y="396" fill="#bbb" font-size="10" font-family="sans-serif">双墙</text>
@@ -231,7 +230,7 @@ var _hmt = _hmt || [];
           <rect x="370" y="387" width="14" height="8" rx="2" fill="#c0392b"/><text x="390" y="396" fill="#bbb" font-size="10" font-family="sans-serif">制冷机热面</text>
           <rect x="480" y="387" width="14" height="8" rx="2" fill="#6a6a30"/><text x="500" y="396" fill="#bbb" font-size="10" font-family="sans-serif">备用电池</text>
         </svg>
-        <figcaption>▲ 三要素：① 双墙隔热 ② 气闸防冷气跑 ③ 双制冷机 + 备用电池防停电。做到这三点，你的食物永远不坏。</figcaption>
+        <figcaption>▲ 图中用了两台制冷机。先确认冷面、热面和屋顶，再按实际室温决定是否加装。备用电池可应对普通停电。</figcaption>
       </figure>
     </div>
 
@@ -240,11 +239,11 @@ var _hmt = _hmt || [];
       <p>RimWorld 的温度模拟相当真实。理解底层机制能帮你少犯很多错：</p>
       <ul>
         <li><strong>制冷机不是空调：</strong>它只会制冷，不会制热。冬天室外零下时，冷库可能比室外还"热"，但制冷机不会反向加温——这是好事，冷库不怕冷只怕热</li>
-        <li><strong>一台制冷机降温能力固定：</strong>设 -1°C 还是 -100°C，制冷量完全一样。设更低温度只是让它多跑一会儿，不会加速降温。加大制冷量需要加第二台</li>
+        <li><strong>设定值控制启停：</strong>制冷机已经在工作、室温仍降不下去时，先改善散热和隔热，或减少需要制冷的空间。单把目标温度调低，解决不了制冷能力不足</li>
         <li><strong>低功耗待机：</strong>温度达标后制冷机降到 20W。多台错开设定可以利用这一点省电</li>
         <li><strong>加热器原理相同：</strong>只是方向反过来。功率固定，数量决定加热能力</li>
         <li><strong>房间大小影响：</strong>房间越大，需要越多制冷/加热设备来维持目标温度</li>
-        <li><strong>屋顶必须盖好：</strong>有洞的屋顶 = 温度直接跟室外平衡。冷库和卧室一定要检查屋顶覆盖</li>
+        <li><strong>检查屋顶覆盖：</strong>没盖住的格子会增加与室外的热量交换。冷库室内盖好屋顶，红面用的露天排热井留在冷库外侧</li>
       </ul>
     </div>
 
@@ -312,12 +311,12 @@ var _hmt = _hmt || [];
     <div class="card">
       <h3><span class="emoji">❌</span> 常见翻车清单</h3>
       <ol>
-        <li><strong>制冷机红面堵死：</strong>红面朝墙、朝室内 = 热气排不出去。拆墙或转向</li>
+        <li><strong>制冷机红面散热不足：</strong>检查红面是否被墙堵住，或朝着越来越热的封闭空间。给热面留出位置并通向室外</li>
         <li><strong>门一直开着：</strong>检查门设置，「保持开启」应为 false。搬运工频繁进出时尤其容易出问题</li>
         <li><strong>温度设 0°C：</strong>刚好卡在冻结点。一开门温度跳到 1°C，食物开始腐败。至少设 -5°C</li>
         <li><strong>单层墙：</strong>隔热差，热浪一来直接扛不住。补第二层墙，材料无所谓</li>
         <li><strong>太阳耀斑时拆冷库墙：</strong>拆墙会破坏保冷。保持房间封闭，并检查食物的剩余腐败时间；不能凭“最多 12 小时”判断存粮一定安全</li>
-        <li><strong>热浪时制冷不足：</strong>一台制冷机在常温够用，热浪时室外 50°C 就撑不住了。提前多装一台备用</li>
+        <li><strong>热浪时制冷不足：</strong>先检查供电、排热和实际室温。热浪期间维持不住冻结温度，再启用额外制冷机或临时缩小冷库</li>
         <li><strong>动物在冷库附近闲逛：</strong>动物开门、卡门，冷气跑不停。冷库区禁止动物进入</li>
       </ol>
     </div>

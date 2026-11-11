@@ -80,39 +80,41 @@ var _hmt = _hmt || [];
   <section class="section" id="mood"><h2 class="section-title">😊 Mood System</h2>
 
 <div class="card"><h3><span class="emoji">🧠</span> How Mood Works</h3>
-<p>Mood is a 0–100% scale. Below 35% risks mental breaks; above 50% can trigger inspirations. Every positive and negative life event feeds into this number.</p>
+<p>Open the colonist’s <strong>Needs</strong> tab and compare the mood bar with their break markers. The base thresholds are <strong>35% for minor, 20% for major, and 5% for extreme</strong>. Traits and other effects can move those markers. Spending time below one raises the risk of a break.</p>
 <table>
-<tr><th>Mood Range</th><th>Effect</th></tr>
-<tr><td>80–100%</td><td>High chance of inspiration—creative, work frenzy, shoot frenzy, etc.</td></tr>
-<tr><td>50–79%</td><td>Normal range, occasional inspiration</td></tr>
-<tr><td>35–49%</td><td>Warning zone—minor breaks possible (sad wandering, binge eating, insulting)</td></tr>
-<tr><td>20–34%</td><td>Danger zone—major breaks possible (tantrum, drug binge, slaughterer)</td></tr>
-<tr><td>0–19%</td><td>Critical—extreme breaks possible (berserk, murderous rage, give up)</td></tr>
+<tr><th>Base mood range</th><th>Risk from low mood</th></tr>
+<tr><td>35% or higher</td><td>Above the base break thresholds</td></tr>
+<tr><td>20% to under 35%</td><td>Minor break, such as sad wandering or a food binge</td></tr>
+<tr><td>5% to under 20%</td><td>Major break, such as a tantrum</td></tr>
+<tr><td>Under 5%</td><td>Extreme break, such as berserk or murderous rage</td></tr>
 </table>
 <br>
-<p><strong>Core insight:</strong> Mental breaks are almost never caused by one thing. −3 ate without table + −5 ugly environment + −4 slept in the cold + −10 rejected proposal = cumulative break. Fix five small things, not one big thing.</p>
+<p><strong>Before a break:</strong> Check the active thoughts and unmet needs. Handle immediate problems such as hunger, exhaustion, pain, or unsafe temperatures first. Then address recurring problems such as meals without a table or a lack of recreation.</p>
+<p>Checked against RimWorld 1.6.4871 base-game definitions and the <a data-source-link href="https://github.com/Chillu1/RimWorldDecompiled/blob/master/Verse.AI/MentalBreaker.cs#L32-L41" target="_blank" rel="noopener noreferrer">game’s break-threshold logic</a>.</p>
 </div>
 
 <div class="card"><h3><span class="emoji">🏠</span> Room Impressiveness—The Underrated Mood Engine</h3>
-<p>Dining rooms, rec rooms, and bedrooms have an "Impressiveness" score calculated from <strong>Wealth, Beauty, Space, and Cleanliness.</strong> Critical mechanic: <strong>the lowest stat gets ~51% weight.</strong> A golden room covered in filth = still awful.</p>
+<p>Room impressiveness combines <strong>wealth, beauty, space, and cleanliness</strong>. Check the room’s rating and its lowest stat before adding furniture. The mood thought also depends on what the colonist did in the room.</p>
 <table>
-<tr><th>Score</th><th>Mood Bonus</th></tr>
-<tr><td>Awful (<20)</td><td>−4</td></tr>
-<tr><td>Mediocre (30–39)</td><td>−2</td></tr>
-<tr><td>Decent (40–49)</td><td>+2</td></tr>
-<tr><td>Slightly Impressive (50–64)</td><td>+3</td></tr>
-<tr><td>Very Impressive (85–119)</td><td>+5</td></tr>
-<tr><td>Extremely Impressive (120–169)</td><td>+6</td></tr>
-<tr><td>Unbelievably Impressive (170–239)</td><td>+7</td></tr>
-<tr><td>Wondrously Impressive (≥240)</td><td>+8</td></tr>
+<tr><th>Room rating</th><th>Dining or recreation thought</th><th>Bedroom thought</th></tr>
+<tr><td>Awful</td><td>None</td><td>−2</td></tr>
+<tr><td>Dull</td><td>None</td><td>None</td></tr>
+<tr><td>Mediocre</td><td>None</td><td>+1</td></tr>
+<tr><td>Decent</td><td>+2</td><td>+2</td></tr>
+<tr><td>Slightly impressive</td><td>+3</td><td>+3</td></tr>
+<tr><td>Somewhat impressive</td><td>+4</td><td>+4</td></tr>
+<tr><td>Very impressive</td><td>+5</td><td>+5</td></tr>
+<tr><td>Extremely impressive</td><td>+6</td><td>+6</td></tr>
+<tr><td>Unbelievably impressive</td><td>+7</td><td>+7</td></tr>
+<tr><td>Wondrously impressive</td><td>+8</td><td>+8</td></tr>
 </table>
 <br>
-<p><strong>Best trick—The Great Hall:</strong> Combine dining + rec into one large room. Pawns get the dining buff after eating AND the rec room buff after recreation—<strong>one room, two mood bonuses, up to +12 to +16 total.</strong></p>
+<p><strong>Shared dining and recreation room:</strong> Eating and doing recreation can grant separate thoughts in the same room. If both thoughts are active at the top rating, they add up to +16 mood.</p>
 <ul>
 <li>8×8 to 12×12, centrally located</li>
 <li>1–2 high-quality large sculptures (art is the best mood investment)</li>
 <li>Stone tile floors, armchairs (not stools) at tables</li>
-<li><strong>Keep it clean!</strong> One pile of filth drops 1–2 impressiveness tiers</li>
+<li><strong>Keep it clean.</strong> Filth can lower the room’s rating. Recheck the rating after cleaning</li>
 </ul>
 </div>
 
@@ -129,8 +131,6 @@ var _hmt = _hmt || [];
 <tr><th>Source</th><th>Buff</th><th>Requirement</th></tr>
 <tr><td>Fine Meal</td><td>+5</td><td>Meat + veg, just needs a stove and cook</td></tr>
 <tr><td>Lavish Meal</td><td>+12</td><td>More ingredients, late-game standard</td></tr>
-<tr><td>Psychite Tea</td><td>+12</td><td>Every 2 days, near-zero addiction risk</td></tr>
-<tr><td>Beer</td><td>+10</td><td>1/day safe, multiple risks addiction</td></tr>
 <tr><td>Luxuriant Comfort (armchair)</td><td>+10</td><td>Armchairs at all workstations + dining tables</td></tr>
 </table>
 </div>
@@ -145,31 +145,24 @@ var _hmt = _hmt || [];
 </div>
 
 <div class="card"><h3><span class="emoji">💊</span> Drug Mood Policy—Automated Safety Net</h3>
-<table>
-<tr><th>Drug</th><th>Effect</th><th>Safe Interval</th><th>Risk</th></tr>
-<tr><td>Psychite Tea</td><td>+12 mood, −10% sleep need</td><td>Every 2 days</td><td>Near-zero</td></tr>
-<tr><td>Beer</td><td>+10 mood</td><td>1/day</td><td>Low</td></tr>
-<tr><td>Ambrosia</td><td>Mood boost</td><td>Daily</td><td>Low addiction</td></tr>
-<tr><td>Smokeleaf</td><td>+13 mood</td><td>—</td><td>−30% consciousness, cancer risk</td></tr>
-<tr><td>Yayo</td><td>+35</td><td>—</td><td>1% addiction per dose, extreme danger</td></tr>
-</table>
-<div class="tip"><strong>💡 Recommended policy:</strong> Psychite tea → if mood <40%, every 2 days max. Pawns only drink when actually unhappy.</div>
+<p>Psychite tea and beer can give temporary mood boosts. Check the item’s safe-dose interval before scheduling use. Consider the colonist’s age, body size, tolerance, addiction, and chemical traits.</p>
+<div class="tip"><strong>💡 If you use a schedule:</strong> Set the interval and mood condition in the drug policy, and check whether social use is also enabled. Psychite tea and other psychite drugs share tolerance. Use food, sleep, and recreation to address recurring low mood.</div>
 </div>
 
 <div class="card"><h3><span class="emoji">🎭</span> Mental Break Types</h3>
 <table>
 <tr><th>Severity</th><th>Type</th><th>Consequence</th><th>Response</th></tr>
 <tr><td>Minor</td><td>Sad Wandering</td><td>Roams aimlessly, exposure danger</td><td>Let it pass → Catharsis +40</td></tr>
-<tr><td>Minor</td><td>Binge Eating</td><td>Consumes all accessible food</td><td>Control food stockpiles</td></tr>
+<tr><td>Minor</td><td>Binge Eating</td><td>Repeatedly seeks and eats food</td><td>Monitor the food supply and protect critical reserves</td></tr>
 <tr><td>Minor</td><td>Insulting Spree</td><td>Insults colonists, may trigger fights</td><td>Isolate target</td></tr>
-<tr><td>Major</td><td>Tantrum</td><td>Destroys 500 silver worth of items</td><td>Arrest or beat down</td></tr>
-<tr><td>Major</td><td>Slaughterer</td><td>Kills tamed animals</td><td>Arrest immediately</td></tr>
+<tr><td>Major</td><td>Tantrum</td><td>Attacks objects. Some tantrums target a specific item</td><td>Check the target and intervene if losing it would be serious</td></tr>
+<tr><td>Extreme</td><td>Slaughterer</td><td>Targets colony animals</td><td>Move vulnerable animals away and intervene if needed</td></tr>
 <tr><td>Extreme</td><td>Berserk</td><td>Attacks everyone nearby</td><td>Full colony melee takedown</td></tr>
 <tr><td>Extreme</td><td>Murderous Rage</td><td>Hunts specific colonist to death</td><td>Arrest or beat down; Word of Serenity</td></tr>
-<tr><td>Extreme</td><td>Give Up</td><td>Leaves colony permanently</td><td>Arrest is the only option</td></tr>
+<tr><td>Extreme</td><td>Give Up</td><td>Tries to leave the colony</td><td>Act before the pawn reaches the map edge if you want to keep them</td></tr>
 </table>
 <br>
-<p><strong>The Catharsis trade-off:</strong> Letting minor breaks run their course grants +40 Catharsis for 2.5 days. Arresting prevents the break but denies the buff and adds "Was imprisoned" (−6). For minor breaks, letting them happen is usually better.</p>
+<p><strong>After a break:</strong> A break that grants Catharsis gives +40 mood for 3 in-game days in the checked version. Monitor low-risk breaks as they run their course. Intervene if the pawn, other colonists, animals, or critical supplies are in danger.</p>
 </div>
 
 <div class="card"><h3><span class="emoji">📈</span> Expectations—Richer = Harder to Please</h3>
@@ -192,12 +185,12 @@ var _hmt = _hmt || [];
 <li><strong>5×5 bedrooms</strong> with bed + dresser + end table + lamp + plant pot</li>
 <li><strong>Armchairs everywhere</strong>—workstations and dining tables (+10 comfort)</li>
 <li><strong>Fine meals minimum</strong>, lavish when affordable (+5 to +12)</li>
-<li><strong>Psychite tea auto-policy:</strong> mood <40%, every 2 days max</li>
+<li><strong>Review any drug policy</strong> against the pawn’s needs, health and the item’s safe-dose interval</li>
 <li><strong>At least 3 recreation types</strong>, 2 hours scheduled daily</li>
 <li><strong>Sculptures everywhere</strong>—workshops, labs, hallways. Best beauty-to-wealth ratio</li>
 <li><strong>Keep it clean</strong>—filth is the #1 impressiveness killer</li>
 <li><strong>Hide corpses</strong>—isolate battlefields and graves from living areas</li>
-<li><strong>Let minor breaks slide</strong>—Catharsis +40 beats arresting every time</li>
+<li><strong>Check the danger before intervening</strong> in an active mental break</li>
 </ol>
 </div>
 
