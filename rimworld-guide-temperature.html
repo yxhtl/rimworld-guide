@@ -122,8 +122,14 @@ var _hmt = _hmt || [];
   <section class="section" id="temperature">
     <h2 class="section-title">🌡️ 温度与冷藏</h2>
 
+    <nav class="tip" aria-label="冷库问题快速跳转">
+      <a href="#freezer-troubleshooting">冻不住</a> ·
+      <a href="#freezer-heat-wave">热浪时升温</a> ·
+      <a href="#freezer-power-loss">突然停电</a>
+    </nav>
+
     <div class="card">
-      <h3><span class="emoji">🧊</span> 冷库设计与降温排查</h3>
+      <h3 id="freezer-troubleshooting"><span class="emoji">🧊</span> 冷库设计与降温排查</h3>
       <p>造了制冷机却冻不住食物时，先看<strong>房间实际温度</strong>。确认有电、蓝面朝冷库、红面能排热，检查屋顶和门。小冷库可以从一台制冷机试起，隔热和排热都正常、白天仍压不到 0°C 以下时，再缩小冷库或补一台。</p>
 
       <table>
@@ -263,9 +269,9 @@ var _hmt = _hmt || [];
     <div class="card">
       <h3><span class="emoji">🔥</span> 热浪与寒流——极端天气生存指南</h3>
 
-      <h4>☀️ 热浪</h4>
+      <h4 id="freezer-heat-wave">☀️ 热浪</h4>
       <ul>
-        <li><strong>临时加制冷机：</strong>热浪来临时多造 1-2 台制冷机，热浪结束可以拆掉或关掉</li>
+        <li><strong>先看实际室温：</strong>检查制冷机供电和红面排热。排查后冷库仍不能保持在冻结温度，再缩小需要制冷的空间或加制冷机；调整后重新看实际室温</li>
         <li><strong>被动冷却器当不了冷库：</strong>它只能把房间降到 15-17°C 左右，远远不够冻食物。只能用来给卧室降温防止中暑</li>
         <li><strong>双层墙 + 山洞：</strong>隔热好的冷库在热浪中的温升远小于露天建筑。前期选址时就该考虑</li>
         <li><strong>制冷机红面额外通风：</strong>热浪时红面排出的热气更热，确保排气口不是封闭空间</li>
@@ -282,7 +288,7 @@ var _hmt = _hmt || [];
     </div>
 
     <div class="card">
-      <h3><span class="emoji">🔌</span><span>冷库停电——先分清普通停电和太阳耀斑</span></h3>
+      <h3 id="freezer-power-loss"><span class="emoji">🔌</span><span>冷库停电——先分清普通停电和太阳耀斑</span></h3>
       <ul>
         <li><strong>先看是否发生太阳耀斑：</strong>原版事件通常持续约 3.6–12 个游戏小时；期间制冷机无法工作，备用电池和燃料发电机都不能绕过这个限制。模组可能改变事件规则</li>
         <li><strong>普通停电才用备用电源：</strong>没有耀斑时，检查供电连接、发电量和剩余电量，再接通已充电的隔离备用电池，或启用有燃料的木火／化学燃料发电机。能撑多久取决于储电量和实际负载，没有固定的 12 小时续航</li>
