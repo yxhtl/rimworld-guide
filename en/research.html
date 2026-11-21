@@ -21,14 +21,14 @@ var _hmt = _hmt || [];
 <script async src="https://hm.baidu.com/hm.js?71f28761d7809372b129ffb5598d0451"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Complete RimWorld research guide: best research order for beginners, tribal vs crashlanded differences, 9 key tech milestones, what production stations go in a laboratory, and how to speed up research.">
+<meta name="description" content="RimWorld research guide for base-game 1.6: starting technologies, research priorities, and how to unlock component production with Fabrication and Advanced Fabrication.">
 <meta name="keywords" content="RimWorld, guide, research, tech tree, technology, science">
 <link rel="canonical" href="https://rimworld.yxhtl.com/en/research.html">
 <link rel="alternate" hreflang="zh-CN" href="https://rimworld.yxhtl.com/rimworld-guide-research.html">
 <link rel="alternate" hreflang="en" href="https://rimworld.yxhtl.com/en/research.html">
 <link rel="alternate" hreflang="x-default" href="https://rimworld.yxhtl.com/rimworld-guide-research.html">
 <meta property="og:title" content="RimWorld Tech Tree Guide: Research Order, Milestones &amp; Laboratory Setup | RimWorld Guide">
-<meta property="og:description" content="Complete RimWorld research guide: best research order for beginners, tribal vs crashlanded differences, 9 key tech milestones, what production stations go in a laboratory, and how to speed up research.">
+<meta property="og:description" content="RimWorld research guide for base-game 1.6: starting technologies, research priorities, and how to unlock component production with Fabrication and Advanced Fabrication.">
 <meta property="og:image" content="https://rimworld.yxhtl.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -37,7 +37,7 @@ var _hmt = _hmt || [];
 <meta property="og:site_name" content="RimWorld Guide">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="RimWorld Tech Tree Guide: Research Order, Milestones &amp; Laboratory Setup | RimWorld Guide">
-<meta name="twitter:description" content="Complete RimWorld research guide: best research order for beginners, tribal vs crashlanded differences, 9 key tech milestones, what production stations go in a laboratory, and how to speed up research.">
+<meta name="twitter:description" content="RimWorld research guide for base-game 1.6: starting technologies, research priorities, and how to unlock component production with Fabrication and Advanced Fabrication.">
 <meta name="twitter:image" content="https://rimworld.yxhtl.com/og-image.png">
 <meta name="robots" content="index, follow">
 <title>RimWorld Tech Tree Guide: Research Order, Milestones &amp; Laboratory Setup | RimWorld Guide</title>
@@ -45,6 +45,13 @@ var _hmt = _hmt || [];
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪐</text></svg>">
 <link rel="stylesheet" href="../css/base.css">
 <link rel="stylesheet" href="../css/guide.css">
+<style>
+  @media (max-width: 600px) {
+    #research table { table-layout: fixed; }
+    #research th, #research td { padding: 8px 6px; vertical-align: top; overflow-wrap: anywhere; }
+    #research th:last-child { width: 48%; }
+  }
+</style>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -126,205 +133,82 @@ var _hmt = _hmt || [];
   <div class="no-results" id="no-results"><span class="icon">🔍</span><p>No matching results. Try a different term?</p></div>
 
   <section class="section" id="research">
-    <h2 class="section-title">🔬 Tech Tree</h2>
+    <h2 class="section-title">🔬 Research Guide</h2>
 
     <div class="card">
-      <h3><span class="emoji">📋</span> Research Order Overview (Standard Start)</h3>
-      <p>For <span class="key">Crashlanded</span> starts. Priority is already sorted for you — just follow the order:</p>
+      <h3><span class="emoji">📋</span> What to Research First in Crashlanded</h3>
+      <p>In the base-game <span class="key">Crashlanded</span> scenario, Electricity, Air Conditioning, and Stonecutting are already researched. Start with whichever problem is most urgent: power, food storage, or equipment. This guide was checked against the base-game definitions in 1.6.4871.</p>
       <table>
-        <tr><th>Tech</th><th>Order</th><th>Why Research It First</th></tr>
-        <tr><td><span class="key">Batteries</span></td><td><span class="tag tag-p0">1st</span></td><td>Without batteries, power cuts out at night. Solar panels are useless during the day if you can't store the energy.</td></tr>
-        <tr><td><span class="key">Solar Panels</span></td><td><span class="tag tag-p0">2nd</span></td><td>Reliable self-generated power. Frees you from depending on steam geyser locations.</td></tr>
-        <tr><td><span class="key">Air Conditioning</span></td><td><span class="tag tag-p0">3rd</span></td><td>Freezer = food storage. No freezer means your food won't last the first winter.</td></tr>
-        <tr><td><span class="key">Stonecutting</span></td><td><span class="tag tag-p0">4th</span></td><td>Wooden buildings burn down in one spark. Stone walls are a permanent home.</td></tr>
-        <tr><td><span class="key">Microelectronics</span></td><td><span class="tag tag-p1">5th</span></td><td>Unlocks the advanced research bench and comms console — call traders and request reinforcements.</td></tr>
-        <tr><td><span class="key">Precision Machining</span></td><td><span class="tag tag-p1">6th</span></td><td>You can craft components. Repair and build without waiting for a passing trade caravan.</td></tr>
-        <tr><td><span class="key">Advanced Research</span></td><td><span class="tag tag-p2">7th</span></td><td>Unlocks bionics and shipbuilding tech — you're officially in the late game.</td></tr>
-        <tr><td><span class="key">Geothermal Power</span></td><td><span class="tag tag-p2">8th</span></td><td>24/7 stable 3600W. One geothermal generator powers most of your base.</td></tr>
+        <tr><th>Research</th><th>When to Consider It</th><th>What It Unlocks or Requires</th></tr>
+        <tr><td><span class="key">Electricity, Air Conditioning, and Stonecutting</span></td><td><span class="tag tag-p0">Already researched</span></td><td>Build a power supply, cool a freezer, or cut stone blocks as needed.</td></tr>
+        <tr><td><span class="key">Battery and Solar Panel</span></td><td><span class="tag tag-p0">Power storage or generation</span></td><td>Battery stores power. Solar Panel supplies daytime power. Each project requires Electricity.</td></tr>
+        <tr><td><span class="key">Machining</span></td><td><span class="tag tag-p1">Equipment</span></td><td>Requires Electricity and Smithing. Unlocks the machining table and is a prerequisite for Multi-analyzer.</td></tr>
+        <tr><td><span class="key">Microelectronics</span></td><td><span class="tag tag-p1">Research facilities</span></td><td>Unlocks the hi-tech research bench and comms console. Requires Electricity, so you can research it before or after Machining.</td></tr>
+        <tr><td><span class="key">Multi-analyzer</span></td><td><span class="tag tag-p2">Component production</span></td><td>Finish Machining and Microelectronics, then research this at a hi-tech research bench. Build the multi-analyzer where it can link to that bench.</td></tr>
+        <tr><td><span class="key">Fabrication</span></td><td><span class="tag tag-p2">Component production</span></td><td>Use a hi-tech research bench with a linked multi-analyzer to research Fabrication. It unlocks the fabrication bench.</td></tr>
+        <tr><td><span class="key">Geothermal Power</span></td><td><span class="tag tag-p2">A useful steam geyser</span></td><td>Requires Electricity. Research it when you have a suitable geyser and can build a generator there.</td></tr>
       </table>
-      <div class="tip"><strong>💡 Core Logic:</strong> Secure power first → then food → upgrade materials → finally rush high tech. Don't skip steps in this chain or you'll have to redo everything.</div>
+      <div class="tip"><strong>💡 Before you start:</strong> Save 200 steel, 12 components, and 2 advanced components to build the fabrication bench. Making components at the bench requires Crafting 8.</div>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">🔄</span> Research Differences by Start Type</h3>
-      <p>Each start type has a completely different rhythm. Don't force the Crashlanded roadmap onto a Tribal run:</p>
+      <h3><span class="emoji">🔄</span> Research by Starting Scenario</h3>
       <table>
-        <tr><th>Start Type</th><th>Recommended Research Strategy</th><th>Key Difference</th></tr>
+        <tr><th>Start Type</th><th>What to Prioritize</th><th>Key Difference</th></tr>
         <tr>
           <td><span class="key">Crashlanded</span></td>
-          <td>Power → Freezer → Stonecutting → Microelectronics → Precision Machining</td>
-          <td>Three colonists with basic tech. Follow the standard route safely.</td>
+          <td>Use the starting technologies, then research what the colony needs for power or equipment.</td>
+          <td>Three colonists start with Air Conditioning, so they can build a freezer as soon as they can power it.</td>
         </tr>
         <tr>
-          <td><span class="key">Tribal</span></td>
-          <td>Complex Clothing → Complex Furniture → Psychoid Brewing → Rush Electricity</td>
-          <td>Research is painfully slow. Don't chase electricity early. Get cold-weather clothing and furniture for survival first. Brew psychoid tea (beer substitute) for mood. Only then touch electricity.</td>
+          <td><span class="key">Lost Tribe</span></td>
+          <td>Choose clothing, furniture, or electricity based on the climate, food storage, and defenses.</td>
+          <td>The tribe starts at the Neolithic tech level, so higher-level projects cost more. Use what is already available to meet immediate needs.</td>
         </tr>
         <tr>
-          <td><span class="key">Rich Explorer</span></td>
-          <td>Microelectronics → Advanced Research → Precision Machining</td>
-          <td>Comes with some tech and resources already unlocked. Skip the basics and rush late-game for rapid equipment advantage.</td>
+          <td><span class="key">The Rich Explorer</span></td>
+          <td>Cover the lone colonist's immediate survival and defenses, then choose equipment or research based on supplies.</td>
+          <td>Check the Research tab for completed projects before picking the next one.</td>
         </tr>
       </table>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">🎯</span> Key Tech Milestones</h3>
-      <p>These techs are real game-changers. Researching them is a qualitative leap forward:</p>
+      <h3><span class="emoji">🎯</span> Key Research Unlocks</h3>
       <table>
-        <tr><th>Tech</th><th>Unlocks</th><th>Why It Matters</th></tr>
-        <tr><td><span class="key">Air Conditioning</span></td><td>Freezer construction</td><td>Food preservation goes from days to years. No freezer? Enjoy eating rats in winter.</td></tr>
-        <tr><td><span class="key">Stonecutting</span></td><td>Stone block crafting</td><td>Stone walls are fireproof. No more losing your base to a single lightning strike.</td></tr>
-        <tr><td><span class="key">Microelectronics</span></td><td>Comms console + Advanced research bench</td><td>The comms console can call traders and ally reinforcements — basically a lifeline.</td></tr>
-        <tr><td><span class="key">Precision Machining</span></td><td>Component crafting</td><td>Make your own components. No more begging trade caravans. Freedom in repairs and construction.</td></tr>
-        <tr><td><span class="key">Geothermal Power</span></td><td>Geothermal generator</td><td>24/7 stable 3600W. Never depend on wind or solar again.</td></tr>
-        <tr><td><span class="key">Hydroponics</span></td><td>Indoor farming</td><td>Mass-produce food in ice sheets and deserts. Full self-sufficiency.</td></tr>
-        <tr><td><span class="key">Bionics</span></td><td>Bionic part crafting</td><td>Replace pawn body parts. Movement speed and combat power jump dramatically.</td></tr>
-        <tr><td><span class="key">Fabrication</span></td><td>Advanced component crafting</td><td>Build high-end gear = gear freedom. No more relying on loot drops and traders.</td></tr>
-        <tr><td><span class="key">Starship</span></td><td>Ship construction</td><td>Building the ship = winning condition. This is the ultimate goal.</td></tr>
+        <tr><th>Research</th><th>Unlocks</th><th>When to Use It</th></tr>
+        <tr><td><span class="key">Air Conditioning</span></td><td>Cooler</td><td>Power a cooler to lower the freezer temperature. Crashlanded starts with this research completed.</td></tr>
+        <tr><td><span class="key">Stonecutting</span></td><td>Stone block crafting</td><td>Cut stone blocks to build fire-resistant walls. Crashlanded starts with this research completed.</td></tr>
+        <tr><td><span class="key">Microelectronics</span></td><td>Comms console and hi-tech research bench</td><td>Set up communications and higher-level research.</td></tr>
+        <tr><td><span class="key">Machining</span></td><td>Machining table</td><td>Unlock equipment production and meet one of the requirements for Multi-analyzer.</td></tr>
+        <tr><td><span class="key">Geothermal Power</span></td><td>Geothermal generator</td><td>Build on a steam geyser for continuous power.</td></tr>
+        <tr><td><span class="key">Hydroponics</span></td><td>Hydroponics basin</td><td>Grow suitable crops indoors with power, light, and a suitable temperature.</td></tr>
+        <tr><td><span class="key">Fabrication</span></td><td>Fabrication bench and component production</td><td>Make one component from 12 steel at the fabrication bench.</td></tr>
+        <tr><td><span class="key">Advanced Fabrication</span></td><td>Advanced component production</td><td>Research it after Fabrication, at a hi-tech research bench with a linked multi-analyzer. Craft advanced components at the fabrication bench.</td></tr>
+        <tr><td><span class="key">Bionic Replacements</span></td><td>Bionic body parts</td><td>Research Fabrication and Prosthetics first.</td></tr>
+        <tr><td><span class="key">Starflight Basics</span></td><td>Starship research</td><td>Research Advanced Fabrication first, then continue with the projects for individual ship parts.</td></tr>
       </table>
     </div>
 
     <div class="card">
-      <h3><span class="emoji">🗺️</span> Tech Tree Roadmap (Overview)</h3>
-      <p>Recommended research path in four stages, read from bottom to top. Bionics stands apart as the ultimate goal:</p>
-      <figure class="guide-diagram">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 520" >
-          <defs>
-            <marker id="arr-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M0,1 L9,5 L0,9 Z" fill="#888896"/>
-            </marker>
-            <marker id="arr-u" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M0,1 L9,5 L0,9 Z" fill="#d4956b"/>
-            </marker>
-            <filter id="sh-e"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#000" flood-opacity="0.25"/></filter>
-            <filter id="sh-m"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity="0.3"/></filter>
-            <filter id="sh-l"><feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#000" flood-opacity="0.35"/></filter>
-            <filter id="sh-u"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#4a9" flood-opacity="0.35"/></filter>
-          </defs>
-          <rect width="740" height="520" fill="#1a1a1f" rx="6"/>
-
-          <!-- ===== Legend ===== -->
-          <rect x="20" y="14" width="12" height="12" rx="3" fill="#c0392b" opacity="0.85"/>
-          <text x="38" y="25" fill="#c8c8d0" font-size="11" font-family="sans-serif">Early·Survival</text>
-          <rect x="155" y="14" width="12" height="12" rx="3" fill="#d4b65a" opacity="0.85"/>
-          <text x="173" y="25" fill="#c8c8d0" font-size="11" font-family="sans-serif">Mid·Independence</text>
-          <rect x="305" y="14" width="12" height="12" rx="3" fill="#5a9fd4" opacity="0.85"/>
-          <text x="323" y="25" fill="#c8c8d0" font-size="11" font-family="sans-serif">Late·Expansion</text>
-          <rect x="445" y="14" width="12" height="12" rx="3" fill="#4a9" opacity="0.85"/>
-          <text x="463" y="25" fill="#c8c8d0" font-size="11" font-family="sans-serif">Ultimate·Bionics</text>
-
-          <!-- ===== Ultimate Stage: Bionics (standalone tier, glow effect, separated right) ===== -->
-          <rect x="16" y="65" width="48" height="22" rx="4" fill="#4a9" opacity="0.9"/>
-          <text x="40" y="80" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="sans-serif">Ultimate</text>
-
-          <rect x="472" y="46" width="155" height="56" rx="10" fill="none" stroke="#4a9" stroke-width="2.5" opacity="0.25" filter="url(#sh-u)"/>
-          <rect x="478" y="52" width="145" height="48" rx="8" fill="#1a2e1a" stroke="#4a9" stroke-width="1.5" filter="url(#sh-u)"/>
-          <text x="550" y="73" fill="#4a9" font-size="14" font-weight="bold" text-anchor="middle" font-family="sans-serif">🦾 Bionics ⭐</text>
-          <text x="550" y="91" fill="#6a6" font-size="11" text-anchor="middle" font-family="sans-serif">Bionics · Ultimate goal</text>
-
-          <text x="635" y="70" fill="#4a9" font-size="10" font-family="sans-serif">→ Fabrication</text>
-          <text x="635" y="86" fill="#4a9" font-size="10" font-family="sans-serif">→ 🚀 Starship</text>
-
-          <!-- ===== Late Stage ===== -->
-          <rect x="16" y="173" width="48" height="22" rx="4" fill="#5a9fd4" opacity="0.85"/>
-          <text x="40" y="188" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="sans-serif">Late</text>
-
-          <rect x="76" y="162" width="130" height="44" rx="7" fill="#24242b" stroke="#5a9fd4" stroke-width="1.5" filter="url(#sh-l)"/>
-          <text x="141" y="181" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle" font-family="sans-serif">🔬 Adv. Research</text>
-          <text x="141" y="197" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">Unlocks bionics+ship</text>
-
-          <rect x="220" y="162" width="120" height="44" rx="7" fill="#24242b" stroke="#5a9fd4" stroke-width="1.5" filter="url(#sh-l)"/>
-          <text x="280" y="181" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">🌋 Geothermal</text>
-          <text x="280" y="197" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">24h·3600W</text>
-
-          <rect x="354" y="162" width="120" height="44" rx="7" fill="#24242b" stroke="#5a9fd4" stroke-width="1.5" filter="url(#sh-l)"/>
-          <text x="414" y="181" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">🌱 Hydroponics</text>
-          <text x="414" y="197" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">Mass indoor food</text>
-
-          <!-- ===== Mid Stage ===== -->
-          <rect x="16" y="289" width="48" height="22" rx="4" fill="#d4b65a" opacity="0.85"/>
-          <text x="40" y="304" fill="#1a1a1f" font-size="11" font-weight="bold" text-anchor="middle" font-family="sans-serif">Mid</text>
-
-          <text x="605" y="256" fill="#5a9fd4" font-size="11" font-family="sans-serif">⚠ Rich Explorer</text>
-          <text x="605" y="270" fill="#5a9fd4" font-size="11" font-family="sans-serif">Skips to mid-game</text>
-
-          <rect x="478" y="240" width="125" height="44" rx="7" fill="#24242b" stroke="#d4b65a" stroke-width="1.5" filter="url(#sh-m)"/>
-          <text x="540" y="259" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="sans-serif">⚙️ Precision Mach.</text>
-          <text x="540" y="275" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">Craft your own parts</text>
-
-          <rect x="478" y="314" width="125" height="44" rx="7" fill="#24242b" stroke="#d4b65a" stroke-width="1.5" filter="url(#sh-m)"/>
-          <text x="540" y="333" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle" font-family="sans-serif">💻 Microelectronics</text>
-          <text x="540" y="349" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">Comms console+research</text>
-
-          <!-- ===== Early Stage ===== -->
-          <rect x="16" y="411" width="48" height="22" rx="4" fill="#c0392b" opacity="0.85"/>
-          <text x="40" y="426" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="sans-serif">Early</text>
-
-          <text x="598" y="416" fill="#b8860b" font-size="11" font-family="sans-serif">⚠ Tribal Start</text>
-          <text x="598" y="430" fill="#b8860b" font-size="11" font-family="sans-serif">Research clothes first</text>
-
-          <rect x="71" y="400" width="120" height="44" rx="7" fill="#24242b" stroke="#c0392b" stroke-width="1.5" filter="url(#sh-e)"/>
-          <text x="131" y="419" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">🔋 Batteries</text>
-          <text x="131" y="435" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">Store power·no blackouts</text>
-
-          <rect x="210" y="400" width="110" height="44" rx="7" fill="#24242b" stroke="#c0392b" stroke-width="1.5" filter="url(#sh-e)"/>
-          <text x="265" y="419" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">☀️ Solar Panels</text>
-          <text x="265" y="435" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">Steady power</text>
-
-          <rect x="344" y="400" width="110" height="44" rx="7" fill="#24242b" stroke="#c0392b" stroke-width="1.5" filter="url(#sh-e)"/>
-          <text x="399" y="419" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">❄️ Air Con</text>
-          <text x="399" y="435" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">Freezer=food storage</text>
-
-          <rect x="478" y="400" width="110" height="44" rx="7" fill="#24242b" stroke="#c0392b" stroke-width="1.5" filter="url(#sh-e)"/>
-          <text x="533" y="419" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">🪨 Stonecutting</text>
-          <text x="533" y="435" fill="#888" font-size="9" text-anchor="middle" font-family="sans-serif">Stone walls=fireproof</text>
-
-          <!-- ===== Arrows: precise connections at midpoint of modules ===== -->
-          <!-- Early horizontal flow: Batteries → Solar → AC → Stonecutting -->
-          <line x1="186" y1="422" x2="206" y2="422" stroke="#888896" stroke-width="1.5" marker-end="url(#arr-r)"/>
-          <line x1="320" y1="422" x2="340" y2="422" stroke="#888896" stroke-width="1.5" marker-end="url(#arr-r)"/>
-          <line x1="454" y1="422" x2="474" y2="422" stroke="#888896" stroke-width="1.5" marker-end="url(#arr-r)"/>
-
-          <!-- Early→Mid: Stonecutting top edge midpoint(538,400) → Microelectronics bottom edge midpoint(538,358) -->
-          <line x1="538" y1="400" x2="538" y2="358" stroke="#d4956b" stroke-width="2" marker-end="url(#arr-u)"/>
-
-          <!-- Mid internal: Microelectronics top edge midpoint(538,314) → Precision Machining bottom edge midpoint(538,284) -->
-          <line x1="538" y1="314" x2="538" y2="284" stroke="#d4956b" stroke-width="2" marker-end="url(#arr-u)"/>
-
-          <!-- Mid→Late: Precision Machining top edge midpoint(538,240) → distribution line(y=144) -->
-          <line x1="538" y1="240" x2="538" y2="144" stroke="#d4956b" stroke-width="2" marker-end="url(#arr-u)"/>
-
-          <!-- Distribution line: spans all late nodes + bionics landing point -->
-          <line x1="141" y1="144" x2="550" y2="144" stroke="#d4956b" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.4"/>
-
-          <!-- Drop lines to late node top edges -->
-          <line x1="141" y1="144" x2="141" y2="162" stroke="#d4956b" stroke-width="1" opacity="0.3"/>
-          <line x1="280" y1="144" x2="280" y2="162" stroke="#d4956b" stroke-width="1" opacity="0.3"/>
-          <line x1="414" y1="144" x2="414" y2="162" stroke="#d4956b" stroke-width="1" opacity="0.3"/>
-
-          <!-- Bionics line: distribution right end ↑ connects bionics bottom edge midpoint(550,100), green tinted -->
-          <line x1="550" y1="144" x2="550" y2="100" stroke="#4a9" stroke-width="2" marker-end="url(#arr-u)"/>
-
-          <!-- Bottom summary -->
-          <text x="370" y="500" fill="#d4956b" font-size="11" font-weight="bold" text-anchor="middle" font-family="sans-serif">💡 Core path: Power→Freezer→Stone→Comms→Parts→Late spread→Bionic evolution</text>
-        </svg>
-        <figcaption>▲ Read from bottom to top: Early 4-pack is the survival baseline → Mid microelectronics + precision machining for self-sufficiency → Late-game tech spread → Bionics as the ultimate evolution goal.</figcaption>
-      </figure>
+      <h3><span class="emoji">🗺️</span> Research Path to Component Production</h3>
+      <ol>
+        <li><strong>Machining and Microelectronics:</strong> Finish both in either order. Build the hi-tech research bench unlocked by Microelectronics.</li>
+        <li><strong>Multi-analyzer:</strong> Research it at the hi-tech research bench, then build the analyzer and link it to the bench.</li>
+        <li><strong>Fabrication:</strong> Research it at the analyzer-equipped bench. Build a fabrication bench to make components.</li>
+        <li><strong>Advanced Fabrication:</strong> Research it after Fabrication using the same research setup. Then make advanced components at the fabrication bench.</li>
+      </ol>
+      <p>Bionic Replacements branches off after Fabrication and also requires Prosthetics. For ship technology, research Starflight Basics after Advanced Fabrication.</p>
     </div>
 
     <div class="card">
       <h3><span class="emoji">⚡</span> Research Speed Tips</h3>
-      <p>Same playtime, double the research output — it all comes down to the details:</p>
       <ul>
-        <li>Place the research bench on <span class="key">sterile tile</span>. A clean environment boosts research speed; dirt and mess slow it down.</li>
-        <li>Connect a <span class="key">Multi-analyzer</span> to the research bench for +10% research speed. Well worth building one.</li>
-        <li><span class="tag tag-p0">Crucial</span> Assign a <span class="key">dedicated researcher</span>. Don't make them split time with construction or mining — focus is the real speed boost.</li>
-        <li>Pawns with Intellectual ≥ 8 research significantly faster. Anyone below 5 shouldn't touch a research bench — it's a waste of time.</li>
-        <li>If researching at night, place a <span class="key">lamp</span> by the bench. Darkness gives -20% research speed — don't skip a simple lamp.</li>
-        <li>Late-game, build <span class="key">multiple research benches</span> with multiple researchers for parallel progress — tech tree takes off.</li>
-        <li>Use Research Accelerator packets when you have them. No point saving them forever.</li>
-        <li>Before researching critical techs, reassign your highest-Intellectual pawn to full-time research for maximum efficiency.</li>
+        <li>Keep the research room clean. <span class="key">Sterile tile</span> can help you raise room cleanliness.</li>
+        <li>Connect a <span class="key">multi-analyzer</span> to a hi-tech research bench. It speeds up research and is required for projects such as Fabrication.</li>
+        <li>Set research job priorities so a researcher has time at the bench. Use their displayed research speed to choose who works on important projects.</li>
+        <li>Light the room and check that a hi-tech research bench has power.</li>
+        <li>Use additional <span class="key">research benches</span> if more than one colonist can contribute to the selected project.</li>
       </ul>
     </div>
   </section>
