@@ -275,9 +275,9 @@ var _hmt = _hmt || [];
       <p>The freezer is the heart of your base — no freezer means no food stockpile, and no food stockpile means you don't survive the winter.</p>
       <ul>
         <li><strong>Insulation and doors:</strong> Double walls and a door buffer reduce temperature swings from outdoors and door traffic, but are not mandatory on every map.</li>
-        <li><strong>Airlock:</strong> Add a 1×2 buffer room with two doors to minimize cold air loss when pawns enter</li>
+        <li><strong>Airlock:</strong> If the door opens often, a 1×2 buffer room with two doors can reduce heat exchange.</li>
         <li><strong>Cooler placement:</strong> Place the cooler in a wall, with its red side facing an area that can shed heat and its blue side facing the freezer.</li>
-        <li><strong>Temp setting:</strong> A freezer target must be below 0°C. Start around -5 to -10°C, then add cooling for outside temperature, room size, and door traffic.</li>
+        <li><strong>Temp setting:</strong> Try -9°C, then check whether the actual room temperature stays below 0°C. Start with one cooler for a small freezer. If it still will not stay frozen after checking power, exhaust, and insulation, cool a smaller space or add another cooler.</li>
         <li><strong>Backup power:</strong> Reserve a separate circuit or stored power for coolers. Runtime depends on stored power and the actual load; there is no guaranteed fixed duration.</li>
       </ul>
       <div class="tip warn">
@@ -285,7 +285,8 @@ var _hmt = _hmt || [];
       </div>
 
       <figure class="guide-diagram">
-        <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="base-freezer-title" aria-describedby="base-freezer-caption">
+          <title id="base-freezer-title">Example Freezer Layout</title>
           <defs>
             <filter id="sh-airlock"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/></filter>
             <filter id="sh-cooler"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#000" flood-opacity="0.25"/></filter>
@@ -296,8 +297,8 @@ var _hmt = _hmt || [];
           <rect x="0" y="0" width="720" height="420" fill="#1a1a1f"/>
 
           <!-- Title -->
-          <text x="360" y="22" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="sans-serif">Standard Freezer Design — 3 Essentials: Double Walls + Airlock + Dual Coolers</text>
-          <line x1="60" y1="34" x2="660" y2="34" stroke="#3a3a40" stroke-width="1"/>
+          <text x="360" y="34" text-anchor="middle" fill="#fff" font-size="30" font-weight="bold" font-family="sans-serif">Example Freezer Layout</text>
+          <line x1="60" y1="42" x2="660" y2="42" stroke="#3a3a40" stroke-width="1"/>
 
           <!-- ===== 室外 ===== -->
           <rect x="50" y="44" width="620" height="32" rx="4" fill="#2a2a30" stroke="#444" stroke-width="1"/>
@@ -306,8 +307,8 @@ var _hmt = _hmt || [];
           <!-- ===== 双墙 ===== -->
           <rect x="50" y="76" width="620" height="14" fill="#5e5e68" stroke="#6e6e78" stroke-width="1"/>
           <rect x="50" y="90" width="620" height="14" fill="#5e5e68" stroke="#6e6e78" stroke-width="1"/>
-          <text x="270" y="100" text-anchor="end" fill="#ddd" font-size="11" font-weight="bold" font-family="sans-serif">Double Walls (2 layers = 2× insulation)</text>
-          <text x="450" y="100" text-anchor="start" fill="#ddd" font-size="11" font-weight="bold" font-family="sans-serif">Prevents cold air loss</text>
+          <text x="270" y="100" text-anchor="end" fill="#ddd" font-size="11" font-weight="bold" font-family="sans-serif">Double Walls (Optional)</text>
+          <text x="450" y="100" text-anchor="start" fill="#ddd" font-size="11" font-weight="bold" font-family="sans-serif">Reduces heat transfer</text>
 
           <!-- ===== 冷库内部 ===== -->
           <rect x="50" y="120" width="620" height="170" fill="#1a2838" stroke="#3a5a7a" stroke-width="2" rx="4"/>
@@ -316,7 +317,7 @@ var _hmt = _hmt || [];
           <rect x="54" y="282" width="612" height="8" rx="1" fill="#5e5e68"/>
           <rect x="54" y="124" width="8" height="166" rx="1" fill="#5e5e68"/>
           <rect x="658" y="124" width="8" height="166" rx="1" fill="#5e5e68"/>
-          <text x="360" y="148" text-anchor="middle" fill="#5a9fd4" font-size="14" font-weight="bold" font-family="sans-serif">🧊 Freezer Interior · Below 0°C · 8×8 Starter Example</text>
+          <text x="360" y="148" text-anchor="middle" fill="#5a9fd4" font-size="14" font-weight="bold" font-family="sans-serif">🧊 Freezer Interior · Keep Actual Temperature Below 0°C</text>
 
           <!-- 食物分区 -->
           <rect x="80" y="158" width="160" height="36" rx="4" fill="#2a3a2a" stroke="#3a5a3a" stroke-width="1"/>
@@ -331,7 +332,7 @@ var _hmt = _hmt || [];
           <!-- ===== 气闸缓冲间（阴影分离） ===== -->
           <rect x="295" y="78" width="130" height="42" fill="#3a3a44" stroke="#6a6a74" stroke-width="2" rx="3" filter="url(#sh-airlock)"/>
           <text x="360" y="94" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">🚪 Airlock Buffer</text>
-          <text x="360" y="108" text-anchor="middle" fill="#aaa" font-size="11" font-family="sans-serif">Only entrance/exit</text>
+          <text x="360" y="108" text-anchor="middle" fill="#aaa" font-size="11" font-family="sans-serif">Optional</text>
           <rect x="301" y="82" width="8" height="34" rx="2" fill="#4a7"/>
           <rect x="411" y="82" width="8" height="34" rx="2" fill="#4a7"/>
           <text x="260" y="130" text-anchor="end" fill="#4a9" font-size="11" font-family="sans-serif">↑ to Outdoors</text>
@@ -343,7 +344,7 @@ var _hmt = _hmt || [];
           <rect x="670" y="138" width="20" height="22" rx="3" fill="#c0392b" stroke="#d05040" stroke-width="1"/>
           <text x="660" y="153" text-anchor="middle" fill="#aad" font-size="10" font-family="sans-serif">❄️</text>
           <text x="680" y="153" text-anchor="middle" fill="#faa" font-size="10" font-family="sans-serif">🔥</text>
-          <text x="680" y="134" text-anchor="middle" fill="#e74c3c" font-size="11" font-family="sans-serif">↓ Heat exhaust to outdoors</text>
+          <text x="705" y="134" text-anchor="end" fill="#e74c3c" font-size="11" font-family="sans-serif">Hot Exhaust</text>
 
           <!-- 制冷机 2 -->
           <rect x="650" y="190" width="20" height="22" rx="3" fill="#4a6090" stroke="#6a80b0" stroke-width="1" filter="url(#sh-cooler)"/>
@@ -352,7 +353,7 @@ var _hmt = _hmt || [];
           <text x="680" y="205" text-anchor="middle" fill="#faa" font-size="10" font-family="sans-serif">🔥</text>
 
           <!-- 制冷机统一标注 -->
-          <text x="660" y="240" text-anchor="middle" fill="#5a9fd4" font-size="11" font-weight="bold" font-family="sans-serif">Coolers × 2</text>
+          <text x="660" y="240" text-anchor="middle" fill="#5a9fd4" font-size="11" font-weight="bold" font-family="sans-serif">Two Shown</text>
           <text x="660" y="255" text-anchor="middle" fill="#aaa" font-size="11" font-family="sans-serif">Blue side → Freezer</text>
           <text x="660" y="270" text-anchor="middle" fill="#aaa" font-size="11" font-family="sans-serif">Red side → Outdoors</text>
 
@@ -375,8 +376,9 @@ var _hmt = _hmt || [];
           <rect x="370" y="387" width="14" height="8" rx="2" fill="#c0392b"/><text x="390" y="396" fill="#bbb" font-size="10" font-family="sans-serif">Cooler Hot Side</text>
           <rect x="480" y="387" width="14" height="8" rx="2" fill="#6a6a30"/><text x="500" y="396" fill="#bbb" font-size="10" font-family="sans-serif">Backup Battery</text>
         </svg>
-        <figcaption>▲ Three useful tools: 1 insulation, 2 a door buffer, and 3 cooling plus backup power sized to the load. Actual performance still depends on outdoor temperature, room size, and door traffic.</figcaption>
+        <figcaption id="base-freezer-caption">▲ Two coolers are shown, not required. Double walls and a door buffer are optional. Use the actual room temperature to decide whether to add cooling.</figcaption>
       </figure>
+      <p>Food still not frozen? <a href="temperature.html#temperature">See the freezer troubleshooting steps</a>.</p>
     </div>
 
     <div class="card">

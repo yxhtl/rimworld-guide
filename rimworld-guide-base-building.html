@@ -273,9 +273,9 @@ var _hmt = _hmt || [];
       <p>冷库是基地的心脏——没冷库就没存粮，没存粮就活不过冬天。</p>
       <ul>
         <li><strong>隔热与门：</strong>双墙和门缓冲能减少外界与开门带来的温度波动，但不是所有地图都必须照抄</li>
-        <li><strong>气闸门：</strong>进冷库先做个 1×2 的小缓冲间，门套门，减少冷气流失</li>
+        <li><strong>气闸门：</strong>进出频繁时可加一个 1×2 的双门缓冲间，减少开门时的热量交换</li>
         <li><strong>制冷机位置：</strong>制冷机嵌在墙上，红面朝能散热的一侧，蓝面朝冷库内</li>
-        <li><strong>温度设置：</strong>冷冻目标要低于 0°C；可从 -5～-10°C 起步，再按室外温度、房间规模和开门频率补制冷</li>
+        <li><strong>温度设置：</strong>可先设 -9°C，再看实际室温能否保持在 0°C 以下。小冷库可先试一台；排查供电、排热和隔热后仍冻不住，再缩小冷库或加机</li>
         <li><strong>备用电：</strong>给制冷机留独立回路或备用电；能撑多久取决于蓄电量和实际负载，不把固定时长当保证</li>
       </ul>
       <div class="tip warn">
@@ -283,7 +283,8 @@ var _hmt = _hmt || [];
       </div>
 
       <figure class="guide-diagram">
-        <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="base-freezer-title" aria-describedby="base-freezer-caption">
+          <title id="base-freezer-title">冷库布局示例</title>
           <defs>
             <filter id="sh-airlock"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/></filter>
             <filter id="sh-cooler"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#000" flood-opacity="0.25"/></filter>
@@ -294,8 +295,8 @@ var _hmt = _hmt || [];
           <rect x="0" y="0" width="720" height="420" fill="#1a1a1f"/>
 
           <!-- Title -->
-          <text x="360" y="22" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold" font-family="sans-serif">冷库标准设计 —— 三要素：双墙 + 气闸 + 双制冷机</text>
-          <line x1="60" y1="34" x2="660" y2="34" stroke="#3a3a40" stroke-width="1"/>
+          <text x="360" y="34" text-anchor="middle" fill="#fff" font-size="30" font-weight="bold" font-family="sans-serif">冷库布局示例</text>
+          <line x1="60" y1="42" x2="660" y2="42" stroke="#3a3a40" stroke-width="1"/>
 
           <!-- ===== 室外 ===== -->
           <rect x="50" y="44" width="620" height="32" rx="4" fill="#2a2a30" stroke="#444" stroke-width="1"/>
@@ -304,8 +305,8 @@ var _hmt = _hmt || [];
           <!-- ===== 双墙 ===== -->
           <rect x="50" y="76" width="620" height="14" fill="#5e5e68" stroke="#6e6e78" stroke-width="1"/>
           <rect x="50" y="90" width="620" height="14" fill="#5e5e68" stroke="#6e6e78" stroke-width="1"/>
-          <text x="270" y="100" text-anchor="end" fill="#ddd" font-size="10" font-weight="bold" font-family="sans-serif">双墙（两层石墙 = 隔热×2）</text>
-          <text x="450" y="100" text-anchor="start" fill="#ddd" font-size="10" font-weight="bold" font-family="sans-serif">防止冷气外泄</text>
+          <text x="270" y="100" text-anchor="end" fill="#ddd" font-size="10" font-weight="bold" font-family="sans-serif">双墙（可选）</text>
+          <text x="450" y="100" text-anchor="start" fill="#ddd" font-size="10" font-weight="bold" font-family="sans-serif">减少热量交换</text>
 
           <!-- ===== 冷库内部 ===== -->
           <rect x="50" y="120" width="620" height="170" fill="#1a2838" stroke="#3a5a7a" stroke-width="2" rx="4"/>
@@ -314,7 +315,7 @@ var _hmt = _hmt || [];
           <rect x="54" y="282" width="612" height="8" rx="1" fill="#5e5e68"/>
           <rect x="54" y="124" width="8" height="166" rx="1" fill="#5e5e68"/>
           <rect x="658" y="124" width="8" height="166" rx="1" fill="#5e5e68"/>
-          <text x="360" y="148" text-anchor="middle" fill="#5a9fd4" font-size="14" font-weight="bold" font-family="sans-serif">🧊 冷库内部 · 目标低于 0°C · 8×8 起步示例</text>
+          <text x="360" y="148" text-anchor="middle" fill="#5a9fd4" font-size="14" font-weight="bold" font-family="sans-serif">🧊 冷库内部 · 实际室温保持低于 0°C</text>
 
           <!-- 食物分区 -->
           <rect x="80" y="158" width="160" height="36" rx="4" fill="#2a3a2a" stroke="#3a5a3a" stroke-width="1"/>
@@ -329,7 +330,7 @@ var _hmt = _hmt || [];
           <!-- ===== 气闸缓冲间（阴影分离） ===== -->
           <rect x="295" y="78" width="130" height="42" fill="#3a3a44" stroke="#6a6a74" stroke-width="2" rx="3" filter="url(#sh-airlock)"/>
           <text x="360" y="94" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="sans-serif">🚪 气闸缓冲间</text>
-          <text x="360" y="108" text-anchor="middle" fill="#aaa" font-size="10" font-family="sans-serif">唯一进出通道</text>
+          <text x="360" y="108" text-anchor="middle" fill="#aaa" font-size="10" font-family="sans-serif">按需加装</text>
           <rect x="301" y="82" width="8" height="34" rx="2" fill="#4a7"/>
           <rect x="411" y="82" width="8" height="34" rx="2" fill="#4a7"/>
           <text x="260" y="130" text-anchor="end" fill="#4a9" font-size="10" font-family="sans-serif">↑ 通室外</text>
@@ -341,7 +342,7 @@ var _hmt = _hmt || [];
           <rect x="670" y="138" width="20" height="22" rx="3" fill="#c0392b" stroke="#d05040" stroke-width="1"/>
           <text x="660" y="153" text-anchor="middle" fill="#aad" font-size="10" font-family="sans-serif">❄️</text>
           <text x="680" y="153" text-anchor="middle" fill="#faa" font-size="10" font-family="sans-serif">🔥</text>
-          <text x="680" y="134" text-anchor="middle" fill="#e74c3c" font-size="10" font-family="sans-serif">↓ 热风排到室外</text>
+          <text x="705" y="134" text-anchor="end" fill="#e74c3c" font-size="10" font-family="sans-serif">热面排热</text>
 
           <!-- 制冷机 2 -->
           <rect x="650" y="190" width="20" height="22" rx="3" fill="#4a6090" stroke="#6a80b0" stroke-width="1" filter="url(#sh-cooler)"/>
@@ -350,7 +351,7 @@ var _hmt = _hmt || [];
           <text x="680" y="205" text-anchor="middle" fill="#faa" font-size="10" font-family="sans-serif">🔥</text>
 
           <!-- 制冷机统一标注 -->
-          <text x="660" y="240" text-anchor="middle" fill="#5a9fd4" font-size="10" font-weight="bold" font-family="sans-serif">制冷机 × 2</text>
+          <text x="660" y="240" text-anchor="middle" fill="#5a9fd4" font-size="10" font-weight="bold" font-family="sans-serif">图示两台</text>
           <text x="660" y="255" text-anchor="middle" fill="#aaa" font-size="10" font-family="sans-serif">蓝面 → 冷库</text>
           <text x="660" y="270" text-anchor="middle" fill="#aaa" font-size="10" font-family="sans-serif">红面 → 室外</text>
 
@@ -373,8 +374,9 @@ var _hmt = _hmt || [];
           <rect x="370" y="387" width="14" height="8" rx="2" fill="#c0392b"/><text x="390" y="396" fill="#bbb" font-size="10" font-family="sans-serif">制冷机热面</text>
           <rect x="480" y="387" width="14" height="8" rx="2" fill="#6a6a30"/><text x="500" y="396" fill="#bbb" font-size="10" font-family="sans-serif">备用电池</text>
         </svg>
-        <figcaption>▲ 三个实用项：① 隔热 ② 门缓冲 ③ 按负载配置制冷与备用电。实际冷库表现仍要看室外温度、房间大小和开门频率。</figcaption>
+        <figcaption id="base-freezer-caption">▲ 图中画了两台制冷机，不是必需数量。双墙和门缓冲按需选用，是否加机看实际室温。</figcaption>
       </figure>
+      <p>食物还是冻不住？<a href="rimworld-guide-temperature.html#freezer-troubleshooting">查看冷库降温排查步骤</a>。</p>
     </div>
 
     <div class="card">
