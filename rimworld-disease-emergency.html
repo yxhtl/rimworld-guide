@@ -34,7 +34,7 @@
 <body>
   <button class="mobile-nav-toggle" onclick="toggleSidebar()" aria-label="菜单">☰</button><div class="sidebar-overlay" onclick="toggleSidebar()"></div>
   <nav class="sidebar" id="sidebar">
-    <div class="sidebar-logo"><h1>🪐 RimWorld 攻略站</h1><p>从活下去，到活得好</p></div>
+    <div class="sidebar-logo"><div class="logo-title">🪐 RimWorld 攻略站</div><p>从活下去，到活得好</p></div>
     <div class="lang-switcher"><span class="active">中文</span> | <a href="en/disease-emergency.html">English</a></div>
     <div class="nav-section">导航</div><a href="index.html" class="nav-item"><span class="icon">🏠</span> 攻略总览</a>
     <div class="nav-section">新手必备</div><a href="rimworld-guide-getting-started.html" class="nav-item"><span class="icon">🚀</span> 开局生存指南 <span class="nav-badge">P0</span></a><a href="rimworld-guide-base-building.html" class="nav-item"><span class="icon">🏠</span> 基地建设攻略 <span class="nav-badge">P0</span></a><a href="rimworld-guide-medical.html" class="nav-item"><span class="icon">🩺</span> 医疗与手术 <span class="nav-badge">P1</span></a>
@@ -44,6 +44,7 @@
   </nav>
   <main>
     <div class="breadcrumb"><a href="index.html">攻略总览</a> / 疾病与伤口感染急救 <span class="lang-link"><a href="en/disease-emergency.html">English version</a></span></div>
+  <h1 class="page-title">RimWorld 疾病与伤口感染急救攻略</h1>
     <div class="search-wrap"><span class="search-icon">🔍</span><input type="text" id="search-input" placeholder="搜索本页内容…" oninput="doSearch()"><button class="search-clear" id="search-clear" onclick="clearSearch()" aria-label="清空搜索">✕</button></div><div class="no-results" id="no-results"><span class="icon">🔍</span><p>没找到，换个词试试？</p></div>
     <div class="page-toc"><h4>📑 本页目录</h4><ol><li><a href="#sort">先分级，不要先恐慌</a></li><li><a href="#bed">床位、医生和药品</a></li><li><a href="#infection">伤口感染的倒计时</a></li><li><a href="#many">多人同时生病</a></li><li><a href="#recover">何时解除急救</a></li></ol></div>
     <section class="section"><h2 class="section-title">🩺 疾病与伤口感染急救：先让免疫追得上，再谈恢复生产</h2>

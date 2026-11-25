@@ -41,7 +41,8 @@ nav.sidebar {
   z-index: 10;
 }
 .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
-.sidebar-logo h1 { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
+.sidebar-logo h1, .sidebar-logo .logo-title { font-size: 1.3rem; color: var(--accent); letter-spacing: 0.5px; }
+.page-title { font-size: 1.5rem; line-height: 1.35; color: #fff; margin: 0 0 16px; letter-spacing: 0.3px; }
 .sidebar-logo p { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
 .lang-switcher { padding: 0 20px 12px; border-bottom: 1px solid var(--border); margin-bottom: 12px; font-size: 0.78rem; display: flex; gap: 6px; align-items: center; }
 .lang-switcher a { color: var(--accent); text-decoration: none; }
